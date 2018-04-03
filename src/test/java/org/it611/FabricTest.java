@@ -62,4 +62,7 @@ public class FabricTest {
         channel.initialize();
         FabricApp.query(channel, "B");
     }
+
+    
+
 }
