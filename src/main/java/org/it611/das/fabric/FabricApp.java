@@ -80,6 +80,26 @@ public class FabricApp{
     }
 
     /**
+     *  查询assetOwner
+     */
+    public static void queryAssetsByOwner(Channel channel, String key) throws Exception {
+        QueryByChaincodeRequest req = client.newQueryProposalRequest();
+        ChaincodeID cid = ChaincodeID.newBuilder().setName(FabricConfigure.CHAINCODENAME).setVersion(FabricConfigure.CHAINCODEVERSION).build();
+        req.setChaincodeID(cid);
+        req.setFcn("queryAssetsByOwner");
+        req.setArgs(new String[] { key });
+        System.out.println("Querying for " + key);
+        Collection<ProposalResponse> resps = channel.queryByChaincode(req);
+        for (ProposalResponse resp : resps) {
+            String payload = new String(resp.getChaincodeActionResponsePayload());
+            logger.debug("response: " + payload);
+            System.out.println(payload);
+        }
+    }
+
+
+
+    /**
      *   实现根据指定Key对Value进行修改
      */
     public static void update(Channel channel, LedgerRecord record) throws Exception {

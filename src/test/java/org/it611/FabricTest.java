@@ -267,7 +267,7 @@ public class FabricTest {
         Asset assetObj = new Asset("aef01013","1","430902199901011234",
                 "新垣結衣的身份证","2018-04-06",stuIdCard);
 
-
+//a-cjd>n8+o;P
         ObjectMapper mapper = new ObjectMapper();
         String assetStr = mapper.writeValueAsString(assetObj);
       //  System.out.println(assetStr);//print msg
@@ -339,8 +339,6 @@ public class FabricTest {
     }
 
 
-
-
     /**
      * 测试链码查询操作
      */
@@ -356,6 +354,24 @@ public class FabricTest {
         FabricApp.query(channel, "aef01013");
     }
 
+
+    /**
+     * 指定doc中的关键字查询
+     */
+    @Test
+    public void QueryByAssetOwner() throws Exception{
+        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
+        channel.addPeer(FabricApp.client.newPeer("peer",
+                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
+        channel.addOrderer(FabricApp.client.newOrderer("org1",
+                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
+        channel.initialize();
+        FabricApp.queryAssetsByOwner(channel, "430902199901011234");
+    }
+
+//430902199901011234
+//430902199901011234
+//430902199901011234
 
 
 }
