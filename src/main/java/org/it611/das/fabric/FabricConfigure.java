@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 
 public class FabricConfigure {
-    public static String CHAINCODENAME="kvsample";
+    public static String CHAINCODENAME="asset02";
     public static String CHAINCODEVERSION="1.0";
     public static String CHANNLNAME="mychannel";
     public static HashMap<String,FabricOrg> getConfigure() throws MalformedURLException, InvalidArgumentException {

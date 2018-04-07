@@ -15,7 +15,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * 实现封装一些超级账本的操作方法，未结合使用Fabric-CA模块
- * TODO javaSDK1.0版本中tls似乎存在问题QAQ
+ * TODO javaSDK1.0版本中tls似乎存在问题- -
  *
  */
 public class FabricApp{
@@ -45,9 +45,9 @@ public class FabricApp{
     public static void instert(Channel channel, LedgerRecord record) throws Exception {
         TransactionProposalRequest req = client.newTransactionProposalRequest();
         req.setChaincodeID(cid);
-        req.setFcn("addkv");
+        req.setFcn("addAsset");
         req.setArgs(record.toStringArray());
-        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明QAQ
+        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明0.0
         Map<String, byte[]> tm2 = new HashMap<>();
         tm2.put("HyperLedgerFabric", "TransactionProposalRequest:JavaSDK".getBytes(UTF_8));
         tm2.put("method", "TransactionProposalRequest".getBytes(UTF_8));
@@ -87,7 +87,7 @@ public class FabricApp{
         req.setChaincodeID(cid);
         req.setFcn("updatekv");
         req.setArgs(record.toStringArray());
-        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明QAQ
+        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明0.0
         Map<String, byte[]> tm2 = new HashMap<>();
         tm2.put("HyperLedgerFabric", "TransactionProposalRequest:JavaSDK".getBytes(UTF_8));
         tm2.put("method", "TransactionProposalRequest".getBytes(UTF_8));
@@ -109,7 +109,7 @@ public class FabricApp{
         req.setChaincodeID(cid);
         req.setFcn("delkv");
         req.setArgs(new String[]{key});
-        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明QAQ
+        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明0.0
         Map<String, byte[]> tm2 = new HashMap<>();
         tm2.put("HyperLedgerFabric", "TransactionProposalRequest:JavaSDK".getBytes(UTF_8));
         tm2.put("method", "TransactionProposalRequest".getBytes(UTF_8));
