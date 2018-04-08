@@ -25,10 +25,14 @@ public class SysUser implements UserDetails{ //1
 	private String password;
 	@ManyToMany(cascade = {CascadeType.REFRESH},fetch = FetchType.EAGER)
 	private List<SysRole> roles;
-	
-	
+
+
+    /**
+     * 用户角色验证
+     * @return
+     */
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() { //2
+	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
 		List<SysRole> roles=this.getRoles();
 		for(SysRole role:roles){
@@ -77,8 +81,5 @@ public class SysUser implements UserDetails{ //1
 	public void setRoles(List<SysRole> roles) {
 		this.roles = roles;
 	}
-	
-	
-	
-	
+
 }

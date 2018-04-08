@@ -1,8 +1,9 @@
 package org.it611.das.control;
 
-import org.it611.das.dao.SysUserRepository;
+import org.it611.das.domain.CouchDB;
 import org.it611.das.domain.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
 	@Autowired
-	private SysUserRepository userDao;
+	private CouchDB couchDB;
+
+	@Value("${couchdb.url}")
+	private String url;
 	
 	@RequestMapping("/")
 	public String index(Model model){
@@ -21,10 +25,13 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping("/t")
+
+	@RequestMapping("/t2")
 	@ResponseBody
-	public String t1(Model model){
-		return userDao.findByUsername("wyf").getPassword();
+	public String t2(){
+		return url;
 	}
+
+
 
 }

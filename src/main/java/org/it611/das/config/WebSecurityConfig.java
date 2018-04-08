@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import org.it611.das.security.CustomUserService;
 
+
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//1
 	
@@ -25,6 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//1
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		//暂时先关闭，方便测试
+
 		http.authorizeRequests()
 						.anyRequest().authenticated() //4
 						.and()
@@ -33,7 +36,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//1
 							.failureUrl("/login?error")
 							.permitAll() //5
 						.and()
-						.logout().permitAll(); //6
+						.logout().permitAll();
+
+		//http.authorizeRequests().anyRequest().permitAll();//允许所有链接
 
 	}
 }

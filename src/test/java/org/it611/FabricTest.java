@@ -253,7 +253,7 @@ public class FabricTest {
      */
     @Test
     public void TestInsert1() throws Exception {
-        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
+
         Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
@@ -267,7 +267,6 @@ public class FabricTest {
         Asset assetObj = new Asset("aef01013","1","430902199901011234",
                 "新垣結衣的身份证","2018-04-06",stuIdCard);
 
-//a-cjd>n8+o;P
         ObjectMapper mapper = new ObjectMapper();
         String assetStr = mapper.writeValueAsString(assetObj);
       //  System.out.println(assetStr);//print msg
@@ -333,7 +332,7 @@ public class FabricTest {
         String assetStr = mapper.writeValueAsString(assetObj);
         //  System.out.println(assetStr);//print msg
 
-        LedgerRecord testinfo=new LedgerRecord("aef01014",assetStr);
+        LedgerRecord testinfo=new LedgerRecord("aef01015",assetStr);
         FabricApp.instert(channel,testinfo);
         logger.debug("--------------------------------INSERT END--------------------------------");
     }

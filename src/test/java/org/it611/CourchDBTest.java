@@ -1,47 +1,31 @@
 package org.it611;
 
 import org.apache.log4j.Logger;
-import org.hyperledger.fabric.sdk.Channel;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.it611.das.fabric.FabricApp;
-import org.it611.das.fabric.FabricConfigure;
-import org.it611.das.fabric.LedgerRecord;
-import org.junit.Before;
-import org.junit.Test;
+import org.it611.das.domain.CouchDB;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-import java.net.MalformedURLException;
-
+@Configuration
+@EnableConfigurationProperties(CouchDB.class)
 public class CourchDBTest {
 
     private static Logger logger=Logger.getLogger(CourchDBTest.class);
 
     /**
-     * 初始化
+     * 关于couchdb不用也不能对couchdb进行修改，只能进行查询，否则会引起blockchain state的不一致
+     * fabric对于已经篡改的state是无感觉的
      */
-    @Before
-    public void Setup() throws InvalidArgumentException, MalformedURLException, CryptoException, org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException {
-        logger.debug("--------------------------------Fabric Init--------------------------------");
-        FabricApp fabricApp=new FabricApp();
-        FabricApp.init();
-    }
+
+/*    @Autowired
+    private CouchDB couchDB;
 
 
-
-    /**
-     * Fabrc插入功能测试
-     */
     @Test
-    public void TestInsert() throws Exception {
-        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
-        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
-        channel.addPeer(FabricApp.client.newPeer("peer",
-                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
-        channel.addOrderer(FabricApp.client.newOrderer("org1",
-                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
-        channel.initialize();
-        LedgerRecord testinfo=new LedgerRecord("aaaaa","11111");
-        FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");
-    }
+    public void TestCouchDBCfg(){
+        System.out.println(couchDB.getDb());
+        System.out.println(couchDB.getPort());
+        System.out.println(couchDB.getUrl());
+
+    }*/
+
 }
