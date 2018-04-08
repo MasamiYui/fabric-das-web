@@ -11,25 +11,24 @@ import org.it611.das.security.CustomUserService;
 
 
 @Configuration
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//1
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean
-	UserDetailsService customUserService(){ //2
+	UserDetailsService customUserService(){
 		return new CustomUserService(); 
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserService()); //3
+		auth.userDetailsService(customUserService());
 		
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		//暂时先关闭，方便测试
 
 		http.authorizeRequests()
-						.anyRequest().authenticated() //4
+						.anyRequest().authenticated()
 						.and()
 						.formLogin()
 							.loginPage("/login")
@@ -37,8 +36,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{//1
 							.permitAll() //5
 						.and()
 						.logout().permitAll();
-
-		//http.authorizeRequests().anyRequest().permitAll();//允许所有链接
-
 	}
 }

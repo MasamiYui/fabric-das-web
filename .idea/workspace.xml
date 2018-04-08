@@ -2,36 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ce1c90-9bee-4b6a-91b8-290ae81057ec" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/SelectBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/domain/CouchDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/CouchDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/util/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/util/IdUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/it611/CouchDBTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/DasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/DasApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/dao/SysUserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/SelectBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/domain/CouchDB.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/mapper/SysUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/mapper/SysUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/it611/das/security/CustomUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/it611/das/security/CustomUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fabric.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fabric.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SysUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/DasApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/it611/das/DasApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/it611/das/config/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/control/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/it611/das/control/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/dao/SysUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/domain/SysUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/it611/das/domain/SysUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/couchdb/SelectBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/domain/CouchDB.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/mapper/SysUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/it611/das/mapper/SysUserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/it611/das/security/CustomUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/it611/das/security/CustomUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/it611/CourchDBTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/it611/CourchDBTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/it611/CourchDBTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/org/it611/FabricTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/it611/FabricTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,69 +52,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SysRole.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysRole.java">
+      <file leaf-file-name="FabricTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SysUser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysUser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="464">
+              <caret line="351" column="14" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="14" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#959#977#0" expanded="true" />
-                <element signature="e#1211#1212#0" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-                <element signature="e#1297#1298#0" expanded="true" />
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1370#1371#0" expanded="true" />
-                <element signature="e#1411#1412#0" expanded="true" />
-                <element signature="e#1429#1430#0" expanded="true" />
-                <element signature="e#1454#1455#0" expanded="true" />
-                <element signature="e#1470#1471#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1519#1520#0" expanded="true" />
-                <element signature="e#1550#1551#0" expanded="true" />
-                <element signature="e#1572#1573#0" expanded="true" />
-                <element signature="e#1616#1617#0" expanded="true" />
-                <element signature="e#1647#1648#0" expanded="true" />
-                <element signature="e#1678#1679#0" expanded="true" />
-                <element signature="e#1700#1701#0" expanded="true" />
-                <element signature="e#1744#1745#0" expanded="true" />
-                <element signature="e#1775#1776#0" expanded="true" />
-                <element signature="e#1810#1811#0" expanded="true" />
-                <element signature="e#1829#1830#0" expanded="true" />
-                <element signature="e#1874#1875#0" expanded="true" />
-                <element signature="e#1899#1900#0" expanded="true" />
+                <element signature="e#4911#4912#0" expanded="true" />
+                <element signature="e#4952#4953#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CouchDB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/domain/CouchDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectBean.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/SelectBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -131,21 +68,72 @@
       <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="30" column="23" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="30" selection-end-column="23" />
+            <state relative-caret-position="400">
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#925#926#0" expanded="true" />
+                <element signature="e#677#678#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="CouchDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/CouchDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="233" column="33" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
+            <state relative-caret-position="-263">
+              <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2020#2021#0" expanded="true" />
+                <element signature="e#2094#2095#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/util/IdUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/util/HttpUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="40" column="4" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CouchDBTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CouchDBTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,29 +141,36 @@
       <file leaf-file-name="DasApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/DasApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="171">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
-                <element signature="e#974#975#0" expanded="true" />
-                <element signature="e#1039#1040#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+            <state relative-caret-position="361">
+              <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
+      <file leaf-file-name="WebMvcConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/config/WebMvcConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-447" />
+            <state relative-caret-position="133">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -205,21 +200,25 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/fabric/FabricConfigure.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/fabric/FabricApp.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/SelectBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/CouchDB.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/domain/CouchDB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/mapper/SysUserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SysUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/security/CustomUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/DasApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysUser.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fabric.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/mapper/SysUserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/CouchDBUtiil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/util/IdUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/it611/CouchDBTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/CouchDB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/it611/das/util/HttpUtil.java" />
       </list>
     </option>
   </component>
@@ -237,7 +236,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="397" />
+    <option name="x" value="396" />
     <option name="y" value="40" />
     <option name="width" value="2130" />
     <option name="height" value="952" />
@@ -272,14 +271,68 @@
               <item name="das" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="das" type="b2602c69:ProjectViewProjectNode" />
               <item name="das" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="couchdb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="fabric" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -287,8 +340,61 @@
               <item name="das" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="it611" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="das" type="b2602c69:ProjectViewProjectNode" />
+              <item name="das" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto-config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -325,10 +431,21 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.DasApplication">
+    <configuration name="CouchDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.it611.das.couchdb.CouchDB" />
+      <module name="das" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.it611.das.couchdb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="CourchDBTest.TestCouchDBCfg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CouchDBTest.TestCouchDBCfg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="das" />
       <extension name="coverage">
         <pattern>
@@ -339,7 +456,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.it611" />
-      <option name="MAIN_CLASS_NAME" value="org.it611.CourchDBTest" />
+      <option name="MAIN_CLASS_NAME" value="org.it611.CouchDBTest" />
       <option name="METHOD_NAME" value="TestCouchDBCfg" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -351,7 +468,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FabricTest.QueryByAssetOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CouchDBTest.basicKVQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="das" />
       <extension name="coverage">
         <pattern>
@@ -362,8 +479,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.it611" />
-      <option name="MAIN_CLASS_NAME" value="org.it611.FabricTest" />
-      <option name="METHOD_NAME" value="QueryByAssetOwner" />
+      <option name="MAIN_CLASS_NAME" value="org.it611.CouchDBTest" />
+      <option name="METHOD_NAME" value="basicKVQuery" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -374,7 +491,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FabricTest.TestEpointChainCodeQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FabricTest.TestChainCodeQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="das" />
       <extension name="coverage">
         <pattern>
@@ -386,7 +503,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.it611" />
       <option name="MAIN_CLASS_NAME" value="org.it611.FabricTest" />
-      <option name="METHOD_NAME" value="TestEpointChainCodeQuery" />
+      <option name="METHOD_NAME" value="TestChainCodeQuery" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -397,7 +514,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FabricTest.TestInsert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FabricTest.TestInsert1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="das" />
       <extension name="coverage">
         <pattern>
@@ -409,30 +526,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.it611" />
       <option name="MAIN_CLASS_NAME" value="org.it611.FabricTest" />
-      <option name="METHOD_NAME" value="TestInsert2" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="FabricTest.TestInsert3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="das" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.it611.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.it611" />
-      <option name="MAIN_CLASS_NAME" value="org.it611.FabricTest" />
-      <option name="METHOD_NAME" value="TestInsert3" />
+      <option name="METHOD_NAME" value="TestInsert1" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -487,19 +581,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.DasApplication" />
-      <item itemvalue="JUnit.FabricTest.TestEpointChainCodeQuery" />
-      <item itemvalue="JUnit.FabricTest.TestInsert2" />
-      <item itemvalue="JUnit.FabricTest.TestInsert3" />
-      <item itemvalue="JUnit.FabricTest.QueryByAssetOwner" />
-      <item itemvalue="JUnit.CourchDBTest.TestCouchDBCfg" />
+      <item itemvalue="JUnit.CouchDBTest.TestCouchDBCfg" />
+      <item itemvalue="Application.CouchDB" />
+      <item itemvalue="JUnit.FabricTest.TestInsert1" />
+      <item itemvalue="JUnit.CouchDBTest.basicKVQuery" />
+      <item itemvalue="JUnit.FabricTest.TestChainCodeQuery" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CourchDBTest.TestCouchDBCfg" />
-        <item itemvalue="JUnit.FabricTest.QueryByAssetOwner" />
-        <item itemvalue="JUnit.FabricTest.TestEpointChainCodeQuery" />
-        <item itemvalue="JUnit.FabricTest.TestInsert3" />
-        <item itemvalue="JUnit.FabricTest.TestInsert2" />
+        <item itemvalue="JUnit.FabricTest.TestChainCodeQuery" />
+        <item itemvalue="JUnit.CouchDBTest.basicKVQuery" />
+        <item itemvalue="Application.CouchDB" />
+        <item itemvalue="JUnit.FabricTest.TestInsert1" />
+        <item itemvalue="JUnit.CouchDBTest.TestCouchDBCfg" />
       </list>
     </recent_temporary>
   </component>
@@ -517,47 +611,47 @@
       <workItem from="1523081084869" duration="5504000" />
       <workItem from="1523103140601" duration="3429000" />
       <workItem from="1523168525370" duration="393000" />
-      <workItem from="1523169738434" duration="18910000" />
+      <workItem from="1523169738434" duration="25387000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FabricTest_QueryByAssetOwner - 2018.04.07 at 20h 54m 23s.xml">
-      <configuration name="FabricTest.QueryByAssetOwner" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FabricTest_TestInsert1 - 2018.04.07 at 22h 37m 41s.xml">
-      <configuration name="FabricTest.TestInsert1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FabricTest_TestInsert2 - 2018.04.07 at 22h 37m 46s.xml">
-      <configuration name="FabricTest.TestInsert2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FabricTest_TestInsert3 - 2018.04.07 at 22h 37m 51s.xml">
-      <configuration name="FabricTest.TestInsert3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FabricTest_TestEpointChainCodeQuery - 2018.04.07 at 22h 38m 01s.xml">
-      <configuration name="FabricTest.TestEpointChainCodeQuery" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FabricTest_QueryByAssetOwner - 2018.04.07 at 22h 38m 09s.xml">
-      <configuration name="FabricTest.QueryByAssetOwner" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourchDBTest_TestCouchDBCfg - 2018.04.08 at 15h 22m 18s.xml">
-      <configuration name="CourchDBTest.TestCouchDBCfg" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourchDBTest_TestCouchDBCfg - 2018.04.08 at 15h 25m 09s.xml">
-      <configuration name="CourchDBTest.TestCouchDBCfg" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourchDBTest_TestCouchDBCfg - 2018.04.08 at 15h 27m 44s.xml">
-      <configuration name="CourchDBTest.TestCouchDBCfg" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CourchDBTest_TestCouchDBCfg - 2018.04.08 at 15h 28m 07s.xml">
       <configuration name="CourchDBTest.TestCouchDBCfg" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="FabricTest_TestInsert1 - 2018.04.08 at 23h 40m 34s.xml">
+      <configuration name="FabricTest.TestInsert1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 40m 48s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 41m 08s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 46m 05s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 46m 27s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 46m 44s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 55m 31s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CouchDBTest_basicKVQuery - 2018.04.08 at 23h 58m 10s.xml">
+      <configuration name="CouchDBTest.basicKVQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FabricTest_TestChainCodeQuery - 2018.04.09 at 00h 10m 41s.xml">
+      <configuration name="FabricTest.TestChainCodeQuery" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30466000" />
+    <option name="totallyTimeSpent" value="36943000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="397" y="40" width="2130" height="952" extended-state="0" />
+    <frame x="396" y="40" width="2130" height="952" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -578,7 +672,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32232347" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32232347" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16431925" />
@@ -606,48 +700,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="28" />
+      <option name="time" value="29" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/fabric/FabricApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="91" column="58" selection-start-line="91" selection-start-column="58" selection-end-line="91" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hyperledger/fabric-sdk-java/fabric-sdk-java/1.0.0/fabric-sdk-java-1.0.0.jar!/org/hyperledger/fabric/sdk/Channel.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21793">
-          <caret line="1147" column="41" selection-start-line="1147" selection-start-column="41" selection-end-line="1147" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/fabric/FabricConfigure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cc/chaincode">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2451">
-          <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/SelectBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -690,7 +746,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CouchDBTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
@@ -739,7 +795,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CouchDBTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
@@ -803,23 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CourchDBTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="285" column="45" selection-start-line="285" selection-start-column="45" selection-end-line="285" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.11.1.RELEASE/spring-data-jpa-1.11.1.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-96">
@@ -844,60 +883,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.2.RELEASE/spring-security-core-4.2.2.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetailsService.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/mapper/SysUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/security/CustomUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/config/WebMvcConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.2.RELEASE/spring-boot-autoconfigure-1.5.2.RELEASE.jar!/org/springframework/boot/autoconfigure/SpringBootApplication.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -913,11 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-447" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysRole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -925,52 +911,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysUser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fabric.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysUserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#959#977#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
-            <element signature="e#1352#1353#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#1647#1648#0" expanded="true" />
-            <element signature="e#1678#1679#0" expanded="true" />
-            <element signature="e#1700#1701#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1810#1811#0" expanded="true" />
-            <element signature="e#1829#1830#0" expanded="true" />
-            <element signature="e#1874#1875#0" expanded="true" />
-            <element signature="e#1899#1900#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="399">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="233" column="33" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/SelectBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/security/CustomUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/mapper/SysUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -984,35 +965,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="30" column="23" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="30" selection-end-column="23" />
+        <state relative-caret-position="192">
+          <caret line="218" column="23" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/domain/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/fabric/FabricUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-452">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/control/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/FabricTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="351" column="14" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="14" />
+          <folding>
+            <element signature="e#4911#4912#0" expanded="true" />
+            <element signature="e#4952#4953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/it611/CouchDBTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/DasApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="171">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#974#975#0" expanded="true" />
-            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fabric.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/config/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+        <state relative-caret-position="361">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/config/WebMvcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/couchdb/CouchDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-263">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2020#2021#0" expanded="true" />
+            <element signature="e#2094#2095#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/util/IdUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/it611/das/util/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

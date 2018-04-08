@@ -35,49 +35,50 @@ mybatis:
 #    params: count=countSql
 
 couchdb:
-  url: http://localhost
-  port: 5984
-  db: mychannel
+  ip: http://localhost
+  port: :5984
+  db: /mychannel
+  cc: /asset02
 
 
-fabric:
-  cc:
-    name: asset002
-    version: 0.2
-    channel_name: mychannel
-  org:
-    org1:
-      name: org1
-      mspid: org1MSP
-        peer0:
-          name: peer0org1
-          location: grpc://localhost:7051
-        peer1:
-          name: peer1org1
-          location: grpc://localhost:7051
-        order:
-          location: grpc://localhost:7050
-        ca_location: http://localhost:7054
-        Admin:
-          name: Admin
-        User:
-          name: User1
-          mspid: Org1MSP
-
-    org2:
-      name: org2
-      mspid: org2MSP
-        peer0:
-          name: peer0org2
-          location: grpc://localhost:7051
-        peer1:
-          name: peer1org2
-          location: grpc://localhost:7051
-        order:
-          location: grpc://localhost:7050
-        ca_location: http://localhost:7054
-        Admin:
-          name: Admin
-        User:
-          name: User1
-          mspid: Org2MSP
+#fabric:
+#  cc:
+#    name: asset002
+#    version: 0.2
+#    channel_name: mychannel
+#  org:
+#    org1:
+#      name: org1
+#      mspid: org1MSP
+#        peer0:
+#          name: peer0org1
+#          location: grpc://localhost:7051
+#        peer1:
+#          name: peer1org1
+#          location: grpc://localhost:7051
+#        order:
+#          location: grpc://localhost:7050
+#        ca_location: http://localhost:7054
+#        Admin:
+#          name: Admin
+#        User:
+#          name: User1
+#          mspid: Org1MSP
+#
+#    org2:
+#      name: org2
+#      mspid: org2MSP
+#        peer0:
+#          name: peer0org2
+#          location: grpc://localhost:7051
+#        peer1:
+#          name: peer1org2
+#          location: grpc://localhost:7051
+#        order:
+#          location: grpc://localhost:7050
+#        ca_location: http://localhost:7054
+#        Admin:
+#          name: Admin
+#        User:
+#          name: User1
+#          mspid: Org2MSP

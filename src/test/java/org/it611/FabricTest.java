@@ -342,7 +342,7 @@ public class FabricTest {
      * 测试链码查询操作
      */
     @Test
-    public void TestEpointChainCodeQuery() throws Exception {
+    public void TestChainCodeQuery() throws Exception {
         logger.debug("--------------------------------FABRIC QUERY--------------------------------");
         Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
@@ -358,7 +358,7 @@ public class FabricTest {
      * 指定doc中的关键字查询
      */
     @Test
-    public void QueryByAssetOwner() throws Exception{
+    public void TestQueryByAssetOwner() throws Exception{
         Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
