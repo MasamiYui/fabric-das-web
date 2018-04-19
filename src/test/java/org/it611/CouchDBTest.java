@@ -21,13 +21,13 @@ public class CouchDBTest {
     /**
      * 基本kv查询
      */
-    @Test
+
+/*    @Test
     public void basicKVQuery() {
-        /**
-         * 不能这样测试，这样依赖注入是不成功的
-         */
+        *//**
+     * 不能这样测试，这样依赖注入是不成功的
+     *//*
         String str = db.basicKVQuery("aef01013");
         logger.debug(str);
-    }
-
+    }*/
 }

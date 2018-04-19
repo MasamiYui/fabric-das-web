@@ -20,7 +20,7 @@ public class FabricUser implements User {
     private static Logger logger=Logger.getLogger(FabricUser.class);
     //将目录指向first-network，方便进行测试
     //public  String CERTDIR=FabricApp.class.getResource("/").getPath();//正式环境下将路径指定到工作路径
-    public  String CERTDIR="/Users/yui/go/src/github.com/hyperledger/fabric-samples/first-network";//正式环境下将路径指定到工作路径
+    public  String CERTDIR="/root/go/src/github.com/hyperledger/fabric-samples/first-network";//正式环境下将路径指定到工作路径
     private  String certfilepath;
     private  String keyfilepath;
     private final String userName;

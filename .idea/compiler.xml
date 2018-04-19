@@ -9,5 +9,8 @@
         <module name="das" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="das" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

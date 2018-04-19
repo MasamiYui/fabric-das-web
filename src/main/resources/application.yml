@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8088
 
 spring:
     datasource:
@@ -39,6 +39,19 @@ couchdb:
   port: :5984
   db: /mychannel
   cc: /asset02
+
+
+fastdfs:
+  connect_time:60
+  network_timeout:60
+  charset:UTF-8
+  http:
+    tracker_http_port:8080
+    anti_steal_token:no
+    secret_key:123456
+  tracker_server:192.168.53.86:22122
+
+
 
 
 #fabric:
