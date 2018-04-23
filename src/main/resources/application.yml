@@ -4,7 +4,7 @@ server:
 spring:
     datasource:
         name: das
-        url: jdbc:mysql://192.168.10.128:3308/das?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        url: jdbc:mysql://192.168.10.128:3306/das?useUnicode=true&characterEncoding=UTF-8&useSSL=false
         username: root
         password: root
         # 使用druid数据源

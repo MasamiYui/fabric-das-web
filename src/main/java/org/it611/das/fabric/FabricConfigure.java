@@ -17,10 +17,10 @@ public class FabricConfigure {
     public static HashMap<String,FabricOrg> getConfigure() throws MalformedURLException, InvalidArgumentException {
         HashMap<String,FabricOrg> orgHashMap=new HashMap<>();
         FabricOrg org1=new FabricOrg("org1","Org1MSP");
-        org1.addPeerLocation("peer0org1","grpc://localhost:7051");
-        org1.addPeerLocation("peer1org1","grpc://localhost:7051");
-        org1.addOrdererLocation("orderer","grpc://localhost:7050");
-        org1.setCALocation("http://localhost:7054");
+        org1.addPeerLocation("peer0org1","grpc://192.168.10.128:7051");
+        org1.addPeerLocation("peer1org1","grpc://192.168.10.128:7051");
+        org1.addOrdererLocation("orderer","grpc://192.168.10.128:7050");
+        org1.setCALocation("http://192.168.10.128:7054");
         FabricUser Adminorg1=new FabricUser("peer","Admin","Org1MSP");
         FabricUser User1org1=new FabricUser("peer","User1","Org1MSP");
         org1.addUser(Adminorg1);
@@ -28,9 +28,9 @@ public class FabricConfigure {
         org1.setAdmin(Adminorg1);
 
         FabricOrg org2=new FabricOrg("org2","Org2MSP");
-        org2.addPeerLocation("peer0org2","grpc://localhost:7051");
-        org2.addPeerLocation("peer1org2","grpc://localhost:7051");
-        org2.addOrdererLocation("orderer","grpc://localhost:7050");
+        org2.addPeerLocation("peer0org2","grpc://192.168.10.128:7051");
+        org2.addPeerLocation("peer1org2","grpc://192.168.10.128:7051");
+        org2.addOrdererLocation("orderer","grpc://192.168.10.128:7050");
         FabricUser Adminorg2=new FabricUser("peer","Admin","Org2MSP");
         FabricUser User1org2=new FabricUser("peer","User1","Org2MSP");
         org1.addUser(Adminorg2);

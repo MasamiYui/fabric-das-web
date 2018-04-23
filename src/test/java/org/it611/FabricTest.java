@@ -332,7 +332,7 @@ public class FabricTest {
         String assetStr = mapper.writeValueAsString(assetObj);
         //  System.out.println(assetStr);//print msg
 
-        LedgerRecord testinfo=new LedgerRecord("aef01015",assetStr);
+        LedgerRecord testinfo=new LedgerRecord("aaaef010121225",assetStr);
         FabricApp.instert(channel,testinfo);
         logger.debug("--------------------------------INSERT END--------------------------------");
     }
@@ -350,7 +350,7 @@ public class FabricTest {
         channel.addOrderer(FabricApp.client.newOrderer("org1",
                 FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
         channel.initialize();
-        FabricApp.query(channel, "aef01013");
+        FabricApp.query(channel, "aef0101225");
     }
 
 
