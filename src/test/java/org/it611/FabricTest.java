@@ -1,15 +1,9 @@
 package org.it611;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonObject;
 import org.apache.log4j.Logger;
-import org.hyperledger.fabric.sdk.Channel;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.it611.das.fabric.FabricApp;
-import org.it611.das.fabric.FabricConfigure;
-import org.it611.das.fabric.LedgerRecord;
-import org.json.JSONObject;
+import org.it611.das.fabric.FabricClient;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -225,19 +219,9 @@ public class FabricTest {
      */
     @Before
     public void Setup() throws InvalidArgumentException, MalformedURLException, CryptoException, org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException {
-        logger.debug("--------------------------------Fabric Init--------------------------------");
-        FabricApp fabricApp=new FabricApp();
-        FabricApp.init();
-    }
-
-
-    /**
-     * 资产对象转JSON字符串
-     * @param
-     * @return
-     */
-    public String AssetObjectToJsonStr(Asset asset) {
-        return "";
+/*        logger.debug("--------------------------------Fabric Init--------------------------------");
+        FabricClient fabricApp=new FabricClient();
+        FabricClient.init();*/
     }
 
 
@@ -254,7 +238,7 @@ public class FabricTest {
     @Test
     public void TestInsert1() throws Exception {
 
-        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
+/*        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
         channel.addOrderer(FabricApp.client.newOrderer("org1",
@@ -271,9 +255,9 @@ public class FabricTest {
         String assetStr = mapper.writeValueAsString(assetObj);
       //  System.out.println(assetStr);//print msg
 
-        LedgerRecord testinfo=new LedgerRecord("aef01013",assetStr);
+        LedgerRecord testinfo=new LedgerRecord("aef0101123",assetStr);
         FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");
+        logger.debug("--------------------------------INSERT END--------------------------------");*/
     }
 
 
@@ -283,7 +267,7 @@ public class FabricTest {
      */
     @Test
     public void TestInsert2() throws Exception {
-        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
+/*        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
         Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
@@ -304,7 +288,7 @@ public class FabricTest {
 
         LedgerRecord testinfo=new LedgerRecord("aef01014",assetStr);
         FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");
+        logger.debug("--------------------------------INSERT END--------------------------------");*/
     }
 
 
@@ -313,7 +297,7 @@ public class FabricTest {
      */
     @Test
     public void TestInsert3() throws Exception {
-        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
+/*        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
         Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
@@ -332,9 +316,9 @@ public class FabricTest {
         String assetStr = mapper.writeValueAsString(assetObj);
         //  System.out.println(assetStr);//print msg
 
-        LedgerRecord testinfo=new LedgerRecord("aaaef010121225",assetStr);
+        LedgerRecord testinfo=new LedgerRecord("aaaef0110121225",assetStr);
         FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");
+        logger.debug("--------------------------------INSERT END--------------------------------");*/
     }
 
 
@@ -343,14 +327,14 @@ public class FabricTest {
      */
     @Test
     public void TestChainCodeQuery() throws Exception {
-        logger.debug("--------------------------------FABRIC QUERY--------------------------------");
+/*        logger.debug("--------------------------------FABRIC QUERY--------------------------------");
         Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
         channel.addOrderer(FabricApp.client.newOrderer("org1",
                 FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
         channel.initialize();
-        FabricApp.query(channel, "aef0101225");
+        FabricApp.query(channel, "aef0101225");*/
     }
 
 
@@ -359,13 +343,13 @@ public class FabricTest {
      */
     @Test
     public void TestQueryByAssetOwner() throws Exception{
-        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
+/*        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
         channel.addPeer(FabricApp.client.newPeer("peer",
                 FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
         channel.addOrderer(FabricApp.client.newOrderer("org1",
                 FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
         channel.initialize();
-        FabricApp.queryAssetsByOwner(channel, "430902199901011234");
+        FabricApp.queryAssetsByOwner(channel, "430902199901011234");*/
     }
 
 //430902199901011234

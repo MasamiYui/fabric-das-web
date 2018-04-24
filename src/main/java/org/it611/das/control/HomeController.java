@@ -3,6 +3,8 @@ package org.it611.das.control;
 import org.apache.log4j.Logger;
 import org.it611.das.couchdb.CouchDB;
 import org.it611.das.domain.Msg;
+import org.it611.das.fabric.FabricClient;
+import org.it611.das.fabric.LedgerRecord;
 import org.it611.das.fastdfs.FastDFSClient;
 import org.it611.das.fastdfs.FastDFSFile;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 @Controller
 public class HomeController {
@@ -27,6 +30,9 @@ public class HomeController {
 
 	@Autowired
 	private CouchDB ccdb;
+
+	@Autowired
+	private FabricClient fabricClient;
 
 	@RequestMapping("/")
 	public String index(Model model){
@@ -42,7 +48,31 @@ public class HomeController {
 	}
 
 
-	@RequestMapping("/upload_index")
+	@RequestMapping("/t2")
+	@ResponseBody
+	public String t2() {
+		return null;
+	}
+
+
+	@RequestMapping("/t3")
+    @ResponseBody
+    public String t3() throws Exception {
+
+		int r =(int)(Math.random()*10000);
+        LedgerRecord testinfo=new LedgerRecord("test1key"+r,"test1value"+r);
+		System.out.println("test1key"+r);
+        String result = fabricClient.instert(fabricClient.getDefaultChannel(),testinfo);
+        return result;
+    }
+
+    @RequestMapping("/t4")
+    @ResponseBody
+    public String t4() throws Exception {
+        return fabricClient.query(fabricClient.getDefaultChannel(), "aef0101225");
+    }
+
+    @RequestMapping("/upload_index")
 	public String index() {
 		return "upload";
 	}

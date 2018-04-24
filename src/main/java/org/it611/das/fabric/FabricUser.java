@@ -19,14 +19,14 @@ import java.util.Set;
 public class FabricUser implements User {
     private static Logger logger=Logger.getLogger(FabricUser.class);
     //将目录指向first-network，方便进行测试
-    public  String CERTDIR = FabricApp.class.getResource("/").getPath();
+    public  String CERTDIR = FabricClient.class.getResource("/").getPath();
     //public  String CERTDIR="/root/go/src/github.com/hyperledger/fabric-samples/first-network";//正式环境下将路径指定到工作路径
     private  String certfilepath;
     private  String keyfilepath;
     private final String userName;
     private String mspid;
     public FabricUser(String USERTYPE, String userName,String mspid) {
-       // CERTDIR = CERTDIR.substring(0, CERTDIR.length()-1);
+        CERTDIR = CERTDIR.substring(1, CERTDIR.length()-1);
        // String certfilepath1;
         if("peer".equals(USERTYPE)){
             CERTDIR=CERTDIR+"/crypto-config/peerOrganizations";
@@ -34,7 +34,7 @@ public class FabricUser implements User {
             CERTDIR=CERTDIR+"/crypto-config/ordererOrganizations";
         }
 
-         System.out.println(CERTDIR);
+         //System.out.println(CERTDIR);
         if (mspid.equals("Org1MSP")){
             certfilepath =CERTDIR+"/org1.example.com/users/"+userName+"@org1.example.com/msp/signcerts/";
             File skfile=new File(certfilepath);

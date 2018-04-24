@@ -28,10 +28,7 @@ public class FastDFSTest {
     @Test
     public void TestDownload() {
         InputStream is = FastDFSClient.downFile("group1","M00/00/00/wKgKgFrd3yCAPKKPAANlvPVzKlM49.jpeg");
-        inputstreamtofile(is,new File("/root/桌面/azm2.jpeg"));
-
-
-
+        inputstreamtofile(is,new File("C:\\Users\\YUI\\azm2.jpeg"));
     }
 
 
