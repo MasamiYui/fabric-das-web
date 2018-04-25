@@ -223,18 +223,14 @@ public class FabricTest {
      * 只能在链码层或Service层进行判断，放在链码层会更合适
      */
 
-
-
     /**
      * 插入资产
      */
     @Test
     public void TestInsert1() throws Exception {
         LedgerRecord testinfo=new LedgerRecord("test1","test1");//kv
-        System.out.println(client==null);
         client.instert(client.getDefaultChannel(),testinfo);
     }
-
 
     /**
      * 测试链码查询操作
@@ -244,9 +240,6 @@ public class FabricTest {
         System.out.println(client.query(client.getDefaultChannel(), "test1"));
     }
 
-
-
-
     /**
      * 指定doc中的关键字查询
      */
@@ -254,10 +247,5 @@ public class FabricTest {
     public void TestQueryByAssetOwner() throws Exception{
         //System.out.println(client.queryAssetsByOwner(client.getDefaultChannel(),"test1"););
     }
-
-//430902199901011234
-//430902199901011234
-//430902199901011234
-
 
 }

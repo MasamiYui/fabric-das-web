@@ -13,7 +13,6 @@ public class FabricOrg {
     final String name;
     final String mspid;
     HFCAClient caClient;
-
     Map<String, User> userMap = new HashMap<>();
     Map<String, String> peerLocations = new HashMap<>();
     Map<String, String> ordererLocations = new HashMap<>();
@@ -22,10 +21,7 @@ public class FabricOrg {
     private FabricUser admin;
     private String caLocation;
     private Properties caProperties = null;
-
     private FabricUser peerAdmin;
-
-
     private String domainName;
 
     public FabricOrg(String name, String mspid) {

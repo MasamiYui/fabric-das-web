@@ -44,8 +44,13 @@ public class FabricClient {
         orgHashMap = configure.getOrgHashMap();
         peer0org1 = orgHashMap.get("org1").getAdmin();
         client.setUserContext(peer0org1);
-        defaultChannel = getDefaultChannel();
+        defaultChannel = createDefaultChannel();
         transientMap = getDefaultTransientMap();
+    }
+
+    //返回默认的管道
+    public Channel getDefaultChannel() {
+        return defaultChannel;
     }
 
     private Map<String,byte[]> getDefaultTransientMap() {
@@ -57,9 +62,9 @@ public class FabricClient {
     }
 
     /**
-     * 封装一个默认的channel,供用户调用
+     * 封装一个默认的channel
      */
-    public Channel getDefaultChannel() throws InvalidArgumentException, MalformedURLException, org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException, TransactionException {
+    public Channel createDefaultChannel() throws InvalidArgumentException, MalformedURLException, org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException, TransactionException {
 
         Channel channel = client.newChannel(configure.getChannelName());//name:mychannel
         channel.addPeer(client.newPeer("peer",
@@ -69,8 +74,6 @@ public class FabricClient {
         channel.initialize();
         return channel;
     }
-
-
 
     /**
      * 初始化超级账本的客户端等相关属性
@@ -94,10 +97,7 @@ public class FabricClient {
         //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明
         req.setTransientMap(getDefaultTransientMap());
         Collection<ProposalResponse> resps = channel.sendTransactionProposal(req);
-        CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);
-        future.thenApplyAsync(transactionEvent -> {
-            return transactionEvent.getTransactionID();
-        });
+        CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);//管道发送数据
         return "ok";
     }
 

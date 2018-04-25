@@ -33,19 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-						.anyRequest().authenticated()
+						//.antMatchers("/static/**","/css/**","/image/*").permitAll()
+                        .antMatchers("**").permitAll()
+                        .anyRequest().authenticated()
 						.and()
 						.formLogin()
 							.loginPage("/login")
 							.failureUrl("/login?error")
-							.permitAll() //5
+							.permitAll()
 						.and()
 						.logout().permitAll();
 	}
-
-/*	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		//将验证过程交给自定义验证工具
-		auth.authenticationProvider(provider);
-	}*/
 }

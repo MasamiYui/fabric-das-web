@@ -1,6 +1,13 @@
 server:
   port: 8088
 
+logging:
+  path: C:\Users\YUI\Desktop
+  level:
+    root: INFO
+    springframework:
+      web:DEBUG
+
 spring:
     datasource:
         name: das

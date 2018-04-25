@@ -18,7 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Random;
 
 @Controller
 public class HomeController {
@@ -33,6 +32,11 @@ public class HomeController {
 
 	@Autowired
 	private FabricClient fabricClient;
+
+    @RequestMapping("/login")
+    public String login(Model model){
+        return "login";
+    }
 
 	@RequestMapping("/")
 	public String index(Model model){
@@ -61,7 +65,7 @@ public class HomeController {
 
 		int r =(int)(Math.random()*10000);
         LedgerRecord testinfo=new LedgerRecord("test1key"+r,"test1value"+r);
-		System.out.println("test1key"+r);
+		logger.info("test1key"+r+",test1value"+r);
         String result = fabricClient.instert(fabricClient.getDefaultChannel(),testinfo);
         return result;
     }
