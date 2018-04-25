@@ -20,10 +20,10 @@ public class CustomUserService implements UserDetailsService {
 		 * 身份查询
 		 */
 		SysUser user = sysUserDao.findByUsername(username);
+
 		if(user == null){
 			throw new UsernameNotFoundException("用户名不存在");
 		}
 		return user;
 	}
-
 }

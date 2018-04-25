@@ -1,5 +1,7 @@
 package org.it611.das.config;
 
+import org.it611.das.security.LoginAuthenticationProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,6 +14,9 @@ import org.it611.das.security.CustomUserService;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+
+	@Autowired
+	private LoginAuthenticationProvider provider;//自定义验证
 	
 	@Bean
 	UserDetailsService customUserService(){
@@ -20,8 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserService());
-		
+		auth.authenticationProvider(provider);
+		//auth.userDetailsService(customUserService());
 	}
 	
 	@Override
@@ -37,4 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 						.and()
 						.logout().permitAll();
 	}
+
+/*	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		//将验证过程交给自定义验证工具
+		auth.authenticationProvider(provider);
+	}*/
 }

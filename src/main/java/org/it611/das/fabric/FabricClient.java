@@ -95,26 +95,9 @@ public class FabricClient {
         req.setTransientMap(getDefaultTransientMap());
         Collection<ProposalResponse> resps = channel.sendTransactionProposal(req);
         CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);
-
-/*        channel.sendTransaction(resps).thenApply(transactionEvent -> {
-            if (transactionEvent.isValid()) {
-                System.out.println("Successfully send transaction proposal to orderer. Transaction ID: "
-                        + transactionEvent.getTransactionID());
-            } else {
-                System.out.println("Failed to send transaction proposal to orderer");
-            }
-            // chain.shutdown(true);
+        future.thenApplyAsync(transactionEvent -> {
             return transactionEvent.getTransactionID();
-        }).get(1000, TimeUnit.SECONDS);*/
-       // return resultAsString;
-
-        //CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);
-
-/*        for (ProposalResponse resp : resps) {
-           // String payload = new String(resp.getChaincodeActionResponsePayload());
-            //logger.debug("response: " + payload);
-            System.out.println("info:"+String.valueOf(resp.getChaincodeActionResponsePayload()));
-        }*/
+        });
         return "ok";
     }
 

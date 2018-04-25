@@ -1,10 +1,18 @@
 package org.it611;
 
 import org.apache.log4j.Logger;
+import org.it611.das.DasApplication;
 import org.it611.das.couchdb.CouchDB;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = DasApplication.class)
+@WebAppConfiguration
 public class CouchDBTest {
 
     private static Logger logger=Logger.getLogger(CouchDBTest.class);
@@ -22,12 +30,9 @@ public class CouchDBTest {
      * 基本kv查询
      */
 
-/*    @Test
+    @Test
     public void basicKVQuery() {
-        *//**
-     * 不能这样测试，这样依赖注入是不成功的
-     *//*
-        String str = db.basicKVQuery("aef01013");
+        String str = db.basicKVQuery("test1");
         logger.debug(str);
-    }*/
+    }
 }

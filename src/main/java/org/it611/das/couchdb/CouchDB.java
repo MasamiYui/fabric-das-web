@@ -2,7 +2,7 @@ package org.it611.das.couchdb;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
-import org.it611.das.util.HttpUtil;
+import org.it611.das.util.HttpClientUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -54,7 +54,7 @@ public class CouchDB {
 
         String url = IP+PORT+DB+CC+"%00"+key;
         System.out.println("url:"+url);
-        String responseStr = HttpUtil.doGet(url);
+        String responseStr = HttpClientUtil.doGet(url);
         logger.debug("response:"+responseStr);
         System.out.println("response:"+responseStr);
         return responseStr;

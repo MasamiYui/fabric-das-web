@@ -1,18 +1,26 @@
 package org.it611;
 
 import org.apache.log4j.Logger;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.it611.das.DasApplication;
 import org.it611.das.fabric.FabricClient;
-import org.junit.Before;
+import org.it611.das.fabric.LedgerRecord;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.net.MalformedURLException;
 
-
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = DasApplication.class)
+@WebAppConfiguration
 public class FabricTest {
 
     private static Logger logger=Logger.getLogger(FabricTest.class);
+
+    @Autowired
+    private FabricClient client;
 
     /**
      * 基本资产
@@ -210,21 +218,6 @@ public class FabricTest {
         }
     }
 
-
-    //---------------------------------------------------------------------------------------------------------------
-    //---------------------------------------------------------------------------------------------------------------
-
-    /**
-     * 初始化
-     */
-    @Before
-    public void Setup() throws InvalidArgumentException, MalformedURLException, CryptoException, org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException {
-/*        logger.debug("--------------------------------Fabric Init--------------------------------");
-        FabricClient fabricApp=new FabricClient();
-        FabricClient.init();*/
-    }
-
-
     /**
      * 总结：对于couchdb而言，对于相同的Key的插入不会提示存在，也不会提示错误，而是直接覆盖，也许为了更高的吞吐率？
      * 只能在链码层或Service层进行判断，放在链码层会更合适
@@ -237,88 +230,9 @@ public class FabricTest {
      */
     @Test
     public void TestInsert1() throws Exception {
-
-/*        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
-        channel.addPeer(FabricApp.client.newPeer("peer",
-                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
-        channel.addOrderer(FabricApp.client.newOrderer("org1",
-                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
-        channel.initialize();
-
-        StuIdCard stuIdCard = new StuIdCard("重庆邮电大学","S161231012","新垣結衣",
-        "女", "1988-06-11", "430902199901011234","3", "软件学院",
-                "日本冲绳", "2016-03-03", "2016-03-15");
-        Asset assetObj = new Asset("aef01013","1","430902199901011234",
-                "新垣結衣的身份证","2018-04-06",stuIdCard);
-
-        ObjectMapper mapper = new ObjectMapper();
-        String assetStr = mapper.writeValueAsString(assetObj);
-      //  System.out.println(assetStr);//print msg
-
-        LedgerRecord testinfo=new LedgerRecord("aef0101123",assetStr);
-        FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");*/
-    }
-
-
-
-    /**
-     * 插入资产
-     */
-    @Test
-    public void TestInsert2() throws Exception {
-/*        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
-        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
-        channel.addPeer(FabricApp.client.newPeer("peer",
-                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
-        channel.addOrderer(FabricApp.client.newOrderer("org1",
-                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
-        channel.initialize();
-
-        StuIdCard stuIdCard = new StuIdCard("重庆大学","S161231034","长泽雅美",
-                "女", "1988-06-11", "430902199901011234","3", "软件学院",
-                "日本冲绳", "2016-03-03", "2016-03-15");
-        Asset assetObj = new Asset("aef01013","1","430902199901011234",
-                "新垣結衣的身份证","2018-04-06",stuIdCard);
-
-
-        ObjectMapper mapper = new ObjectMapper();
-        String assetStr = mapper.writeValueAsString(assetObj);
-        //  System.out.println(assetStr);//print msg
-
-        LedgerRecord testinfo=new LedgerRecord("aef01014",assetStr);
-        FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");*/
-    }
-
-
-    /**
-     * 插入资产
-     */
-    @Test
-    public void TestInsert3() throws Exception {
-/*        logger.debug("--------------------------------FABRIC INSERT--------------------------------");
-        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
-        channel.addPeer(FabricApp.client.newPeer("peer",
-                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
-        channel.addOrderer(FabricApp.client.newOrderer("org1",
-                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
-        channel.initialize();
-
-        StuIdCard stuIdCard = new StuIdCard("电子科技大学","S161231000","滨崎步",
-                "女", "1988-06-11", "430902199901011234","3", "软件学院",
-                "日本冲绳", "2016-03-03", "2016-03-15");
-        Asset assetObj = new Asset("aef01013","1","430902199901011234",
-                "新垣結衣的身份证","2018-04-06",stuIdCard);
-
-
-        ObjectMapper mapper = new ObjectMapper();
-        String assetStr = mapper.writeValueAsString(assetObj);
-        //  System.out.println(assetStr);//print msg
-
-        LedgerRecord testinfo=new LedgerRecord("aaaef0110121225",assetStr);
-        FabricApp.instert(channel,testinfo);
-        logger.debug("--------------------------------INSERT END--------------------------------");*/
+        LedgerRecord testinfo=new LedgerRecord("test1","test1");//kv
+        System.out.println(client==null);
+        client.instert(client.getDefaultChannel(),testinfo);
     }
 
 
@@ -327,15 +241,10 @@ public class FabricTest {
      */
     @Test
     public void TestChainCodeQuery() throws Exception {
-/*        logger.debug("--------------------------------FABRIC QUERY--------------------------------");
-        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
-        channel.addPeer(FabricApp.client.newPeer("peer",
-                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
-        channel.addOrderer(FabricApp.client.newOrderer("org1",
-                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
-        channel.initialize();
-        FabricApp.query(channel, "aef0101225");*/
+        System.out.println(client.query(client.getDefaultChannel(), "test1"));
     }
+
+
 
 
     /**
@@ -343,13 +252,7 @@ public class FabricTest {
      */
     @Test
     public void TestQueryByAssetOwner() throws Exception{
-/*        Channel channel = FabricApp.client.newChannel(FabricConfigure.CHANNLNAME);//name:mychannel
-        channel.addPeer(FabricApp.client.newPeer("peer",
-                FabricConfigure.getConfigure().get("org1").getPeerLocation("peer0org1")));// grpc://localhost:7051
-        channel.addOrderer(FabricApp.client.newOrderer("org1",
-                FabricConfigure.getConfigure().get("org1").getOrdererLocation("orderer"))); //grpc://localhost:7050
-        channel.initialize();
-        FabricApp.queryAssetsByOwner(channel, "430902199901011234");*/
+        //System.out.println(client.queryAssetsByOwner(client.getDefaultChannel(),"test1"););
     }
 
 //430902199901011234
