@@ -91,6 +91,7 @@ public class HomeController {
 		try {
 			// Get the file and save it somewhere
 			String path=saveFile(file);
+			System.out.println("path:"+path);
 			redirectAttributes.addFlashAttribute("message",
 					"You successfully uploaded '" + file.getOriginalFilename() + "'");
 			redirectAttributes.addFlashAttribute("path",

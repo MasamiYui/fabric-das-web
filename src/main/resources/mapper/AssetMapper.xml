@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.AssetMapper" >
+
+    <!--插入一条基本资产信息-->
+    <insert id="insertAssetBase" parameterType="org.it611.das.domain.BaseAsset" >
+        insert into asset_base (id, type_id, title, des, submitTime, `state`)
+        values (#{id,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+        #{des,jdbcType=VARCHAR}, #{submitTime,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+    </insert>
+
+    <!--插入一条学生证信息资产-->
+    <insert id="insertStudentIdCardAsset" parameterType="org.it611.das.domain.StudentIdCardAsset" >
+        insert into asset_stuIdCard (id, stu_id, asset_id, school, `name`, sex, dataOfBirth, idCardNo, lengthOfSchooling, college, address, schoolTime,
+        timeOfIssume)
+        values (#{id,jdbcType=VARCHAR}, #{stuId,jdbcType=INTEGER}, #{assetId,jdbcType=VARCHAR},
+        #{school,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{dataOfBirth,jdbcType=VARCHAR},
+        #{idCardNo,jdbcType=VARCHAR},#{lengthOfSchooling,jdbcType=VARCHAR}, #{college,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+        #{schoolTime,jdbcType=VARCHAR}, #{timeOfIssume,jdbcType=VARCHAR})
+    </insert>
+
+    <!--插入资产拥有者信息(用户)-->
+    <insert id="insertAssetUser" parameterType="java.util.List">
+        insert into asset_user (id, asset_id, user_id)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.assetId,jdbcType=VARCHAR},#{item.userId,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <!--插入资产数字文件-->
+    <insert id="insertAssetFiles" parameterType="java.util.List">
+        insert into asset_file (id, asset_id, file_url)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.assetId,jdbcType=VARCHAR},#{item.fileUrl,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+</mapper>

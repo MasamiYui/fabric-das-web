@@ -40,7 +40,7 @@ public class FabricTest {
         public String sex;//性别
         public String dataOfBirth;//出生年月
         public String idCard;//身份证号码
-        public String lengthOfSchooling;//学院
+        public String lengthOfSchooling;//学制
         public String college;//学院
         public String address;//籍贯
         public String schoolTime;//入校时间
