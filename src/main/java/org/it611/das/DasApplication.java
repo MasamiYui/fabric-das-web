@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @MapperScan("org.it611.das.mapper")
-@EnableTransactionManagement
+@EnableTransactionManagement//开启事务
 public class DasApplication {
 
     public static void main(String[] args) {

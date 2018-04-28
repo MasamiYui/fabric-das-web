@@ -132,6 +132,10 @@ public class StudentIdCardAsset{
         this.timeOfIssume = timeOfIssume;
     }
 
+    public StudentIdCardAsset() {
+
+    }
+
     public StudentIdCardAsset(String id, String assetId, String stuId, String school, String name, String sex, String dataOfBirth, String idCardNo, String lengthOfSchooling, String college, String address, String schoolTime, String timeOfIssume) {
         this.id = id;
         this.assetId = assetId;

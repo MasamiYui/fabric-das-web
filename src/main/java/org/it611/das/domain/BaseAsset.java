@@ -14,6 +14,8 @@ public class BaseAsset {
 
     private int state;//状态
 
+    private String txId;//交易Id
+
     public String getId() {
         return id;
     }
@@ -26,7 +28,7 @@ public class BaseAsset {
         return typeId;
     }
 
-    public void setType(String typeId) {
+    public void setTypeId(String typeId) {
         this.typeId = typeId;
     }
 
@@ -62,13 +64,21 @@ public class BaseAsset {
         this.state = state;
     }
 
-    public BaseAsset(String id, String typeId, String title, String des, String submitTime, int state) {
+    public String getTxId() {
+        return txId;
+    }
+
+    public void setTxId(String txId) {
+        this.txId = txId;
+    }
+
+    public BaseAsset(String id, String typeId, String title, String des, String submitTime, int state, String txId) {
         this.id = id;
         this.typeId = typeId;
         this.title = title;
         this.des = des;
         this.submitTime = submitTime;
         this.state = state;
+        this.txId = txId;
     }
-
 }

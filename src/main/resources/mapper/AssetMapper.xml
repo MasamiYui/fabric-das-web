@@ -4,9 +4,9 @@
 
     <!--插入一条基本资产信息-->
     <insert id="insertAssetBase" parameterType="org.it611.das.domain.BaseAsset" >
-        insert into asset_base (id, type_id, title, des, submitTime, `state`)
+        insert into asset_base (id, type_id, title, des, submitTime, `state`, txid)
         values (#{id,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
-        #{des,jdbcType=VARCHAR}, #{submitTime,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+        #{des,jdbcType=VARCHAR}, #{submitTime,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER},#{txId,jdbcType=VARCHAR})
     </insert>
 
     <!--插入一条学生证信息资产-->

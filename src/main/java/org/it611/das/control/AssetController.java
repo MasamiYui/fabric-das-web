@@ -19,7 +19,7 @@ public class AssetController {
      */
     @RequestMapping("/asset/insert/sica")
     @ResponseBody//记得删除
-    public String insert(StudentIdCardAssetVO sica) {
+    public String insert(StudentIdCardAssetVO sica) throws Exception {
 
         if(assetService.InsertStudentIdCardAsset(sica) == State.SUCCESS) {
             return "success";

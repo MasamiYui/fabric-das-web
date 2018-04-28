@@ -1,10 +1,10 @@
 package org.it611.das.Service.impl;
 
 import org.it611.das.Service.AssetService;
-import org.it611.das.domain.AssetFiles;
-import org.it611.das.domain.AssetUser;
-import org.it611.das.domain.BaseAsset;
-import org.it611.das.domain.StudentIdCardAsset;
+import org.it611.das.domain.*;
+import org.it611.das.domain.fabric.FabricStudentIdCardAsset;
+import org.it611.das.fabric.FabricClient;
+import org.it611.das.fabric.LedgerRecord;
 import org.it611.das.mapper.AssetMapper;
 import org.it611.das.util.ParseInputAsset;
 import org.it611.das.util.State;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,17 +24,30 @@ public class AssetServiceImpl implements AssetService {
     @Autowired
     private AssetMapper assetDao;
 
+    @Autowired
+    private FabricClient fabricClient;
+
     @Override
     @Transactional
-    public int InsertStudentIdCardAsset(StudentIdCardAssetVO vo) {
+    public int InsertStudentIdCardAsset(StudentIdCardAssetVO vo) throws Exception {
+
         //解析VO
         Map<String, Object> dataMap = ParseInputAsset.parseStuIdCardAsset(vo);
+        String assetId = (String)dataMap.get("assetId");
         BaseAsset baseAsset = (BaseAsset)dataMap.get("baseAsset");
         List assetUserList = (ArrayList<AssetUser>)dataMap.get("assetUserList");
         StudentIdCardAsset studentIdCardAsset = (StudentIdCardAsset)dataMap.get("studentIdCardAsset");
         List assetFilesList = (ArrayList<AssetFiles>)dataMap.get("assetFilesList");
+        String fabricStudentIdCardAssetJson = (String) dataMap.get("fabricStudentIdCardAssetJson");
 
-        //执行
+
+        //执行Fabric的写入
+        String txId = fabricClient.instert(fabricClient.getDefaultChannel(),new LedgerRecord(assetId,fabricStudentIdCardAssetJson));
+        System.out.println(fabricStudentIdCardAssetJson);
+        baseAsset.setTxId(txId);
+
+        //执行MySQL写入
+
         int r1 = assetDao.insertAssetBase(baseAsset);
         int r2 = assetDao.insertAssetUser(assetUserList);
         int r3 = assetDao.insertStudentIdCardAsset(studentIdCardAsset);
@@ -43,8 +57,5 @@ public class AssetServiceImpl implements AssetService {
             return State.SUCCESS;
         }
         return State.FALSE;
-
-
-
     }
 }

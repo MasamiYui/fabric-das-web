@@ -1,6 +1,7 @@
 package org.it611;
 
 import org.apache.log4j.Logger;
+import org.hyperledger.fabric.sdk.BlockInfo;
 import org.it611.das.DasApplication;
 import org.it611.das.fabric.FabricClient;
 import org.it611.das.fabric.LedgerRecord;
@@ -246,6 +247,12 @@ public class FabricTest {
     @Test
     public void TestQueryByAssetOwner() throws Exception{
         //System.out.println(client.queryAssetsByOwner(client.getDefaultChannel(),"test1"););
+        String txId = "c675d3720afb410314c5d026343a7b7d98f3627a3ebde64265a50a6b2be380d2";
+        BlockInfo blockInfo = client.queryByTransactionId(client.getDefaultChannel(),txId);
+        System.out.println(blockInfo.getChannelId());
+        System.out.println(blockInfo.getDataHash().toString());
+        System.out.println(blockInfo.getBlockNumber());
     }
+
 
 }

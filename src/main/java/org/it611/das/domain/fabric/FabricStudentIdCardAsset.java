@@ -1,9 +1,16 @@
-package org.it611.das.vo;
+package org.it611.das.domain.fabric;
 
-public class StudentIdCardAssetVO extends BaseAssetVO {
+public class FabricStudentIdCardAsset {
 
-    //学生证描述
-    private String stuId;//身份证Id
+    private String typeId;//类型
+
+    private String title;//资产标题
+
+    private String[] owners;//资产拥有者，可能有多个
+
+    private String des;//资产描述
+
+    private String stuId;//学生证Id
 
     private String school;//学校
 
@@ -25,11 +32,39 @@ public class StudentIdCardAssetVO extends BaseAssetVO {
 
     private String timeOfIssume;//发证时间
 
-    //资产拥有者描述
-    private String owners;
+    private String[] fileHash;//文件Hash，可能有多个
 
-    //电子文件
-    private String files;
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(String typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String[] getOwners() {
+        return owners;
+    }
+
+    public void setOwners(String[] owners) {
+        this.owners = owners;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
 
     public String getStuId() {
         return stuId;
@@ -119,28 +154,19 @@ public class StudentIdCardAssetVO extends BaseAssetVO {
         this.timeOfIssume = timeOfIssume;
     }
 
-    public String getOwners() {
-        return owners;
+    public String[] getFileHash() {
+        return fileHash;
     }
 
-    public void setOwners(String owners) {
+    public void setFileHash(String[] fileHash) {
+        this.fileHash = fileHash;
+    }
+
+    public FabricStudentIdCardAsset(String typeId, String title, String[] owners, String des, String stuId, String school, String name, String sex, String dateOfBirth, String idCardNo, String lengthOfSchooling, String college, String address, String schoolTime, String timeOfIssume, String[] fileHash) {
+        this.typeId = typeId;
+        this.title = title;
         this.owners = owners;
-    }
-
-    public String getFiles() {
-        return files;
-    }
-
-    public void setFiles(String files) {
-        this.files = files;
-    }
-
-    public StudentIdCardAssetVO() {
-
-    }
-
-    public StudentIdCardAssetVO(String id, String type, String title, String assetDes, String submitTime, int state, String stuId, String school, String name, String sex, String dateOfBirth, String idCardNo, String lengthOfSchooling, String college, String address, String schoolTime, String timeOfIssume, String owners, String files) {
-        super(id, type, title, assetDes, submitTime, state);
+        this.des = des;
         this.stuId = stuId;
         this.school = school;
         this.name = name;
@@ -152,9 +178,6 @@ public class StudentIdCardAssetVO extends BaseAssetVO {
         this.address = address;
         this.schoolTime = schoolTime;
         this.timeOfIssume = timeOfIssume;
-        this.owners = owners;
-        this.files = files;
+        this.fileHash = fileHash;
     }
-
-
 }

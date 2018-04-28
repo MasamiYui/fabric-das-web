@@ -3,7 +3,6 @@ package org.it611.das.mapper;
 import org.it611.das.domain.AssetFiles;
 import org.it611.das.domain.BaseAsset;
 import org.it611.das.domain.StudentIdCardAsset;
-import org.it611.das.domain.AssetUser;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

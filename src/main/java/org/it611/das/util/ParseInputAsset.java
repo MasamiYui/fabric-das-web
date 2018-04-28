@@ -1,18 +1,17 @@
 package org.it611.das.util;
 
-import org.it611.das.domain.AssetFiles;
-import org.it611.das.domain.BaseAsset;
-import org.it611.das.domain.StudentIdCardAsset;
-import org.it611.das.domain.AssetUser;
+import org.it611.das.domain.*;
+import org.it611.das.domain.fabric.FabricStudentIdCardAsset;
 import org.it611.das.vo.StudentIdCardAssetVO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ParseInputAsset {
 
-    public static Map<String, Object> parseStuIdCardAsset(StudentIdCardAssetVO aicaVO) {
+    public static Map<String, Object> parseStuIdCardAsset(StudentIdCardAssetVO aicaVO) throws IOException {
 
         String assetId = IdUtil.getId();
 
@@ -21,7 +20,7 @@ public class ParseInputAsset {
         ArrayList<AssetFiles> assetFileList = new ArrayList<>();
 
         //解析asset_base表中的内容
-        BaseAsset baseAsset = new BaseAsset(assetId, aicaVO.getType(), aicaVO.getTitle(), aicaVO.getDes(), TimeUtil.getLocalTime(), 0);
+        BaseAsset baseAsset = new BaseAsset(assetId, aicaVO.getType(), aicaVO.getTitle(), aicaVO.getDes(), TimeUtil.getLocalTime(), 0, null);
 
         //解析asset_owner表中的内容
         String users = aicaVO.getOwners();
@@ -34,7 +33,7 @@ public class ParseInputAsset {
 
         //解析asset_stuIdCard表中的内容
         StudentIdCardAsset aica = new StudentIdCardAsset(IdUtil.getId(), assetId, aicaVO.getStuId(), aicaVO.getSchool(), aicaVO.getName(),
-                aicaVO.getSex(), aicaVO.getDataOfBirth(), aicaVO.getIdCardNo(), aicaVO.getLengthOfSchooling(), aicaVO.getCollege(), aicaVO.getAddress(),
+                aicaVO.getSex(), aicaVO.getDateOfBirth(), aicaVO.getIdCardNo(), aicaVO.getLengthOfSchooling(), aicaVO.getCollege(), aicaVO.getAddress(),
                 aicaVO.getSchoolTime(), aicaVO.getTimeOfIssume());
 
         //解析所有的电子文件
@@ -46,11 +45,22 @@ public class ParseInputAsset {
             assetFileList.add(af);
         }
 
+        //解析需要写入Fabric中的数据
+        String[] fileHash = {"testtest"};
+        FabricStudentIdCardAsset fabricStudentIdCardAsset = new FabricStudentIdCardAsset(aicaVO.getType(), aicaVO.getTitle(), userArr,
+                aicaVO.getDes(), aicaVO.getStuId(), aica.getSchool(), aica.getName(), aicaVO.getSex(), aicaVO.getDateOfBirth(),
+                aica.getIdCardNo(), aica.getLengthOfSchooling(), aicaVO.getCollege(), aica.getAddress(), aica.getSchoolTime(),
+                aica.getTimeOfIssume(), fileHash);
+        String fabricStudentIdCardAssetJson = JsonUtil.bean2Json(fabricStudentIdCardAsset);
+
+
         //把解析出来的这4个表的内容加入到Map中
+        dataMap.put("assetId", assetId);//放入资产Id，便于后面操作
         dataMap.put("baseAsset", baseAsset);
         dataMap.put("assetUserList", assetUserList);
         dataMap.put("studentIdCardAsset", aica);
         dataMap.put("assetFilesList", assetFileList);
+        dataMap.put("fabricStudentIdCardAssetJson",fabricStudentIdCardAssetJson);
 
         return dataMap;
     }

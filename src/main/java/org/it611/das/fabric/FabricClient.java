@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.hyperledger.fabric.sdk.*;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric.sdk.exception.ProposalException;
 import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.hyperledger.fabric.sdk.security.CryptoSuite;
 import org.springframework.stereotype.Component;
@@ -90,15 +91,31 @@ public class FabricClient {
      * 实现根绝给定的数据调用链码写入账本中,KV形式
      */
     public String instert(Channel channel, LedgerRecord record) throws Exception {
+        String txId=null;
+        ChaincodeResponse.Status status = null;
         TransactionProposalRequest req = client.newTransactionProposalRequest();
         req.setChaincodeID(cid);
         req.setFcn("addAsset");
         req.setArgs(record.toStringArray());
-        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明
         req.setTransientMap(getDefaultTransientMap());
         Collection<ProposalResponse> resps = channel.sendTransactionProposal(req);
+        for (ProposalResponse res: resps) {
+            status = res.getStatus();
+            //Logger.getLogger(FabricClient.class.getName()).log(Level.INFO,"Invoked createCar on "+Config.CHAINCODE_1_NAME + ". Status - " + status);
+            //System.out.println(res.getTransactionID());
+        }
         CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);//管道发送数据
-        return "ok";
+/*        future.get().getTransactionActionInfos().forEach(transactionActionInfo -> {
+        //            System.out.println(transactionActionInfo.getResponseMessage());
+        //            System.out.println(transactionActionInfo.getResponseStatus());
+        //        });*/
+        //        //System.out.println(future.get().getTransactionID());
+        //        //System.out.println(future.get().getTransactionID());
+
+        if (status != ChaincodeResponse.Status.SUCCESS) {//如果提议失败，throw error，结束本次交易
+            throw new Exception();
+        }
+        return txId;
     }
 
     /**
@@ -186,4 +203,19 @@ public class FabricClient {
         }
         channel.sendTransaction(resps);
     }
+
+    /**
+     * 根据TransactionId查询信息
+     */
+    public BlockInfo queryByTransactionId(Channel channel, String transactionId) throws ProposalException, InvalidArgumentException {
+        //client..queryBlockByTransactionID("c675d3720afb410314c5d026343a7b7d98f3627a3ebde64265a50a6b2be380d2");
+        return channel.queryBlockByTransactionID(transactionId);
+    }
+
+    /**
+     * 监听Event
+     */
+/*    public void listenEvent() {
+        client.newEventHub()
+    }*/
 }
