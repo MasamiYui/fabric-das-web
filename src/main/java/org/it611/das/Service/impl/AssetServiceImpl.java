@@ -1,5 +1,6 @@
 package org.it611.das.Service.impl;
 
+import org.hyperledger.fabric.sdk.ProposalResponse;
 import org.it611.das.Service.AssetService;
 import org.it611.das.domain.*;
 import org.it611.das.domain.fabric.FabricStudentIdCardAsset;
@@ -42,12 +43,11 @@ public class AssetServiceImpl implements AssetService {
 
 
         //执行Fabric的写入
-        String txId = fabricClient.instert(fabricClient.getDefaultChannel(),new LedgerRecord(assetId,fabricStudentIdCardAssetJson));
+        ProposalResponse prsp = fabricClient.instert(fabricClient.getDefaultChannel(),new LedgerRecord(assetId,fabricStudentIdCardAssetJson));
         System.out.println(fabricStudentIdCardAssetJson);
-        baseAsset.setTxId(txId);
+        baseAsset.setTxId(prsp.getTransactionID());
 
         //执行MySQL写入
-
         int r1 = assetDao.insertAssetBase(baseAsset);
         int r2 = assetDao.insertAssetUser(assetUserList);
         int r3 = assetDao.insertStudentIdCardAsset(studentIdCardAsset);

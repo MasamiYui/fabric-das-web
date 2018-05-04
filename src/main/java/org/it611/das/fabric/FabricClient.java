@@ -19,7 +19,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * 实现封装一些超级账本的操作方法，未结合使用Fabric-CA模块
- * TODO javaSDK1.0版本中tls似乎存在问题
  */
 @Component
 public class FabricClient {
@@ -88,11 +87,10 @@ public class FabricClient {
     }
 
     /**
-     * 实现根绝给定的数据调用链码写入账本中,KV形式
+     * 根据给定的数据调用链码写入账本中,KV形式
      */
-    public String instert(Channel channel, LedgerRecord record) throws Exception {
-        String txId=null;
-        ChaincodeResponse.Status status = null;
+    public ProposalResponse instert(Channel channel, LedgerRecord record) throws Exception {
+        ProposalResponse prsp = null;
         TransactionProposalRequest req = client.newTransactionProposalRequest();
         req.setChaincodeID(cid);
         req.setFcn("addAsset");
@@ -100,22 +98,13 @@ public class FabricClient {
         req.setTransientMap(getDefaultTransientMap());
         Collection<ProposalResponse> resps = channel.sendTransactionProposal(req);
         for (ProposalResponse res: resps) {
-            status = res.getStatus();
-            //Logger.getLogger(FabricClient.class.getName()).log(Level.INFO,"Invoked createCar on "+Config.CHAINCODE_1_NAME + ". Status - " + status);
-            //System.out.println(res.getTransactionID());
+            prsp = res;
         }
         CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);//管道发送数据
-/*        future.get().getTransactionActionInfos().forEach(transactionActionInfo -> {
-        //            System.out.println(transactionActionInfo.getResponseMessage());
-        //            System.out.println(transactionActionInfo.getResponseStatus());
-        //        });*/
-        //        //System.out.println(future.get().getTransactionID());
-        //        //System.out.println(future.get().getTransactionID());
-
-        if (status != ChaincodeResponse.Status.SUCCESS) {//如果提议失败，throw error，结束本次交易
+        if (prsp.getStatus() != ChaincodeResponse.Status.SUCCESS) {//如果提议失败，抛出异常，结束本次交易
             throw new Exception();
         }
-        return txId;
+        return prsp;
     }
 
     /**
@@ -128,7 +117,7 @@ public class FabricClient {
         req.setChaincodeID(cid);
         req.setFcn("query");
         req.setArgs(new String[]{key});
-        System.out.println("Querying for " + key);
+        //System.out.println("Querying for " + key);
         Collection<ProposalResponse> resps = channel.queryByChaincode(req);
         for (ProposalResponse resp : resps) {
             String payload = new String(resp.getChaincodeActionResponsePayload());

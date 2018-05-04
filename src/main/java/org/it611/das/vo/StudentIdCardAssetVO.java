@@ -1,5 +1,9 @@
 package org.it611.das.vo;
 
+
+/**
+ * 插入学生证资产信息时的字段
+ */
 public class StudentIdCardAssetVO extends BaseAssetVO {
 
     //学生证描述

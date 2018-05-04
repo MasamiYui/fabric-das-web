@@ -1,5 +1,8 @@
 package org.it611.das.vo;
 
+/**
+ * VO资产基类
+ */
 public class BaseAssetVO {
 
     private String id;//资产id

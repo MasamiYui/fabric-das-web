@@ -1,6 +1,7 @@
 package org.it611.das.control;
 
 import org.apache.log4j.Logger;
+import org.hyperledger.fabric.sdk.ProposalResponse;
 import org.it611.das.couchdb.CouchDB;
 import org.it611.das.domain.Msg;
 import org.it611.das.fabric.FabricClient;
@@ -66,8 +67,8 @@ public class HomeController {
 		int r =(int)(Math.random()*10000);
         LedgerRecord testinfo=new LedgerRecord("test1key"+r,"test1value"+r);
 		logger.info("test1key"+r+",test1value"+r);
-        String result = fabricClient.instert(fabricClient.getDefaultChannel(),testinfo);
-        return result;
+		ProposalResponse prsp = fabricClient.instert(fabricClient.getDefaultChannel(),testinfo);
+        return prsp.getStatus().toString();
     }
 
     @RequestMapping("/t4")
