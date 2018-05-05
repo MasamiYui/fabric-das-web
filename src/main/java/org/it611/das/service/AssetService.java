@@ -1,9 +1,6 @@
-package org.it611.das.Service;
+package org.it611.das.service;
 
 import org.it611.das.vo.StudentIdCardAssetVO;
-import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 
 public interface AssetService {
 

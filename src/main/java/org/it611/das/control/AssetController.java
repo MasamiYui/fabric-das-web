@@ -1,6 +1,6 @@
 package org.it611.das.control;
 
-import org.it611.das.Service.AssetService;
+import org.it611.das.service.AssetService;
 import org.it611.das.util.State;
 import org.it611.das.vo.StudentIdCardAssetVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,14 @@ public class AssetController {
 
     @Autowired
     private AssetService assetService;
+
+    @RequestMapping("/asset/insert")
+    public String insertIndex(StudentIdCardAssetVO sica) throws Exception {
+
+        return "forms";
+    }
+
+
 
     /**
      * 资产插入（学生证StudentIdCardAsset sica）

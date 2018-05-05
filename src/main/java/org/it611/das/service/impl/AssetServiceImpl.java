@@ -1,9 +1,8 @@
-package org.it611.das.Service.impl;
+package org.it611.das.service.impl;
 
 import org.hyperledger.fabric.sdk.ProposalResponse;
-import org.it611.das.Service.AssetService;
+import org.it611.das.service.AssetService;
 import org.it611.das.domain.*;
-import org.it611.das.domain.fabric.FabricStudentIdCardAsset;
 import org.it611.das.fabric.FabricClient;
 import org.it611.das.fabric.LedgerRecord;
 import org.it611.das.mapper.AssetMapper;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

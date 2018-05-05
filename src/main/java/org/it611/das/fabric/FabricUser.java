@@ -26,7 +26,7 @@ public class FabricUser implements User {
     private final String userName;
     private String mspid;
     public FabricUser(String USERTYPE, String userName,String mspid) {
-        CERTDIR = CERTDIR.substring(1, CERTDIR.length()-1);
+        //CERTDIR = CERTDIR.substring(1, CERTDIR.length()-1);//windows下开启，ubuntu下注释
        // String certfilepath1;
         if("peer".equals(USERTYPE)){
             CERTDIR=CERTDIR+"/crypto-config/peerOrganizations";
@@ -34,7 +34,7 @@ public class FabricUser implements User {
             CERTDIR=CERTDIR+"/crypto-config/ordererOrganizations";
         }
 
-         //System.out.println(CERTDIR);
+         System.out.println(CERTDIR);
         if (mspid.equals("Org1MSP")){
             certfilepath =CERTDIR+"/org1.example.com/users/"+userName+"@org1.example.com/msp/signcerts/";
             File skfile=new File(certfilepath);
