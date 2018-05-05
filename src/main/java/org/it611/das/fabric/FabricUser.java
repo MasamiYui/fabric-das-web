@@ -34,7 +34,7 @@ public class FabricUser implements User {
             CERTDIR=CERTDIR+"/crypto-config/ordererOrganizations";
         }
 
-         System.out.println(CERTDIR);
+         //System.out.println(CERTDIR);
         if (mspid.equals("Org1MSP")){
             certfilepath =CERTDIR+"/org1.example.com/users/"+userName+"@org1.example.com/msp/signcerts/";
             File skfile=new File(certfilepath);

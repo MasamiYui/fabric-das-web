@@ -109,7 +109,7 @@
                         <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 登记申请</a>
+                        <a href="insert_index.html"><i class="fa fa-edit fa-fw"></i> 登记申请</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
@@ -291,8 +291,8 @@
                                 <div class="col-lg-12">
 
                                     <div class="form-group">
-                                        <button type="button" class="layui-btn" id="photoUpload">
-                                            <i class="layui-icon">&#xe67c;</i>上传图片
+                                        <button type="button" class="layui-btn" id="asset_file">
+                                            <i class="layui-icon">&#xe67c;</i>上传资产原件
                                         </button>
                                         <span id="files"></span>
                                     </div>
@@ -360,14 +360,16 @@
         var upload = layui.upload;
         //执行实例
         var uploadInst = upload.render({
-            elem: '#photoUpload' //绑定元素
-            , url: '/upload/' //上传接口
+            elem: '#asset_file' //绑定元素
+            , url: '/asset/file_upload' //上传接口
             , multiple: true
             , done: function (res, index, upload) {
                 //上传完毕回调
+                alert(res);
             }
             , error: function () {
                 //请求异常回调
+                alert(res);
             }
         });
     });

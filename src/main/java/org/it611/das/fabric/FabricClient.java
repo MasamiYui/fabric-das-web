@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -67,10 +68,14 @@ public class FabricClient {
     public Channel createDefaultChannel() throws InvalidArgumentException, MalformedURLException, org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException, TransactionException {
 
         Channel channel = client.newChannel(configure.getChannelName());//name:mychannel
-        channel.addPeer(client.newPeer("peer",
+        channel.addPeer(client.newPeer("peer0org1",
                 configure.getOrgHashMap().get("org1").getPeerLocation("peer0org1")));
         channel.addOrderer(client.newOrderer("org1",
                 configure.getOrgHashMap().get("org1").getOrdererLocation("orderer")));
+        System.out.println( configure.getOrgHashMap().get("org1").getPeerLocation("peer0org1"));
+        channel.addEventHub(client.newEventHub("peer0org1", configure.getOrgHashMap().get("org1").getPeerLocation("peer0org1")));
+        //EventHub eventHub = new EventHub("peer0.org1.example.com", configure.getOrgHashMap().get("org1").getPeerLocation("peer0org1")),);
+        //channel.addEventHub();
         channel.initialize();
         return channel;
     }
@@ -107,6 +112,41 @@ public class FabricClient {
         return prsp;
     }
 
+
+    /**
+     * 根据给定的数据调用链码写入账本中,KV形式
+     */
+    public ProposalResponse instertAndReceiveFuture(Channel channel, LedgerRecord record) throws Exception {
+        ProposalResponse prsp = null;
+        TransactionProposalRequest req = client.newTransactionProposalRequest();
+        req.setChaincodeID(cid);
+        req.setFcn("addAsset");
+        req.setArgs(record.toStringArray());
+        req.setTransientMap(getDefaultTransientMap());
+        Collection<ProposalResponse> resps = channel.sendTransactionProposal(req);
+        for (ProposalResponse res: resps) {
+            prsp = res;
+        }
+        CompletableFuture<BlockEvent.TransactionEvent> future = channel.sendTransaction(resps);//管道发送数据
+        if (prsp.getStatus() != ChaincodeResponse.Status.SUCCESS) {//如果提议失败，抛出异常，结束本次交易
+            throw new Exception();
+        }
+
+        future.thenApply(transactionEvent -> {
+            if(transactionEvent.isValid()) {
+                logger.info("success send transaction to order. Transaction id:"+ transactionEvent.getTransactionID());
+            }else {
+                logger.info("fail to send transaction to order.");
+            }
+            //channel.shutdown(true);
+            return transactionEvent.getTransactionID();
+        }).get(60, TimeUnit.SECONDS);
+        return prsp;
+    }
+
+
+
+
     /**
     /**
      * 实现根据给定的Key查询数据
@@ -140,12 +180,12 @@ public class FabricClient {
         req.setChaincodeID(cid);
         req.setFcn("queryAssetsByOwner");
         req.setArgs(new String[]{key});
-        System.out.println("Querying for " + key);
+        //System.out.println("Querying for " + key);
         Collection<ProposalResponse> resps = channel.queryByChaincode(req);
         for (ProposalResponse resp : resps) {
             String payload = new String(resp.getChaincodeActionResponsePayload());
             logger.debug("response: " + payload);
-            System.out.println(payload);
+            //System.out.println(payload);
         }
     }
 
@@ -179,7 +219,6 @@ public class FabricClient {
         req.setChaincodeID(cid);
         req.setFcn("delkv");
         req.setArgs(new String[]{key});
-        //TODO 该段代码必须调用，但是未在官方的代码中找到相关的代码说明
         Map<String, byte[]> tm2 = new HashMap<>();
         tm2.put("HyperLedgerFabric", "TransactionProposalRequest:JavaSDK".getBytes(UTF_8));
         tm2.put("method", "TransactionProposalRequest".getBytes(UTF_8));
