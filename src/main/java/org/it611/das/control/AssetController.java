@@ -17,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AssetController {
@@ -43,17 +45,22 @@ public class AssetController {
      */
     @RequestMapping("/asset/file_upload")
     @ResponseBody
-    public String singleFileUpload(MultipartFile file) throws IOException {
+    public Map<String,String> singleFileUpload(MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             logger.info("empty file.");
-            return "empty file.";
+          //  return "empty file.";
+            return new HashMap<>();
         }
         String path=FastDFSClient.saveFile(file);//将文件上传到fastDFS，返回http url
         /**
          *编写回调接口
          */
         logger.info("upload file path:"+path);
-        return path;
+
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("path", path);
+        return map;
+//        return path;
     }
 
 
@@ -70,4 +77,5 @@ public class AssetController {
         }
         return "false";
     }
+
 }

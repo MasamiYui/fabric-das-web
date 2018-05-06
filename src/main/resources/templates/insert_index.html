@@ -286,8 +286,6 @@
                                             </label>
                                         </div>
                                     </div>
-
-
                                 </div>
 
                                 <div class="col-lg-6">
@@ -317,16 +315,13 @@
                                     </div>
                                 </div>
 
-                                <!--上传-->
+                                <!--上传图片-->
                                 <div class="col-lg-12">
-
-                                    <div class="form-group">
-                                        <button type="button" class="layui-btn" id="asset_file">
-                                            <i class="layui-icon">&#xe67c;</i>上传资产原件
-                                        </button>
-                                        <span id="files"></span>
-                                    </div>
-
+                                    <button type="button" class="layui-btn" id="test2">多图片上传</button>
+                                    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                                        预览图：
+                                        <div class="layui-upload-list" id="demo2"></div>
+                                    </blockquote>
                                 </div>
 
                                 <!-- /.col-lg-6 (nested) -->
@@ -388,18 +383,21 @@
     <!-- 文件上传-->
     layui.use('upload', function () {
         var upload = layui.upload;
-        //执行实例
-        var uploadInst = upload.render({
-            elem: '#asset_file' //绑定元素
-            , url: '/asset/file_upload' //上传接口
-            , multiple: true
-            , done: function (res, index, upload) {
-                //上传完毕回调
-                alert(res);
+        //多图片上传
+        upload.render({
+            elem: '#test2'
+            ,url: '/asset/file_upload'
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img" />')
+                });
             }
-            , error: function () {
-                //请求异常回调
-                alert(res);
+            ,done: function(res){
+                //上传完毕
+                console.log(res);
+                alert(res.path);
             }
         });
     });

@@ -30,6 +30,8 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
+    thymeleaf:
+      cache: false
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: org.it611.das.domain
