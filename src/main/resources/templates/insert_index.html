@@ -36,6 +36,18 @@
     <!--引入jquery-->
     <script th:src="@{/jcstatic/vendor/jquery/jquery.js}"></script>
 
+    <style type="text/css">
+
+        #form .input-group .input-group-addon.aa {
+            padding: 9px 20px;
+            font-weight: 700;
+        }
+
+        #form .input-group .input-group-addon.aa.bb {
+            padding: 9px 27px;
+        }
+
+    </style>
 
 </head>
 
@@ -197,19 +209,29 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <form role="form" id="form">
-                        <!--资产的拥有者、类型-->
+                        <!--资产标题、拥有者、类型、描述-->
                         <div class="panel-heading  control-group">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon">资产拥有者</span>
+                            <div class="input-group ">
+                                <span class="input-group-addon aa bb">资产标题</span>
+                                <input type="text" class="form-control" placeholder="请填写标题"/>
+                            </div>
+
+                            <div class="input-group ">
+                                <span class="input-group-addon aa">资产拥有者</span>
                                 <input type="text" class="form-control" placeholder="请填写姓名"/>
 
-                                <span class="input-group-addon">资产类型</span>
+                                <span class="input-group-addon aa bb">资产类型</span>
                                 <select id="assetType" class="form-control">
                                     <option value="student">学生证</option>
                                     <option value="video">视频</option>
                                     <option value="music">音乐</option>
                                 </select>
                             </div>
+                            <div class="input-group">
+                                <span class="input-group-addon aa bb">资产描述</span>
+                                <textarea rows="3" class="form-control" placeholder="请填写资产描述"></textarea>
+                            </div>
+
                         </div>
 
                         <!--资产类型的具体表单-->
@@ -231,6 +253,14 @@
                                             <option>信电学院</option>
                                             <option>计算机学院</option>
                                             <option>软件学院</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>学制</label>
+                                        <select class="form-control">
+                                            <option>3年</option>
+                                            <option>4年</option>
+                                            <option>5年</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -262,7 +292,7 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>籍贯</label>
+                                        <label>地址</label>
                                         <select class="form-control">
                                             <option>江苏</option>
                                             <option>浙江</option>
