@@ -4,3 +4,4 @@ fabric-das-web/.DS_Store
 *.iml
 */*.iml
 blockchain-explorer/node_modules/*
+.idea/*
