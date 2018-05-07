@@ -42,24 +42,23 @@
 
     <style type="text/css">
 
-        #form .input-group .input-group-addon.aa {
+        #dataform .input-group .input-group-addon.aa {
             padding: 9px 20px;
             font-weight: 700;
         }
 
-        #form .input-group .input-group-addon.aa.bb {
+        #dataform .input-group .input-group-addon.aa.bb {
             padding: 9px 27px;
         }
 
-        .layui-upload-img{
+        .layui-upload-img {
             width: 100px;
             height: 100px;
-            margin:0 10px 10px 0;
+            margin: 0 10px 10px 0;
         }
     </style>
 
 </head>
-
 
 
 <body>
@@ -208,40 +207,43 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <form role="form" id="form">
+                    <form role="form" id="dataform">
+                        <!--图片的地址-->
+                        <input type="hidden" name="files" id="files"/>
                         <!--资产标题、拥有者、类型、描述-->
                         <div class="panel-heading  control-group">
                             <div class="input-group ">
                                 <span class="input-group-addon aa bb">资产标题</span>
-                                <input type="text" class="form-control" placeholder="请填写标题"/>
+                                <input name="title" type="text" class="form-control" placeholder="请填写标题"/>
                             </div>
 
                             <div class="input-group ">
                                 <span class="input-group-addon aa">资产拥有者</span>
-                                <input type="text" class="form-control" placeholder="请填写姓名"/>
+                                <input type="text" name="owners" class="form-control" placeholder="请填写姓名"/>
+
 
                                 <span class="input-group-addon aa bb">资产类型</span>
-                                <select id="assetType" class="form-control">
-                                    <option value="student">学生证</option>
+                                <select name="type" id="assetType" class="form-control">
+                                    <option value="1">学生证</option>
                                     <option value="video">视频</option>
                                     <option value="music">音乐</option>
                                 </select>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon aa bb">资产描述</span>
-                                <textarea rows="3" class="form-control" placeholder="请填写资产描述"></textarea>
+                                <textarea rows="3" name="des" class="form-control" placeholder="请填写资产描述"></textarea>
                             </div>
 
                         </div>
 
                         <!--资产类型的具体表单-->
-                        <div id ="fcontent" class="panel-body">
+                        <div id="fcontent" class="panel-body">
                             <div class="row">
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>学校</label>
-                                        <select class="form-control">
+                                        <select name="school" class="form-control">
                                             <option>重庆邮电大学</option>
                                             <option>江苏大学</option>
                                             <option>南京大学</option>
@@ -249,7 +251,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>学院</label>
-                                        <select class="form-control">
+                                        <select name="college" class="form-control">
                                             <option>信电学院</option>
                                             <option>计算机学院</option>
                                             <option>软件学院</option>
@@ -257,7 +259,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>学制</label>
-                                        <select class="form-control">
+                                        <select name="lengthOfSchooling" class="form-control">
                                             <option>3年</option>
                                             <option>4年</option>
                                             <option>5年</option>
@@ -265,23 +267,23 @@
                                     </div>
                                     <div class="form-group">
                                         <label>姓名</label>
-                                        <input class="form-control"/>
+                                        <input name="name" class="form-control"/>
                                     </div>
 
                                     <div class="form-group">
                                         <label>学号</label>
-                                        <input class="form-control"/>
+                                        <input name="stuId" class="form-control"/>
                                     </div>
                                     <div class="form-group">
                                         <label>性别</label>
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <input type="radio" name="optionsRadios" id="maleoption"
+                                                <input type="radio" name="sex" id="maleoption"
                                                        value="male" checked="true"/>男
                                             </label>
 
                                             <label class="radio-inline">
-                                                <input type="radio" name="optionsRadios" id="femaleoption"
+                                                <input type="radio" name="sex" id="femaleoption"
                                                        value="female"/>女
                                             </label>
                                         </div>
@@ -291,7 +293,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>地址</label>
-                                        <select class="form-control">
+                                        <select name="address" class="form-control">
                                             <option>江苏</option>
                                             <option>浙江</option>
                                             <option>山东</option>
@@ -299,19 +301,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label>身份证号码</label>
-                                        <input class="form-control"/>
+                                        <input name="idCardNo" class="form-control"/>
                                     </div>
                                     <div class="form-group">
                                         <label>出生年月</label>
-                                        <input type="text" class="form-control" id='birth'/>
+                                        <input type="text" name="dateOfBirth" class="form-control" id='birth'/>
                                     </div>
                                     <div class="form-group">
                                         <label>入校时间</label>
-                                        <input type="text" class="form-control" id='admissiondate'/>
+                                        <input name="schoolTime" type="text" class="form-control" id='admissiondate'/>
                                     </div>
                                     <div class="form-group">
                                         <label>发证时间</label>
-                                        <input type="text" class="form-control" id='certdate'/>
+                                        <input name="timeOfIssume" type="text" class="form-control" id='certdate'/>
                                     </div>
                                 </div>
 
@@ -326,18 +328,22 @@
 
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
+
+                            <!--确认按钮-->
                             <div class="col-lg-12 text-right">
-                                <button type="submit" class="btn btn-primary btn-info" style="width: 100px;">
+                                <button type="button" id="btSubmit" class="btn btn-primary btn-info"
+                                        style="width: 100px;">
                                     确&nbsp;&nbsp;定
                                 </button>
-                                <button type="reset" class="btn btn-primary btn-info" style="width: 100px;">重&nbsp;&nbsp;置
+                                <button type="button"  id="btBack" class="btn btn-primary btn-info" style="width: 100px;">
+                                    重&nbsp;&nbsp;置
                                 </button>
                             </div>
 
                             <!-- /.row (nested) -->
                         </div>
                     </form>
-                        <!-- /.panel-body -->
+                    <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
             </div>
@@ -367,6 +373,111 @@
 
 
 <script>
+    $(document).ready(function () {
+        initform();
+    });
+
+    function initform() {
+        $("#btSubmit").click(function () {
+            var $this = $(this);
+            $this.prop("disabled", true);
+            if (validateForm()) {
+                var queryString = $("#dataform").serialize();
+                //alert("表单序列化的结果：："+queryString);
+                console.log("表单序列化的结果"+queryString);
+                $.ajax({
+                    type: "post",
+                    url: "/asset/insert/sica",
+                    data: queryString,
+                    dataType: "json",
+                    success: function (data) {
+
+                        msg("学生证资产插入成功");
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        $this.prop("disabled", false);
+                    }
+                });
+            } else {
+                $this.prop("disabled", false);
+            }
+
+        });
+    }
+
+    function validateForm() {
+        var reg = /^\d{18}$/;
+
+        var data = $('input[name="title"]').val();
+        if (data == "") {
+            msg("请填写资产标题");
+            $('input[name="title"]').focus();
+            return false;
+        }
+        data = $('input[name="owners"]').val();
+        if (data == "") {
+            msg("请填写资产拥有者");
+            $('input[name="owners"]').focus();
+            return false;
+        }
+        data = $('#assetType').val();
+        if (data == "") {
+            msg("请选择资产类型");
+            $('#assetType').focus();
+            return false;
+        }
+        data = $('input[name="name"]').val();
+        if (data == "") {
+            msg("请填写姓名");
+            $('input[name="name"]').focus();
+            return false;
+        }
+        data = $('input[name="stuId"]').val();
+        if (data == "") {
+            msg("请填写学号");
+            $('input[name="stuId"]').focus();
+            return false;
+        }
+
+        data = $('input[name="idCardNo"]').val();
+        if (data == "") {
+            msg("请填写身份证号");
+            return false;
+        } else {
+            if (reg.test(data)) {
+                var year = data.substring(6,10);
+                var month = data.substring(10,12);
+                var day = data.substring(12,14);
+                var value = year + "-" + month + "-" + day;
+                $('input[name="dateOfBirth"]').val(value);
+            } else {
+                msg("请填写合法的身份证号");
+                //$('input[name="dateOfBirth"]').focus();
+                return false;
+            }
+        }
+
+        data = $('input[name="schoolTime"]').val();
+        if (data == "") {
+            msg("请选择入学时间");
+            $('input[name="schoolTime"]').focus();
+            return false;
+        }
+        data = $('input[name="timeOfIssume"]').val();
+        if (data == "") {
+            msg("请选择发证时间");
+            $('input[name="timeOfIssume"]').focus();
+            return false;
+        }
+        return true;
+    }
+
+    function msg(data) {
+            layer.msg(data, {
+                time: 1000, //1s后自动关闭
+         });
+    }
+
 
     var content = $("#fcontent").html();
     $("#assetType").change(function () {
@@ -379,25 +490,25 @@
 
     });
 
-
     <!-- 文件上传-->
     layui.use('upload', function () {
         var upload = layui.upload;
         //多图片上传
         upload.render({
             elem: '#test2'
-            ,url: '/asset/file_upload'
-            ,multiple: true
-            ,before: function(obj){
+            , url: '/asset/file_upload'
+            , multiple: true
+            , before: function (obj) {
                 //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img" />')
+                obj.preview(function (index, file, result) {
+                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img" />')
                 });
             }
-            ,done: function(res){
-                //上传完毕
+            , done: function (res) {
+                if (res.code > 0) {
+                    $("#files").val(res.data.path);
+                }
                 console.log(res);
-                alert(res.path);
             }
         });
     });

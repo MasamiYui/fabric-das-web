@@ -72,6 +72,7 @@ public class AssetController {
     @ResponseBody//记得删除
     public String insert(StudentIdCardAssetVO sica) throws Exception {
 
+        System.out.println("=======>"+sica.toString());
         if(assetService.InsertStudentIdCardAsset(sica) == State.SUCCESS) {
             return "success";
         }
