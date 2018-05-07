@@ -2,13 +2,16 @@ server:
   port: 8088
 
 logging:
-  path: C:\Users\YUI\Desktop
+  #path: C:\Users\YUI\Desktop
   level:
     root: INFO
     springframework:
       web:DEBUG
 
 spring:
+    mvc:
+        favicon:
+          enabled: false
     datasource:
         name: das
         url: jdbc:mysql://192.168.10.128:3306/das?useUnicode=true&characterEncoding=UTF-8&useSSL=false
@@ -36,60 +39,9 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: org.it611.das.domain
 
-#pagehelper分页插件
-#pagehelper:
-#    helperDialect: mysql
-#    reasonable: true
-#    supportMethodsArguments: true
-#    params: count=countSql
 
 couchdb:
   ip: http://192.168.10.128
   port: :5984
   db: /mychannel
   cc: /asset02
-
-
-
-
-#fabric:
-#  cc:
-#    name: asset002
-#    version: 0.2
-#    channel_name: mychannel
-#  org:
-#    org1:
-#      name: org1
-#      mspid: org1MSP
-#        peer0:
-#          name: peer0org1
-#          location: grpc://localhost:7051
-#        peer1:
-#          name: peer1org1
-#          location: grpc://localhost:7051
-#        order:
-#          location: grpc://localhost:7050
-#        ca_location: http://localhost:7054
-#        Admin:
-#          name: Admin
-#        User:
-#          name: User1
-#          mspid: Org1MSP
-#
-#    org2:
-#      name: org2
-#      mspid: org2MSP
-#        peer0:
-#          name: peer0org2
-#          location: grpc://localhost:7051
-#        peer1:
-#          name: peer1org2
-#          location: grpc://localhost:7051
-#        order:
-#          location: grpc://localhost:7050
-#        ca_location: http://localhost:7054
-#        Admin:
-#          name: Admin
-#        User:
-#          name: User1
-#          mspid: Org2MSP
