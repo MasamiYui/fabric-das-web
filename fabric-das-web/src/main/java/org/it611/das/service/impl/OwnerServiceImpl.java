@@ -31,7 +31,6 @@ public class OwnerServiceImpl implements OwnerService {
 
         PageHelper.startPage(pageNum, pageSize);
         List<HashMap> resultData = userDao.selectUsers();
-        logger.info("inert data to mysql:"+resultData.toString());
         return resultData;
     }
 
@@ -44,5 +43,19 @@ public class OwnerServiceImpl implements OwnerService {
             return State.SUCCESS;
         }
         return State.FALSE;
+    }
+
+    @Override
+    public List<HashMap> selectUsersByName(int pageNum, int pageSize, String name) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<HashMap> resultData = userDao.selectUsersByName(name);
+        return resultData;
+    }
+
+    @Override
+    public List<HashMap> selectUsersById(int pageNum, int pageSize, String id) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<HashMap> resultData = userDao.selectUsersById(id);
+        return resultData;
     }
 }

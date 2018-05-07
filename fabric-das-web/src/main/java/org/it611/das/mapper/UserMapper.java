@@ -15,5 +15,11 @@ public interface UserMapper {
     //新增一名用户
     int insertUser(User user);
 
+    //查询用户通过姓名
+    List<HashMap> selectUsersByName(String name);
+
+    //查询用户通过身份证
+    List<HashMap> selectUsersById(String id);
+
 
 }

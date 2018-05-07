@@ -15,4 +15,14 @@
         #{submitTime,jdbcType=VARCHAR},#{state,jdbcType=INTEGER},#{files,jdbcType=VARCHAR})
     </insert>
 
+    <!--根据用户姓名进行模糊查询 -->
+    <select id="selectUsersByName" parameterType="java.lang.String" resultType="java.util.HashMap">
+        select * from user where name like concat('%',#{name},'%')
+    </select>
+
+    <!--根据用户身份证Id进行模糊查询 -->
+    <select id="selectUsersById" parameterType="java.lang.String" resultType="java.util.HashMap">
+        select * from user where id like concat('%',#{id},'%')
+    </select>
+
 </mapper>
