@@ -1,9 +1,11 @@
 package org.it611.das.control;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;
 import org.it611.das.fastdfs.FastDFSClient;
 import org.it611.das.fastdfs.FastDFSFile;
 import org.it611.das.service.AssetService;
+import org.it611.das.util.ResponseUtil;
 import org.it611.das.util.State;
 import org.it611.das.vo.StudentIdCardAssetVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,24 +47,16 @@ public class AssetController {
      */
     @RequestMapping("/asset/file_upload")
     @ResponseBody
-    public Map<String,String> singleFileUpload(MultipartFile file) throws IOException {
+    public JSONObject singleFileUpload(MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             logger.info("empty file.");
-          //  return "empty file.";
-            return new HashMap<>();
+            return ResponseUtil.constructResponse(400,"empty file.",null);
         }
         String path=FastDFSClient.saveFile(file);//将文件上传到fastDFS，返回http url
-        /**
-         *编写回调接口
-         */
-        logger.info("upload file path:"+path);
-
-        Map<String,String> map = new HashMap<String,String>();
-        map.put("path", path);
-        return map;
-//        return path;
+        Map<String,String> dataMap = new HashMap<String,String>();
+        dataMap.put("path", path);
+        return ResponseUtil.constructResponse(200,"ok",dataMap);
     }
-
 
 
     /**
@@ -78,5 +72,4 @@ public class AssetController {
         }
         return "false";
     }
-
 }

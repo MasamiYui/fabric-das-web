@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.UserMapper" >
+
+    <!--查询用户列表 -->
+    <select id="selectUsers" resultType="java.util.HashMap">
+      select * from user
+    </select>
+
+    <!--添加一名用户 -->
+    <insert id="insertUser" parameterType="org.it611.das.domain.User" >
+        insert into user (id, `name`, sex, nation, `date`, address, submitTime, `state`, files)
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
+        #{nation,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+        #{submitTime,jdbcType=VARCHAR},#{state,jdbcType=INTEGER},#{files,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>

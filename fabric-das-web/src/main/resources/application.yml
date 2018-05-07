@@ -35,13 +35,19 @@ spring:
         maxOpenPreparedStatements: 20
     thymeleaf:
       cache: false
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: org.it611.das.domain
-
 
 couchdb:
   ip: http://192.168.10.128
   port: :5984
   db: /mychannel
   cc: /asset02
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
