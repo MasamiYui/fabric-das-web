@@ -105,6 +105,13 @@
             <version>1.5.7.RELEASE</version>
         </dependency>
 
+        <!--解决标签没有闭合的问题-->
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+
         <!-- json & xml -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

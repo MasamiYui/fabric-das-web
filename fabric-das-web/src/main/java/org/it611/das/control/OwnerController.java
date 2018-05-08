@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,15 +25,15 @@ public class OwnerController {
 
     /**
      * 查询所有用户
-     * @param pageNumber
-     * @param pageSize
+     * @param numberOfPages
+     * @param currentPage
      * @return
      */
     @RequestMapping("/owner/user/list")
     @ResponseBody
-    public JSONObject selectUsers(int pageNumber, int pageSize){
+    public JSONObject selectUsers(int currentPage,int numberOfPages, String searchString,String searchId){
 
-        List<HashMap> data = ownerService.selectUsers(pageNumber, pageSize);
+        HashMap data = ownerService.selectUsers(currentPage, numberOfPages,searchString,searchId);
         return ResponseUtil.constructResponse(200,"ok", data);
     }
 
@@ -53,51 +54,12 @@ public class OwnerController {
         return ResponseUtil.constructResponse(400,"insert user fail.", null);
     }
 
-    /**
-     * 查询用户通过用户姓名
-     * @param pageNumber
-     * @param pageSize
-     * @param name
-     * @return
-     */
-    @RequestMapping("/owner/user/select/name")
-    @ResponseBody
-    public JSONObject selectUsersByName(int pageNumber, int pageSize, String name){
-
-        List<HashMap> data = ownerService.selectUsersByName(pageNumber, pageSize, name);
-        return ResponseUtil.constructResponse(200,"ok", data);
-    }
-
-    /**
-     * 查询用户通过用户的身份证ID
-     * @param pageNumber
-     * @param pageSize
-     * @param id
-     * @return
-     */
-    @RequestMapping("/owner/user/select/id")
-    @ResponseBody
-    public JSONObject selectUsersById(int pageNumber, int pageSize, String id){
-
-        List<HashMap> data = ownerService.selectUsersById(pageNumber, pageSize, id);
-        return ResponseUtil.constructResponse(200,"ok", data);
-    }
-
-
-    /**
-     * 查询用户通过用户的用户名和身份证ID
-     * @param pageNumber
-     * @param pageSize
-     * @param name
-     * @param id
-     * @return
-     */
-    @RequestMapping("/owner/user/select/name_and_id")
-    @ResponseBody
-    public JSONObject selectUsersByName(int pageNumber, int pageSize, String name, String id){
-
-        List<HashMap> data = ownerService.selectUsersByNameAndId(pageNumber, pageSize, name, id);
-        return ResponseUtil.constructResponse(200,"ok", data);
+    //进入table.html
+    @RequestMapping("/owner/user")
+    public ModelAndView selectUsers(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("tables");
+        return modelAndView;
     }
 
 }

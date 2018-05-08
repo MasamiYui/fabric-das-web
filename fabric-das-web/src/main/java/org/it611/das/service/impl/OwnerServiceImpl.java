@@ -24,14 +24,22 @@ public class OwnerServiceImpl implements OwnerService {
     @Autowired
     private UserMapper userDao;
 
-
+    //pageNum:页码  pageSize:记录数
     @Transactional
     @Override
-    public List<HashMap> selectUsers(int pageNum, int pageSize) {
+    public HashMap<String, Object> selectUsers(int pageNum, int pageSize,String name,String id) {
 
+        HashMap data = new HashMap<String,Object>();
         PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = userDao.selectUsers();
-        return resultData;
+
+
+        List<HashMap> resultData = userDao.selectUsersByNameAndId(name, id);
+        //List<HashMap> resultData = userDao.selectUsers();
+
+        long total = userDao.selectTotal();
+        data.put("rows", resultData);
+        data.put("total", total);
+        return data;
     }
 
     @Transactional
@@ -43,26 +51,5 @@ public class OwnerServiceImpl implements OwnerService {
             return State.SUCCESS;
         }
         return State.FALSE;
-    }
-
-    @Override
-    public List<HashMap> selectUsersByName(int pageNum, int pageSize, String name) {
-        PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = userDao.selectUsersByName(name);
-        return resultData;
-    }
-
-    @Override
-    public List<HashMap> selectUsersById(int pageNum, int pageSize, String id) {
-        PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = userDao.selectUsersById(id);
-        return resultData;
-    }
-
-    @Override
-    public List<HashMap> selectUsersByNameAndId(int pageNum, int pageSize, String name, String id) {
-        PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = userDao.selectUsersByNameAndId(name, id);
-        return resultData;
     }
 }
