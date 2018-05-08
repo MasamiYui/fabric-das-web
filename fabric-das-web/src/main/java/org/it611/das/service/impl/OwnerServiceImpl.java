@@ -32,11 +32,13 @@ public class OwnerServiceImpl implements OwnerService {
         HashMap data = new HashMap<String,Object>();
         PageHelper.startPage(pageNum, pageSize);
 
+        System.out.println("=======>>>"+name);
+        System.out.println("=======>>>"+id);
 
         List<HashMap> resultData = userDao.selectUsersByNameAndId(name, id);
         //List<HashMap> resultData = userDao.selectUsers();
 
-        long total = userDao.selectTotal();
+        long total = userDao.selectTotal(name,id);
         data.put("rows", resultData);
         data.put("total", total);
         return data;

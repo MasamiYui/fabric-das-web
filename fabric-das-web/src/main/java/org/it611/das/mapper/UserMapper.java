@@ -26,7 +26,7 @@ public interface UserMapper {
     List<HashMap> selectUsersByNameAndId(@Param("name")String name, @Param("id")String id);
 
     //查询用户总数
-    Long selectTotal();
+    Long selectTotal(@Param("name")String name, @Param("id")String id);
 
 
 }

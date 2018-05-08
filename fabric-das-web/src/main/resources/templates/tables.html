@@ -364,7 +364,9 @@
     function getParams() {
         var queryParams = {
             numberOfPages: 10,   //每页的记录数
-            currentPage: 1        //当前页码
+            currentPage: 1,        //当前页码
+            searchString:'',
+            searchId:''
         };
         //查询条件
         var searchString = $('#searchString').val();
