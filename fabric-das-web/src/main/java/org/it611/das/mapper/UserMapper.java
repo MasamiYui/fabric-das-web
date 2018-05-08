@@ -1,5 +1,6 @@
 package org.it611.das.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.it611.das.domain.User;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,9 @@ public interface UserMapper {
 
     //查询用户通过身份证
     List<HashMap> selectUsersById(String id);
+
+    //查询用户通过姓名和身份证
+    List<HashMap> selectUsersByNameAndId(@Param("name")String name, @Param("id")String id);
 
 
 }

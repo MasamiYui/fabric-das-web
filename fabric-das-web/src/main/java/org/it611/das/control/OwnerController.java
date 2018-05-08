@@ -84,4 +84,20 @@ public class OwnerController {
     }
 
 
+    /**
+     * 查询用户通过用户的用户名和身份证ID
+     * @param pageNumber
+     * @param pageSize
+     * @param name
+     * @param id
+     * @return
+     */
+    @RequestMapping("/owner/user/select/name_and_id")
+    @ResponseBody
+    public JSONObject selectUsersByName(int pageNumber, int pageSize, String name, String id){
+
+        List<HashMap> data = ownerService.selectUsersByNameAndId(pageNumber, pageSize, name, id);
+        return ResponseUtil.constructResponse(200,"ok", data);
+    }
+
 }

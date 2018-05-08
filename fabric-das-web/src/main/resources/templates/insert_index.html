@@ -210,6 +210,8 @@
                     <form role="form" id="dataform">
                         <!--图片的地址-->
                         <input type="hidden" name="files" id="files"/>
+                        <!--图片的Hash-->
+                        <input type="hidden" name="filesHash" id="filesHash"/>
                         <!--资产标题、拥有者、类型、描述-->
                         <div class="panel-heading  control-group">
                             <div class="input-group ">
@@ -390,11 +392,12 @@
                     data: queryString,
                     dataType: "json",
                     success: function (data) {
-
                         msg("学生证资产插入成功");
+                        alert("学生证资产录入成功.\n"+"资产id:"+data.data.assetId+"\n"+"区块链交易号:"+data.data.txId);//TODO 之后改为跳转页面
                     },
                     complete: function (XMLHttpRequest, textStatus) {
                         $this.prop("disabled", false);
+                        window.location.reload(true);
                     }
                 });
             } else {
@@ -506,6 +509,7 @@
             , done: function (res) {
                 if (res.code > 0) {
                     $("#files").val(res.data.path);
+                    $("#filesHash").val(res.data.filesHash);
                 }
                 console.log(res);
             }

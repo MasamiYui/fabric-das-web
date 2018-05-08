@@ -58,4 +58,11 @@ public class OwnerServiceImpl implements OwnerService {
         List<HashMap> resultData = userDao.selectUsersById(id);
         return resultData;
     }
+
+    @Override
+    public List<HashMap> selectUsersByNameAndId(int pageNum, int pageSize, String name, String id) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<HashMap> resultData = userDao.selectUsersByNameAndId(name, id);
+        return resultData;
+    }
 }

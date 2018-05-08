@@ -26,8 +26,6 @@ public class CouchDB {
     @Value("${couchdb.cc}")
     private String CC;
 
-
-
     /**
      * Response：
      * {

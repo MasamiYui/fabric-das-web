@@ -30,10 +30,10 @@
 
     <!--插入资产数字文件-->
     <insert id="insertAssetFiles" parameterType="java.util.List">
-        insert into asset_file (id, asset_id, file_url)
+        insert into asset_file (id, asset_id, file_url, file_hash)
         values
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.id,jdbcType=VARCHAR}, #{item.assetId,jdbcType=VARCHAR},#{item.fileUrl,jdbcType=VARCHAR})
+            (#{item.id,jdbcType=VARCHAR}, #{item.assetId,jdbcType=VARCHAR},#{item.fileUrl,jdbcType=VARCHAR},#{item.fileHash,jdbcType=VARCHAR})
         </foreach>
     </insert>
 

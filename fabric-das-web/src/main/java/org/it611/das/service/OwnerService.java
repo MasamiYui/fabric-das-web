@@ -20,4 +20,7 @@ public interface OwnerService {
     //查询用户通过id
     List<HashMap> selectUsersById(int pageNum, int pageSize, String id);
 
+    //查询用户通过名字和id
+    List<HashMap> selectUsersByNameAndId(int pageNum, int pageSize, String name, String id);
+
 }

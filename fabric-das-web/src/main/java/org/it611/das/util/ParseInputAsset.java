@@ -14,7 +14,6 @@ public class ParseInputAsset {
     public static Map<String, Object> parseStuIdCardAsset(StudentIdCardAssetVO aicaVO) throws IOException {
 
         String assetId = IdUtil.getId();
-
         Map<String, Object> dataMap = new HashMap<>();
         ArrayList<AssetUser> assetUserList = new ArrayList<>();
         ArrayList<AssetFiles> assetFileList = new ArrayList<>();
@@ -38,19 +37,21 @@ public class ParseInputAsset {
 
         //解析所有的电子文件
         String filesUrls = aicaVO.getFiles();
-        //尝试对fileUrls进行切分
         String[] urlArr = filesUrls.split(";");
-        for(String url: urlArr) {
-            AssetFiles af = new AssetFiles(IdUtil.getId(), assetId, url);
+        String filesHash = aicaVO.getFilesHash();
+        String[] fileHashArr = filesHash.split(";");
+        int fileNum = fileHashArr.length;
+        for(int i=0; i<fileNum; i++) {
+            AssetFiles af = new AssetFiles(IdUtil.getId(), assetId, urlArr[i], fileHashArr[i]);
             assetFileList.add(af);
         }
 
+
         //解析需要写入Fabric中的数据
-        String[] fileHash = {"testtest"};
         FabricStudentIdCardAsset fabricStudentIdCardAsset = new FabricStudentIdCardAsset(aicaVO.getType(), aicaVO.getTitle(), userArr,
                 aicaVO.getDes(), aicaVO.getStuId(), aica.getSchool(), aica.getName(), aicaVO.getSex(), aicaVO.getDateOfBirth(),
                 aica.getIdCardNo(), aica.getLengthOfSchooling(), aicaVO.getCollege(), aica.getAddress(), aica.getSchoolTime(),
-                aica.getTimeOfIssume(), fileHash);
+                aica.getTimeOfIssume(), fileHashArr);
         String fabricStudentIdCardAssetJson = JsonUtil.bean2Json(fabricStudentIdCardAsset);
 
 
@@ -61,7 +62,6 @@ public class ParseInputAsset {
         dataMap.put("studentIdCardAsset", aica);
         dataMap.put("assetFilesList", assetFileList);
         dataMap.put("fabricStudentIdCardAssetJson",fabricStudentIdCardAssetJson);
-
         return dataMap;
     }
 

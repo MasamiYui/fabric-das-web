@@ -8,6 +8,8 @@ public class AssetFiles {
 
     private String fileUrl;
 
+    private String fileHash;
+
     public String getId() {
         return id;
     }
@@ -32,9 +34,18 @@ public class AssetFiles {
         this.fileUrl = fileUrl;
     }
 
-    public AssetFiles(String id, String assetId, String fileUrl) {
+    public String getFileHash() {
+        return fileHash;
+    }
+
+    public void setFileHash(String fileHash) {
+        this.fileHash = fileHash;
+    }
+
+    public AssetFiles(String id, String assetId, String fileUrl, String fileHash) {
         this.id = id;
         this.assetId = assetId;
         this.fileUrl = fileUrl;
+        this.fileHash = fileHash;
     }
 }

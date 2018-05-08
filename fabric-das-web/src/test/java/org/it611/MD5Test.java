@@ -3,6 +3,8 @@ package org.it611;
 import org.it611.das.util.MD5Util;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
+
 public class MD5Test {
 
     @Test
@@ -36,6 +38,14 @@ public class MD5Test {
         String encoded2 ="b82353f81a5100e91c57e77477271fd37927a26128180783";
         System.out.println(MD5Util.verify(plaintext1, encoded1));
         System.out.println(MD5Util.verify(plaintext2, encoded2));
+
+    }
+
+    @Test
+    public void Test3() throws FileNotFoundException {
+
+        String file_path = "http://192.168.10.128:8080/group1/M00/00/00/wKgKgFrxRaSAF7CVAANlvPVzKlM67.jpeg";
+        System.out.println(MD5Util.md5HashCode(file_path));
 
     }
 

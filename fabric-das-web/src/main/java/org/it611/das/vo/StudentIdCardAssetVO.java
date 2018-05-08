@@ -35,6 +35,8 @@ public class StudentIdCardAssetVO extends BaseAssetVO {
     //电子文件
     private String files;
 
+    private String filesHash;
+
     public String getStuId() {
         return stuId;
     }
@@ -139,11 +141,19 @@ public class StudentIdCardAssetVO extends BaseAssetVO {
         this.files = files;
     }
 
+    public String getFilesHash() {
+        return filesHash;
+    }
+
+    public void setFilesHash(String filesHash) {
+        this.filesHash = filesHash;
+    }
+
     public StudentIdCardAssetVO() {
 
     }
 
-    public StudentIdCardAssetVO(String id, String type, String title, String assetDes, String submitTime, int state, String stuId, String school, String name, String sex, String dateOfBirth, String idCardNo, String lengthOfSchooling, String college, String address, String schoolTime, String timeOfIssume, String owners, String files) {
+    public StudentIdCardAssetVO(String id, String type, String title, String assetDes, String submitTime, int state, String stuId, String school, String name, String sex, String dateOfBirth, String idCardNo, String lengthOfSchooling, String college, String address, String schoolTime, String timeOfIssume, String owners, String files, String filesHash) {
         super(id, type, title, assetDes, submitTime, state);
         this.stuId = stuId;
         this.school = school;
@@ -158,7 +168,6 @@ public class StudentIdCardAssetVO extends BaseAssetVO {
         this.timeOfIssume = timeOfIssume;
         this.owners = owners;
         this.files = files;
+        this.filesHash = filesHash;
     }
-
-
 }

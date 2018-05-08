@@ -25,4 +25,9 @@
         select * from user where id like concat('%',#{id},'%')
     </select>
 
+    <!--根据用户姓名和身份证Id进行模糊查询 -->
+    <select id="selectUsersByNameAndId" resultType="java.util.HashMap">
+        select * from user where id like concat('%',#{id,jdbcType=VARCHAR},'%') and name like concat('%',#{name,jdbcType=VARCHAR},'%')
+    </select>
+
 </mapper>
