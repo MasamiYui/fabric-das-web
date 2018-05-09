@@ -7,6 +7,7 @@ logging:
     root: INFO
     springframework:
       web:DEBUG
+    org.it611.das.mapper : debug
 
 spring:
     mvc:
@@ -42,6 +43,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: org.it611.das.domain
+
 
 couchdb:
   ip: http://192.168.10.128

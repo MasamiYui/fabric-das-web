@@ -370,7 +370,7 @@
 <!-- Custom Theme JavaScript -->
 <script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
 
-<!--引入日期插件-->
+<!--引入layui:日期插件-->
 <script th:src="@{/jcstatic/layui/layui.js}"></script>
 
 
@@ -477,6 +477,7 @@
     function msg(data) {
             layer.msg(data, {
                 time: 1000, //1s后自动关闭
+                icon: 5
          });
     }
 

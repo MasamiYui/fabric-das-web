@@ -31,7 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
+		//防止iframe无法显示
+		http.headers().frameOptions().disable();
 		http.authorizeRequests()
 						//.antMatchers("/static/**","/css/**","/image/*").permitAll()
                         .antMatchers("**").permitAll()//开发环境下，允许所有请求

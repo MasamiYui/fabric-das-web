@@ -77,9 +77,16 @@ public class OwnerController {
      */
     @RequestMapping("/owner/user")
     public ModelAndView selectUsers(){
-
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("tables");
+        return modelAndView;
+    }
+
+    //测试获取新增用户的表单
+    @RequestMapping("/owner/getUserForm")
+    public ModelAndView getUserForm(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("userForm");
         return modelAndView;
     }
 

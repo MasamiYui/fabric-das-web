@@ -29,6 +29,9 @@
     <!-- Custom Fonts -->
     <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
 
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -204,13 +207,13 @@
                                id="tableList">
                             <thead>
                             <tr>
+                                <th>身份证号</th>
                                 <th>姓名</th>
                                 <th>性别</th>
                                 <th>民族</th>
                                 <th>日期</th>
                                 <th>所在地</th>
                                 <th>提交时间</th>
-                                <th>提交附件</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -264,6 +267,9 @@
 <!--引入分页插件-->
 <script th:src="@{/jcstatic/paginator/bootstrap-paginator.js}"></script>
 
+<!--引入layui插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
     $(document).keyup(function (event) {
@@ -279,7 +285,7 @@
         var queryParams = getParams();
         var numberOfPages = queryParams.numberOfPages;
         var currentPage = queryParams.currentPage;
-        console.log("页面加载完后：："+JSON.stringify(queryParams));
+        console.log("页面加载完后：：" + JSON.stringify(queryParams));
         $.ajax({
             type: "post",
             url: "/owner/user/list",
@@ -293,14 +299,14 @@
                     for (var i = 0; i < rows.length; i++) {
                         var row = rows[i];
                         var html = '<tr>'
+                            + '<td>' + row.id + '</td>'
                             + '<td>' + row.name + '</td>'
                             + '<td>' + row.sex + '</td>'
                             + '<td>' + row.nation + '</td>'
                             + '<td>' + row.date + '</td>'
                             + '<td>' + row.address + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td>' + row.files + '</td>'
-                            + '<td ><a href="w10/main.jsp?mpage=bprj/gyyq/gyyq-edit.jsp?id=' + row.id + '>修改</a></td>'
+                            + '<td ><a href="#"' + row.id + '>查看</a></td>'
                             + '</tr>';
                         items.append(html);
                     }
@@ -330,7 +336,7 @@
 
     //针对点击每一页的刷新
     function requestResult(url, subParams) {
-        console.log("点击页码时：："+JSON.stringify(subParams));
+        console.log("点击页码时：：" + JSON.stringify(subParams));
         $.ajax({
             type: "post",
             url: url,
@@ -344,14 +350,14 @@
                     for (var i = 0; i < rows.length; i++) {
                         var row = rows[i];
                         var html = '<tr>'
+                            + '<td>' + row.id + '</td>'
                             + '<td>' + row.name + '</td>'
                             + '<td>' + row.sex + '</td>'
                             + '<td>' + row.nation + '</td>'
                             + '<td>' + row.date + '</td>'
                             + '<td>' + row.address + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td>' + row.files + '</td>'
-                            + '<td ><a href="gyyq-edit.jsp?id=' + row.id + '>修改</a></td>'
+                            + '<td ><a href="#"' + row.id + '>查看</a></td>'
                             + '</tr>';
                         items.append(html);
                     }
@@ -365,8 +371,8 @@
         var queryParams = {
             numberOfPages: 10,   //每页的记录数
             currentPage: 1,        //当前页码
-            searchString:'',
-            searchId:''
+            searchString: '',
+            searchId: ''
         };
         //查询条件
         var searchString = $('#searchString').val();
@@ -380,11 +386,40 @@
         return queryParams;
     }
 
-    function add() {
-        alert("aaaaaa");
+    var index;
 
+    function add() {
+        // alert("aaaaaa");
+
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            index = layer.open({
+                title: ['用户新增一览表', 'font-size:18px;'],
+                anim: 4,
+                type: 2,
+                move: false,
+                resize: true,
+                offset: '70px',
+                area: ['400px', '800px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/owner/getUserForm'
+            });
+        });
+    }
+    function close(){
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.close(index);
+        });
     }
 
+    function add_Result(data){
+        layer.open({
+            title: '结果信息'
+            ,content: data
+        });
+    }
 </script>
 
 </body>
