@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.it611.das.service.OwnerService;
 import org.it611.das.util.ResponseUtil;
 import org.it611.das.util.State;
+import org.it611.das.vo.CompanyVO;
 import org.it611.das.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
-import java.util.List;
 
 @Controller
 public class OwnerController {
@@ -54,12 +54,66 @@ public class OwnerController {
         return ResponseUtil.constructResponse(400,"insert user fail.", null);
     }
 
-    //进入table.html
+
+    /**
+     * 删除一个用户
+     * @return
+     */
+    @RequestMapping("/owner/user/delete")
+    @ResponseBody
+    public JSONObject deleteUser(String id){
+
+        int result = ownerService.deleteUser(id);
+        if(result == 1){
+            return ResponseUtil.constructResponse(200,"ok", null);
+        }
+        return ResponseUtil.constructResponse(400,"delete user fail.", null);
+    }
+
+
+    /**
+     * 返回用户用户列表页面
+     * @return
+     */
     @RequestMapping("/owner/user")
     public ModelAndView selectUsers(){
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("tables");
         return modelAndView;
     }
+
+
+    /**
+     * 插入一条公司信息
+     * @param companyVO
+     * @return
+     */
+    @RequestMapping("/owner/company/add")
+    @ResponseBody
+    public JSONObject addCompany(CompanyVO companyVO) {
+
+        if(ownerService.addComany(companyVO) == State.SUCCESS){
+            return ResponseUtil.constructResponse(200,"ok", null);
+        }
+        return ResponseUtil.constructResponse(400,"insert user fail.", null);
+    }
+
+    /**
+     * 查询公司列表
+     * @param currentPage
+     * @param numberOfPages
+     * @param searchString
+     * @param searchId
+     * @return
+     */
+    @RequestMapping("/owner/company/list")
+    @ResponseBody
+    public JSONObject selectCompanies(int currentPage,int numberOfPages, String searchString,String searchId){
+
+        HashMap<String, Object> data = ownerService.selectCompanies(currentPage,numberOfPages, searchString, searchId);
+        return ResponseUtil.constructResponse(200,"ok", data);
+    }
+
 
 }

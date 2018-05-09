@@ -1,28 +1,26 @@
 package org.it611.das.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.it611.das.domain.User;
+import org.it611.das.domain.Company;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
 
 @Component
-public interface UserMapper {
+public interface CompanyMapper {
 
     //查询用户列表
-    List<HashMap> selectUsers();
+    List<HashMap> selectCompanies();
 
     //新增一名用户
-    int insertUser(User user);
+    int insertCompany(Company company);
+
 
     //查询用户通过姓名和身份证
-    List<HashMap> selectUsersByNameAndId(@Param("name")String name, @Param("id")String id);
+    List<HashMap> selectCompaniesByNameAndId(@Param("name")String name, @Param("id")String id);
 
     //查询用户总数
     Long selectTotal(@Param("name")String name, @Param("id")String id);
-
-    //删除用户通过Id
-    Integer deleteUserById(@Param("id")String id);
 
 }

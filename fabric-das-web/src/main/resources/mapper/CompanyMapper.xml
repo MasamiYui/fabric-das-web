@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.CompanyMapper" >
+
+    <!--查询公司列表 -->
+    <select id="selectCompanies" resultType="java.util.HashMap">
+      select * from user
+    </select>
+
+    <!--添加一个公司信息 -->
+    <insert id="insertCompany" parameterType="org.it611.das.domain.User" >
+        insert into company (id, `name`, `type`, address, legal_representative, registered_capital, start_time, end_time,
+        scopeof_business, registration_authority, audit_time, submit_time, files, state)
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+        #{address,jdbcType=VARCHAR}, #{legalRepresentative,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR},
+        #{startTime,jdbcType=VARCHAR},#{endTime,jdbcType=VARCHAR},#{scopeOfBusiness,jdbcType=VARCHAR},
+        #{registrationAuthority,jdbcType=VARCHAR},#{auditTime,jdbcType=VARCHAR},#{submitTime,jdbcType=VARCHAR},
+        #{state,jdbcType=INTEGER},#{files,jdbcType=VARCHAR})
+    </insert>
+
+    <!--根据公司名称和id进行模糊查询 -->
+    <select id="selectCompaniesByNameAndId" resultType="java.util.HashMap">
+       select * from company where id like concat('%',#{id},'%') and name like concat('%',#{name},'%')
+    </select>
+
+    <!--查询公司总数-->
+    <select id="selectTotal" resultType="java.lang.Long">
+        select
+        count(*)
+        from user   where id like concat('%',#{id},'%') and name like concat('%',#{name},'%')
+    </select>
+
+</mapper>
