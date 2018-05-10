@@ -113,10 +113,10 @@
             <div class="col-lg-6">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <strong>图片</strong>
+                        <strong>附件</strong>
                     </div>
                     <div class="panel-body">
-                        <div class="layui-upload-list" style="margin:0px" th:each="record:${records}">
+                        <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px" th:each="record:${records}">
                             <img th:src="${record.files}" class="layui-upload-img"/>
                         </div>
                     </div>
@@ -146,170 +146,15 @@
 <!--引入layui:日期插件-->
 <script th:src="@{/jcstatic/layui/layui.js}"></script>
 
-<!--
-
 <script>
-    $(document).ready(function () {
-       // initform();
-    });
-
-    function initform() {
-        $("#btSubmit").click(function () {
-            var $this = $(this);
-            $this.prop("disabled", true);
-            if (validateForm()) {
-                var queryString = $("#dataform").serialize();
-                console.log("新增用户表单结果：" + queryString);
-                $.ajax({
-                    type: "post",
-                    url: "/owner/user/add",
-                    data: queryString,
-                    dataType: "json",
-                    success: function (result) {
-                        console.log("新增用户后返回的code："+result.code);
-                        if(result.code=200){
-                            parent.add_Result("用户新增成功");
-                            parent.close();
-                            parent.search();
-                        }else if(result.code=400){
-                            parent.add_Result("用户新增失败");
-                            parent.close();
-                        }
-
-                    },
-                    complete: function (XMLHttpRequest, textStatus) {
-                        $this.prop("disabled", false);
-                    },
-
-                });
-            } else {
-                $this.prop("disabled", false);
-            }
-
-        });
-    }
-
-    function validateForm() {
-        var reg = /^\d{18}$/;
-
-        data = $('input[name="name"]').val();
-        if (data == "") {
-            msg("请填写姓名");
-            $('input[name="name"]').focus();
-            return false;
-        }
-
-        data = $('input[name="id"]').val();
-        if (data == "") {
-            msg("请填写身份证号");
-            $('input[name="id"]').focus();
-            return false;
-        } else {
-            if (reg.test(data)) {
-                var year = data.substring(6, 10);
-                var month = data.substring(10, 12);
-                var day = data.substring(12, 14);
-                var value = year + "-" + month + "-" + day;
-                var birth = $('input[name="date"]').val();
-                if (birth) {
-                    if (!(value == birth)) {
-                        msg("身份证号与出生年月不匹配，请重新填写身份证号");
-                        $('input[name="id"]').focus();
-                        return false;
-                    }
-                }
-            } else {
-                msg("请填写合法的身份证号");
-                $('input[name="id"]').focus();
-                return false;
-            }
-        }
-        data = $('input[name="address"]').val();
-        if (data == "") {
-            msg("请填写联系地址");
-            $('input[name="address"]').focus();
-            return false;
-        }
-        return true;
-    }
-
-    $('input[name="id"]').blur(function () {
-        reg = /^\d{18}$/;
-        data = $(this).val();
-        if (reg.test(data)) {
-            var year = data.substring(6, 10);
-            var month = data.substring(10, 12);
-            var day = data.substring(12, 14);
-            var value = year + "-" + month + "-" + day;
-            $('input[name="date"]').val(value);
-        }
-    });
-
-    function msg(data) {
-        layer.msg(data, {
-            time: 1000, //1s后自动关闭
-            icon: 5
-        });
-    }
-
-
-    var content = $("#fcontent").html();
-    $("#assetType").change(function () {
-        var type = $(this).val();
-        if (type == "student") {
-            $("#fcontent").html(content);
-        } else {
-            $("#fcontent").html("");
-        }
-
-    });
-
-    &lt;!&ndash; 文件上传&ndash;&gt;
-    layui.use('upload', function () {
-        var upload = layui.upload;
-        //多图片上传
-        upload.render({
-            elem: '#test2'
-            , url: '/asset/file_upload'
-            , multiple: true
-            , before: function (obj) {
-                //预读本地文件示例，不支持ie8
-                obj.preview(function (index, file, result) {
-                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img" />')
-                });
-            }
-            , done: function (res) {
-                if (res.code > 0) {
-                    $("#files").val(res.data.path);
-                    $("#filesHash").val(res.data.filesHash);
-                }
-                console.log(res);
-            }
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.photos({
+            photos: '#layer-photos-demo'
+            , anim: 5 //0-6的选择
         });
     });
-
-
-    &lt;!&ndash;日期&ndash;&gt;
-    layui.use('laydate', function () {
-        var laydate = layui.laydate;
-
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#birth' //指定元素
-            , theme: 'molv'
-            , calendar: true
-        });
-
-    });
-
-    $("#btBack").click(function () {
-        parent.close();
-
-    })
-
-
 </script>
--->
 
 </body>
 
