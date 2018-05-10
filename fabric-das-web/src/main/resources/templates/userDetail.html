@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow: hidden;">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>数字资产存证平台</title>
+
+    <link rel="icon" type="image/x-icon" th:href="@{/ico/favicon.png}"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/jcstatic/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/jcstatic/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/jcstatic/dist/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+    <!--引入jquery-->
+    <script th:src="@{/jcstatic/vendor/jquery/jquery.js}"></script>
+
+    <style type="text/css">
+        .layui-upload-img {
+            width: 100px;
+            height: 110px;
+            margin-left: 5px;
+        }
+
+        .col-title {
+            font-weight: 700;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+    <div id="page-wrapper" style="margin: 10px;">
+        <!--基本信息-->
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <strong>基本信息</strong>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="control-group col-lg-12">
+
+                            <th:block th:each="record,iterStat:${records}">
+                                <th:block th:if="${iterStat.index le 0}">
+
+                                    <div class="controls">
+                                        <span class="col-title">姓名：</span>
+                                        <span th:text="${record.name}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">性别：</span>
+                                        <span th:text="${record.sex}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">民族：</span>
+                                        <span th:text="${record.nation}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">出生日期：</span>
+                                        <span th:text="${record.date}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">身份证号：</span>
+                                        <span th:text="${record.id}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">联系地址：</span>
+                                        <span th:text="${record.address}"></span>
+                                    </div>
+                                </th:block>
+                            </th:block>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <!--图片-->
+        <div class="row">
+            <div class="col-lg-3"></div>
+
+            <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong>图片</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div class="layui-upload-list" style="margin:0px" th:each="record:${records}">
+                            <img th:src="${record.files}" class="layui-upload-img"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3"></div>
+        </div>
+
+    </div>
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/jcstatic/vendor/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/jcstatic/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/jcstatic/vendor/metisMenu/metisMenu.min.js}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
+
+<!--引入layui:日期插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
+<!--
+
+<script>
+    $(document).ready(function () {
+       // initform();
+    });
+
+    function initform() {
+        $("#btSubmit").click(function () {
+            var $this = $(this);
+            $this.prop("disabled", true);
+            if (validateForm()) {
+                var queryString = $("#dataform").serialize();
+                console.log("新增用户表单结果：" + queryString);
+                $.ajax({
+                    type: "post",
+                    url: "/owner/user/add",
+                    data: queryString,
+                    dataType: "json",
+                    success: function (result) {
+                        console.log("新增用户后返回的code："+result.code);
+                        if(result.code=200){
+                            parent.add_Result("用户新增成功");
+                            parent.close();
+                            parent.search();
+                        }else if(result.code=400){
+                            parent.add_Result("用户新增失败");
+                            parent.close();
+                        }
+
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        $this.prop("disabled", false);
+                    },
+
+                });
+            } else {
+                $this.prop("disabled", false);
+            }
+
+        });
+    }
+
+    function validateForm() {
+        var reg = /^\d{18}$/;
+
+        data = $('input[name="name"]').val();
+        if (data == "") {
+            msg("请填写姓名");
+            $('input[name="name"]').focus();
+            return false;
+        }
+
+        data = $('input[name="id"]').val();
+        if (data == "") {
+            msg("请填写身份证号");
+            $('input[name="id"]').focus();
+            return false;
+        } else {
+            if (reg.test(data)) {
+                var year = data.substring(6, 10);
+                var month = data.substring(10, 12);
+                var day = data.substring(12, 14);
+                var value = year + "-" + month + "-" + day;
+                var birth = $('input[name="date"]').val();
+                if (birth) {
+                    if (!(value == birth)) {
+                        msg("身份证号与出生年月不匹配，请重新填写身份证号");
+                        $('input[name="id"]').focus();
+                        return false;
+                    }
+                }
+            } else {
+                msg("请填写合法的身份证号");
+                $('input[name="id"]').focus();
+                return false;
+            }
+        }
+        data = $('input[name="address"]').val();
+        if (data == "") {
+            msg("请填写联系地址");
+            $('input[name="address"]').focus();
+            return false;
+        }
+        return true;
+    }
+
+    $('input[name="id"]').blur(function () {
+        reg = /^\d{18}$/;
+        data = $(this).val();
+        if (reg.test(data)) {
+            var year = data.substring(6, 10);
+            var month = data.substring(10, 12);
+            var day = data.substring(12, 14);
+            var value = year + "-" + month + "-" + day;
+            $('input[name="date"]').val(value);
+        }
+    });
+
+    function msg(data) {
+        layer.msg(data, {
+            time: 1000, //1s后自动关闭
+            icon: 5
+        });
+    }
+
+
+    var content = $("#fcontent").html();
+    $("#assetType").change(function () {
+        var type = $(this).val();
+        if (type == "student") {
+            $("#fcontent").html(content);
+        } else {
+            $("#fcontent").html("");
+        }
+
+    });
+
+    &lt;!&ndash; 文件上传&ndash;&gt;
+    layui.use('upload', function () {
+        var upload = layui.upload;
+        //多图片上传
+        upload.render({
+            elem: '#test2'
+            , url: '/asset/file_upload'
+            , multiple: true
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img" />')
+                });
+            }
+            , done: function (res) {
+                if (res.code > 0) {
+                    $("#files").val(res.data.path);
+                    $("#filesHash").val(res.data.filesHash);
+                }
+                console.log(res);
+            }
+        });
+    });
+
+
+    &lt;!&ndash;日期&ndash;&gt;
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#birth' //指定元素
+            , theme: 'molv'
+            , calendar: true
+        });
+
+    });
+
+    $("#btBack").click(function () {
+        parent.close();
+
+    })
+
+
+</script>
+-->
+
+</body>
+
+</html>

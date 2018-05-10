@@ -32,5 +32,17 @@
         delete from user where id = #{id,jdbcType=VARCHAR}
     </delete>
 
+    <!--根据id查询记录-->
+    <select id="getRecordDetail" resultType="hashmap" >
+        SELECT u.*,o.file_url files
+        from user u LEFT join owner_file o on u.id=o.owner_id
+        <where>
+            u.id=#{id}
+        </where>
+
+    </select>
+
+
+
 
 </mapper>

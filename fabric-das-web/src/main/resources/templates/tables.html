@@ -306,7 +306,7 @@
                             + '<td>' + row.date + '</td>'
                             + '<td>' + row.address + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td ><a href="#"' + row.id + '>查看</a></td>'
+                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
                     }
@@ -357,7 +357,7 @@
                             + '<td>' + row.date + '</td>'
                             + '<td>' + row.address + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td ><a href="#"' + row.id + '>查看</a></td>'
+                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
                     }
@@ -407,19 +407,45 @@
             });
         });
     }
-    function close(){
+
+    function close() {
         layui.use('layer', function () {
             var layer = layui.layer;
             layer.close(index);
         });
     }
 
-    function add_Result(data){
+    function add_Result(data) {
         layer.open({
             title: '结果信息'
-            ,content: data
+            , content: data
         });
     }
+
+
+    function showDetail(e) {
+        var recordId = $(e).data("id");
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            index = layer.open({
+                title: ['用户记录详情', 'font-size:18px;'],
+                anim: 4,
+                type: 2,
+                move: false,
+                resize: false,
+                scrolling:'auto',
+                offset: '70px',
+                area: ['583px', '568px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/owner/recordDetail?recordId=' + recordId
+
+            });
+        });
+    }
+
+
+
 </script>
 
 </body>

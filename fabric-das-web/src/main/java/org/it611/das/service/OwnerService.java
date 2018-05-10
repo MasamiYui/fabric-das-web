@@ -24,5 +24,9 @@ public interface OwnerService {
     //添加公司
     int addComany(CompanyVO companyVO);
 
+    //根据id查询记录
+    List<HashMap> getRecordDetail(String id);
+
+
 
 }

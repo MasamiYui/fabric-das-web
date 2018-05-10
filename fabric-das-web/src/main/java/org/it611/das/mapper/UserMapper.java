@@ -2,6 +2,7 @@ package org.it611.das.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.it611.das.domain.User;
+import org.it611.das.vo.UserVo;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -24,5 +25,8 @@ public interface UserMapper {
 
     //删除用户通过Id
     Integer deleteUserById(@Param("id")String id);
+
+    //根据id查询记录(对应多个文件)
+    List<HashMap> getRecordDetail(@Param("id")String id);
 
 }

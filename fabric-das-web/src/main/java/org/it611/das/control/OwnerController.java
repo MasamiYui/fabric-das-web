@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class OwnerController {
@@ -82,7 +83,7 @@ public class OwnerController {
         return modelAndView;
     }
 
-    //测试获取新增用户的表单
+    //获取新增用户的表单
     @RequestMapping("/owner/getUserForm")
     public ModelAndView getUserForm(){
         ModelAndView modelAndView = new ModelAndView();
@@ -122,5 +123,14 @@ public class OwnerController {
         return ResponseUtil.constructResponse(200,"ok", data);
     }
 
+    //获取用户记录的详情
+    @RequestMapping("/owner/recordDetail")
+    public ModelAndView recordDetail(String recordId){
+        List<HashMap> records = ownerService.getRecordDetail(recordId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("records",records);
+        modelAndView.setViewName("userDetail");
+        return modelAndView;
+    }
 
 }

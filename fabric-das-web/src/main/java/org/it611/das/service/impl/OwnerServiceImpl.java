@@ -84,5 +84,11 @@ public class OwnerServiceImpl implements OwnerService {
         return State.FALSE;
     }
 
+    @Transactional
+    @Override
+    public List<HashMap> getRecordDetail(String id) {
+       List<HashMap>  result = userDao.getRecordDetail(id);
+        return result;
+    }
 }
 
