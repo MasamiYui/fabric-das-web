@@ -18,9 +18,9 @@ public interface CompanyMapper {
 
 
     //查询用户通过姓名和身份证
-    List<HashMap> selectCompaniesByNameAndId(@Param("name")String name, @Param("id")String id);
+    List<HashMap> selectCompaniesByNameAndId(@Param("name")String name, @Param("id")String id, @Param("address")String address, @Param("legalRepresentative")String legalRepresentative);
 
     //查询用户总数
-    Long selectTotal(@Param("name")String name, @Param("id")String id);
+    Long selectTotal(@Param("name")String name, @Param("id")String id, @Param("address")String address, @Param("legalRepresentative")String legalRepresentative);
 
 }

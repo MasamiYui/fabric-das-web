@@ -111,15 +111,14 @@ public class OwnerController {
      * 查询公司列表
      * @param currentPage
      * @param numberOfPages
-     * @param searchString
-     * @param searchId
+
      * @return
      */
     @RequestMapping("/owner/company/list")
     @ResponseBody
-    public JSONObject selectCompanies(int currentPage,int numberOfPages, String searchString,String searchId){
+    public JSONObject selectCompanies(int currentPage,int numberOfPages, String name,String id,String address,String legalRepresentative){
 
-        HashMap<String, Object> data = ownerService.selectCompanies(currentPage,numberOfPages, searchString, searchId);
+        HashMap<String, Object> data = ownerService.selectCompanies(currentPage,numberOfPages, name, id,address,legalRepresentative);
         return ResponseUtil.constructResponse(200,"ok", data);
     }
 
@@ -133,4 +132,9 @@ public class OwnerController {
         return modelAndView;
     }
 
+    //企业列表
+    @RequestMapping("/owner/company")
+    public String getCompanyList(){
+        return "company_list";
+    }
 }

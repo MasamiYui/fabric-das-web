@@ -63,12 +63,12 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public HashMap<String, Object> selectCompanies(int pageNum, int pageSize, String name, String id) {
+    public HashMap<String, Object> selectCompanies(int pageNum, int pageSize, String name, String id,String address,String legalRepresentative) {
 
         HashMap dataMap = new HashMap<String, Object>();
         PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = companyDao.selectCompaniesByNameAndId(name, id);
-        long total = companyDao.selectTotal(name, id);
+        List<HashMap> resultData = companyDao.selectCompaniesByNameAndId(name, id,address,legalRepresentative);
+        long total = companyDao.selectTotal(name, id,address,legalRepresentative);
         dataMap.put("rows", resultData);
         dataMap.put("total", total);
         return dataMap;

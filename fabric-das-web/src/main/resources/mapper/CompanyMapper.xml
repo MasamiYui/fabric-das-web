@@ -20,14 +20,14 @@
 
     <!--根据公司名称和id进行模糊查询 -->
     <select id="selectCompaniesByNameAndId" resultType="java.util.HashMap">
-       select * from company where id like concat('%',#{id},'%') and name like concat('%',#{name},'%')
+       select * from company where id like concat('%',#{id},'%') and name like concat('%',#{name},'%') and address like concat('%',#{address},'%') and legal_representative like concat('%',#{legalRepresentative},'%')
     </select>
 
     <!--查询公司总数-->
     <select id="selectTotal" resultType="java.lang.Long">
         select
         count(*)
-        from user   where id like concat('%',#{id},'%') and name like concat('%',#{name},'%')
+        from company   where id like concat('%',#{id},'%') and name like concat('%',#{name},'%') and address like concat('%',#{address},'%') and legal_representative like concat('%',#{legalRepresentative},'%')
     </select>
 
 </mapper>

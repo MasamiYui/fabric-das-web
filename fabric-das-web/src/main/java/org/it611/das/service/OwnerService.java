@@ -19,7 +19,7 @@ public interface OwnerService {
     int deleteUser(String id);
 
     //查询公司
-    HashMap<String, Object> selectCompanies(int pageNum, int pageSize,String name,String id);
+    HashMap<String, Object> selectCompanies(int pageNum, int pageSize,String name,String id,String address,String legalRepresentative);
 
     //添加公司
     int addComany(CompanyVO companyVO);
