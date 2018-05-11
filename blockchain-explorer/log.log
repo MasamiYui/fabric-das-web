@@ -1,1348 +1,180 @@
 mysql connection port= 3306
 Please open Internet explorer to access ：http://localhost:8089/
-[31m[2018-05-07 20:44:56.698] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 16:40:23.704] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:45:03.844] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 16:47:52.041] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:45:51.409] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 16:48:05.387] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:45:58.530] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 16:48:21.874] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:46:22.165] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 16:53:59.542] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:51:55.274] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:00:12.841] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:52:42.436] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:53:14.292] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:53:27.624] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:54:07.710] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:54:11.805] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:54:15.914] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:55:11.385] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:55:17.530] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:55:29.868] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:55:34.965] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:56:52.014] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:57:00.219] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:57:13.540] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:57:24.836] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:57:42.284] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 20:57:46.379] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:04:36.410] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:10:02.266] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
+[31m[2018-05-11 17:06:58.887] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
     at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 21:10:02.269] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
+[31m[2018-05-11 17:06:58.891] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
     at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 21:10:08.438] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
+[31m[2018-05-11 17:07:04.040] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
     at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 21:10:08.438] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
+[31m[2018-05-11 17:07:04.041] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
     at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 21:10:27.973] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:07:46.337] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:10:54.694] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:14:07.955] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:11:39.998] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:20:27.563] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:12:09.656] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:27:37.387] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:12:55.703] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:27:41.488] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:13:00.862] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:13:19.384] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:13:37.886] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:13:47.118] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:13:49.158] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:13:58.356] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:27:59.565] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:28:17.984] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:48:31.025] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:57:18.604] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:57:47.191] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:58:10.616] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:58:14.690] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:58:19.806] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 21:58:40.194] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:23:09.894] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:24:41.835] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:24:58.329] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:31:25.737] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:34:28.935] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:34:35.131] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:37:18.562] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:40:28.692] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:44:59.578] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:48:40.219] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
+[31m[2018-05-11 17:33:15.160] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
     at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 22:48:40.219] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
+[31m[2018-05-11 17:33:15.163] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
     at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 22:48:41.236] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 22:48:41.237] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 22:48:44.311] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 22:48:44.311] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 22:48:47.377] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 22:48:47.377] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 22:49:07.892] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:53:21.838] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:58:06.802] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 22:58:06.802] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 22:58:16.054] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 22:58:37.641] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:01:24.705] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:03:22.652] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 23:03:22.652] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 23:03:29.833] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 23:03:29.834] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 23:03:35.992] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 23:03:35.993] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 23:10:41.497] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:14:26.002] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:17:38.329] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:17:43.454] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:24:46.581] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:24:54.855] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:25:02.083] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:26:51.860] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 23:26:51.860] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 23:28:15.744] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:29:29.164] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-07 23:29:29.165] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-07 23:30:05.016] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:33:28.156] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:38:07.331] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:39:06.278] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:42:41.667] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:45:47.548] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:49:14.459] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-07 23:56:11.704] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:03:35.365] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:05:07.293] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:05:10.365] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:08:14.409] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:10:11.335] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:14:47.155] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:18:07.893] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:23:55.003] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 00:23:55.003] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 00:24:24.846] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:24:36.116] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:25:23.485] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:27:41.601] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:33:27.549] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:37:37.819] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 00:37:37.827] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 00:44:26.565] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:46:57.901] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:52:36.741] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 00:52:36.741] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 00:54:04.498] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 00:56:42.736] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 00:56:42.737] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 01:01:21.648] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:01:31.907] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:01:56.536] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:02:00.620] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:06:12.965] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:11:38.809] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:18:55.825] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:24:05.097] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:29:39.298] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:33:37.080] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 01:33:37.080] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 01:35:29.833] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:46:54.985] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 01:57:36.553] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:01:31.370] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 02:01:31.371] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 02:07:56.956] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:10:03.436] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 02:10:03.436] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 02:10:11.622] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:15:25.754] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:21:04.964] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:25:52.475] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:25:56.601] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:28:34.941] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:31:16.196] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:32:00.685] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 02:32:00.685] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 02:32:04.816] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:37:17.267] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 02:37:17.268] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 02:38:03.588] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 02:52:29.435] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 02:52:29.438] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 02:56:37.787] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:07:28.619] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:10:10.088] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:15:19.649] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:20:09.694] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:21:02.398] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:30:23.421] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 03:30:23.424] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 03:31:27.582] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:31:34.820] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:36:40.023] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 03:36:40.024] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 03:36:55.458] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:40:16.142] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:44:08.918] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:57:44.357] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 03:57:49.473] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:04:12.843] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:11:53.366] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:12:06.838] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:17:21.274] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 04:17:21.274] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 04:18:38.137] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:18:40.182] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:24:09.986] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:27:50.633] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:28:44.335] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:33:22.960] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:39:41.686] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 04:39:41.690] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 04:40:00.309] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:45:23.944] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:55:39.039] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 04:56:59.602] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 05:12:02.076] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 05:17:50.823] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 05:17:50.826] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 05:41:39.910] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 05:56:04.710] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 05:56:04.713] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 06:22:08.137] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 06:22:08.140] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 06:26:22.047] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 06:51:59.022] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 06:51:59.027] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 06:55:02.939] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 06:57:54.996] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 07:16:45.369] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 07:16:45.370] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 07:17:03.009] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 07:17:19.589] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 07:23:56.571] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 07:25:30.887] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 07:25:30.888] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 07:56:32.906] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 08:16:52.769] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 08:16:52.771] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 08:21:49.602] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 08:45:45.770] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 08:45:45.774] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 08:46:18.839] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 08:46:18.840] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 08:58:02.473] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:09:17.291] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 09:09:17.294] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 09:09:47.168] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:23:41.050] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:29:31.444] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:30:16.943] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:32:16.926] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 09:32:16.926] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 09:32:28.377] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:35:22.040] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:40:48.464] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 09:40:48.465] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 09:46:25.834] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:46:59.954] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:47:16.475] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:53:16.291] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 09:53:16.293] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 09:53:31.794] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 09:53:31.794] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 09:54:28.664] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 09:59:06.875] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 09:59:06.876] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 09:59:47.336] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:00:02.741] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:01:35.883] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 10:01:35.884] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 10:06:19.364] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:08:34.891] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 10:08:34.891] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 10:10:44.192] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 10:10:44.193] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 10:12:25.555] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:18:52.312] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 10:18:52.316] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 10:21:28.474] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:23:03.383] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:24:34.446] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:30:19.007] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:32:31.523] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:34:13.803] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:37:36.544] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 10:37:36.545] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 10:39:49.061] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:45:33.404] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:49:46.927] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:49:51.007] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:51:40.763] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:52:05.507] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:53:33.373] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 10:54:38.769] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 10:54:38.770] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 10:59:22.023] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:00:50.989] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:03:15.687] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:03:39.548] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:05:18.930] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:08:43.602] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:10:37.430] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:13:15.701] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:21:05.410] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:29:38.568] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 11:29:38.577] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 11:29:55.153] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:30:12.855] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:30:41.747] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:30:54.078] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:41:54.217] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:42:16.913] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:43:54.244] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:54:00.182] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:54:15.699] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:55:01.183] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:55:36.416] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 11:58:28.285] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:02:13.628] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:17:17.985] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:17:59.334] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:19:37.588] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 12:19:37.589] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 12:32:40.315] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:41:34.067] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:44:16.542] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 12:44:16.543] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 12:46:19.608] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:51:04.319] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:56:34.399] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 12:58:11.528] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 12:58:11.528] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 12:59:01.155] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:00:19.987] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:07:03.419] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:12:53.135] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:15:03.510] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 13:15:03.510] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 13:19:55.292] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:37:50.987] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:39:58.298] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:43:16.000] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:44:30.539] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 13:48:25.165] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 14:19:49.718] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 14:20:34.017] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 14:25:06.140] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 14:25:17.518] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 14:26:45.514] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 14:26:45.515] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 14:28:08.292] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 14:52:09.411] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 15:18:52.936] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 15:20:16.013] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 16:15:09.483] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 16:15:09.486] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 16:55:38.978] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 16:55:38.979] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 17:43:00.822] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 17:43:00.825] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 17:43:33.762] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 17:56:21.968] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 18:15:25.932] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 18:15:25.936] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 18:16:01.907] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 18:16:01.907] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 18:23:20.810] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 18:23:40.354] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 18:43:20.866] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:01:25.043] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 19:01:25.046] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 19:01:33.247] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:06:57.979] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 19:06:57.980] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 19:07:05.178] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:07:15.355] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:08:18.885] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:08:22.977] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:17:16.117] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:22:23.270] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 19:22:23.270] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 19:25:12.238] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:25:30.528] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:32:33.461] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 19:32:33.464] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 19:52:39.844] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Channel.queryInfo (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:896:36)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:93:18)
-[31m[2018-05-08 19:52:39.847] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/root/project/fabric-das-web/blockchain-explorer/app/query.js:208:32)
-[31m[2018-05-08 19:53:04.425] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:53:19.632] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:53:25.757] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:59:44.454] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:59:50.576] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 19:59:52.602] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 20:00:24.252] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
-    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
-[31m[2018-05-08 20:01:17.565] [ERROR] Query - [39mError: No identity has been assigned to this client
-    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1206:11)
-    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:915:23)
+[31m[2018-05-11 17:34:05.637] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:34:41.720] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:35:17.810] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:35:38.492] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:35:46.683] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:35:59.035] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:36:43.399] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:38:01.905] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:39:05.925] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:39:08.998] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:39:48.243] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:40:09.741] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:40:23.099] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:47:23.180] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:48:06.482] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:48:25.014] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:48:39.462] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:48:46.672] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:49:20.627] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:49:26.782] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:49:38.072] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:49:56.716] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:50:09.070] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:57:00.079] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:57:18.639] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 17:57:24.773] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 18:04:02.304] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 18:04:09.512] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
+    at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)
+[31m[2018-05-11 18:12:10.334] [ERROR] Query - [39mError: No identity has been assigned to this client
+    at Client._getSigningIdentity (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1207:11)
+    at Client.queryInstalledChaincodes (/root/project/fabric-das-web/blockchain-explorer/node_modules/fabric-client/lib/Client.js:916:23)
     at helper.getOrgAdmin.then (/root/project/fabric-das-web/blockchain-explorer/app/query.js:127:18)

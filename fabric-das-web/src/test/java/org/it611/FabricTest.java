@@ -1,5 +1,6 @@
 package org.it611;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
@@ -18,17 +19,18 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = DasApplication.class)
+//@SpringBootTest(classes = DasApplication.class)
 @WebAppConfiguration
 public class FabricTest {
 
-    private static Logger logger=Logger.getLogger(FabricTest.class);
+    //private static Logger logger=Logger.getLogger(FabricTest.class);
 
 
 
@@ -48,9 +50,15 @@ public class FabricTest {
     @Test
     public void TestQuery1() throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException {
         ChaincodeManager manager = FabricManager.obtain().getManager();
-        String[] argQuery = new String[]{"test1"};
-        Map<String, String> res = manager.query("query", argQuery);
-        System.out.println(res.toString());
+        String[] argQuery = new String[]{"20180508215226111861"};
+        Map<String, String> fabricStateData = manager.query("query", argQuery);
+        String dataJson = fabricStateData.get("data");
+        ObjectMapper objectMapper = new ObjectMapper();
+        HashMap map=objectMapper.readValue(dataJson, HashMap.class);
+        System.out.println(fabricStateData);
+        System.out.println(map.get("address"));
+
+
     }
 
 

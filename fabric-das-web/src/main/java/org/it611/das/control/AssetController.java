@@ -75,4 +75,19 @@ public class AssetController {
         }
         return ResponseUtil.constructResponse(400, "insert student id asset failed.", null);
     }
+
+    /**
+     * 资产对照查询
+     */
+    @RequestMapping("/asset/sica/detail")
+    @ResponseBody
+    public JSONObject detail(String id) throws Exception {
+
+        HashMap dataMap = assetService.selectStudentIdCardAssetById(id);
+        if ((int)dataMap.get("code") == 200){
+            return ResponseUtil.constructResponse(200, "ok", dataMap);
+        }
+
+        return ResponseUtil.constructResponse(400, "query failed.", dataMap);
+    }
 }

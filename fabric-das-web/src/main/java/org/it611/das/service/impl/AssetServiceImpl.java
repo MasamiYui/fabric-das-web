@@ -1,18 +1,26 @@
 package org.it611.das.service.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
+import org.hyperledger.fabric.sdk.exception.CryptoException;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric.sdk.exception.ProposalException;
+import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.fabric.ChaincodeManager;
 import org.it611.das.fabric.util.FabricManager;
 import org.it611.das.service.AssetService;
 import org.it611.das.domain.*;
 import org.it611.das.mapper.AssetMapper;
 import org.it611.das.util.ParseInputAsset;
-import org.it611.das.util.State;
 import org.it611.das.vo.StudentIdCardAssetVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +33,7 @@ public class AssetServiceImpl implements AssetService {
 
     @Autowired
     private AssetMapper assetDao;
+
 
 
     @Override
@@ -65,5 +74,32 @@ public class AssetServiceImpl implements AssetService {
         }
         dataMap.put("code", 400);
         return dataMap;
+    }
+
+    @Override
+    public HashMap<String, Object> selectStudentIdCardAssetById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException {
+
+        HashMap<String, Object> resultmap = new HashMap();
+        HashMap<String, Object> mysqlData = assetDao.selectStudentIdCardAssetDetailById(id);//获取mysql中的数据
+        ChaincodeManager manager = FabricManager.obtain().getManager();
+        String[] argQuery = new String[]{id};
+        Map<String, String> queryData = manager.query("query", argQuery);
+        String resultState = queryData.get("code");
+
+        String dataJson = queryData.get("data");
+        ObjectMapper objectMapper = new ObjectMapper();
+        if (resultState.equals("success") && mysqlData != null) {
+            HashMap fabricStateData = objectMapper.readValue(dataJson, HashMap.class);
+            resultmap.put("code", 200);//fabric请求成功
+            resultmap.put("mysqlData", mysqlData);
+            resultmap.put("fabricStateData", fabricStateData);
+        }else {
+            HashMap fabricStateData = objectMapper.readValue(dataJson, HashMap.class);
+            resultmap.put("code", 400);//fabric请求失败
+            resultmap.put("mysqlData", mysqlData);
+            resultmap.put("fabricStateData", fabricStateData);
+        }
+        return resultmap;
+
     }
 }

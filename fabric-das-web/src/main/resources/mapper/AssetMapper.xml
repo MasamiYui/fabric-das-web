@@ -37,4 +37,15 @@
         </foreach>
     </insert>
 
+    <!--查询学生证资产通过Id-->
+    <select id="selectStudentIdCardAssetDetailById" parameterType="java.lang.String" resultType="java.util.HashMap">
+        select distinct ab.*, au.user_id, af.file_url, af.file_hash,
+        asic.stu_id, asic.school, asic.name, asic.sex, asic.dataOfBirth, asic.idcardNo, asic.lengthOfSchooling, asic.college, asic.address, asic.school,asic.timeOfIssume from asset_base ab
+        left join asset_stuIdCard asic on ab.id = asic.asset_id
+        left join asset_file af on ab.id = af.asset_id
+        left join asset_user au on au.id = af.asset_id
+        where ab.id = #{id,jdbcType=VARCHAR}
+    </select>
+
+
 </mapper>
