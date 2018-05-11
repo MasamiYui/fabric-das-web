@@ -57,10 +57,28 @@ public class OwnerServiceImpl implements OwnerService {
     @Transactional
     @Override
     public int addUser(UserVo userVo) {
-        if (userDao.insertUser(Vo2PoUtil.UserVo2Po(userVo)) > 0) {
-            return State.SUCCESS;
+        Map<String, Object> data = parseInputFileForm.parseUserFileForm(userVo);
+        User user = (User) data.get("user");
+
+        int r2 = -1;
+        if (data.containsKey("ownerFileList")) {
+            ArrayList<OwnerFile> ownerFileList = (ArrayList<OwnerFile>) data.get("ownerFileList");
+            r2 = ownerFileMapper.insertOwnerFile(ownerFileList);
+        }
+
+        int r1 = userDao.insertUser(user);
+
+        if (r2 != -1) {
+            if (r1 > 0 && r2 > 0) {
+                return State.SUCCESS;
+            }
+        } else {
+            if (r1 > 0) {
+                return State.SUCCESS;
+            }
         }
         return State.FALSE;
+
     }
 
     @Transactional

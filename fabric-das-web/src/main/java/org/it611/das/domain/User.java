@@ -21,7 +21,7 @@ public class User {
 
     private int state;
 
-    private String files;//如果有多个files，用；进行分割
+
 
     public String getId() {
         return id;
@@ -87,15 +87,9 @@ public class User {
         this.state = state;
     }
 
-    public String getFiles() {
-        return files;
-    }
 
-    public void setFiles(String files) {
-        this.files = files;
-    }
 
-    public User(String id, String name, String sex, String nation, String date, String address, String submitTime, int state, String files) {
+    public User(String id, String name, String sex, String nation, String date, String address, String submitTime, int state) {
         this.id = id;
         this.name = name;
         this.sex = sex;
@@ -104,6 +98,6 @@ public class User {
         this.address = address;
         this.submitTime = submitTime;
         this.state = state;
-        this.files = files;
+
     }
 }

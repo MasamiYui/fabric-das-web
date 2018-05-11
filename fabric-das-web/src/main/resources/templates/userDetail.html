@@ -116,8 +116,10 @@
                         <strong>附件</strong>
                     </div>
                     <div class="panel-body">
-                        <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px" th:each="record:${records}">
-                            <img th:src="${record.files}" class="layui-upload-img"/>
+                        <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px" >
+                            <th:block th:each="record:${records}">
+                                <img th:src="${record.file_url}" class="layui-upload-img"/>
+                            </th:block>
                         </div>
                     </div>
 

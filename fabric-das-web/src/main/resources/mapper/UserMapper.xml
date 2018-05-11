@@ -9,10 +9,10 @@
 
     <!--添加一名用户 -->
     <insert id="insertUser" parameterType="org.it611.das.domain.User">
-        insert into user (id, `name`, sex, nation, `date`, address, submitTime, `state`, files)
+        insert into user (id, `name`, sex, nation, `date`, address, submitTime, `state`)
         values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
         #{nation,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
-        #{submitTime,jdbcType=VARCHAR},#{state,jdbcType=INTEGER},#{files,jdbcType=VARCHAR})
+        #{submitTime,jdbcType=VARCHAR},#{state,jdbcType=INTEGER})
     </insert>
 
     <!--根据用户姓名和身份证Id进行模糊查询 -->
@@ -34,7 +34,7 @@
 
     <!--根据id查询记录-->
     <select id="getRecordDetail" parameterType="string" resultType="hashmap" >
-        SELECT u.*,o.file_url files
+        SELECT u.*,o.file_url
         from user u LEFT join owner_file o on u.id=o.owner_id
         <where>
             u.id=#{id}
