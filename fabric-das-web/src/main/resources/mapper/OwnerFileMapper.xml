@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.OwnerFileMapper" >
+
+    <!--批量插入file_urls-->
+    <insert id="insertOwnerFile" parameterType="java.util.List">
+        insert into owner_file (id, owner_id, file_url)  values
+        <foreach collection="fileList" item="item" index="index" separator=",">
+          (#{item.id,jdbcType=VARCHAR}, #{item.owner_id,jdbcType=VARCHAR},#{item.file_url,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+</mapper>

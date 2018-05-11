@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>数字资产存证平台</title>
+
+    <link rel="icon" type="image/x-icon" th:href="@{/ico/favicon.png}"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/jcstatic/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/jcstatic/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/jcstatic/dist/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入地区选择插件的css-->
+    <link href="@{/dist/css/main.css" rel="stylesheet}">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+    <!--引入jquery-->
+    <script th:src="@{/jcstatic/vendor/jquery/jquery.js}"></script>
+
+    <style type="text/css">
+
+        #dataform .input-group .input-group-addon.aa {
+            padding: 9px 20px;
+            font-weight: 700;
+        }
+
+        #dataform .input-group .input-group-addon.aa.bb {
+            padding: 9px 27px;
+        }
+
+        .layui-upload-img {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px 10px 0;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+
+    <div id="page-wrapper" style="margin: 10px;">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <form role="form" id="dataform">
+                        <!--图片的地址-->
+                        <input type="hidden" name="files" id="files"/>
+                        <!--图片的Hash-->
+                        <input type="hidden" name="filesHash" id="filesHash"/>
+                        <!--地址-->
+                        <input type="hidden" name="address" />
+
+                        <!--用户申请表详情-->
+                        <div id="fcontent" class="panel-body">
+                            <div class="row">
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>姓名</label>
+                                        <input name="name" type="text" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>类型</label>
+                                        <select name="type" class="form-control">
+                                            <option value="国企">国企</option>
+                                            <option value="私企">私企</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>信用代码</label>
+                                        <input name="id" type="text" class="form-control"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>法人代表</label>
+                                        <input name="legalRepresentative" type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group input-append">
+                                        <label>注册资本</label>
+                                        <input name="registeredCapital" type="text" class="form-control"/>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>登记机关</label>
+                                        <input name="registrationAuthority" type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>经营范围</label>
+                                        <input type="text" name="scopeOfBusiness" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>起始年限</label>
+                                        <input  name="startTime" type="text" id="startTime" class="form-control" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>终止年限</label>
+                                        <input type="text" name="endTime" id="endTime" class="form-control" />
+                                    </div>
+                                    <div class="form-group datePlugin">
+                                        <label>审核时间</label>
+                                        <input type="text" name="auditTime"  id="auditTime" class="form-control"/>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <label>地址</label>
+                                    <div id="distpicker2">
+                                        <div class="col-lg-3 form-group " style="padding:1px;">
+                                            <label class="sr-only" for="province5">Province</label>
+                                            <select class="form-control" id="province5"></select>
+                                        </div>
+                                        <div class="col-lg-3 form-group" style="padding:1px;">
+                                            <label class="sr-only" for="city5">City</label>
+                                            <select class="form-control" id="city5"></select>
+                                        </div>
+                                        <div class="col-lg-3 form-group" style="padding:1px;">
+                                            <label class="sr-only" for="district5">District</label>
+                                            <select class="form-control" id="district5"></select>
+                                        </div>
+                                        <div class="col-lg-3 form-group" style="padding:1px;">
+                                            <input class="form-control" id="detailAddress" placeholder="请输入详细地址"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--上传图片-->
+                                <div class="col-lg-12 ">
+                                    <button type="button" class="layui-btn" id="test2">文件上传</button>
+                                    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                                        <!--已上传：-->
+                                        <div class="layui-upload-list" id="demo2"></div>
+                                    </blockquote>
+                                </div>
+
+                            </div>
+
+                            <!--确认按钮-->
+                            <div class="col-lg-12 text-right">
+                                <button type="button" id="btSubmit" class="btn btn-primary btn-info"
+                                        style="width: 100px;">
+                                    确&nbsp;&nbsp;定
+                                </button>
+                                <button type="button" id="btBack" class="btn btn-primary btn-info"
+                                        style="width: 100px;">
+                                    取&nbsp;&nbsp;消
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/jcstatic/vendor/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/jcstatic/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/jcstatic/vendor/metisMenu/metisMenu.min.js}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
+
+<!--引入layui:日期插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
+<!--引入地区选择插件-->
+<script th:src="@{/dist/js/distpicker.data.js}"></script>
+<script th:src="@{/dist/js/distpicker.js}"></script>
+<script th:src="@{/dist/js/main.js}"></script>
+
+
+<script>
+    $(document).ready(function () {
+        initform();
+    });
+
+    function initform() {
+        $("#btSubmit").click(function () {
+            var $this = $(this);
+            $this.prop("disabled", true);
+            if (validateForm()) {
+                //获取地址
+                var  province= $("#province5").val();
+                var city= $("#city5").val();
+                var district= $("#district5").val();
+                var detailAddress= $("#detailAddress").val();
+                var address=""+province+city+district+detailAddress;
+                $('input[name="address"]').val(address);
+
+                var queryString = $("#dataform").serialize();
+                console.log("新增企业表单结果：" + queryString);
+                $.ajax({
+                    type: "post",
+                    url: "/owner/company/add",
+                    data: queryString,
+                    dataType: "json",
+                    success: function (result) {
+                        console.log("新增用户后返回的code："+result.code);
+                        if(result.code=200){
+                            parent.add_Result("企业新增成功");
+                            parent.close();
+                            parent.search();
+                        }else if(result.code=400){
+                            parent.add_Result("企业新增失败");
+                            parent.close();
+                        }
+
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        $this.prop("disabled", false);
+                    },
+
+                });
+            } else {
+                $this.prop("disabled", false);
+            }
+
+        });
+    }
+
+    function validateForm() {
+        var reg = /^\d{18}$/;
+
+        data = $('input[name="name"]').val();
+        if (data == "") {
+            msg("请填写公司姓名");
+            $('input[name="name"]').focus();
+            return false;
+        }
+        data = $('input[name="id"]').val();
+        if (data == "") {
+            msg("请填写信用代码");
+            $('input[name="id"]').focus();
+            return false;
+        }
+        data = $('input[name="legalRepresentative"]').val();
+        if (data == "") {
+            msg("请填写法人代表");
+            $('input[name="legalRepresentative"]').focus();
+            return false;
+        }
+        data = $('input[name="registrationAuthority"]').val();
+        if (data == "") {
+            msg("请填写登记机关");
+            $('input[name="registrationAuthority"]').focus();
+            return false;
+        }
+        return true;
+    }
+
+
+    function msg(data) {
+        layer.msg(data, {
+            time: 1000, //1s后自动关闭
+            icon: 5
+        });
+    }
+
+    <!-- 文件上传-->
+    var paths = "";        //上传的文件，中间用逗号隔开
+    var filesHashs = "";   //上传的文件hashmap值，中间用逗号隔开
+    layui.use('upload', function () {
+        var upload = layui.upload;
+        //多图片上传
+        upload.render({
+            elem: '#test2'
+            , url: '/asset/file_upload'
+            , multiple: true
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img" />')
+                });
+            }
+            , done: function (res) {
+                if (res.code > 0) {
+                    var pathValue=res.data.path;
+                    paths = paths + pathValue + ",";
+                    $("#files").val(paths);
+
+                    var hashValue=res.data.path;
+                    filesHashs = filesHashs + hashValue + ",";
+                    $("#filesHash").val(filesHashs);
+                }
+                console.log(res);
+            }
+        });
+    });
+
+
+    <!--日期-->
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#startTime' //指定元素
+            , theme: 'molv'
+            , calendar: true
+        });
+        laydate.render({
+            elem: '#endTime' //指定元素
+            , theme: 'molv'
+            , calendar: true
+        });
+        laydate.render({
+            elem: '#auditTime' //指定元素
+            , theme: 'molv'
+            , calendar: true
+        });
+
+    });
+
+    $("#btBack").click(function () {
+        parent.close();
+
+    })
+</script>
+
+</body>
+
+</html>

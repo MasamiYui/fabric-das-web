@@ -28,7 +28,6 @@ public class Company {
 
     private int state;//状态
 
-    private String files;//附件
 
     public String getId() {
         return id;
@@ -134,15 +133,8 @@ public class Company {
         this.state = state;
     }
 
-    public String getFiles() {
-        return files;
-    }
 
-    public void setFiles(String files) {
-        this.files = files;
-    }
-
-    public Company(String id, String name, String type, String address, String legalRepresentative, String registeredCapital, String startTime, String endTime, String scopeOfBusiness, String registrationAuthority, String auditTime, String submitTime, int state, String files) {
+    public Company(String id, String name, String type, String address, String legalRepresentative, String registeredCapital, String startTime, String endTime, String scopeOfBusiness, String registrationAuthority, String auditTime, String submitTime, int state) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -156,6 +148,5 @@ public class Company {
         this.auditTime = auditTime;
         this.submitTime = submitTime;
         this.state = state;
-        this.files = files;
     }
 }

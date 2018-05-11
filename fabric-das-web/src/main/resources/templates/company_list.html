@@ -199,7 +199,7 @@
                                 <i class="fa fa-search"></i>
                             </button>
                             <button class="btn btn-default" type="button" onclick="add()">
-                                新增用户
+                                新增企业
                             </button>
                         </form>
                     </div>
@@ -412,10 +412,10 @@
                 move: false,
                 resize: true,
                 offset: '70px',
-                area: ['400px', '800px'],
+                area: ['1200px', '800px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/getUserForm'
+                content: '/owner/companyForm'
             });
         });
     }
@@ -440,7 +440,7 @@
         layui.use('layer', function () { //独立版的layer无需执行这一句
             var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
             index = layer.open({
-                title: ['用户记录详情', 'font-size:18px;'],
+                title: ['公司记录详情', 'font-size:18px;'],
                 anim: 4,
                 type: 2,
                 move: false,
@@ -450,7 +450,7 @@
                 area: ['583px', '568px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/recordDetail?recordId=' + recordId
+                content: '/owner/companyDetail?recordId=' + recordId
 
             });
         });

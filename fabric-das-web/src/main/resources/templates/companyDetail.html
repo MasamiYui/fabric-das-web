@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow: hidden;">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>数字资产存证平台</title>
+
+    <link rel="icon" type="image/x-icon" th:href="@{/ico/favicon.png}"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/jcstatic/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/jcstatic/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/jcstatic/dist/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+    <!--引入jquery-->
+    <script th:src="@{/jcstatic/vendor/jquery/jquery.js}"></script>
+
+    <style type="text/css">
+        .layui-upload-img {
+            width: 100px;
+            height: 110px;
+            margin-left: 5px;
+        }
+
+        .col-title {
+            font-weight: 700;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+    <div id="page-wrapper" style="margin: 10px;">
+        <!--基本信息-->
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <strong>基本信息</strong>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="control-group col-lg-6">
+                            <th:block th:each="record,iterStat:${records}">
+                                <th:block th:if="${iterStat.index le 0}">
+                                    <div class="controls">
+                                        <span class="col-title">公司名：</span>
+                                        <span th:text="${record.name}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">信用代码：</span>
+                                        <span th:text="${record.id}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">注册资本：</span>
+                                        <span th:text="${record.registered_capital}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">起始年限：</span>
+                                        <span th:text="${record.start_time}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">审核时间：</span>
+                                        <span th:text="${record.audit_time}"></span>
+                                    </div>
+                                </th:block>
+                            </th:block>
+                        </div>
+                        <div class="control-group col-lg-6">
+                            <th:block th:each="record,iterStat:${records}">
+                                <th:block th:if="${iterStat.index le 0}">
+                                    <div class="controls">
+                                        <span class="col-title">类型：</span>
+                                        <span th:text="${record.type}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">法人代表：</span>
+                                        <span th:text="${record.legal_representative}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">登记机关：</span>
+                                        <span th:text="${record.registration_authority}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">终止年限：</span>
+                                        <span th:text="${record.end_time}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">提交时间：</span>
+                                        <span th:text="${record.audit_time}"></span>
+                                    </div>
+                                </th:block>
+                            </th:block>
+                        </div>
+                        <div class="control-group col-lg-12">
+                            <th:block th:each="record,iterStat:${records}">
+                                <th:block th:if="${iterStat.index le 0}">
+                                    <div class="controls">
+                                        <span class="col-title">经营范围：</span>
+                                        <span th:text="${record.scopeof_business}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">地址：</span>
+                                        <span th:text="${record.address}"></span>
+                                    </div>
+                                </th:block>
+                            </th:block>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <!--图片-->
+        <div class="row">
+            <div class="col-lg-3"></div>
+
+            <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong>附件</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
+                            <th:block th:each="record:${records}">
+                               <!-- <p th:text="${record.file_url}"></p>-->
+                                <img th:src="${record.file_url}" class="layui-upload-img"/>
+                            </th:block>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3"></div>
+        </div>
+
+    </div>
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/jcstatic/vendor/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/jcstatic/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/jcstatic/vendor/metisMenu/metisMenu.min.js}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
+
+<!--引入layui:日期插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
+<script>
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.photos({
+            photos: '#layer-photos-demo'
+            , anim: 5 //0-6的选择
+        });
+    });
+</script>
+
+</body>
+
+</html>

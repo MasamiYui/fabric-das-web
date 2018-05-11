@@ -17,7 +17,7 @@ public class Vo2PoUtil {
     public static Company CompanyVo2Po(CompanyVO companyVO) {
         Company company = new Company(companyVO.getId(), companyVO.getName(), companyVO.getType(), companyVO.getAddress(), companyVO.getLegalRepresentative(),
                 companyVO.getRegisteredCapital(), companyVO.getStartTime(), companyVO.getEndTime(), companyVO.getScopeOfBusiness(),companyVO.getRegistrationAuthority(), companyVO.getAuditTime(),
-                TimeUtil.getLocalTime(), 1, companyVO.getFiles());
+                TimeUtil.getLocalTime(), 1);
         return company;
     }
 

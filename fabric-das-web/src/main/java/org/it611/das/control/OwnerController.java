@@ -104,7 +104,7 @@ public class OwnerController {
         if(ownerService.addComany(companyVO) == State.SUCCESS){
             return ResponseUtil.constructResponse(200,"ok", null);
         }
-        return ResponseUtil.constructResponse(400,"insert user fail.", null);
+        return ResponseUtil.constructResponse(400,"err", null);
     }
 
     /**
@@ -137,4 +137,20 @@ public class OwnerController {
     public String getCompanyList(){
         return "company_list";
     }
+
+
+    //企业申请表单
+    @RequestMapping("/owner/companyForm")
+    public String companyForm(){ return "companyForm"; }
+
+    //获取公司记录的详情
+    @RequestMapping("/owner/companyDetail")
+    public ModelAndView companyDetail(String recordId){
+        List<HashMap> records = ownerService.getCompanyDetail(recordId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("records",records);
+        modelAndView.setViewName("companyDetail");
+        return modelAndView;
+    }
+
 }

@@ -412,7 +412,7 @@
                var district= $("#district5").val();
                var detailAddress= $("#detailAddress").val();
                var address=""+province+city+district+detailAddress;
-                $('input[name="title"]').val(address);
+                $('input[name="address"]').val(address);
                 var queryString = $("#dataform").serialize();
                 console.log("表单序列化的结果" + queryString);
                 $.ajax({
@@ -535,6 +535,7 @@
                 obj.preview(function (index, file, result) {
                     $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img" />')
                 });
+                photoView();
             }
             , done: function (res) {
                 if (res.code > 0) {
@@ -546,6 +547,16 @@
         });
     });
 
+    function photoView(){
+        <!--照片查看器-->
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.photos({
+                photos: '#demo2'
+                , anim: 5 //0-6的选择
+            });
+        });
+    }
 
     <!--日期-->
     layui.use('laydate', function () {

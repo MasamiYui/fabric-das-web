@@ -1,6 +1,7 @@
 package org.it611.das.service;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.it611.das.vo.CompanyVO;
 import org.it611.das.vo.UserVo;
 
@@ -27,6 +28,7 @@ public interface OwnerService {
     //根据id查询记录
     List<HashMap> getRecordDetail(String id);
 
-
+    //根据id查询公司记录
+    List<HashMap> getCompanyDetail(String id);
 
 }
