@@ -22,5 +22,10 @@ public interface AssetMapper {
     HashMap selectStudentIdCardAssetDetailById(@Param("id")String assetId);
 
 
+    long selectTotal(@Param("title")String title,@Param("id") String id, @Param("txid")String txid);
+
+    List<HashMap>   selectAsset(@Param("title")String title,@Param("id") String id, @Param("txid")String txid);
+
+
 
 }

@@ -90,4 +90,19 @@ public class AssetController {
 
         return ResponseUtil.constructResponse(400, "query failed.", dataMap);
     }
+
+    //获取资产列表
+    @RequestMapping("/asset/getAsset")
+    public String getCompanyList(){
+        return "assetBase_list";
+    }
+
+    //资产列表
+    @RequestMapping("/asset/assetList")
+    @ResponseBody
+    public JSONObject selectCompanies(int currentPage,int numberOfPages, String title,String id,String txid){
+
+        HashMap<String, Object> data = assetService.selectAssetList(currentPage,numberOfPages, title, id,txid);
+        return ResponseUtil.constructResponse(200,"ok", data);
+    }
 }

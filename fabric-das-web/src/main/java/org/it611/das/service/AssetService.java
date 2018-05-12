@@ -19,4 +19,5 @@ public interface AssetService {
 
     HashMap<String, Object> selectStudentIdCardAssetById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 
+    HashMap<String, Object> selectAssetList(int currentPage,int numberOfPages, String title,String id,String txid);
 }

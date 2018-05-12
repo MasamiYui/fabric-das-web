@@ -47,5 +47,15 @@
         where ab.id = #{id,jdbcType=VARCHAR}
     </select>
 
+    <!--获取资产总数-->
+    <select id="selectTotal" resultType="java.lang.Long">
+        select count(*) from asset_base WHERE  title like concat('%',#{title},'%')  and id like concat('%',#{id},'%')  and txid like concat('%',#{txid},'%')
+    </select>
+
+
+    <!--获取资产列表-->
+    <select id="selectAsset" resultType="hashmap">
+        select  * from asset_base WHERE  title like concat('%',#{title},'%')  and id like concat('%',#{id},'%')  and txid like concat('%',#{txid},'%')
+    </select>
 
 </mapper>

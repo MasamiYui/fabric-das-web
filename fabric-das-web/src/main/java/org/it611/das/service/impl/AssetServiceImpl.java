@@ -1,6 +1,7 @@
 package org.it611.das.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.pagehelper.PageHelper;
 import org.apache.log4j.Logger;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
@@ -101,5 +102,17 @@ public class AssetServiceImpl implements AssetService {
         }
         return resultmap;
 
+    }
+
+    @Override
+    public HashMap<String, Object> selectAssetList(int currentPage, int numberOfPages, String title, String id, String txid) {
+
+        HashMap dataMap = new HashMap<String, Object>();
+        PageHelper.startPage(currentPage, numberOfPages);
+        List<HashMap> resultData = assetDao.selectAsset(title, id, txid);
+        long total = assetDao.selectTotal(title, id, txid);
+        dataMap.put("rows", resultData);
+        dataMap.put("total", total);
+        return dataMap;
     }
 }
