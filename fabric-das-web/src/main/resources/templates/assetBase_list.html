@@ -422,7 +422,7 @@
         layui.use('layer', function () { //独立版的layer无需执行这一句
             var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
             index = layer.open({
-                title: ['公司记录详情', 'font-size:18px;'],
+                title: ['资产记录详情', 'font-size:18px;'],
                 anim: 4,
                 type: 2,
                 move: false,
@@ -432,7 +432,7 @@
                 area: ['700px', '568px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/companyDetail?recordId=' + recordId
+                content: '/owner/studentDetail?recordId=' + recordId
 
             });
         });

@@ -115,4 +115,10 @@ public class AssetServiceImpl implements AssetService {
         dataMap.put("total", total);
         return dataMap;
     }
+    @Transactional
+    @Override
+    public List<HashMap> studentDetail(String id) {
+        List<HashMap> result = assetDao.studentDetail(id);
+        return result;
+    }
 }

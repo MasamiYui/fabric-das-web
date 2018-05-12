@@ -26,6 +26,6 @@ public interface AssetMapper {
 
     List<HashMap>   selectAsset(@Param("title")String title,@Param("id") String id, @Param("txid")String txid);
 
-
+    List<HashMap>   studentDetail( String id);
 
 }

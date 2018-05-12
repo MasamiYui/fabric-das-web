@@ -11,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface AssetService {
@@ -20,4 +21,6 @@ public interface AssetService {
     HashMap<String, Object> selectStudentIdCardAssetById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 
     HashMap<String, Object> selectAssetList(int currentPage,int numberOfPages, String title,String id,String txid);
+
+    List<HashMap> studentDetail(String id);
 }

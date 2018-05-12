@@ -58,4 +58,8 @@
         select  * from asset_base WHERE  title like concat('%',#{title},'%')  and id like concat('%',#{id},'%')  and txid like concat('%',#{txid},'%')
     </select>
 
+    <!--获取学生证资产详情-->
+    <select id="studentDetail" parameterType="string" resultType="hashmap">
+        SELECT a.*,f.file_url,f.file_hash FROM asset_base a left join asset_file f on a.id =f.asset_id where a.id=#{id}
+    </select>
 </mapper>

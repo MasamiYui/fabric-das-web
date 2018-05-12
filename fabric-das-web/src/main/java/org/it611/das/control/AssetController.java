@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -104,5 +105,14 @@ public class AssetController {
 
         HashMap<String, Object> data = assetService.selectAssetList(currentPage,numberOfPages, title, id,txid);
         return ResponseUtil.constructResponse(200,"ok", data);
+    }
+    //学生证资产详情
+    @RequestMapping("/owner/studentDetail")
+    public ModelAndView studentDetail(String recordId){
+        List<HashMap> records = assetService.studentDetail(recordId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("records",records);
+        modelAndView.setViewName("studentDetail");
+        return modelAndView;
     }
 }
