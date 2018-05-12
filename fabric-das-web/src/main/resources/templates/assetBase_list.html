@@ -293,18 +293,7 @@
                     var items = $('#items');
                     items.empty();
                     var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var type=row.type_id=1?"学生证":row.type_id;
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + type + '</td>'
-                            + '<td>' + row.title + '</td>'
-                            + '<td>' + row.txid + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
+                    rowsResolve(rows,items);
                     var total = result.data.total;
                     $('#pageTotal').text(total);
 
@@ -342,21 +331,27 @@
                     var items = $('#items');
                     items.empty();
                     var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var type=row.type_id=1?"学生证":row.type_id;
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + type + '</td>'
-                            + '<td>' + row.title + '</td>'
-                            + '<td>' + row.txid + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
+                    rowsResolve(rows,items);
                 }
             }
         });
+    }
+
+    //针对rows的解析
+    function rowsResolve(rows,items){
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var type=row.type_id=1?"学生证":row.type_id;
+            var html = '<tr>'
+                + '<td>' + row.id + '</td>'
+                + '<td>' + type + '</td>'
+                + '<td>' + row.title + '</td>'
+                + '<td>' + row.txid + '</td>'
+                + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
+                + '</tr>';
+            items.append(html);
+        }
+
     }
 
     //获取请求条件
