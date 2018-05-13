@@ -118,7 +118,9 @@
                     <div class="panel-body">
                         <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px" >
                             <th:block th:each="record:${records}">
-                                <img th:src="${record.file_url}" class="layui-upload-img"/>
+                                <!--<img th:src="${record.file_url}" class="layui-upload-img"/>-->
+                                <img th:if="${record.file_url}!=null and ${record.file_url}!=''"   th:src="${record.file_url}" class="layui-upload-img"/>
+                                <p th:if="${record.file_url}==null and ${record.file_url}!=''"   th:text="无图片" class="layui-upload-img"></p>
                             </th:block>
                         </div>
                     </div>
