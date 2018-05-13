@@ -49,6 +49,11 @@
         .col-title {
             font-weight: 700;
         }
+
+        table tbody>tr td:last-child{
+            text-align: center;
+        }
+
     </style>
 
 </head>
@@ -63,7 +68,25 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        数据信息对比结果（补资产：id  交易哈希：txid  资产类型：type_id ）
+                        <h3 style="text-align: center" >数据信息对比结果</h3>
+                    </div>
+                    <div class="panel-heading">
+                        <div class="controls">
+                            <div class="controls">
+                                <span class="col-title">资产类型：</span>
+                                <th:block th:switch="${result.mysqlData.type_id}">
+                                    <span th:case="1">学生证</span>
+                                    <span th:case="*">无类型</span> <!--*表示默认类型-->
+                                </th:block>
+                            </div>
+                            <span class="col-title">资产编号：</span>
+                            <span th:text="${result.mysqlData.id}"></span>
+                        </div>
+                        <div class="controls">
+                            <span class="col-title">交易哈希：</span>
+                            <span th:text="${result.mysqlData.txid}"></span>
+                        </div>
+
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -82,67 +105,105 @@
                                     <td>college</td>
                                     <td th:text="${result.mysqlData.college}"></td>
                                     <td th:text="${result.fabricStateData.college}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.college}==${result.fabricStateData.college}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.college}!=${result.fabricStateData.college}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>address</td>
                                     <td th:text="${result.mysqlData.address}"></td>
                                     <td th:text="${result.fabricStateData.address}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.address}==${result.fabricStateData.address}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.address}!=${result.fabricStateData.address}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>stuId(学号)</td>
                                     <td th:text="${result.mysqlData.stu_id}"></td>
                                     <td th:text="${result.fabricStateData.stuId}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.stu_id}==${result.fabricStateData.stuId}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.stu_id}!=${result.fabricStateData.stuId}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>idCardNo（身份证号）</td>
                                     <td th:text="${result.mysqlData.idcardNo}"></td>
                                     <td th:text="${result.fabricStateData.idCardNo}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.idcardNo}==${result.fabricStateData.idCardNo}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.idcardNo}!=${result.fabricStateData.idCardNo}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>schoolTime</td>
                                    <!-- <td th:text="${result.mysqlData.schoolTime}"></td>-->
                                     <td th:text="${result.fabricStateData.schoolTime}"></td>
-                                    <td></td>
+                                    <td th:text="${result.fabricStateData.schoolTime}"></td>
+                                    <td>
+                                        <i th:if="${result.fabricStateData.schoolTime}==${result.fabricStateData.schoolTime}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.fabricStateData.schoolTime}!=${result.fabricStateData.schoolTime}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>sex</td>
                                     <td th:text="${result.mysqlData.sex}"></td>
                                     <td th:text="${result.fabricStateData.sex}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.sex}==${result.fabricStateData.sex}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.sex}!=${result.fabricStateData.sex}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>fileHash</td>
-                                    <td th:text="${result.mysqlData.fileHash}"></td>
+                                    <td th:text="${result.mysqlData.file_hash}"></td>
                                     <td th:text="${result.fabricStateData.fileHash}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.file_hash}==${result.mysqlData.file_hash}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.file_hash}!=${result.mysqlData.file_hash}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>dateOfBirth</td>
-                                    <td th:text="${result.mysqlData.dateOfBirth}"></td>
+                                   <!-- <td th:text="${result.mysqlData.dateOfBirth}"></td>
+                                    <td th:text="${result.fabricStateData.dataOfBirth}"></td>-->
                                     <td th:text="${result.fabricStateData.dateOfBirth}"></td>
-                                    <td></td>
+                                    <td th:text="${result.fabricStateData.dateOfBirth}"></td>
+                                    <td>
+                                        <i th:if="${result.fabricStateData.dateOfBirth}==${result.fabricStateData.dateOfBirth}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.fabricStateData.dateOfBirth}!=${result.fabricStateData.dateOfBirth}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>owners</td>
-                                    <td th:text="${result.mysqlData.owners}"></td>
+                                    <!--<td th:text="${result.mysqlData.des}"></td>
+                                    <td th:text="${result.fabricStateData.owners}"></td>-->
                                     <td th:text="${result.fabricStateData.owners}"></td>
-                                    <td></td>
+                                    <td th:text="${result.fabricStateData.owners}"></td>
+                                    <td>
+                                        <i th:if="${result.fabricStateData.owners}==${result.fabricStateData.owners}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.fabricStateData.owners}!=${result.fabricStateData.owners}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>lengthOfSchooling</td>
                                     <td th:text="${result.mysqlData.lengthOfSchooling}"></td>
                                     <td th:text="${result.fabricStateData.lengthOfSchooling}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.lengthOfSchooling}==${result.fabricStateData.lengthOfSchooling}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.lengthOfSchooling}!=${result.fabricStateData.lengthOfSchooling}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>timeOfIssume</td>
                                     <td th:text="${result.mysqlData.timeOfIssume}"></td>
                                     <td th:text="${result.fabricStateData.timeOfIssume}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.timeOfIssume}==${result.fabricStateData.timeOfIssume}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.timeOfIssume}!=${result.fabricStateData.timeOfIssume}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
 
                                 <!--学生证描述不进行对比
@@ -157,13 +218,19 @@
                                     <td>school</td>
                                     <td th:text="${result.mysqlData.school}"></td>
                                     <td th:text="${result.fabricStateData.school}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.school}==${result.fabricStateData.school}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.school}!=${result.fabricStateData.school}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>name</td>
                                     <td th:text="${result.mysqlData.name}"></td>
                                     <td th:text="${result.fabricStateData.name}"></td>
-                                    <td></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.name}==${result.fabricStateData.name}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.name}!=${result.fabricStateData.name}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
                                 </tr>
 
 
@@ -190,13 +257,28 @@
             <div class="col-lg-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <strong>附件</strong>
+                        <strong>本地数据库附件</strong>
                     </div>
                     <div class="panel-body">
                         <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
-                            <!-- <th:block th:each="record:${records}">
-                                 <img th:src="${record.file_url}" class="layui-upload-img"/>
-                             </th:block>-->
+                             <th:block th:each="file:${result.mysqlData.file_url}">
+                                 <img th:src="${file}" class="layui-upload-img"/>
+                             </th:block>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong>区块链附件</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div id="layer-photos-demo2" class="layui-upload-list" style="margin:0px">
+                            <th:block th:each="file:${result.mysqlData.file_url}">
+                                <img th:src="${file}" class="layui-upload-img"/>
+                            </th:block>
                         </div>
                     </div>
 
@@ -230,6 +312,13 @@
         var layer = layui.layer;
         layer.photos({
             photos: '#layer-photos-demo'
+            , anim: 5 //0-6的选择
+        });
+    });
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.photos({
+            photos: '#layer-photos-demo2'
             , anim: 5 //0-6的选择
         });
     });

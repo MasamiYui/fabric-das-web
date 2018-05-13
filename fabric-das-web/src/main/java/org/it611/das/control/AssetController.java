@@ -85,15 +85,32 @@ public class AssetController {
     public ModelAndView detail(String recordId) throws Exception {
 
         HashMap dataMap = assetService.selectStudentIdCardAssetById(recordId);
+
        /* if ((int)dataMap.get("code") == 200){
             return ResponseUtil.constructResponse(200, "ok", dataMap);
         }
         return ResponseUtil.constructResponse(400, "query failed.", dataMap);*/
+
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", dataMap);
         modelAndView.setViewName("studentCompareDetail");
         return modelAndView;
     }
+
+    //资产对照数据格式===》》测试
+    @RequestMapping("/asset/sica/data")
+    @ResponseBody
+    public JSONObject data(String recordId) throws Exception {
+
+        HashMap dataMap = assetService.selectStudentIdCardAssetById(recordId);
+
+        if ((int)dataMap.get("code") == 200){
+            return ResponseUtil.constructResponse(200, "ok", dataMap);
+        }
+        return ResponseUtil.constructResponse(400, "query failed.", dataMap);
+    }
+
 
     //获取资产列表
     @RequestMapping("/asset/getAsset")
