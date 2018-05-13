@@ -89,7 +89,7 @@ public class AssetServiceImpl implements AssetService {
 
         String dataJson = queryData.get("data");
         ObjectMapper objectMapper = new ObjectMapper();
-        if (resultState.equals("success") && mysqlData != null) {
+        if (resultState.equals("success") && mysqlData != null&&!"".equals(dataJson)) {
             HashMap fabricStateData = objectMapper.readValue(dataJson, HashMap.class);
             resultmap.put("code", 200);//fabric请求成功
             resultmap.put("mysqlData", mysqlData);

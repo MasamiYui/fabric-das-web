@@ -32,6 +32,9 @@
     <!--引入layui的css-->
     <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
 
+    <!--引入swiper-->
+    <link th:href="@{/swiper/swiper.min.css}" rel="stylesheet" type="text/css"/>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,6 +42,39 @@
     <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
     <![endif]-->
 
+    <style type="text/css">
+        .swiper-container {
+            height: 430px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+          /* background-repeat:no-repeat;
+            background-size:cover;*/
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-slide img{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -47,76 +83,93 @@
 
     <!-- Navigation -->
     <div th:replace="/nav::navigation"></div>
+
     <!--列表页的展示-->
     <div id="page-wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header">企业信息表</h3>
-            </div>
+        <div class="col-lg-12" style="height:60px;padding:15px;">
+            <h3>欢迎使用</h3>
         </div>
-        <!-- /.row -->
+
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <!--查找栏-->
-                    <div class="panel-heading">
-                        <form class="form-inline">
-                            <input type="text" id="name" class="form-control" placeholder="输入公司名" style="width:150px;"/>
-                            <input type="text" id="id" class="form-control" placeholder="输入信用编号"/>
-                            <input type="text" id="address" class="form-control" placeholder="输入公司地址"/>
-                            <input type="text" id="legalRepresentative" class="form-control" placeholder="输入法人代表"/>
-                            <button class="btn btn-default" type="button" onclick="search()">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            <button class="btn btn-default" type="button" onclick="add()">
-                                新增企业
-                            </button>
-                        </form>
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <table width="100%" class="table table-striped table-bordered table-hover"
-                               id="tableList">
-                            <thead>
-                            <tr>
-                                <th>信用代码</th>
-                                <th>公司名</th>
-                                <th>类型</th>
-                                <th>地址</th>
-                                <th>法人代表</th>
-                                <th>注册资本</th>
-                                <th>提交时间</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody id="items">
 
-                            </tbody>
-                        </table>
-
-                        <!--表格底部的分页栏-->
-                        <div class="col-sm-6">
-                            <div class="dataTables_info">
-                                共&lt;<em id="pageTotal"></em>&gt;条记录
-                            </div>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img th:src="@{/ico/1.png}" /></div>
+                            <div class="swiper-slide"><img th:src="@{/ico/3.png}" /></div>
+                            <div class="swiper-slide"><img th:src="@{/ico/2.png}" /></div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="dataTables_paginate paging_simple_numbers">
-                                <ul class="pagination" id="pageU"></ul>
-                            </div>
-                        </div>
-
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
 
-                </div>
-                <!-- /.panel -->
             </div>
-            <!-- /.col-lg-12 -->
+
+           <!-- <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="glyphicon glyphicon-user"></i> 用户基本信息
+                    </div>
+                    &lt;!&ndash; /.panel-heading &ndash;&gt;
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                                <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                                <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                                <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                    </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-money fa-fw"></i> Payment Received
+                                <span class="pull-right text-muted small"><em>Yesterday</em>
+                                    </span>
+                            </a>
+                        </div>
+                    </div>
+                    &lt;!&ndash; /.panel-body &ndash;&gt;
+                </div>
+            </div>-->
+
         </div>
 
     </div>
-    <!-- /#page-wrapper -->
-
 </div>
 <!-- /#wrapper -->
 
@@ -142,9 +195,34 @@
 <!--引入layui插件-->
 <script th:src="@{/jcstatic/layui/layui.js}"></script>
 
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<!--引入swiper插件-->
+<script th:src="@{/swiper/swiper.min.js}"></script>
+
 <script>
-    $(document).keyup(function (event) {
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        //autoplay:true,
+        autoplay: {
+            delay: 2000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+
+
+
+    /*  $(document).keyup(function (event) {
         if (event.keyCode == 13) {
             search();
         }
@@ -152,8 +230,8 @@
     $(document).ready(function () {
         search();
     });
-
-    function search() {
+*/
+ /*   function search() {
         var queryParams = getParams();
         var numberOfPages = queryParams.numberOfPages;
         var currentPage = queryParams.currentPage;
@@ -205,9 +283,9 @@
             }
         });
     }
-
+*/
     //针对点击每一页的刷新
-    function requestResult(url, subParams) {
+   /* function requestResult(url, subParams) {
         console.log("点击页码时：：" + JSON.stringify(subParams));
         $.ajax({
             type: "post",
@@ -236,10 +314,10 @@
                 }
             }
         });
-    }
+    }*/
 
     //获取请求条件
-    function getParams() {
+    /*function getParams() {
         var queryParams = {
             numberOfPages: 10,   //每页的记录数
             currentPage: 1,        //当前页码
@@ -267,64 +345,7 @@
         }
         return queryParams;
     }
-
-    var index;
-
-    function add() {
-        // alert("aaaaaa");
-
-        layui.use('layer', function () { //独立版的layer无需执行这一句
-            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-            index = layer.open({
-                title: ['企业新增一览表', 'font-size:18px;'],
-                anim: 4,
-                type: 2,
-                move: false,
-                resize: true,
-                offset: '70px',
-                area: ['1200px', '800px'],
-                fixed: false, //不固定
-                maxmin: true,
-                content: '/owner/companyForm'
-            });
-        });
-    }
-
-    function close() {
-        layui.use('layer', function () {
-            var layer = layui.layer;
-            layer.close(index);
-        });
-    }
-
-    function add_Result(data) {
-        layer.open({
-            title: '结果信息'
-            , content: data
-        });
-    }
-
-
-    function showDetail(e) {
-        var recordId = $(e).data("id");
-        layui.use('layer', function () { //独立版的layer无需执行这一句
-            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-            index = layer.open({
-                title: ['公司记录详情', 'font-size:18px;'],
-                anim: 4,
-                type: 2,
-                move: false,
-                resize: false,
-                scrolling:'auto',
-                offset: '70px',
-                area: ['700px', '568px'],
-                fixed: false, //不固定
-                maxmin: true,
-                content: '/owner/companyDetail?recordId=' + recordId
-
-            });
-        });
-    }
+*/
 
 
 
