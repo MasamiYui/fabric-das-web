@@ -18,10 +18,10 @@ public interface UserMapper {
     int insertUser(User user);
 
     //查询用户通过姓名和身份证
-    List<HashMap> selectUsersByNameAndId(@Param("name")String name, @Param("id")String id);
+    List<HashMap> selectUsersByNameAndIdCard(@Param("name")String name, @Param("idcard")String idcard);
 
     //查询用户总数
-    Long selectTotal(@Param("name")String name, @Param("id")String id);
+    Long selectTotal(@Param("name")String name, @Param("idcard")String id);
 
     //删除用户通过Id
     Integer deleteUserById(@Param("id")String id);

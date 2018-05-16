@@ -43,12 +43,12 @@ public class OwnerServiceImpl implements OwnerService {
     //pageNum:页码  pageSize:记录数
     @Transactional
     @Override
-    public HashMap<String, Object> selectUsers(int pageNum, int pageSize, String name, String id) {
+    public HashMap<String, Object> selectUsers(int pageNum, int pageSize, String name, String idcard) {
 
         HashMap data = new HashMap<String, Object>();
         PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = userDao.selectUsersByNameAndId(name, id);
-        long total = userDao.selectTotal(name, id);
+        List<HashMap> resultData = userDao.selectUsersByNameAndIdCard(name, idcard);
+        long total = userDao.selectTotal(name, idcard);
         data.put("rows", resultData);
         data.put("total", total);
         return data;

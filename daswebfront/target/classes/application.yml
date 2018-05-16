@@ -1,0 +1,59 @@
+server:
+  port: 8086
+
+logging:
+  #path: C:\Users\YUI\Desktop
+  level:
+    root: INFO
+    org.it611.das.mapper : debug
+
+spring:
+    mvc:
+        favicon:
+          enabled: false
+    datasource:
+        name: das
+        url: jdbc:mysql://192.168.10.128:3306/das?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: root
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    thymeleaf:
+      cache: false
+      mode: LEGACYHTML5
+    devtools:
+      restart:
+        enabled: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.it611.das.domain
+  configuration:
+    call-setters-on-nulls: true
+
+
+couchdb:
+  ip: http://192.168.10.128
+  port: :5984
+  db: /mychannel
+  cc: /asset02
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

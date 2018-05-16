@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.CompanyMapper" >
+
+    <insert id="addCompany" parameterType="org.it611.das.domain.Company">
+        INSERT INTO tb_company(id, username, password, company_name, company_address, company_email, landine_phone, contact, phone, credit_id, company_type, representative,
+        establishment_time, start_time, end_time, business_scope, registration_authority, registration_time, files, state, submit_time)
+        VALUES (#{id}, #{username}, #{password}, #{companyName}, #{companyAddress}, #{companyEmail}, #{landinePhone}, #{contact}, #{phone}, #{creditId},
+        #{companyType}, #{representative}, #{establishmentTime},#{startTime},#{endTime},#{businessScope},#{registrationAuthority},#{registrationTime},
+        #{files},#{state},#{submitTime})
+    </insert>
+
+    <select id="findCompanyByCreditId" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
+        landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
+        establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
+        registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
+        FROM tb_company
+        WHERE credit_id = #{creditId}
+    </select>
+
+    <select id="findCompanyByUsername" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
+        landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
+        establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
+        registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
+        FROM tb_company
+        WHERE username = #{username}
+    </select>
+
+    <select id="findCompanyByPhone" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
+        landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
+        establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
+        registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
+        FROM tb_company
+        WHERE phone = #{phone}
+    </select>
+
+    <select id="findCompanyByEmail" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
+        landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
+        establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
+        registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
+        FROM tb_company
+        WHERE company_email = #{email}
+    </select>
+
+</mapper>

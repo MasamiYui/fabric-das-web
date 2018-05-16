@@ -72,29 +72,73 @@
                             <th:block th:each="record,iterStat:${records}">
                                 <th:block th:if="${iterStat.index le 0}">
                                     <div class="controls">
-                                        <span class="col-title">公司名：</span>
-                                        <span th:text="${record.name}"></span>
-                                    </div>
-                                    <div class="controls">
-                                        <span class="col-title">信用代码：</span>
+                                        <span class="col-title">账号ID：</span>
                                         <span th:text="${record.id}"></span>
                                     </div>
                                     <div class="controls">
-                                        <span class="col-title">注册资本：</span>
-                                        <span th:text="${record.registered_capital}"></span>
+                                        <span class="col-title">账号名：</span>
+                                        <span th:text="${record.username}"></span>
                                     </div>
                                     <div class="controls">
-                                        <span class="col-title">起始年限：</span>
-                                        <span th:text="${record.start_time}"></span>
+                                        <span class="col-title">统一社会信用代码：</span>
+                                        <span th:text="${record.creditId}"></span>
                                     </div>
                                     <div class="controls">
-                                        <span class="col-title">审核时间：</span>
-                                        <span th:text="${record.audit_time}"></span>
+                                        <span class="col-title">公司名字：</span>
+                                        <span th:text="${record.companyName}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">公司类型：</span>
+                                        <span th:text="${record.companyType}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">公司地址：</span>
+                                        <span th:text="${record.companyAddress}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">公司邮箱：</span>
+                                        <span th:text="${record.companyEmail}"></span>
+                                    </div>
+                                   <div class="controls">
+                                        <span class="col-title">公司固话：</span>
+                                        <span th:text="${record.landlinePhone}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">公司联系人：</span>
+                                        <span th:text="${record.contact}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">成立时间：</span>
+                                        <span th:text="${record.establishmentTime}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">营业期限：</span>
+                                        <span th:text="${record.startTime}+${record.endTime}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">经营范围：</span>
+                                        <span th:text="${record.businessScope}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">登记机构：</span>
+                                        <span th:text="${record.registrationAuthority}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">登记时间：</span>
+                                        <span th:text="${record.registrationTime}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">状态：</span>
+                                        <span th:text="${record.state}"></span>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="col-title">提交时间：</span>
+                                        <span th:text="${record.submitTime}"></span>
                                     </div>
                                 </th:block>
                             </th:block>
                         </div>
-                        <div class="control-group col-lg-6">
+<!--                        <div class="control-group col-lg-6">
                             <th:block th:each="record,iterStat:${records}">
                                 <th:block th:if="${iterStat.index le 0}">
                                     <div class="controls">
@@ -119,8 +163,8 @@
                                     </div>
                                 </th:block>
                             </th:block>
-                        </div>
-                        <div class="control-group col-lg-12">
+                        </div>-->
+<!--                        <div class="control-group col-lg-12">
                             <th:block th:each="record,iterStat:${records}">
                                 <th:block th:if="${iterStat.index le 0}">
                                     <div class="controls">
@@ -133,7 +177,7 @@
                                     </div>
                                 </th:block>
                             </th:block>
-                        </div>
+                        </div>-->
 
                     </div>
                 </div>
@@ -153,8 +197,8 @@
                         <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
                             <th:block th:each="record:${records}">
                                <!-- <p th:text="${record.file_url}"></p>-->
-                                <img th:if="${record.file_url}!=null and ${record.file_url}!=''"   th:src="${record.file_url}" class="layui-upload-img"/>
-                                <p th:if="${record.file_url}==null and ${record.file_url}!=''"   th:text="无图片" class="layui-upload-img"></p>
+                                <img th:if="${record.files}!=null and ${record.files}!=''"   th:src="${record.files}" class="layui-upload-img"/>
+                                <p th:if="${record.files}==null and ${record.files}!=''"   th:text="无附件" class="layui-upload-img"></p>
                             </th:block>
                         </div>
                     </div>
@@ -193,6 +237,7 @@
         });
     });
 </script>
+
 
 </body>
 

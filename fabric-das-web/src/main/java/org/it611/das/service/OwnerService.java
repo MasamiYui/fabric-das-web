@@ -1,7 +1,6 @@
 package org.it611.das.service;
 
 
-import com.alibaba.fastjson.JSONObject;
 import org.it611.das.vo.CompanyVO;
 import org.it611.das.vo.UserVo;
 
@@ -11,7 +10,7 @@ import java.util.List;
 public interface OwnerService {
 
     //查询用户
-    HashMap<String, Object> selectUsers(int pageNum, int pageSize,String name,String id);
+    HashMap<String, Object> selectUsers(int pageNum, int pageSize,String name,String idcard);
 
     //添加用户
     int addUser(UserVo userVo);

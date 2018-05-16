@@ -79,13 +79,14 @@
                                id="tableList">
                             <thead>
                             <tr>
-                                <th>信用代码</th>
+                                <th>ID</th>
+                                <th>账号名</th>
+                                <th>统一信用码</th>
                                 <th>公司名</th>
-                                <th>类型</th>
-                                <th>地址</th>
-                                <th>法人代表</th>
-                                <th>注册资本</th>
+                                <th>联系人</th>
+                                <th>手机</th>
                                 <th>提交时间</th>
+                                <th>状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -172,12 +173,13 @@
                         var row = rows[i];
                         var html = '<tr>'
                             + '<td>' + row.id + '</td>'
-                            + '<td>' + row.name + '</td>'
-                            + '<td>' + row.type + '</td>'
-                            + '<td>' + row.address + '</td>'
-                            + '<td>' + row.legal_representative + '</td>'
-                            + '<td>' + row.registered_capital + '</td>'
-                            + '<td>' + row.submit_time + '</td>'
+                            + '<td>' + row.username + '</td>'
+                            + '<td>' + row.creditId + '</td>'
+                            + '<td>' + row.companyName + '</td>'
+                            + '<td>' + row.contact + '</td>'
+                            + '<td>' + row.phone + '</td>'
+                            + '<td>' + row.submitTime + '</td>'
+                            + '<td>' + stateSwitch(row.state) + '</td>'
                             + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
@@ -223,12 +225,13 @@
                         var row = rows[i];
                         var html = '<tr>'
                             + '<td>' + row.id + '</td>'
-                            + '<td>' + row.name + '</td>'
-                            + '<td>' + row.type + '</td>'
-                            + '<td>' + row.address + '</td>'
-                            + '<td>' + row.registered_capital + '</td>'
-                            + '<td>' + row.legal_representative + '</td>'
-                            + '<td>' + row.submit_time + '</td>'
+                            + '<td>' + row.username + '</td>'
+                            + '<td>' + row.creditId + '</td>'
+                            + '<td>' + row.companyName + '</td>'
+                            + '<td>' + row.contact + '</td>'
+                            + '<td>' + row.phone + '</td>'
+                            + '<td>' + row.submitTime + '</td>'
+                            + '<td>' + stateSwitch(row.state) + '</td>'
                             + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
@@ -304,6 +307,19 @@
         });
     }
 
+    function stateSwitch(state) {
+        if (state == 0) {
+            return "未激活";
+        } else if (state == 1) {
+            return "已激活";
+        } else if (state == 2) {
+            return "已冻结";
+        } else if (state == 3) {
+            return "已注销";
+        } else {
+            return "未知状态";
+        }
+    }
 
     function showDetail(e) {
         var recordId = $(e).data("id");

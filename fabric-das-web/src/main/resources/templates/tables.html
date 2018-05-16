@@ -77,13 +77,12 @@
                                id="tableList">
                             <thead>
                             <tr>
-                                <th>身份证号</th>
+                                <th>ID</th>
                                 <th>姓名</th>
-                                <th>性别</th>
-                                <th>民族</th>
-                                <th>日期</th>
-                                <th>所在地</th>
+                                <th>手机</th>
+                                <th>身份证</th>
                                 <th>提交时间</th>
+                                <th>状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -171,11 +170,10 @@
                         var html = '<tr>'
                             + '<td>' + row.id + '</td>'
                             + '<td>' + row.name + '</td>'
-                            + '<td>' + row.sex + '</td>'
-                            + '<td>' + row.nation + '</td>'
-                            + '<td>' + row.date + '</td>'
-                            + '<td>' + row.address + '</td>'
+                            + '<td>' + row.phone + '</td>'
+                            + '<td>' + row.idcard + '</td>'
                             + '<td>' + row.submitTime + '</td>'
+                            + '<td>' + stateSwitch(row.state) + '</td>'
                             + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
@@ -202,6 +200,21 @@
                 }
             }
         });
+    }
+
+    function stateSwitch(state){
+        if(state == 0){
+            return "未激活";
+        }else if (state == 1){
+            return "已激活";
+        }else if(state == 2){
+            return "已冻结";
+        }else if(state == 3){
+            return "已注销";
+        }else{
+            return "未知状态";
+        }
+
     }
 
     //针对点击每一页的刷新

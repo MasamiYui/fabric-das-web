@@ -18,21 +18,33 @@
         #{state,jdbcType=INTEGER})
     </insert>
 
-    <!--根据公司名称和id进行模糊查询 -->
+    <!--根据公司名称和id进行模糊查询,（开发中先把所有字段取出来，以防字段修改） -->
     <select id="selectCompaniesByNameAndId" resultType="java.util.HashMap">
-       select * from company where id like concat('%',#{id},'%') and name like concat('%',#{name},'%') and address like concat('%',#{address},'%') and legal_representative like concat('%',#{legalRepresentative},'%')
+        select
+        id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
+        landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
+        establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
+        registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
+        from tb_company
+        where credit_id like concat('%',#{creditId},'%') and company_name like concat('%',#{companyName},'%') and company_address like concat('%',#{companyAddress},'%') and representative like concat('%',#{representative},'%')
     </select>
 
     <!--查询公司总数-->
     <select id="selectTotal" resultType="java.lang.Long">
         select
         count(*)
-        from company   where id like concat('%',#{id},'%') and name like concat('%',#{name},'%') and address like concat('%',#{address},'%') and legal_representative like concat('%',#{legalRepresentative},'%')
+        from tb_company
+        where credit_id like concat('%',#{creditId},'%') and company_name like concat('%',#{companyName},'%') and company_address like concat('%',#{companyAddress},'%') and representative like concat('%',#{representative},'%')
     </select>
 
     <!--根据id查询记录详情（包含文件）-->
     <select id="selectComanyDetailById"  parameterType="string" resultType="java.util.HashMap">
-        select c.* ,o.file_url from company c LEFT JOIN owner_file o on c.id=o.owner_id  where c.id=#{id}
+        select id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
+        landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
+        establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
+        registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
+        from tb_company
+        where id=#{id}
     </select>
 
 </mapper>

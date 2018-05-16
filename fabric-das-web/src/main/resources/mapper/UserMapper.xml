@@ -16,15 +16,18 @@
     </insert>
 
     <!--根据用户姓名和身份证Id进行模糊查询 -->
-    <select id="selectUsersByNameAndId" resultType="java.util.HashMap">
-       select * from user where id like concat('%',#{id},'%') and name like concat('%',#{name},'%')
+    <select id="selectUsersByNameAndIdCard" resultType="java.util.HashMap">
+       select
+       id,  phone, idcard, `name`, state, submit_time as submitTime
+       from tb_user
+       where idcard like concat('%',#{idcard},'%') and name like concat('%',#{name},'%')
     </select>
 
     <!--查询用户总数-->
     <select id="selectTotal" resultType="java.lang.Long">
         select
         count(*)
-        from user   where id like concat('%',#{id},'%') and name like concat('%',#{name},'%')
+        from tb_user where idcard like concat('%',#{idcard},'%') and name like concat('%',#{name},'%')
     </select>
 
     <!--删除一个用户-->
@@ -34,11 +37,8 @@
 
     <!--根据id查询记录-->
     <select id="getRecordDetail" parameterType="string" resultType="hashmap" >
-        SELECT u.*,o.file_url
-        from user u LEFT join owner_file o on u.id=o.owner_id
-        <where>
-            u.id=#{id}
-        </where>
-
+        SELECT id,  phone, email, idcard, `name`, sex, nation,  `date`, address, files, state, submit_time as submitTime
+        from tb_user
+        where id = #{id,jdbcType=VARCHAR}
     </select>
 </mapper>
