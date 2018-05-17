@@ -29,4 +29,7 @@ public interface UserMapper {
     //根据id查询记录(对应多个文件)
     List<HashMap> getRecordDetail(@Param("id")String id);
 
+    //根据id设置用户帐号的状态
+    int stateSet(@Param("id") String id,@Param("state") String state);
+
 }

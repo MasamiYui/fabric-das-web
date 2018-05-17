@@ -173,7 +173,7 @@
                             + '<td>' + row.phone + '</td>'
                             + '<td>' + row.idcard + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td>' + stateSwitch(row.state) + '</td>'
+                            + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
                             + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
@@ -203,6 +203,15 @@
     }
 
     function stateSwitch(state){
+
+        switch(state){
+            case "0":return "未激活"; break;
+            case "1":return "正常"; break;
+            case "2":return "已冻结"; break;
+            case "3":return "已注销"; break;
+            case "4":return "不通过"; break;
+        }
+        /*
         if(state == 0){
             return "未激活";
         }else if (state == 1){
@@ -213,7 +222,7 @@
             return "已注销";
         }else{
             return "未知状态";
-        }
+        }*/
 
     }
 
@@ -291,12 +300,7 @@
         });
     }
 
-    function close() {
-        layui.use('layer', function () {
-            var layer = layui.layer;
-            layer.close(index);
-        });
-    }
+
 
     function add_Result(data) {
         layer.open({
@@ -327,7 +331,33 @@
         });
     }
 
+    function stateSet(e) {
+        var recordId = $(e).data("id");
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            index = layer.open({
+                title: ['状态设置', 'font-size:18px;'],
+                anim: 1,
+                type: 2,
+                move: false,
+                resize: false,
+                scrolling:'auto',
+                offset: '70px',
+                area: ['583px', '400px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/accountState?recordId=' + recordId
 
+            });
+        });
+
+    }
+    function close() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.close(index);
+        });
+    }
 
 </script>
 

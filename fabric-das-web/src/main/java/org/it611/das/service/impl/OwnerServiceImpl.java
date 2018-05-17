@@ -145,5 +145,15 @@ public class OwnerServiceImpl implements OwnerService {
         List<HashMap> result = userDao.getRecordDetail(id);
         return result;
     }
+
+    @Transactional
+    @Override
+    public int stateSte(String id, String state) {
+       int result= userDao.stateSet(id,state);
+       if(result>0){
+           return result;
+       }
+        return 0;
+    }
 }
 

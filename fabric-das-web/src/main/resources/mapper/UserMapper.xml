@@ -41,4 +41,10 @@
         from tb_user
         where id = #{id,jdbcType=VARCHAR}
     </select>
+
+    <!--根据id设置用户帐号的状态-->
+    <update id="stateSet" >
+        update tb_user set state=#{state} where id =#{id}
+    </update>
+
 </mapper>
