@@ -92,12 +92,12 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public HashMap<String, Object> selectCompanies(int pageNum, int pageSize, String name, String id, String address, String legalRepresentative) {
+    public HashMap<String, Object> selectCompanies(int pageNum, int pageSize, String username, String companyName, String creditId, String state) {
 
         HashMap dataMap = new HashMap<String, Object>();
         PageHelper.startPage(pageNum, pageSize);
-        List<HashMap> resultData = companyDao.selectCompaniesByNameAndId(name, id, address, legalRepresentative);
-        long total = companyDao.selectTotal(name, id, address, legalRepresentative);
+        List<HashMap> resultData = companyDao.selectCompaniesByCondtions(username, companyName, creditId, Integer.valueOf(state));
+        long total = companyDao.selectTotal(username, companyName, creditId, Integer.valueOf(state));
         dataMap.put("rows", resultData);
         dataMap.put("total", total);
         return dataMap;
@@ -148,12 +148,23 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Transactional
     @Override
-    public int stateSte(String id, String state) {
-       int result= userDao.stateSet(id,state);
+    public int changeCompanyState(String id, String state) {
+       int result= companyDao.changCompanyState(id,state);
        if(result>0){
            return result;
        }
         return 0;
     }
+
+    @Transactional
+    @Override
+    public int changeUserState(String id, String state) {
+        int result= userDao.changUserState(id,state);
+        if(result>0){
+            return result;
+        }
+        return 0;
+    }
+
 }
 

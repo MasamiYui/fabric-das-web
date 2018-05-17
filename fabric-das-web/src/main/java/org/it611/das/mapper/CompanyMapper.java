@@ -16,13 +16,17 @@ public interface CompanyMapper {
     //新增一名用户
     int insertCompany(Company company);
 
-    //查询用户通过姓名和身份证
-    List<HashMap> selectCompaniesByNameAndId(@Param("companyName") String companyName, @Param("creditId") String creditId, @Param("companyAddress") String companyAddress, @Param("representative") String legalRepresentative);
+    //查询
+    List<HashMap> selectCompaniesByCondtions(@Param("username") String username, @Param("companyName") String companyName, @Param("creditId") String creditId, @Param("state") Integer state);
 
     //查询用户总数
-    Long selectTotal(@Param("companyName") String companyName, @Param("creditId") String creditId, @Param("companyAddress") String companyAddress, @Param("representative") String representative);
+    Long selectTotal(@Param("username") String username, @Param("companyName") String companyName, @Param("creditId") String creditId, @Param("state") Integer state);
 
     //根据id查询企业记录详情
     List<HashMap> selectComanyDetailById(String id);
+
+    //修改企业用户状态
+    int changCompanyState(@Param("id") String id, @Param("state") String state);
+
 
 }

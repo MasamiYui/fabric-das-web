@@ -43,7 +43,7 @@
     </select>
 
     <!--根据id设置用户帐号的状态-->
-    <update id="stateSet" >
+    <update id="changUserState" >
         update tb_user set state=#{state} where id =#{id}
     </update>
 

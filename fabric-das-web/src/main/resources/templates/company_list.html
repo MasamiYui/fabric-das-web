@@ -61,10 +61,10 @@
                     <!--查找栏-->
                     <div class="panel-heading">
                         <form class="form-inline">
-                            <input type="text" id="name" class="form-control" placeholder="输入公司名" style="width:150px;"/>
-                            <input type="text" id="id" class="form-control" placeholder="输入信用编号"/>
-                            <input type="text" id="address" class="form-control" placeholder="输入公司地址"/>
-                            <input type="text" id="legalRepresentative" class="form-control" placeholder="输入法人代表"/>
+                            <input type="text" id="username" class="form-control" placeholder="输入账户名" style="width:150px;"/>
+                            <input type="text" id="companyName" class="form-control" placeholder="输入公司名"/>
+                            <input type="text" id="creditId" class="form-control" placeholder="输入统一信用码"/>
+                            <input type="text" id="state" class="form-control" placeholder="状态"/>
                             <button class="btn btn-default" type="button" onclick="search()">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -158,7 +158,7 @@
         var queryParams = getParams();
         var numberOfPages = queryParams.numberOfPages;
         var currentPage = queryParams.currentPage;
-        console.log("页面加载完后：：" + JSON.stringify(queryParams));
+        console.log("页面加载完后：" + JSON.stringify(queryParams));
         $.ajax({
             type: "post",
             url: "/owner/company/list",
@@ -179,7 +179,7 @@
                             + '<td>' + row.contact + '</td>'
                             + '<td>' + row.phone + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td>' + stateSwitch(row.state) + '</td>'
+                            + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
                             + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
@@ -208,6 +208,28 @@
         });
     }
 
+    function stateSet(e) {
+        var recordId = $(e).data("id");
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            index = layer.open({
+                title: ['状态设置', 'font-size:18px;'],
+                anim: 1,
+                type: 2,
+                move: false,
+                resize: false,
+                scrolling:'auto',
+                offset: '70px',
+                area: ['583px', '400px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/accountState?recordId=' + recordId+"&&ownerType=2"
+
+            });
+        });
+
+    }
+
     //针对点击每一页的刷新
     function requestResult(url, subParams) {
         console.log("点击页码时：：" + JSON.stringify(subParams));
@@ -231,7 +253,7 @@
                             + '<td>' + row.contact + '</td>'
                             + '<td>' + row.phone + '</td>'
                             + '<td>' + row.submitTime + '</td>'
-                            + '<td>' + stateSwitch(row.state) + '</td>'
+                            + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
                             + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                             + '</tr>';
                         items.append(html);
@@ -246,27 +268,27 @@
         var queryParams = {
             numberOfPages: 10,   //每页的记录数
             currentPage: 1,        //当前页码
-            id: '',
-            name: '',
-            address: '',
-            legalRepresentative: ''
+            username: '',
+            companyName: '',
+            creditId: '',
+            state: '-1'//默认-1 读取所有状态的数据
         };
         //查询条件
-        var name = $('#name').val();
-        if (name) {
-            queryParams.name = name;
+        var username = $('#username').val();
+        if (username) {
+            queryParams.username = username;
         }
-        var id = $('#id').val();
-        if (id) {
-            queryParams.id =id;
+        var companyName = $('#companyName').val();
+        if (companyName) {
+            queryParams.companyName =companyName;
         }
-        var address = $('#address').val();
-        if (address) {
-            queryParams.address =address;
+        var creditId = $('#creditId').val();
+        if (creditId) {
+            queryParams.creditId =creditId;
         }
-        var legalRepresentative = $('#legalRepresentative').val();
-        if (legalRepresentative) {
-            queryParams.legalRepresentative =legalRepresentative;
+        var state = $('#state').val();
+        if (state) {
+            queryParams.state =state;
         }
         return queryParams;
     }
@@ -308,15 +330,25 @@
     }
 
     function stateSwitch(state) {
-        if (state == 0) {
+        //TODO table.html 可以，这里不可以
+/*       switch(state){
+            case "0":return "未激活"; break;
+            case "1":return "正常"; break;
+            case "2":return "已冻结"; break;
+            case "3":return "已注销"; break;
+            case "4":return "审核不通过"; break;
+        }*/
+        if(state == 0){
             return "未激活";
-        } else if (state == 1) {
-            return "已激活";
-        } else if (state == 2) {
+        }else if(state == 1){
+            return "正常";
+        }else if(state == 2){
             return "已冻结";
-        } else if (state == 3) {
+        }else if(state == 3){
             return "已注销";
-        } else {
+        }else if(state == 4){
+            return "审核不通过";
+        }else{
             return "未知状态";
         }
     }

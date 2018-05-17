@@ -30,6 +30,7 @@ public interface UserMapper {
     List<HashMap> getRecordDetail(@Param("id")String id);
 
     //根据id设置用户帐号的状态
-    int stateSet(@Param("id") String id,@Param("state") String state);
+    int changUserState(@Param("id") String id, @Param("state") String state);
+
 
 }

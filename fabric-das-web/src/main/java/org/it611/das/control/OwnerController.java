@@ -122,9 +122,9 @@ public class OwnerController {
      */
     @RequestMapping("/owner/company/list")
     @ResponseBody
-    public JSONObject selectCompanies(int currentPage, int numberOfPages, String name, String id, String address, String legalRepresentative) {
+    public JSONObject selectCompanies(int currentPage, int numberOfPages, String username, String companyName, String creditId, String state) {
 
-        HashMap<String, Object> data = ownerService.selectCompanies(currentPage, numberOfPages, name, id, address, legalRepresentative);
+        HashMap<String, Object> data = ownerService.selectCompanies(currentPage, numberOfPages, username, companyName, creditId, state);
         return ResponseUtil.constructResponse(200, "ok", data);
     }
 
@@ -164,20 +164,33 @@ public class OwnerController {
 
     //测试=====》帐号状态设置
     @RequestMapping("/accountState")
-    public String accountState(Model model, String recordId) {
+    public String accountState(Model model, String recordId, String ownerType) {
         model.addAttribute("id", recordId);
+        model.addAttribute("ownerType", ownerType);
         return "accountState";
     }
 
-    //帐号修改
-    @RequestMapping("/stateChange")
+    //普通用户帐号修改
+    @RequestMapping("/user/state/change")
     @ResponseBody
-    public JSONObject stateChange(String id,String state) {
-       int result= ownerService.stateSte(id,state);
+    public JSONObject changeUserState(String id,String state) {
+       int result= ownerService.changeUserState(id,state);
        if(result == 1){
            JSONObject dataMap=ResponseUtil.constructResponse(200, "ok", null);
            return dataMap;
        }
+        return ResponseUtil.constructResponse(400, "ok", null);
+    }
+
+    //企业账户帐号修改
+    @RequestMapping("/company/state/change")
+    @ResponseBody
+    public JSONObject changeCompanyState(String id,String state) {
+        int result= ownerService.changeCompanyState(id,state);
+        if(result == 1){
+            JSONObject dataMap=ResponseUtil.constructResponse(200, "ok", null);
+            return dataMap;
+        }
         return ResponseUtil.constructResponse(400, "ok", null);
     }
 }

@@ -30,8 +30,11 @@ public interface OwnerService {
     //根据id查询公司记录
     List<HashMap> getCompanyDetail(String id);
 
-    //更改用户帐号的状态
-    int stateSte(String id,String state );
+    //更改普通用户帐号的状态
+    int changeUserState(String id,String state);
+
+    //更改企业用户帐号的状态
+    int changeCompanyState(String id,String state);
 
 
 }

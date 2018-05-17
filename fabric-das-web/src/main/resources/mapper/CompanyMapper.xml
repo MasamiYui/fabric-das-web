@@ -19,14 +19,19 @@
     </insert>
 
     <!--根据公司名称和id进行模糊查询,（开发中先把所有字段取出来，以防字段修改） -->
-    <select id="selectCompaniesByNameAndId" resultType="java.util.HashMap">
+    <select id="selectCompaniesByCondtions" resultType="java.util.HashMap">
         select
         id, username, password, company_name as companyName, company_address as companyAddress, company_email as companyEmail,
         landine_phone as landlinePhone, contact, phone, credit_id as creditId, company_type as companyType, representative,
         establishment_time as establishmentTime, start_time as startTime, end_time as endTime, business_scope as businessScope,
         registration_authority as registrationAuthority, registration_time as registrationTime, files, state, submit_time as submitTime
         from tb_company
-        where credit_id like concat('%',#{creditId},'%') and company_name like concat('%',#{companyName},'%') and company_address like concat('%',#{companyAddress},'%') and representative like concat('%',#{representative},'%')
+        <if test="state eq -1">
+            where username like concat('%',#{username},'%') and company_name like concat('%',#{companyName},'%') and credit_id like concat('%',#{creditId},'%')
+        </if>
+        <if test="state gt -1">
+            where username like concat('%',#{username},'%') and company_name like concat('%',#{companyName},'%') and credit_id like concat('%',#{creditId},'%') and state = #{state}
+        </if>
     </select>
 
     <!--查询公司总数-->
@@ -34,7 +39,12 @@
         select
         count(*)
         from tb_company
-        where credit_id like concat('%',#{creditId},'%') and company_name like concat('%',#{companyName},'%') and company_address like concat('%',#{companyAddress},'%') and representative like concat('%',#{representative},'%')
+        <if test="state eq -1">
+            where username like concat('%',#{username},'%') and company_name like concat('%',#{companyName},'%') and credit_id like concat('%',#{creditId},'%')
+        </if>
+        <if test="state gt -1">
+            where username like concat('%',#{username},'%') and company_name like concat('%',#{companyName},'%') and credit_id like concat('%',#{creditId},'%') and state = #{state}
+        </if>
     </select>
 
     <!--根据id查询记录详情（包含文件）-->
@@ -46,5 +56,10 @@
         from tb_company
         where id=#{id}
     </select>
+
+    <!--根据id设置企业帐号的状态-->
+    <update id="changCompanyState" >
+        update tb_company set state=#{state} where id =#{id}
+    </update>
 
 </mapper>

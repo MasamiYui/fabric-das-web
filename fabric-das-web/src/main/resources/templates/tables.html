@@ -209,20 +209,8 @@
             case "1":return "正常"; break;
             case "2":return "已冻结"; break;
             case "3":return "已注销"; break;
-            case "4":return "不通过"; break;
+            case "4":return "审核不通过"; break;
         }
-        /*
-        if(state == 0){
-            return "未激活";
-        }else if (state == 1){
-            return "已激活";
-        }else if(state == 2){
-            return "已冻结";
-        }else if(state == 3){
-            return "已注销";
-        }else{
-            return "未知状态";
-        }*/
 
     }
 
@@ -346,7 +334,7 @@
                 area: ['583px', '400px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/accountState?recordId=' + recordId
+                content: '/accountState?recordId=' + recordId +"&&ownerType=1"
 
             });
         });
