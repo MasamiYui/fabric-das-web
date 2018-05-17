@@ -129,7 +129,13 @@
                                     </div>
                                     <div class="controls">
                                         <span class="col-title">状态：</span>
-                                        <span th:text="${record.state}"></span>
+                                        <!--<span th:text="${record.state}"></span>-->
+                                        <th:block th:switch="${record.state}">
+                                            <span th:case="0">未激活</span>
+                                            <span th:case="1">正常</span>
+                                        </th:block>
+
+
                                     </div>
                                     <div class="controls">
                                         <span class="col-title">提交时间：</span>
