@@ -1,5 +1,6 @@
 package org.it611.das.service.impl;
 
+
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import org.apache.log4j.Logger;
@@ -7,12 +8,12 @@ import org.it611.das.domain.Company;
 import org.it611.das.domain.OwnerFile;
 import org.it611.das.domain.User;
 import org.it611.das.mapper.CompanyMapper;
+import org.it611.das.mapper.DegreeCertificationMapper;
 import org.it611.das.mapper.OwnerFileMapper;
 import org.it611.das.mapper.UserMapper;
 import org.it611.das.service.OwnerService;
 import org.it611.das.util.ResponseUtil;
 import org.it611.das.util.State;
-import org.it611.das.util.Vo2PoUtil;
 import org.it611.das.util.parseInputFileForm;
 import org.it611.das.vo.CompanyVO;
 import org.it611.das.vo.UserVo;
@@ -39,6 +40,9 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Autowired
     private OwnerFileMapper ownerFileMapper;
+
+    @Autowired
+    private DegreeCertificationMapper degreeCertificationMapper;
 
     //pageNum:页码  pageSize:记录数
     @Transactional
@@ -164,6 +168,22 @@ public class OwnerServiceImpl implements OwnerService {
             return result;
         }
         return 0;
+    }
+
+    @Override
+    public JSONObject degreeCertificationList(int pageNum, int pageSize, String creditId) {
+
+        Map<String, Object> data = new HashMap<>();
+        PageHelper.startPage(pageNum, pageSize);
+        List<HashMap> resultData = degreeCertificationMapper.selectDegreeCertificationByConditions(creditId);
+        long total = degreeCertificationMapper.selectTotal(creditId);
+        data.put("rows", resultData);
+        data.put("total", total);
+        if (resultData != null) {
+            return ResponseUtil.constructResponse(200, "ok", data);
+        }
+        return ResponseUtil.constructResponse(400, "select failed.", null);
+
     }
 
 }

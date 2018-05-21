@@ -1,6 +1,7 @@
 package org.it611.das.service;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.it611.das.vo.CompanyVO;
 import org.it611.das.vo.UserVo;
 
@@ -35,6 +36,9 @@ public interface OwnerService {
 
     //更改企业用户帐号的状态
     int changeCompanyState(String id,String state);
+
+    //查询学位资产的列表
+    JSONObject degreeCertificationList(int currentPage, int numberOfPages, String creditId);
 
 
 }

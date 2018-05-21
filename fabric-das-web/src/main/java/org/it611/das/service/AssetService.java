@@ -1,5 +1,6 @@
 package org.it611.das.service;
 
+import com.alibaba.fastjson.JSONObject;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
 import org.hyperledger.fabric.sdk.exception.ProposalException;
@@ -23,4 +24,6 @@ public interface AssetService {
     HashMap<String, Object> selectAssetList(int currentPage,int numberOfPages, String title,String id,String txid);
 
     List<HashMap> studentDetail(String id);
+
+    JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId);
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.DegreeCertificationMapper" >
+
+    <select id="selectDegreeCertificationByConditions" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, owner_id as ownerId, `name`, sex, `date`, degree_conferring_unit as degreeConferringUnit, professional, degree_name, cert_id as certId, `time`, files, fileshash, transaction_id as transactionId, state,
+        submit_time as submitTime
+        FROM tb_degreecertification
+        WHERE cert_id like concat('%',#{certId},'%')
+    </select>
+
+    <select id="selectTotal" parameterType="java.lang.String" resultType="java.lang.Long">
+        SELECT COUNT(*)
+        FROM tb_degreecertification
+        WHERE cert_id like concat('%',#{certId},'%')
+    </select>
+
+
+</mapper>

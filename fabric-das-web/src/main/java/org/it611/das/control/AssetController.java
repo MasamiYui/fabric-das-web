@@ -118,6 +118,8 @@ public class AssetController {
         return "assetBase_list";
     }
 
+
+
     //资产列表
     @RequestMapping("/asset/assetList")
     @ResponseBody
@@ -140,6 +142,20 @@ public class AssetController {
     @RequestMapping("/asset/studentCompare")
     public String studentCompare(){
         return "studentCompareDetail";
+    }
+
+
+    //获取学历证书资产列表页面
+    @RequestMapping("/asset/degreeCertification/index")
+    public String degreeCertificationIndex(){
+        return "degreeCertificationIndex";
+    }
+
+    //获取学历证书资产列表
+    @RequestMapping("/asset/degreeCertification/list")
+    @ResponseBody
+    public JSONObject degreeCertificationList(int currentPage,int numberOfPages,String certId){
+        return assetService.degreeCertificationList(currentPage, numberOfPages, certId);
     }
 
 }

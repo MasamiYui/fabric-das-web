@@ -1,5 +1,6 @@
 package org.it611.das.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import org.apache.log4j.Logger;
@@ -9,10 +10,12 @@ import org.hyperledger.fabric.sdk.exception.ProposalException;
 import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.fabric.ChaincodeManager;
 import org.it611.das.fabric.util.FabricManager;
+import org.it611.das.mapper.DegreeCertificationMapper;
 import org.it611.das.service.AssetService;
 import org.it611.das.domain.*;
 import org.it611.das.mapper.AssetMapper;
 import org.it611.das.util.ParseInputAsset;
+import org.it611.das.util.ResponseUtil;
 import org.it611.das.vo.StudentIdCardAssetVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +38,8 @@ public class AssetServiceImpl implements AssetService {
     @Autowired
     private AssetMapper assetDao;
 
-
+    @Autowired
+    private DegreeCertificationMapper degreeCertificationDao;
 
     @Override
     @Transactional
@@ -115,10 +119,26 @@ public class AssetServiceImpl implements AssetService {
         dataMap.put("total", total);
         return dataMap;
     }
+
+
     @Transactional
     @Override
     public List<HashMap> studentDetail(String id) {
+
         List<HashMap> result = assetDao.studentDetail(id);
         return result;
     }
+
+    @Override
+    public JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId) {
+        Map data = new HashMap<String, Object>();
+        List<HashMap> result = degreeCertificationDao.selectDegreeCertificationByConditions(certId);
+        Long total = degreeCertificationDao.selectTotal(certId);
+        data.put("rows", result);
+        data.put("total", total);
+        return ResponseUtil.constructResponse(200, "ok", data);
+
+    }
+
+
 }
