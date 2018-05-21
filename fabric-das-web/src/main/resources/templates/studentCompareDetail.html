@@ -158,8 +158,14 @@
                                 </tr>
                                 <tr>
                                     <td>fileHash</td>
-                                    <td th:text="${result.mysqlData.file_hash}"></td>
-                                    <td th:text="${result.fabricStateData.fileHash}"></td>
+                                    <td th:text="(${result.mysqlData.file_hash}=='' or ${result.mysqlData.file_hash}==null)?'无数据':${result.mysqlData.file_hash}"></td>
+
+                                    <!--<td th:text="${result.mysqlData.file_hash}"></td>-->
+                                    <!--<td th:text="${result.fabricStateData.fileHash}"></td>-->
+                                    <td th:text="(${result.fabricStateData.fileHash}=='' or ${result.fabricStateData.fileHash}==null)?'无数据':${result.fabricStateData.fileHash}"></td>
+
+
+
                                     <td>
                                         <i th:if="${result.mysqlData.file_hash}==${result.mysqlData.file_hash}" class="glyphicon glyphicon-ok"></i>
                                         <i th:if="${result.mysqlData.file_hash}!=${result.mysqlData.file_hash}" class="glyphicon glyphicon-remove"></i>

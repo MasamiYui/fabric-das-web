@@ -214,13 +214,16 @@
         for (var i = 0; i < rows.length; i++) {
             var row = rows[i];
            // var type=row.type_id=1?"学生证":row.type_id;
+            var state=row.state;
+            state = state = 0 ? "未审核" : state = 1 ? "已审核" : state = 2 ? "不通过" : state = 3 ? "注销" : "无状态";
+
             var html = '<tr>'
                 + '<td>' + row.id + '</td>'
                 + '<td>' + row.ownerId + '</td>'
                 + '<td>' + row.certId + '</td>'
                 + '<td>' + row.submitTime + '</td>'
-                + '<td>' + row.state + '</td>'
-                + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">详情</a></td>'
+                + '<td>' + state + '</td>'
+                + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">设置</a></td>'
                 + '</tr>';
             items.append(html);
         }
@@ -305,7 +308,7 @@
                 area: ['1000px', '550px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/asset/sica/detail?recordId=' + recordId
+                content: '?recordId=' + recordId
 
             });
         });

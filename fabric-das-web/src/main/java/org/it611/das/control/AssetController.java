@@ -158,4 +158,19 @@ public class AssetController {
         return assetService.degreeCertificationList(currentPage, numberOfPages, certId);
     }
 
+
+
+
+    //学位证书对比结果
+    @RequestMapping("/certificateCompareDetail")
+    @ResponseBody
+    public ModelAndView certificateCompareDetail(String recordId) throws Exception {
+
+        HashMap dataMap = assetService.selectStudentIdCardAssetById(recordId);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("result", dataMap);
+        modelAndView.setViewName("certificateCompareDetail");
+        return modelAndView;
+    }
 }

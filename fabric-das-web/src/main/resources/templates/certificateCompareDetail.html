@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >  <!--style="overflow: hidden;"-->
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>数字资产存证平台</title>
+
+    <link rel="icon" type="image/x-icon" th:href="@{/ico/favicon.png}"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/jcstatic/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/jcstatic/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/jcstatic/dist/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+    <!--引入jquery-->
+    <script th:src="@{/jcstatic/vendor/jquery/jquery.js}"></script>
+
+    <style type="text/css">
+        .layui-upload-img {
+            width: 100px;
+            height: 110px;
+            margin-left: 5px;
+        }
+
+        .col-title {
+            font-weight: 700;
+        }
+
+        table tbody>tr td:last-child{
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+    <div id="page-wrapper" style="margin: 10px;">
+        <!--基本信息对比-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 style="text-align: center" >数据信息对比结果</h3>
+                    </div>
+                    <div class="panel-heading">
+                        <div class="controls">
+                            <div class="controls">
+                                <span class="col-title">资产类型：</span>
+                                <span th:case="1">学历证书</span>
+                               <!-- <th:block th:switch="${result.mysqlData.}">
+                                    <span th:case="1">学生证</span>
+                                    <span th:case="*">无类型</span> &lt;!&ndash;*表示默认类型&ndash;&gt;
+                                </th:block>-->
+                            </div>
+                            <span class="col-title">资产编号：</span>
+                            <span th:text="${result.mysqlData.id}"></span>
+                        </div>
+                        <div class="controls">
+                            <span class="col-title">交易哈希：</span>
+                            <span th:text="${result.mysqlData.txid}"></span>
+                        </div>
+
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>本地数据库</th>
+                                    <th>区块链数据库</th>
+                                    <th>对比结果</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>资产id</td>
+                                    <td th:text="${result.mysqlData.id}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.id}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.id}==${result.fabricStateData.id}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.id}!=${result.fabricStateData.id}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>资产拥有者</td>
+                                    <td th:text="${result.mysqlData.ownerId}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.ownerId}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.ownerId}==${result.fabricStateData.ownerId}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.ownerId}!=${result.fabricStateData.ownerId}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>姓名</td>
+                                    <td th:text="${result.mysqlData.name}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.name}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.name}==${result.fabricStateData.name}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.name}!=${result.fabricStateData.name}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>性别</td>
+                                    <td th:text="${result.mysqlData.sex}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.sex}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.sex}==${result.fabricStateData.sex}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.sex}!=${result.fabricStateData.sex}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>出生日期</td>
+                                    <td th:text="${result.mysqlData.date}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.date}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.date}==${result.fabricStateData.date}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.date}!=${result.fabricStateData.date}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>学位授予单位</td>
+                                    <td th:text="${result.mysqlData.degreeConferringUnit}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.degreeConferringUnit}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.degreeConferringUnit}==${result.fabricStateData.degreeConferringUnit}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.degreeConferringUnit}!=${result.fabricStateData.degreeConferringUnit}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>专业</td>
+                                    <td th:text="${result.mysqlData.professional}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.professional}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.professional}==${result.fabricStateData.professional}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.professional}!=${result.fabricStateData.professional}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>学位类别</td>
+                                    <td th:text="${result.mysqlData.degreeName}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.degreeName}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.degreeName}==${result.fabricStateData.degreeName}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.degreeName}!=${result.fabricStateData.degreeName}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>学位证书编号</td>
+                                    <td th:text="${result.mysqlData.degreeName}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.degreeName}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.fabricStateData.owners}==${result.fabricStateData.owners}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.fabricStateData.owners}!=${result.fabricStateData.owners}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>发证时间</td>
+                                    <td th:text="${result.mysqlData.time}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.time}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.time}==${result.fabricStateData.time}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.time}!=${result.fabricStateData.time}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>文件哈希值</td>
+                                    <td th:text="${result.mysqlData.fileshash}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.fileshash}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.fileshash}==${result.fabricStateData.fileshash}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.fileshash}!=${result.fabricStateData.fileshash}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>交易id值</td>
+                                    <td th:text="${result.mysqlData.transactionId}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.transactionId}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.transactionId}==${result.fabricStateData.transactionId}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.transactionId}!=${result.fabricStateData.transactionId}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>提交时间</td>
+                                    <td th:text="${result.mysqlData.submitTime}"></td>
+                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.submitTime}:'无数据'"></td>
+                                    <td>
+                                        <i th:if="${result.mysqlData.submitTime}==${result.fabricStateData.submitTime}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.mysqlData.submitTime}!=${result.fabricStateData.submitTime}" class="glyphicon glyphicon-remove"></i>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                            <!--这里是radio-->
+                            <div class="control-group col-lg-12">
+                                <form role="form" id="dataform">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="radio-inline">
+                                                <input th:if="${result.mysqlData.state}=='0'" type="radio" name="state" value="0" checked="true"/>未审核
+                                                <input th:unless="${result.mysqlData.state}=='0'" type="radio" name="state" value="0" />未审核
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input th:if="${result.mysqlData.state}=='1'"  type="radio" name="state" value="1" checked="true"/>已审核
+                                                <input th:unless="${result.mysqlData.state}=='1'" type="radio" name="state" value="1"/>已审核
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input th:if="${result.mysqlData.state}=='2'"  type="radio" name="state" value="2"  checked="true"/>不通过
+                                                <input th:if="${result.mysqlData.state}=='2'"  type="radio" name="state" value="2"/>不通过
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input th:if="${result.mysqlData.state}=='3'"  type="radio" name="state" value="3" checked="true"/>注销
+                                                <input th:if="${result.mysqlData.state}=='3'"  type="radio" name="state" value="3"/>注销
+                                            </label>
+                                        </div>
+
+                                        <!--确认按钮-->
+                                        <div class="col-lg-12 text-right">
+                                            <button type="button" id="btSubmit" class="btn btn-primary btn-info"
+                                                    style="width: 100px;">
+                                                确&nbsp;&nbsp;定
+                                            </button>
+                                            <button type="button" id="btBack" class="btn btn-primary btn-info"
+                                                    style="width: 100px;">
+                                                返&nbsp;&nbsp;回
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!--这里是radio-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--图片-->
+        <div class="row">
+            <!--<div class="col-lg-3"></div>-->
+
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong>本地数据库附件</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
+                             <th:block th:each="file:${result.mysqlData.files}">
+                                 <img th:src="${file}" class="layui-upload-img"/>
+                             </th:block>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong>区块链附件</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div id="layer-photos-demo2" class="layui-upload-list" style="margin:0px">
+                            <th:block th:each="file:${result.fabricStateData.files}">
+                                <img th:src="${file}" class="layui-upload-img"/>
+                            </th:block>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--<div class="col-lg-3"></div>-->
+        </div>
+
+    </div>
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/jcstatic/vendor/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/jcstatic/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/jcstatic/vendor/metisMenu/metisMenu.min.js}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
+
+<!--引入layui:日期插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
+<script>
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.photos({
+            photos: '#layer-photos-demo'
+            , anim: 5 //0-6的选择
+        });
+    });
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.photos({
+            photos: '#layer-photos-demo2'
+            , anim: 5 //0-6的选择
+        });
+    });
+
+
+    var id = [[${result.mysqlData.id}]];
+    $("#btSubmit").click(function () {
+        var $this = $(this);
+        $this.prop("disabled", true);
+        var state = $('input[name="state"]:checked').val();
+        var data = {id: id, state: state};
+        $.ajax({
+            type: "post",
+            url: "",
+            data: data,
+            dataType: "json",
+            success: function (result) {
+                if (result.code == "200") {
+                    callbackMsg("修改成功");
+                    parent.search();
+                } else if (result.code == "400") {
+                    callbackMsg("修改失败");
+                }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                $this.prop("disabled", false);
+                /*parent.close();*/
+            }
+        });
+    });
+
+    $("#btBack").click(function(){
+        parent.close();
+    });
+
+    function callbackMsg(data) {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.open({
+                title: '结果'
+                , content: data
+                , end: function () {
+                    parent.close();
+                }
+            });
+        });
+    }
+
+
+
+
+</script>
+
+</body>
+
+</html>
