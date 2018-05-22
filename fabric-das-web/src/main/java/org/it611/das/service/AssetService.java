@@ -7,6 +7,7 @@ import org.hyperledger.fabric.sdk.exception.ProposalException;
 import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.vo.StudentIdCardAssetVO;
 
+import javax.json.JsonObject;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -26,4 +27,8 @@ public interface AssetService {
     List<HashMap> studentDetail(String id);
 
     JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId);
+
+    public JSONObject selectDegreeCertificationDetailById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
+
+    public JSONObject CheckDegreeCertificationAndChangeState(String id, String state);
 }

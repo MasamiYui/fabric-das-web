@@ -1,5 +1,7 @@
 package org.it611.das.mapper;
 
+import org.apache.ibatis.annotations.Param;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -14,5 +16,11 @@ public interface DegreeCertificationMapper {
     //查询记录数
     Long selectTotal(String certId);
 
+    HashMap<String, Object> selectDegreeCertificationDetailById(@Param("id")String id);
 
+    //根据主键修改transaction和state
+    int updateStateAndTransaction(@Param("id")String id, @Param("transactionId") String transactionId, @Param("state")String state);//id主键
+
+    //根据主键修改state
+    int updateState(@Param("id") String id, @Param("state") String state);//id主键
 }

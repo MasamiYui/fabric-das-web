@@ -15,5 +15,23 @@
         WHERE cert_id like concat('%',#{certId},'%')
     </select>
 
+    <select id="selectDegreeCertificationDetailById" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, owner_id as ownerId, `name`, sex, `date`, degree_conferring_unit as degreeConferringUnit, professional, degree_name, cert_id as certId, `time`, files, fileshash, transaction_id as transactionId, state,
+        submit_time as submitTime
+        FROM tb_degreecertification
+        WHERE id = #{id}
+    </select>
+
+    <update id="updateStateAndTransaction" >
+        UPDATE tb_degreecertification
+        SET transaction_id = #{transactionId}, state = #{state}
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateState">
+        UPDATE tb_degreecertification
+        SET state = #{state}
+        WHERE id = #{id}
+    </update>
 
 </mapper>
