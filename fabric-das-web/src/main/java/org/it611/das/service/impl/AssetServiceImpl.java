@@ -209,6 +209,7 @@ public class AssetServiceImpl implements AssetService {
         //获取mysql中的学位证书信息
         HashMap<String, Object> dataMap = degreeCertificationDao.selectDegreeCertificationDetailById(id);
         String assetId = dataMap.get("id").toString();//资产Id作为fabric state 数据库的key
+        String transactionId = dataMap.get("transactionId").toString();
         Map<String, String> result = null;
         //剔除不需要上链的数据(数据暂定如下)
         dataMap.remove("id");
@@ -224,6 +225,13 @@ public class AssetServiceImpl implements AssetService {
             //执行Fabric的写入（数据上链）
             ChaincodeManager manager = FabricManager.obtain().getManager();
             String[] arguments = new String[]{assetId, degreeCertificationJsonStr};
+            if(!transactionId.equals("")){//如果是已经上链的数据，即数据库中已经有transactionId，只需要改变状态
+                int updateResult = degreeCertificationDao.updateStateAndTransaction(id,transactionId, state);
+                if (!(updateResult >0)) {
+                    return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
+                }
+                return ResponseUtil.constructResponse(200, "ok", null);//出现异常直接返回错误
+            }
             result = manager.invoke("addAsset", arguments);
             if(result.get("code").equals("error")){//如果插入错误
                 return ResponseUtil.constructResponse(400, "insert blockchain failed.", null);//返回error直接返回错误
@@ -235,18 +243,14 @@ public class AssetServiceImpl implements AssetService {
             return ResponseUtil.constructResponse(400, "insert blockchain failed.", null);//出现异常直接返回错误
         }
         //区块链正常写入之后
-        String transactionId = result.get("txid").toString();//由背书节点返回的transactionId
+        transactionId = result.get("txid").toString();//由背书节点返回的transactionId
         System.out.println(transactionId);
         //数据库状态进行更新，包括transactionId和state
-        int updateResult = degreeCertificationDao.updateStateAndTransaction(id,transactionId, "1");
+        int updateResult = degreeCertificationDao.updateStateAndTransaction(id,transactionId, state);
         if (!(updateResult >0)) {
             return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
         }
         return ResponseUtil.constructResponse(200, "ok", null);//正确的返回
     }
-
-
-
-
 
 }

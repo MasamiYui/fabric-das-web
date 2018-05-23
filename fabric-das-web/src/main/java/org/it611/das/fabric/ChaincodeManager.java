@@ -237,6 +237,8 @@ public class ChaincodeManager {
             resultMap.put("code", "error");
             resultMap.put("data", firstTransactionProposalResponse.getMessage());
             resultMap.put("txid", firstTransactionProposalResponse.getTransactionID());
+            resultMap.put("message", firstTransactionProposalResponse.getMessage());
+            resultMap.put("status",String.valueOf(firstTransactionProposalResponse.getStatus().getStatus()));
             return resultMap;
         } else {
             log.info("Successfully received transaction proposal responses.");
@@ -251,6 +253,8 @@ public class ChaincodeManager {
             resultMap.put("code", "success");
             resultMap.put("data", resultAsString);
             resultMap.put("txid", resp.getTransactionID());
+            resultMap.put("message", resp.getMessage());
+            resultMap.put("status",String.valueOf(resp.getStatus().getStatus()));
 
             return resultMap;
 /*            channel.sendTransaction(successful).thenApply(transactionEvent -> {

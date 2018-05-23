@@ -92,12 +92,6 @@ public class AssetController {
 
         HashMap dataMap = assetService.selectStudentIdCardAssetById(recordId);
 
-       /* if ((int)dataMap.get("code") == 200){
-            return ResponseUtil.constructResponse(200, "ok", dataMap);
-        }
-        return ResponseUtil.constructResponse(400, "query failed.", dataMap);*/
-
-
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", dataMap);
         modelAndView.setViewName("studentCompareDetail");
