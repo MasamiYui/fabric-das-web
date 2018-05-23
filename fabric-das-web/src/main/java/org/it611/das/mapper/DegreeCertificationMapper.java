@@ -23,4 +23,7 @@ public interface DegreeCertificationMapper {
 
     //根据主键修改state
     int updateState(@Param("id") String id, @Param("state") String state);//id主键
+
+    //根据主键id查询记录的state
+    String selectStateById(String id);
 }

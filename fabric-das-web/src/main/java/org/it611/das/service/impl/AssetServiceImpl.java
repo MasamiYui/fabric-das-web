@@ -15,6 +15,7 @@ import org.it611.das.mapper.DegreeCertificationMapper;
 import org.it611.das.service.AssetService;
 import org.it611.das.domain.*;
 import org.it611.das.mapper.AssetMapper;
+import org.it611.das.util.MapUtil;
 import org.it611.das.util.ParseInputAsset;
 import org.it611.das.util.ResponseUtil;
 import org.it611.das.vo.StudentIdCardAssetVO;
@@ -156,9 +157,9 @@ public class AssetServiceImpl implements AssetService {
         HashMap<String, Object> resultMap = new HashMap();
         HashMap<String, Object> mysqlDataMap = degreeCertificationDao.selectDegreeCertificationDetailById(id);//获取mysql中的数据
         HashMap<String, Object> fabricDataMap = null;
-        if (mysqlDataMap.get("state") == "0") {//如果是未审核状态
+        if (mysqlDataMap.get("state").equals("0")) {//如果是未审核状态
             resultMap.put("mysqlData", mysqlDataMap);
-            resultMap.put("fabricData", fabricDataMap);
+            resultMap.put("fabricData", MapUtil.setMapValue(mysqlDataMap));
             return ResponseUtil.constructResponse(200, "ok", resultMap);
         }
         ChaincodeManager manager = FabricManager.obtain().getManager();
@@ -166,11 +167,11 @@ public class AssetServiceImpl implements AssetService {
         //如果是已审核状态，表明已有资产信息录入到区块链中
         Map<String, String> queryData = manager.query("query", argQuery);
         String resultState = queryData.get("code");
-        if (resultState == "0") {//如果是未审核状态
+/*        if (resultState == "0") {//如果是未审核状态
             resultMap.put("mysqlData", mysqlDataMap);
             resultMap.put("fabricData", fabricDataMap);//fabricDataMap==null
             return ResponseUtil.constructResponse(200, "ok", resultMap);
-        }
+        }*/
         String dataJson = queryData.get("data");
         ObjectMapper objectMapper = new ObjectMapper();
         if (!resultState.equals("success")) {//如果向区块链请求发生错误
@@ -192,6 +193,10 @@ public class AssetServiceImpl implements AssetService {
     @Transactional
     public JSONObject CheckDegreeCertificationAndChangeState(String id, String state){
 
+//        这里从数据库查找state对比传入参数的的state，结果相同就不进行操作
+        String selState=degreeCertificationDao.selectStateById(id);
+        if(selState.equals(state))  return ResponseUtil.constructResponse(200, "ok", null);//状态相同直接返回
+
         //如果不是进行审核(不等于1)，即单纯的state更新
         if(!"1".equals(state)){
             int updateResult = degreeCertificationDao.updateState(id, state);
@@ -210,6 +215,8 @@ public class AssetServiceImpl implements AssetService {
         dataMap.remove("ownerId");
         dataMap.remove("files");
         dataMap.remove("submitTime");
+        dataMap.remove("state");
+        dataMap.remove("transactionId");
 
         String degreeCertificationJsonStr = null;//value转json字符串
         try {

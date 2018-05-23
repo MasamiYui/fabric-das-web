@@ -74,18 +74,18 @@
                         <div class="controls">
                             <div class="controls">
                                 <span class="col-title">资产类型：</span>
-                                <span th:case="1">学历证书</span>
+                                <span>学历证书</span>
                                <!-- <th:block th:switch="${result.mysqlData.}">
                                     <span th:case="1">学生证</span>
                                     <span th:case="*">无类型</span> &lt;!&ndash;*表示默认类型&ndash;&gt;
                                 </th:block>-->
                             </div>
                             <span class="col-title">资产编号：</span>
-                            <span th:text="${result.mysqlData.id}"></span>
+                            <span th:text="${result.data.mysqlData.id}"></span>
                         </div>
                         <div class="controls">
                             <span class="col-title">交易哈希：</span>
-                            <span th:text="${result.mysqlData.txid}"></span>
+                            <span th:text="${result.data.mysqlData.transactionId}"></span>
                         </div>
 
                     </div>
@@ -103,146 +103,125 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>资产id</td>
-                                    <td th:text="${result.mysqlData.id}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.id}:'无数据'"></td>
-                                    <td>
-                                        <i th:if="${result.mysqlData.id}==${result.fabricStateData.id}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.id}!=${result.fabricStateData.id}" class="glyphicon glyphicon-remove"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>资产拥有者</td>
-                                    <td th:text="${result.mysqlData.ownerId}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.ownerId}:'无数据'"></td>
-                                    <td>
-                                        <i th:if="${result.mysqlData.ownerId}==${result.fabricStateData.ownerId}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.ownerId}!=${result.fabricStateData.ownerId}" class="glyphicon glyphicon-remove"></i>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>姓名</td>
-                                    <td th:text="${result.mysqlData.name}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.name}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.name}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.name}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.name}==${result.fabricStateData.name}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.name}!=${result.fabricStateData.name}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.name}==${result.data.fabricData.name}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.name}!=${result.data.fabricData.name}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>性别</td>
-                                    <td th:text="${result.mysqlData.sex}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.sex}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.sex}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.sex}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.sex}==${result.fabricStateData.sex}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.sex}!=${result.fabricStateData.sex}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.sex}==${result.data.fabricData.sex}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.sex}!=${result.data.fabricData.sex}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>出生日期</td>
-                                    <td th:text="${result.mysqlData.date}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.date}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.date}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.date}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.date}==${result.fabricStateData.date}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.date}!=${result.fabricStateData.date}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.date}==${result.data.fabricData.date}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.date}!=${result.data.fabricData.date}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>学位授予单位</td>
-                                    <td th:text="${result.mysqlData.degreeConferringUnit}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.degreeConferringUnit}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.degreeConferringUnit}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.degreeConferringUnit}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.degreeConferringUnit}==${result.fabricStateData.degreeConferringUnit}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.degreeConferringUnit}!=${result.fabricStateData.degreeConferringUnit}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.degreeConferringUnit}==${result.data.fabricData.degreeConferringUnit}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.degreeConferringUnit}!=${result.data.fabricData.degreeConferringUnit}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>专业</td>
-                                    <td th:text="${result.mysqlData.professional}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.professional}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.professional}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.professional}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.professional}==${result.fabricStateData.professional}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.professional}!=${result.fabricStateData.professional}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.professional}==${result.data.fabricData.professional}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.professional}!=${result.data.fabricData.professional}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>学位类别</td>
-                                    <td th:text="${result.mysqlData.degreeName}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.degreeName}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.degree_name}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.degree_name}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.degreeName}==${result.fabricStateData.degreeName}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.degreeName}!=${result.fabricStateData.degreeName}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.degree_name}==${result.data.fabricData.degree_name}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.degree_name}!=${result.data.fabricData.degree_name}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>学位证书编号</td>
-                                    <td th:text="${result.mysqlData.degreeName}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.degreeName}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.certId}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.certId}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.fabricStateData.owners}==${result.fabricStateData.owners}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.fabricStateData.owners}!=${result.fabricStateData.owners}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.fabricData.certId}==${result.data.fabricData.certId}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.fabricData.certId}!=${result.data.fabricData.certId}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>发证时间</td>
-                                    <td th:text="${result.mysqlData.time}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.time}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.time}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.time}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.time}==${result.fabricStateData.time}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.time}!=${result.fabricStateData.time}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.time}==${result.data.fabricData.time}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.time}!=${result.data.fabricData.time}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>文件哈希值</td>
-                                    <td th:text="${result.mysqlData.fileshash}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.fileshash}:'无数据'"></td>
+                                    <td th:text="${result.data.mysqlData.fileshash}"></td>
+                                    <td th:text="(${result.data.mysqlData.state}!='0')?${result.data.fabricData.fileshash}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.mysqlData.fileshash}==${result.fabricStateData.fileshash}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.fileshash}!=${result.fabricStateData.fileshash}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mysqlData.fileshash}==${result.data.fabricData.fileshash}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mysqlData.fileshash}!=${result.data.fabricData.fileshash}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>交易id值</td>
-                                    <td th:text="${result.mysqlData.transactionId}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.transactionId}:'无数据'"></td>
-                                    <td>
-                                        <i th:if="${result.mysqlData.transactionId}==${result.fabricStateData.transactionId}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.transactionId}!=${result.fabricStateData.transactionId}" class="glyphicon glyphicon-remove"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>提交时间</td>
-                                    <td th:text="${result.mysqlData.submitTime}"></td>
-                                    <td th:text="(${result.mysqlData.state}=='1')?${result.fabricStateData.submitTime}:'无数据'"></td>
-                                    <td>
-                                        <i th:if="${result.mysqlData.submitTime}==${result.fabricStateData.submitTime}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.mysqlData.submitTime}!=${result.fabricStateData.submitTime}" class="glyphicon glyphicon-remove"></i>
-                                    </td>
-                                </tr>
-
                                 </tbody>
                             </table>
 
-                            <!--这里是radio-->
+                            <!--审核状态radio选择-->
                             <div class="control-group col-lg-12">
                                 <form role="form" id="dataform">
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <input th:if="${result.mysqlData.state}=='0'" type="radio" name="state" value="0" checked="true"/>未审核
-                                                <input th:unless="${result.mysqlData.state}=='0'" type="radio" name="state" value="0" />未审核
+                                                <th:block th:if="${result.data.mysqlData.state}=='0'">
+                                                    <input type="radio" name="state" value="0" checked="true"/>未审核
+                                                </th:block>
+                                                <th:block th:unless="${result.data.mysqlData.state}=='0'">
+                                                    <input  type="radio" name="state" value="0" />未审核
+                                                </th:block>
                                             </label>
                                             <label class="radio-inline">
-                                                <input th:if="${result.mysqlData.state}=='1'"  type="radio" name="state" value="1" checked="true"/>已审核
-                                                <input th:unless="${result.mysqlData.state}=='1'" type="radio" name="state" value="1"/>已审核
+                                                <th:block th:if="${result.data.mysqlData.state}=='1'">
+                                                    <input  type="radio" name="state" value="1" checked="true"/>已审核
+                                                </th:block>
+                                                <th:block th:unless="${result.data.mysqlData.state}=='1'">
+                                                    <input  type="radio" name="state" value="1"/>已审核
+                                                </th:block>
                                             </label>
                                             <label class="radio-inline">
-                                                <input th:if="${result.mysqlData.state}=='2'"  type="radio" name="state" value="2"  checked="true"/>不通过
-                                                <input th:if="${result.mysqlData.state}=='2'"  type="radio" name="state" value="2"/>不通过
+                                                <th:block th:if="${result.data.mysqlData.state}=='2'">
+                                                    <input   type="radio" name="state" value="2"  checked="true"/>不通过
+                                                </th:block>
+                                                <th:block th:unless="${result.data.mysqlData.state}=='2'">
+                                                    <input   type="radio" name="state" value="2"/>不通过
+                                                </th:block>
                                             </label>
                                             <label class="radio-inline">
-                                                <input th:if="${result.mysqlData.state}=='3'"  type="radio" name="state" value="3" checked="true"/>注销
-                                                <input th:if="${result.mysqlData.state}=='3'"  type="radio" name="state" value="3"/>注销
+                                                <th:block th:if="${result.data.mysqlData.state}=='3'">
+                                                    <input  type="radio" name="state" value="3" checked="true"/>注销
+                                                </th:block>
+                                                <th:block th:unless="${result.data.mysqlData.state}=='3'">
+                                                    <input  type="radio" name="state" value="3"/>注销
+                                                </th:block>
                                             </label>
                                         </div>
 
@@ -268,8 +247,8 @@
 
         </div>
         <!--图片-->
-        <div class="row">
-            <!--<div class="col-lg-3"></div>-->
+       <!-- <div class="row">
+            &lt;!&ndash;<div class="col-lg-3"></div>&ndash;&gt;
 
             <div class="col-lg-12">
                 <div class="panel panel-info">
@@ -278,7 +257,7 @@
                     </div>
                     <div class="panel-body">
                         <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
-                             <th:block th:each="file:${result.mysqlData.files}">
+                             <th:block th:each="file:${result.data.mysqlData.files}">
                                  <img th:src="${file}" class="layui-upload-img"/>
                              </th:block>
                         </div>
@@ -293,7 +272,7 @@
                     </div>
                     <div class="panel-body">
                         <div id="layer-photos-demo2" class="layui-upload-list" style="margin:0px">
-                            <th:block th:each="file:${result.fabricStateData.files}">
+                            <th:block th:each="file:${result.data.fabricData.files}">
                                 <img th:src="${file}" class="layui-upload-img"/>
                             </th:block>
                         </div>
@@ -302,8 +281,8 @@
                 </div>
             </div>
 
-            <!--<div class="col-lg-3"></div>-->
-        </div>
+            &lt;!&ndash;<div class="col-lg-3"></div>&ndash;&gt;
+        </div>-->
 
     </div>
 </div>
@@ -324,8 +303,8 @@
 <!--引入layui:日期插件-->
 <script th:src="@{/jcstatic/layui/layui.js}"></script>
 
-<script>
-    layui.use('layer', function () {
+<script th:inline="javascript">
+ /*   layui.use('layer', function () {
         var layer = layui.layer;
         layer.photos({
             photos: '#layer-photos-demo'
@@ -339,9 +318,9 @@
             , anim: 5 //0-6的选择
         });
     });
+    */
 
-
-    var id = [[${result.mysqlData.id}]];
+    var id = [[${result.data.mysqlData.id}]];
     $("#btSubmit").click(function () {
         var $this = $(this);
         $this.prop("disabled", true);
@@ -349,7 +328,7 @@
         var data = {id: id, state: state};
         $.ajax({
             type: "post",
-            url: "",
+            url: "/degreeCertificationCompareDetail/checkAndChangeState",
             data: data,
             dataType: "json",
             success: function (result) {

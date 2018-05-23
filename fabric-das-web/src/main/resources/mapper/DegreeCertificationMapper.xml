@@ -34,4 +34,12 @@
         WHERE id = #{id}
     </update>
 
+
+    <select id="selectStateById" parameterType="string" resultType="string">
+        select state from tb_degreecertification
+        <where>
+            id=#{value}
+        </where>
+    </select>
+
 </mapper>
