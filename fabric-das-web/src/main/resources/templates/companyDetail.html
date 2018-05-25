@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" style="overflow: hidden;">
+<html xmlns:th="http://www.thymeleaf.org" style="overflow: auto;">
 
 <head>
 
@@ -68,10 +68,12 @@
                     </div>
                     <div class="panel-body">
 
-                        <div class="control-group col-lg-6">
+                        <div class="control-group col-lg-12">
                             <th:block th:each="record,iterStat:${records}">
                                 <th:block th:if="${iterStat.index le 0}">
-                                    <div class="controls">
+
+
+                                   <!-- <div class="controls">
                                         <span class="col-title">账号ID：</span>
                                         <span th:text="${record.id}"></span>
                                     </div>
@@ -129,7 +131,7 @@
                                     </div>
                                     <div class="controls">
                                         <span class="col-title">状态：</span>
-                                        <!--<span th:text="${record.state}"></span>-->
+                                        &lt;!&ndash;<span th:text="${record.state}"></span>&ndash;&gt;
                                         <th:block th:switch="${record.state}">
                                             <span th:case="0">未激活</span>
                                             <span th:case="1">正常</span>
@@ -140,7 +142,88 @@
                                     <div class="controls">
                                         <span class="col-title">提交时间：</span>
                                         <span th:text="${record.submitTime}"></span>
-                                    </div>
+                                    </div>-->
+
+                                    <!--+++++++++++++++++-->
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="tableList">
+                                        <tbody id="items">
+                                        <tr>
+                                            <td>账号ID</td>
+                                            <td th:text="${record.id}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>账号名</td>
+                                            <td th:text="${record.username}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>统一社会信用代码</td>
+                                            <td th:text="${record.creditId}"></td>
+                                        </tr>
+                                        <tr >
+                                            <td>公司名</td>
+                                            <td th:text="${record.companyName}"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>公司类型</td>
+                                            <td th:text="${record.companyType}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>公司地址</td>
+                                            <td th:text="${record.companyAddress}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>公司邮箱</td>
+                                            <td th:text="${record.companyEmail}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>公司固话</td>
+                                            <td th:text="${record.landlinePhone}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>公司联系人</td>
+                                            <td th:text="${record.contact}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>成立时间</td>
+                                            <td th:text="${record.establishmentTime}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>营业期限</td>
+                                            <td th:text="${record.startTime}+${record.endTime}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>经营范围</td>
+                                            <td th:text="${record.businessScope}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>登记机构</td>
+                                            <td th:text="${record.registrationAuthority}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>登记时间</td>
+                                            <td th:text="${record.registrationTime}"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>状态</td>
+                                            <th:block th:switch="${record.state}">
+                                                <td th:case="0">未激活</td>
+                                                <td th:case="1">正常</td>
+                                                <td th:case="2">已冻结</td>
+                                                <td th:case="3">已注销</td>
+                                                <td th:case="4">不通过</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <td>提交时间</td>
+                                            <td th:text="${record.submitTime}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!--+++++++++++++++++-->
                                 </th:block>
                             </th:block>
                         </div>

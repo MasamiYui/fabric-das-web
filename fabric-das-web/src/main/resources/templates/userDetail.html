@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" style="overflow: hidden;">
+<html xmlns:th="http://www.thymeleaf.org" style="overflow: auto;">
 
 <head>
 
@@ -73,7 +73,7 @@
                             <th:block th:each="record,iterStat:${records}">
                                 <th:block th:if="${iterStat.index le 0}">
 
-                                    <div class="controls">
+                                    <!--<div class="controls">
                                         <span class="col-title">账号ID：</span>
                                         <span th:text="${record.id}"></span>
                                     </div>
@@ -116,7 +116,65 @@
                                     <div class="controls">
                                         <span class="col-title">提交时间：</span>
                                         <span th:text="${record.submitTime}"></span>
-                                    </div>
+                                    </div>-->
+                                    <!--+++=++++++++++++++++++++++++++-->
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="tableList">
+                                        <tbody id="items">
+                                        <tr>
+                                            <td>账号ID</td>
+                                            <td th:text="${record.id}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>身份证号</td>
+                                            <td th:text="${record.idcard}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>姓名</td>
+                                            <td th:text="${record.name}"></td>
+                                        </tr>
+                                        <tr >
+                                            <td>手机</td>
+                                            <td th:text="${record.phone}"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>邮箱</td>
+                                            <td th:text="${record.email}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>性别</td>
+                                            <td th:text="${record.sex}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>民族</td>
+                                            <td th:text="${record.nation}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>出生日期</td>
+                                            <td th:text="${record.date}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>地址</td>
+                                            <td th:text="${record.address}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>审核状态</td>
+                                            <th:block th:switch="${record.state}">
+                                                <td th:case="0">未激活</td>
+                                                <td th:case="1">正常</td>
+                                                <td th:case="2">已冻结</td>
+                                                <td th:case="3">已注销</td>
+                                                <td th:case="4">不通过</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <td>提交时间</td>
+                                            <td th:text="${record.submitTime}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--+++=++++++++++++++++++++++++++-->
                                 </th:block>
                             </th:block>
                         </div>
