@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.it611.das.mapper.VideoAssetMapper" >
+
+    <select id="selectVideoAssetByConditions" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, title, des, owner_id as ownerId, author, files, fileshash, transaction_id as transactionId, submit_time as suibmitTime, state
+        FROM tb_video
+        WHERE title like concat('%',#{title},'%')
+    </select>
+
+    <select id="selectTotal" parameterType="java.lang.String" resultType="java.lang.Long">
+        SELECT COUNT(*)
+        FROM tb_video
+        WHERE title like concat('%',#{title},'%')
+    </select>
+
+    <select id="selectVideoAssetDetailById" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT id, title, des, owner_id as ownerId, author, files, fileshash, transaction_id as transactionId, submit_time as submitTime, state
+        FROM tb_video
+        WHERE id = #{id}
+    </select>
+
+    <update id="updateStateAndTransaction" >
+        UPDATE tb_video
+        SET transaction_id = #{transactionId}, state = #{state}
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateState">
+        UPDATE tb_video
+        SET state = #{state}
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="selectStateById" parameterType="string" resultType="string">
+        select state from tb_video
+        <where>
+            id=#{value}
+        </where>
+    </select>
+
+</mapper>

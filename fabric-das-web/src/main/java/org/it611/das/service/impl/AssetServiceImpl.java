@@ -189,7 +189,7 @@ public class AssetServiceImpl implements AssetService {
     @Transactional
     public JSONObject CheckDegreeCertificationAndChangeState(String id, String state){
 
-//        这里从数据库查找state对比传入参数的的state，结果相同就不进行操作
+//      这里从数据库查找state对比传入参数的的state，结果相同就不进行操作
         String selState=degreeCertificationDao.selectStateById(id);
         if(selState.equals(state))  return ResponseUtil.constructResponse(200, "ok", null);//状态相同直接返回
 

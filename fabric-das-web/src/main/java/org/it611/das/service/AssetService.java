@@ -7,7 +7,6 @@ import org.hyperledger.fabric.sdk.exception.ProposalException;
 import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.vo.StudentIdCardAssetVO;
 
-import javax.json.JsonObject;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
