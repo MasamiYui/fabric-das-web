@@ -2,11 +2,8 @@ package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.fastdfs.FastDFSClient;
-import org.it611.das.service.AssetService;
+import org.it611.das.service.StudentIdAssetService;
 import org.it611.das.util.MD5Util;
 import org.it611.das.util.ResponseUtil;
 import org.it611.das.vo.StudentIdCardAssetVO;
@@ -18,20 +15,17 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
-public class AssetController {
+public class StudentIdAssetController {
 
-    private static Logger logger=Logger.getLogger(AssetController.class);
+    private static Logger logger=Logger.getLogger(StudentIdAssetController.class);
 
     @Autowired
-    private AssetService assetService;
+    private StudentIdAssetService assetService;
 
     /**
      * 返回资产插入页面
@@ -141,20 +135,7 @@ public class AssetController {
         return "studentCompareDetail";
     }
 
-    //获取学历证书资产列表页面
-    @RequestMapping("/asset/degreeCertification/index")
-    public String degreeCertificationIndex(){
-        return "degreeCertificationIndex";
-    }
-
-    //获取学历证书资产列表
-    @RequestMapping("/asset/degreeCertification/list")
-    @ResponseBody
-    public JSONObject degreeCertificationList(int currentPage,int numberOfPages,String certId){
-        return assetService.degreeCertificationList(currentPage, numberOfPages, certId);
-    }
-
-    //学生证对比结果
+    //学历证书对比结果
     @RequestMapping("/certificateCompareDetail")
     public ModelAndView certificateCompareDetail(String recordId) throws Exception {
 
@@ -164,24 +145,6 @@ public class AssetController {
         modelAndView.addObject("result", dataMap);
         modelAndView.setViewName("certificateCompareDetail");
         return modelAndView;
-    }
-
-    //学位证书对比结果（页面）
-    @RequestMapping("/degreeCertificationCompareDetail/index")
-    public ModelAndView degreeCertificationCompareDetail(String id) throws Exception {
-        JSONObject result = assetService.selectDegreeCertificationDetailById(id);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("certificateCompareDetail");
-        return modelAndView;
-    }
-
-    //审核和更改状态
-    @RequestMapping("/degreeCertificationCompareDetail/checkAndChangeState")
-    @ResponseBody
-    public JSONObject checkAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, CryptoException, TransactionException {
-        JSONObject resultData = assetService.CheckDegreeCertificationAndChangeState(id, state);
-        return resultData;
     }
 
 }

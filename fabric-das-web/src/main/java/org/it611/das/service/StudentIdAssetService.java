@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public interface AssetService {
+public interface StudentIdAssetService {
 
     Map<String, Object> InsertStudentIdCardAsset(StudentIdCardAssetVO vo) throws Exception;
 
@@ -25,9 +25,5 @@ public interface AssetService {
 
     List<HashMap> studentDetail(String id);
 
-    JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId);
 
-    public JSONObject selectDegreeCertificationDetailById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
-
-    public JSONObject CheckDegreeCertificationAndChangeState(String id, String state);
 }
