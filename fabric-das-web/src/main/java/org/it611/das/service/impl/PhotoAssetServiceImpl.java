@@ -64,6 +64,11 @@ public class PhotoAssetServiceImpl implements PhotoAssetService {
             resultMap.put("fabricData", fabricDataMap);//fabricDataMap==null
             return ResponseUtil.constructResponse(400, "query blockchain failed.", resultMap);
         }
+        if("".equals(dataJson)){
+            resultMap.put("mysqlData", mysqlDataMap);
+            resultMap.put("fabricData", MapUtil.setMapValue(mysqlDataMap));
+            return ResponseUtil.constructResponse(200, "ok", resultMap);
+        }
         fabricDataMap = objectMapper.readValue(dataJson, HashMap.class);
         resultMap.put("mysqlData", mysqlDataMap);
         resultMap.put("fabricData", fabricDataMap);
