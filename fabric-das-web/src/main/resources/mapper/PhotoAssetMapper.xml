@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.it611.das.mapper.MusicAssetMapper" >
+<mapper namespace="org.it611.das.mapper.PhotoAssetMapper" >
 
-    <select id="selectMusicAssetByConditions" parameterType="java.lang.String" resultType="java.util.HashMap">
+    <select id="selectPhotoAssetByConditions" parameterType="java.lang.String" resultType="java.util.HashMap">
         SELECT id, title, des, owner_id as ownerId, author, files, fileshash, transaction_id as transactionId, submit_time as submitTime, state
-        FROM tb_music
+        FROM tb_photo
         WHERE title like concat('%',#{title},'%')
     </select>
 
     <select id="selectTotal" parameterType="java.lang.String" resultType="java.lang.Long">
         SELECT COUNT(*)
-        FROM tb_music
+        FROM tb_photo
         WHERE title like concat('%',#{title},'%')
     </select>
 
-    <select id="selectMusicAssetDetailById" parameterType="java.lang.String" resultType="java.util.HashMap">
+    <select id="selectPhotoAssetDetailById" parameterType="java.lang.String" resultType="java.util.HashMap">
         SELECT id, title, des, owner_id as ownerId, author, files, fileshash, transaction_id as transactionId, submit_time as submitTime, state
-        FROM tb_music
+        FROM tb_photo
         WHERE id = #{id}
     </select>
 
     <update id="updateStateAndTransaction" >
-        UPDATE tb_music
+        UPDATE tb_photo
         SET transaction_id = #{transactionId}, state = #{state}
         WHERE id = #{id}
     </update>
 
     <update id="updateState">
-        UPDATE tb_music
+        UPDATE tb_photo
         SET state = #{state}
         WHERE id = #{id}
     </update>
 
 
     <select id="selectStateById" parameterType="string" resultType="string">
-        select state from tb_music
+        select state from tb_photo
         <where>
             id=#{value}
         </where>

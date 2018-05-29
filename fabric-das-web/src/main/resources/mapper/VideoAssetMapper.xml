@@ -3,7 +3,7 @@
 <mapper namespace="org.it611.das.mapper.VideoAssetMapper" >
 
     <select id="selectVideoAssetByConditions" parameterType="java.lang.String" resultType="java.util.HashMap">
-        SELECT id, title, des, owner_id as ownerId, author, files, fileshash, transaction_id as transactionId, submit_time as suibmitTime, state
+        SELECT id, title, des, owner_id as ownerId, author, files, fileshash, transaction_id as transactionId, submit_time as submitTime, state
         FROM tb_video
         WHERE title like concat('%',#{title},'%')
     </select>

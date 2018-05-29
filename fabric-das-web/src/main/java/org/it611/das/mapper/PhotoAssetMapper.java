@@ -7,17 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 
 @Component
-public interface VideoAssetMapper {
+public interface PhotoAssetMapper {
 
     //条件查询(以后可增加其他查询条件)
-    List<HashMap> selectVideoAssetByConditions(@Param("title") String title);
+    List<HashMap> selectPhotoAssetByConditions(@Param("title") String title);
 
     //查询记录数
     Long selectTotal(@Param("title") String title);
 
-
-
-    HashMap<String, Object> selectVideoAssetDetailById(@Param("id") String id);
+    HashMap<String, Object> selectPhotoAssetDetailById(@Param("id") String id);
 
     //根据主键修改transaction和state
     int updateStateAndTransaction(@Param("id") String id, @Param("transactionId") String transactionId, @Param("state") String state);//id主键

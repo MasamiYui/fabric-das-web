@@ -53,7 +53,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header">视频资产一览表</h3>
+                <h3 class="page-header">图片资产一览表</h3>
             </div>
         </div>
         <!-- /.row -->
@@ -159,7 +159,7 @@
         console.log("页面加载完后：：" + JSON.stringify(queryParams));
         $.ajax({
             type: "post",
-            url: "/asset/video/list",
+            url: "/asset/photo/list",
             data: queryParams,
             dataType: "json",
             success: function (result) {
@@ -182,7 +182,7 @@
                             //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
-                            requestResult("/asset/video/list", subParams);  //这里要写清楚请求的接口
+                            requestResult("/asset/photo/list", subParams);  //这里要写清楚请求的接口
                         }
                     };
                     element.bootstrapPaginator(options);
@@ -310,7 +310,7 @@
                 area: ['1000px', '550px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/asset/video/detail/index?id=' + recordId
+                content: '/asset/photo/detail/index?id=' + recordId
 
             });
         });

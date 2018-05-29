@@ -74,7 +74,7 @@
                         <div class="controls">
                             <div class="controls">
                                 <span class="col-title">资产类型：</span>
-                                <span>视频资产</span>
+                                <span>图片资产</span>
                                <!-- <th:block th:switch="${result.mysqlData.}">
                                     <span th:case="1">学生证</span>
                                     <span th:case="*">无类型</span> &lt;!&ndash;*表示默认类型&ndash;&gt;
@@ -274,7 +274,7 @@
         var data = {id: id, state: state};
         $.ajax({
             type: "post",
-            url: "/asset/video/checkAndChangeState",
+            url: "/asset/photo/checkAndChangeState",
             data: data,
             dataType: "json",
             success: function (result) {
