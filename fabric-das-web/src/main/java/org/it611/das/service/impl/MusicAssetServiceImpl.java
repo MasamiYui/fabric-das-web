@@ -6,6 +6,7 @@ import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
 import org.hyperledger.fabric.sdk.exception.ProposalException;
 import org.hyperledger.fabric.sdk.exception.TransactionException;
+import org.it611.das.domain.Music;
 import org.it611.das.fabric.ChaincodeManager;
 import org.it611.das.fabric.util.FabricManager;
 import org.it611.das.mapper.MusicAssetMapper;
@@ -13,6 +14,9 @@ import org.it611.das.service.MusicAssetService;
 import org.it611.das.util.MapUtil;
 import org.it611.das.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -29,26 +33,42 @@ public class MusicAssetServiceImpl implements MusicAssetService {
     @Autowired
     private MusicAssetMapper musicAssetMapper;
 
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
     @Override
     public JSONObject musicAssetList(int currentPage, int numberOfPages, String title) {
 
-        Map data = new HashMap<String, Object>();
-        List<HashMap> result = musicAssetMapper.selectMusicAssetByConditions(title);
-        Long total = musicAssetMapper.selectTotal(title);
-        data.put("rows", result);
-        data.put("total", total);
-        return ResponseUtil.constructResponse(200, "ok", data);
+        HashMap dataMap = new HashMap<String, Object>();
+        Criteria ownerCriteria = Criteria.where("title").regex(title);
+        Query query = new Query();
+        query.addCriteria(ownerCriteria);//条件查询
+        long total = mongoTemplate.count(query, Music.class);//查询总数
+        query.skip((currentPage - 1) * numberOfPages).limit(numberOfPages);//分页查询
+        List<Music> resultData = mongoTemplate.find(query, Music.class);
+        dataMap.put("rows", resultData);
+        dataMap.put("total", total);
+        return ResponseUtil.constructResponse(200, "ok", dataMap);
     }
 
     @Override
     public JSONObject musicAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException {
 
         HashMap<String, Object> resultMap = new HashMap();
-        HashMap<String, Object> mysqlDataMap = musicAssetMapper.selectMusicAssetDetailById(id);//获取mysql中的数据
+        HashMap mongoDataMap = null;
         HashMap<String, Object> fabricDataMap = null;
-        if (mysqlDataMap.get("state").equals("0")) {//如果是未审核状态
-            resultMap.put("mysqlData", mysqlDataMap);
-            resultMap.put("fabricData", MapUtil.setMapValue(mysqlDataMap));
+        Criteria ownerCriteria = Criteria.where("id").is(id);
+        Query query = new Query();
+        query.addCriteria(ownerCriteria);//条件查询
+        try {
+            mongoDataMap = MapUtil.convertToMap(mongoTemplate.find(query, Music.class).get(0));
+        } catch (Exception e) {
+            return ResponseUtil.constructResponse(400, "query database failed.", resultMap);
+        }
+
+        if (mongoDataMap.get("state").equals("0")) {//如果是未审核状态
+            resultMap.put("mongoData", mongoDataMap);
+            resultMap.put("fabricData", MapUtil.setMapValue(mongoDataMap));
             return ResponseUtil.constructResponse(200, "ok", resultMap);
         }
         ChaincodeManager manager = FabricManager.obtain().getManager();
@@ -60,33 +80,45 @@ public class MusicAssetServiceImpl implements MusicAssetService {
         String dataJson = queryData.get("data");
         ObjectMapper objectMapper = new ObjectMapper();
         if (!resultState.equals("success")) {//如果向区块链请求发生错误
-            resultMap.put("mysqlData", mysqlDataMap);
+            resultMap.put("mongoData", mongoDataMap);
             resultMap.put("fabricData", fabricDataMap);//fabricDataMap==null
             return ResponseUtil.constructResponse(400, "query blockchain failed.", resultMap);
         }
+        if("".equals(dataJson)){
+            resultMap.put("mongoData", mongoDataMap);
+            resultMap.put("fabricData", MapUtil.setMapValue(mongoDataMap));
+            return ResponseUtil.constructResponse(200, "ok", resultMap);
+        }
         fabricDataMap = objectMapper.readValue(dataJson, HashMap.class);
-        resultMap.put("mysqlData", mysqlDataMap);
+        resultMap.put("mongoData", mongoDataMap);
         resultMap.put("fabricData", fabricDataMap);
         return ResponseUtil.constructResponse(200, "ok", resultMap);
     }
 
     @Override
-    public JSONObject CheckMusicAssetAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException {
+    public JSONObject CheckMusicAssetAndChangeState(String id, String state) throws Exception {
 
-        String selState= musicAssetMapper.selectStateById(id);
+        Criteria ownerCriteria = Criteria.where("id").is(id);
+        Query query = new Query();
+        query.addCriteria(ownerCriteria);//条件查询
+        Music music = mongoTemplate.find(query, Music.class).get(0);
+        String selState = music.getState();
+
         if(selState.equals(state))  return ResponseUtil.constructResponse(200, "ok", null);//状态相同直接返回
 
         //如果不是进行审核(不等于1)，即单纯的state更新
         if(!"1".equals(state)){
-            int updateResult = musicAssetMapper.updateState(id, state);
-            if(!(updateResult>0)){
+            music.setState(state);
+            try{
+                mongoTemplate.save(music);
+            }catch (Exception e){
                 return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
             }
-            return ResponseUtil.constructResponse(200, "ok", null);//出现异常直接返回错误
+            return ResponseUtil.constructResponse(200, "ok", null);
         }
         //如果是审核，即传入进来的state=1
         //获取mysql中的学位证书信息
-        HashMap<String, Object> dataMap = musicAssetMapper.selectMusicAssetDetailById(id);
+        HashMap<String, Object> dataMap = MapUtil.convertToMap(music);
         String assetId = dataMap.get("id").toString();//资产Id作为fabric state 数据库的key
         String transactionId = dataMap.get("transactionId").toString();
         Map<String, String> result = null;
@@ -104,11 +136,13 @@ public class MusicAssetServiceImpl implements MusicAssetService {
             ChaincodeManager manager = FabricManager.obtain().getManager();
             String[] arguments = new String[]{assetId, degreeCertificationJsonStr};
             if(!transactionId.equals("")){//如果是已经上链的数据，即数据库中已经有transactionId，只需要改变状态
-                int updateResult = musicAssetMapper.updateStateAndTransaction(id,transactionId, state);
-                if (!(updateResult >0)) {
+                music.setState(state);
+                try{
+                    mongoTemplate.save(music);
+                    return ResponseUtil.constructResponse(200, "ok", null);
+                }catch (Exception e){
                     return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
                 }
-                return ResponseUtil.constructResponse(200, "ok", null);//出现异常直接返回错误
             }
             result = manager.invoke("addAsset", arguments);
             if(result.get("code").equals("error")){//如果插入错误
@@ -123,8 +157,11 @@ public class MusicAssetServiceImpl implements MusicAssetService {
         transactionId = result.get("txid").toString();//由背书节点返回的transactionId
         System.out.println(transactionId);
         //数据库状态进行更新，包括transactionId和state
-        int updateResult = musicAssetMapper.updateStateAndTransaction(id,transactionId, state);
-        if (!(updateResult >0)) {
+        music.setState(state);
+        music.setTransactionId(transactionId);
+        try{
+            mongoTemplate.save(music);
+        }catch (Exception e){
             return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
         }
         return ResponseUtil.constructResponse(200, "ok", null);//正确的返回

@@ -17,5 +17,5 @@ public interface DegreeCertificationAssetService {
 
     public JSONObject selectDegreeCertificationDetailById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 
-    public JSONObject CheckDegreeCertificationAndChangeState(String id, String state);
+    public JSONObject CheckDegreeCertificationAndChangeState(String id, String state) throws Exception;
 }

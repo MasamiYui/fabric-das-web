@@ -266,6 +266,12 @@
             <version>3.0.22</version>
         </dependency>
 
+        <!--MongoDB -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

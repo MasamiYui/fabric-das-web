@@ -17,7 +17,7 @@ public interface MusicAssetService {
 
     public JSONObject musicAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 
-    public JSONObject CheckMusicAssetAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
+    public JSONObject CheckMusicAssetAndChangeState(String id, String state) throws Exception;
 
 
 }

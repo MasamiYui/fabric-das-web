@@ -17,7 +17,7 @@ public interface VideoAssetService {
 
     public JSONObject videoAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 
-    public JSONObject CheckVideoAssetAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
+    public JSONObject CheckVideoAssetAndChangeState(String id, String state) throws Exception;
 
 
 }

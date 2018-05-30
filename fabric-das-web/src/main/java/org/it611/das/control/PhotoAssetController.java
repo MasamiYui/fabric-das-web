@@ -50,7 +50,7 @@ public class PhotoAssetController {
     //审核和更改状态
     @RequestMapping("/asset/photo/checkAndChangeState")
     @ResponseBody
-    public JSONObject checkAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, CryptoException, TransactionException, ProposalException {
+    public JSONObject checkAndChangeState(String id, String state) throws Exception {
         JSONObject resultData = photoAssetService.CheckPhotoAssetAndChangeState(id, state);
         return resultData;
     }

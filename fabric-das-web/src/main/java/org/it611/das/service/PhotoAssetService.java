@@ -17,7 +17,7 @@ public interface PhotoAssetService {
 
     public JSONObject photoAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 
-    public JSONObject CheckPhotoAssetAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
+    public JSONObject CheckPhotoAssetAndChangeState(String id, String state) throws Exception;
 
 
 }

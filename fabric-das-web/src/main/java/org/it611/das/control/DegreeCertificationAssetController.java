@@ -49,7 +49,7 @@ public class DegreeCertificationAssetController {
     //审核和更改状态
     @RequestMapping("/degreeCertificationCompareDetail/checkAndChangeState")
     @ResponseBody
-    public JSONObject checkAndChangeState(String id, String state) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, CryptoException, TransactionException {
+    public JSONObject checkAndChangeState(String id, String state) throws Exception {
         JSONObject resultData = degreeCertificationAssetService.CheckDegreeCertificationAndChangeState(id, state);
         return resultData;
     }

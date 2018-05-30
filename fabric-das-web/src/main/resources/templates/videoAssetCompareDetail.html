@@ -75,17 +75,17 @@
                             <div class="controls">
                                 <span class="col-title">资产类型：</span>
                                 <span>视频资产</span>
-                               <!-- <th:block th:switch="${result.mysqlData.}">
+                               <!-- <th:block th:switch="${result.mongoData.}">
                                     <span th:case="1">学生证</span>
                                     <span th:case="*">无类型</span> &lt;!&ndash;*表示默认类型&ndash;&gt;
                                 </th:block>-->
                             </div>
                             <span class="col-title">资产编号：</span>
-                            <span th:text="${result.data.mysqlData.id}"></span>
+                            <span th:text="${result.data.mongoData.id}"></span>
                         </div>
                         <div class="controls">
-                            <span class="col-title">文件指纹：</span>
-                            <span th:text="${result.data.mysqlData.transactionId}"></span>
+                            <span class="col-title">交易哈希：</span>
+                            <span th:text="${result.data.mongoData.transactionId}"></span>
                         </div>
 
                     </div>
@@ -104,29 +104,29 @@
                                 <tbody>
                                 <tr>
                                     <td>标题</td>
-                                    <td th:text="${result.data.mysqlData.title}"></td>
-                                    <td th:text="(${result.data.mysqlData.title}!='0')?${result.data.fabricData.title}:'无数据'"></td>
+                                    <td th:text="${result.data.mongoData.title}"></td>
+                                    <td th:text="(${result.data.mongoData.title}!='0')?${result.data.fabricData.title}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mysqlData.title}==${result.data.fabricData.title}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mysqlData.title}!=${result.data.fabricData.title}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mongoData.title}==${result.data.fabricData.title}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mongoData.title}!=${result.data.fabricData.title}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>描述</td>
-                                    <td th:text="${result.data.mysqlData.des}"></td>
-                                    <td th:text="(${result.data.mysqlData.des}!='0')?${result.data.fabricData.des}:'无数据'"></td>
+                                    <td th:text="${result.data.mongoData.des}"></td>
+                                    <td th:text="(${result.data.mongoData.des}!='0')?${result.data.fabricData.des}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mysqlData.des}==${result.data.fabricData.des}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mysqlData.des}!=${result.data.fabricData.des}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mongoData.des}==${result.data.fabricData.des}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mongoData.des}!=${result.data.fabricData.des}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>作者</td>
-                                    <td th:text="${result.data.mysqlData.author}"></td>
-                                    <td th:text="(${result.data.mysqlData.author}!='0')?${result.data.fabricData.author}:'无数据'"></td>
+                                    <td th:text="${result.data.mongoData.author}"></td>
+                                    <td th:text="(${result.data.mongoData.author}!='0')?${result.data.fabricData.author}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mysqlData.author}==${result.data.fabricData.author}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mysqlData.author}!=${result.data.fabricData.author}" class="glyphicon glyphicon-remove"></i>
+                                        <i th:if="${result.data.mongoData.author}==${result.data.fabricData.author}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mongoData.author}!=${result.data.fabricData.author}" class="glyphicon glyphicon-remove"></i>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -138,34 +138,34 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label class="radio-inline">
-                                                <th:block th:if="${result.data.mysqlData.state}=='0'">
+                                                <th:block th:if="${result.data.mongoData.state}=='0'">
                                                     <input type="radio" name="state" value="0" checked="true"/>未审核
                                                 </th:block>
-                                                <th:block th:unless="${result.data.mysqlData.state}=='0'">
+                                                <th:block th:unless="${result.data.mongoData.state}=='0'">
                                                     <input  type="radio" name="state" value="0" />未审核
                                                 </th:block>
                                             </label>
                                             <label class="radio-inline">
-                                                <th:block th:if="${result.data.mysqlData.state}=='1'">
+                                                <th:block th:if="${result.data.mongoData.state}=='1'">
                                                     <input  type="radio" name="state" value="1" checked="true"/>已审核
                                                 </th:block>
-                                                <th:block th:unless="${result.data.mysqlData.state}=='1'">
+                                                <th:block th:unless="${result.data.mongoData.state}=='1'">
                                                     <input  type="radio" name="state" value="1"/>已审核
                                                 </th:block>
                                             </label>
                                             <label class="radio-inline">
-                                                <th:block th:if="${result.data.mysqlData.state}=='2'">
+                                                <th:block th:if="${result.data.mongoData.state}=='2'">
                                                     <input   type="radio" name="state" value="2"  checked="true"/>不通过
                                                 </th:block>
-                                                <th:block th:unless="${result.data.mysqlData.state}=='2'">
+                                                <th:block th:unless="${result.data.mongoData.state}=='2'">
                                                     <input   type="radio" name="state" value="2"/>不通过
                                                 </th:block>
                                             </label>
                                             <label class="radio-inline">
-                                                <th:block th:if="${result.data.mysqlData.state}=='3'">
+                                                <th:block th:if="${result.data.mongoData.state}=='3'">
                                                     <input  type="radio" name="state" value="3" checked="true"/>注销
                                                 </th:block>
-                                                <th:block th:unless="${result.data.mysqlData.state}=='3'">
+                                                <th:block th:unless="${result.data.mongoData.state}=='3'">
                                                     <input  type="radio" name="state" value="3"/>注销
                                                 </th:block>
                                             </label>
@@ -203,7 +203,7 @@
                     </div>
                     <div class="panel-body">
                         <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
-                             <th:block th:each="file:${result.data.mysqlData.files}">
+                             <th:block th:each="file:${result.data.mongoData.files}">
                                  <img th:src="${file}" class="layui-upload-img"/>
                              </th:block>
                         </div>
@@ -266,7 +266,7 @@
     });
     */
 
-    var id = [[${result.data.mysqlData.id}]];
+    var id = [[${result.data.mongoData.id}]];
     $("#btSubmit").click(function () {
         var $this = $(this);
         $this.prop("disabled", true);
