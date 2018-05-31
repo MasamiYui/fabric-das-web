@@ -60,4 +60,29 @@ public class StatisticsController {
     //显示饼状图
     @RequestMapping("/pie")
     public String pieChart(){return "chart_pie";}
+
+
+    //时间段数据统计(格式年-月 如：2018-05到2018-06)
+    @RequestMapping("/statistics/trend/assertNumByTimeSlot")
+    @ResponseBody
+    public JSONObject assetStateassetNumTrend(String startTime, String endTime, String assetType){
+
+        HashMap resultMap = statisticsService.statisticsAssetTrend(startTime, endTime, assetType);
+        return ResponseUtil.constructResponse(200, "ok", resultMap);
+
+    }
+
+
+    ////具体时间数据统计(格式年-月 如：2018-05)
+    @RequestMapping("/statistics/trend/assertNumByTime")
+    @ResponseBody
+    public JSONObject assetStateassetNumTrend(String time, String assetType){
+
+        HashMap resultMap = statisticsService.statisticsAssetTrend(time, assetType);
+        return ResponseUtil.constructResponse(200, "ok", resultMap);
+
+    }
+
+
+
 }

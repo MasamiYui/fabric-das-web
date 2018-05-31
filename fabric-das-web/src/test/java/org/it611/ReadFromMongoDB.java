@@ -1,10 +1,10 @@
 package org.it611;
-import org.apache.spark.api.java.JavaSparkContext;
+/*import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.bson.Document;
 
 import com.mongodb.spark.MongoSpark;
-import com.mongodb.spark.rdd.api.java.JavaMongoRDD;
+import com.mongodb.spark.rdd.api.java.JavaMongoRDD;*/
 
 public final class ReadFromMongoDB {
 

@@ -1,7 +1,13 @@
 package org.it611.das.service.impl;
 
 import com.mongodb.BasicDBObject;
+import org.it611.das.domain.DegreeCertificate;
+import org.it611.das.domain.Music;
+import org.it611.das.domain.Photo;
+import org.it611.das.domain.Video;
 import org.it611.das.service.StatisticsService;
+import org.it611.das.util.ResponseUtil;
+import org.it611.das.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
@@ -9,6 +15,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,7 +29,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
 
     /**
-     *根据时间段，对各类资产数量进行统计
+     * 根据时间段，对各类资产数量进行统计
      */
     @Override
     public HashMap statisticsAssetTotal(String startTime, String endTime) {
@@ -65,7 +73,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         HashMap statisticsMap = new HashMap<String, Object>();
 
-        if(aggregationResults.getMappedResults().size() == 0){
+        if (aggregationResults.getMappedResults().size() == 0) {
             statisticsMap.put("degreeCertNum", 0);
             statisticsMap.put("videoNum", 0);
             statisticsMap.put("audioNum", 0);
@@ -124,10 +132,166 @@ public class StatisticsServiceImpl implements StatisticsService {
                 Aggregation.match(Criteria.where("submitTime").gte(startTime)),
                 Aggregation.match(Criteria.where("submitTime").lte(endTime)),
                 Aggregation.match(Criteria.where("ownerId").regex(ownerId))
-                );
-        List<BasicDBObject> list = mongoTemplate.aggregate(aggregation , assetType,  BasicDBObject.class).getMappedResults();
+        );
+        List<BasicDBObject> list = mongoTemplate.aggregate(aggregation, assetType, BasicDBObject.class).getMappedResults();
         return list.size();//TODO：感觉不是统计count的最好方法
     }
+
+
+    @Override
+    public HashMap statisticsAssetTrend(String startTime, String endTime, String assetType) {
+
+        //时间解析
+        String[] startTimeArr = startTime.split("-");
+        String startTimeYear = startTimeArr[0];
+        String startTimeMonth = startTimeArr[1];
+
+        String[] endTimeArr = endTime.split("-");
+        String endTimeYear = endTimeArr[0];
+        String endTimeMonth = endTimeArr[1];
+
+
+        //时间格式补全
+        startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(startTimeYear), Integer.valueOf(startTimeMonth));
+        endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(endTimeYear), Integer.valueOf(endTimeMonth));
+
+        //查询条件
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("time").gte(startTime + " 00:00:00")),
+                Aggregation.match(Criteria.where("time").lte(endTime + " 00:00:00"))
+        );
+
+
+        System.out.println("startTime:" + startTime);
+        System.out.println("endTime:" + endTime);
+
+        HashMap resultMap = parseData(aggregation, "statisticsPerMonth", assetType);
+
+        return resultMap;
+
+    }
+
+    @Override
+    public HashMap statisticsAssetTrend(String time, String assetType) {
+
+        String[] timeArr = time.split("-");
+        String year = timeArr[0];
+        String month = timeArr[1];
+        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month));
+        String endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(year), Integer.valueOf(month));
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("time").gte(startTime)),
+                Aggregation.match(Criteria.where("time").lte(endTime))
+        );
+
+        HashMap resultMap = parseData(aggregation, "statisticsPerDay", assetType);
+
+        return resultMap;
+    }
+
+
+    public HashMap parseData(Aggregation aggregation, String collectName, String assetType) {
+
+        //整理返回数据
+        ArrayList degreeCertNumTotalArr = new ArrayList<Integer>();
+        ArrayList videoNumTotalArr = new ArrayList<Integer>();
+        ArrayList audioNumTotalArr = new ArrayList<Integer>();
+        ArrayList photoNumTotalArr = new ArrayList<Integer>();
+
+        ArrayList degreeCertNumUnReviewedArr = new ArrayList<Integer>();
+        ArrayList videoNumUnReviewedArr = new ArrayList<Integer>();
+        ArrayList audioNumUnReviewedArr = new ArrayList<Integer>();
+        ArrayList photoNumUnReviewedArr = new ArrayList<Integer>();
+
+        ArrayList degreeCertNumReviewedArr = new ArrayList<Integer>();
+        ArrayList videoNumReviewedArr = new ArrayList<Integer>();
+        ArrayList audioNumReviewedArr = new ArrayList<Integer>();
+        ArrayList photoNumReviewedArr = new ArrayList<Integer>();
+
+        ArrayList degreeCertNumUnPassArr = new ArrayList<Integer>();
+        ArrayList videoNumUnPassArr = new ArrayList<Integer>();
+        ArrayList audioNumUnPassArr = new ArrayList<Integer>();
+        ArrayList photoNumUnPassArr = new ArrayList<Integer>();
+
+        ArrayList degreeCertNumCanceledArr = new ArrayList<Integer>();
+        ArrayList videoNumCanceledArr = new ArrayList<Integer>();
+        ArrayList audioNumCanceledArr = new ArrayList<Integer>();
+        ArrayList photoNumCanceledArr = new ArrayList<Integer>();
+
+
+        List<BasicDBObject> list = mongoTemplate.aggregate(aggregation, collectName, BasicDBObject.class).getMappedResults();
+        for (int i = 0; i < list.size(); i++) {
+            BasicDBObject data = list.get(i);
+            degreeCertNumTotalArr.add(data.get("degreeCertNumTotal"));
+            videoNumTotalArr.add(data.get("videoNumTotal"));
+            audioNumTotalArr.add(data.get("audioNumTotal"));
+            photoNumTotalArr.add(data.get("photoNumTotal"));
+
+            degreeCertNumUnReviewedArr.add(data.get("degreeCertNumUnReviewed"));
+            videoNumUnReviewedArr.add(data.get("videoNumUnReviewed"));
+            audioNumUnReviewedArr.add(data.get("audioNumUnReviewed"));
+            photoNumUnReviewedArr.add(data.get("photoNumUnReviewed"));
+
+            degreeCertNumReviewedArr.add(data.get("degreeCertNumReviewed"));
+            videoNumReviewedArr.add(data.get("videoNumReviewed"));
+            audioNumReviewedArr.add(data.get("audioNumReviewed"));
+            photoNumReviewedArr.add(data.get("photoNumReviewed"));
+
+            degreeCertNumUnPassArr.add(data.get("degreeCertNumUnPass"));
+            videoNumUnPassArr.add(data.get("videoNumUnPass"));
+            audioNumUnPassArr.add(data.get("audioNumUnPass"));
+            photoNumUnPassArr.add(data.get("photoNumUnPass"));
+
+
+            degreeCertNumCanceledArr.add(data.get("degreeCertNumCanceled"));
+            videoNumCanceledArr.add(data.get("videoNumCanceled"));
+            audioNumCanceledArr.add(data.get("audioNumCanceled"));
+            photoNumCanceledArr.add(data.get("photoNumCanceled"));
+        }
+
+        HashMap<String, Object> resultMap = new HashMap();
+        switch (assetType) {
+            case "-1":
+                resultMap.put("degreeCertNumTotal", degreeCertNumTotalArr);
+                resultMap.put("videoNumTotal", videoNumTotalArr);
+                resultMap.put("audioNumTotal", audioNumTotalArr);
+                resultMap.put("photoNumTotal", photoNumTotalArr);
+                break;
+            case "1":
+                resultMap.put("degreeCertNumUnReviewed", degreeCertNumUnReviewedArr);
+                resultMap.put("videoNumUnReviewed", videoNumUnReviewedArr);
+                resultMap.put("audioNumUnReviewed", audioNumUnReviewedArr);
+                resultMap.put("photoNumUnReviewed", photoNumUnReviewedArr);
+                break;
+            case "2":
+                resultMap.put("degreeCertNumReviewed", degreeCertNumReviewedArr);
+                resultMap.put("videoNumReviewed", videoNumReviewedArr);
+                resultMap.put("audioNumReviewed", audioNumReviewedArr);
+                resultMap.put("photoNumReviewed", photoNumReviewedArr);
+                break;
+            case "3":
+                resultMap.put("degreeCertNumUnPass", degreeCertNumUnPassArr);
+                resultMap.put("videoNumUnPass", videoNumUnPassArr);
+                resultMap.put("audioNumUnPass", audioNumUnPassArr);
+                resultMap.put("photoNumUnPass", photoNumUnPassArr);
+                break;
+            case "4":
+                resultMap.put("degreeCertNumCanceled", degreeCertNumCanceledArr);
+                resultMap.put("videoNumCanceled", videoNumCanceledArr);
+                resultMap.put("audioNumCanceled", audioNumCanceledArr);
+                resultMap.put("photoNumCanceled", photoNumCanceledArr);
+                break;
+            default:
+                resultMap.put("degreeCertNumCanceled", 0);
+                resultMap.put("videoNumCanceled", 0);
+                resultMap.put("audioNumCanceled", 0);
+                resultMap.put("photoNumCanceled", 0);
+                break;
+        }
+        return resultMap;
+
+    }
+
 
 
 }

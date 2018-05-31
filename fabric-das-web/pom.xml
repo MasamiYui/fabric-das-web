@@ -273,7 +273,7 @@
         </dependency>
 
         <!--MongoDB Spark Connector -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.mongodb.spark</groupId>
             <artifactId>mongo-spark-connector_2.11</artifactId>
             <version>2.2.2</version>
@@ -287,7 +287,7 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_2.11</artifactId>
             <version>2.3.0</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
