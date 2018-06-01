@@ -186,6 +186,23 @@
                                 </tbody>
                             </table>
 
+
+                            <!--图片-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+                                            <strong>附件</strong>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="layer-photos-demo" class="layui-upload-list" style="margin:0px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <!--审核状态radio选择-->
                             <div class="control-group col-lg-12">
                                 <form role="form" id="dataform">
@@ -304,21 +321,24 @@
 <script th:src="@{/jcstatic/layui/layui.js}"></script>
 
 <script th:inline="javascript">
- /*   layui.use('layer', function () {
-        var layer = layui.layer;
-        layer.photos({
-            photos: '#layer-photos-demo'
-            , anim: 5 //0-6的选择
-        });
+    $(document).ready(function () {
+        photoShow();
     });
-    layui.use('layer', function () {
-        var layer = layui.layer;
-        layer.photos({
-            photos: '#layer-photos-demo2'
-            , anim: 5 //0-6的选择
-        });
-    });
-    */
+
+    function photoShow(){
+        var file =[[${result.data.mongoData.files}]];
+        if(!file) return;
+        $("#layer-photos-demo").append('<img src="'+file+'"  class="layui-upload-img"/>');
+    }
+
+ layui.use('layer', function () {
+     var layer = layui.layer;
+     layer.photos({
+         photos: '#layer-photos-demo'
+         , anim: 5 //0-6的选择
+     });
+ });
+
 
     var id = [[${result.data.mongoData.id}]];
     $("#btSubmit").click(function () {

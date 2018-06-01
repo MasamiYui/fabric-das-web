@@ -63,9 +63,17 @@
                     <!--查找栏-->
                     <div class="panel-heading">
                         <form class="form-inline">
-                            <input type="text" id="title" class="form-control" placeholder="输入证书Id" style="width:150px;"/>
+                            <input type="text" id="title" class="form-control" placeholder="输入资产标题" style="width:150px;"/>
 <!--                            <input type="text" id="title" class="form-control" placeholder="输入资产标题"/>
                             <input type="text" id="txid" class="form-control" placeholder="输入交易单号"/>-->
+                            <select id="state" class="form-control">
+                                <option value="">审核状态</option>
+                                <option value="0">未审核</option>
+                                <option value="1">已审核</option>
+                                <option value="2">不通过</option>
+                                <option value="3">注销</option>
+                            </select>
+
                             <button class="btn btn-default" type="button" onclick="search()">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -217,14 +225,29 @@
             var row = rows[i];
            // var type=row.type_id=1?"学生证":row.type_id;
             var state=row.state;
-            state = state == '0' ? "未审核" : state == '1' ? "已审核" : state =='2' ? "不通过" : state == '3' ? "注销" : "无状态";
+           // state = state == '0' ? "未审核" : state == '1' ? "已审核" : state =='2' ? "不通过" : state == '3' ? "注销" : "无状态";
+
+            var stateHtml = '';
+            if(state=='0'){
+                state = '未审核';
+                stateHtml = '<td><span class="layui-badge">' + state + '</span></td>';
+            }else if(state=='1'){
+                state = '已审核';
+                stateHtml = '<td><span class="layui-badge layui-bg-green">' + state + '</span></td>';
+            }else if(state=='2'){
+                state = '不通过';
+                stateHtml = '<td><span class="layui-badge layui-bg-orange">' + state + '</span></td>';
+            }else if(state=='3'){
+                state = '注销';
+                stateHtml = '<td><span class="layui-badge layui-bg-cyan">' + state + '</span></td>';
+            }
 
             var html = '<tr>'
                 + '<td>' + row.id + '</td>'
                 + '<td>' + row.ownerId + '</td>'
                 + '<td>' + row.title + '</td>'
                 + '<td>' + row.submitTime + '</td>'
-                + '<td>' + state + '</td>'
+                + stateHtml
                 + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">设置</a></td>'
                 + '</tr>';
             items.append(html);
@@ -238,6 +261,7 @@
             numberOfPages: 10,   //每页的记录数
             currentPage: 1,        //当前页码
             title: '',
+            state:''
 /*            id: '',
             txid: '',*/
         };
@@ -245,6 +269,10 @@
         var title = $('#title').val();
         if (title) {
             queryParams.title = title;
+        }
+        var state = $('#state').val();
+        if (state) {
+            queryParams.state = state;
         }
 /*        var id = $('#id').val();
         if (id) {

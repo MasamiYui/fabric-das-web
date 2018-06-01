@@ -13,7 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 
 public interface DegreeCertificationAssetService {
 
-    JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId);
+    JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId,String state);
 
     public JSONObject selectDegreeCertificationDetailById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 

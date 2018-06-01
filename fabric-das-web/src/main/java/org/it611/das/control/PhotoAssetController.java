@@ -32,8 +32,8 @@ public class PhotoAssetController {
     //获取图片资产列表
     @RequestMapping("/asset/photo/list")
     @ResponseBody
-    public JSONObject videoAssetList(int currentPage, int numberOfPages, String title){
-        return photoAssetService.photoAssetList(currentPage, numberOfPages, title);
+    public JSONObject videoAssetList(int currentPage, int numberOfPages, String title,String state){
+        return photoAssetService.photoAssetList(currentPage, numberOfPages, title,state);
     }
 
     //获取图片详情(页面)

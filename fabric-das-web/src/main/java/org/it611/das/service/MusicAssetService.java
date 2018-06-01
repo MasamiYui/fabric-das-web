@@ -13,7 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 
 public interface MusicAssetService {
 
-    JSONObject musicAssetList(int currentPage, int numberOfPages, String title);
+    JSONObject musicAssetList(int currentPage, int numberOfPages, String title,String state);
 
     public JSONObject musicAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 

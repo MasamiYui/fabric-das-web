@@ -36,8 +36,8 @@ public class MusicAssetController {
     //获取Music资产列表
     @RequestMapping("/asset/music/list")
     @ResponseBody
-    public JSONObject musicAssetList(int currentPage, int numberOfPages, String title){
-        return musicAssetService.musicAssetList(currentPage, numberOfPages, title);
+    public JSONObject musicAssetList(int currentPage, int numberOfPages, String title,String state){
+        return musicAssetService.musicAssetList(currentPage, numberOfPages, title,state);
     }
 
     //获取Music详情(页面)
@@ -57,6 +57,14 @@ public class MusicAssetController {
     public JSONObject checkAndChangeState(String id, String state) throws Exception {
         JSONObject resultData = musicAssetService.CheckMusicAssetAndChangeState(id, state);
         return resultData;
+    }
+    //音频链接地址播放
+    @RequestMapping("/musicPalyLink")
+    public ModelAndView videoPalyLink(String linkAddress){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("videoUrl", linkAddress);
+        modelAndView.setViewName("videoDetailPlay");
+        return modelAndView;
     }
 
 }

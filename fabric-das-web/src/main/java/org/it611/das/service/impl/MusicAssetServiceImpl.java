@@ -37,10 +37,15 @@ public class MusicAssetServiceImpl implements MusicAssetService {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public JSONObject musicAssetList(int currentPage, int numberOfPages, String title) {
+    public JSONObject musicAssetList(int currentPage, int numberOfPages, String title,String state) {
 
         HashMap dataMap = new HashMap<String, Object>();
-        Criteria ownerCriteria = Criteria.where("title").regex(title);
+        Criteria ownerCriteria = null;
+        if("".equals(state)){
+            ownerCriteria = Criteria.where("title").regex(title);
+        }else{
+            ownerCriteria = Criteria.where("title").regex(title).and("state").is(state);
+        }
         Query query = new Query();
         query.addCriteria(ownerCriteria);//条件查询
         long total = mongoTemplate.count(query, Music.class);//查询总数

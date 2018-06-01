@@ -36,8 +36,9 @@ public class VideoAssetController {
     //获取Video资产列表
     @RequestMapping("/asset/video/list")
     @ResponseBody
-    public JSONObject videoAssetList(int currentPage, int numberOfPages, String title){
-        return videoAssetService.videoAssetList(currentPage, numberOfPages, title);
+    public JSONObject videoAssetList(int currentPage, int numberOfPages, String title,String state){
+        JSONObject result =videoAssetService.videoAssetList(currentPage, numberOfPages, title,state);
+        return  result;
     }
 
     //获取Video详情(页面)
@@ -58,5 +59,12 @@ public class VideoAssetController {
         JSONObject resultData = videoAssetService.CheckVideoAssetAndChangeState(id, state);
         return resultData;
     }
-
+    //视频链接地址播放
+    @RequestMapping("/videoPalyLink")
+    public ModelAndView videoPalyLink(String linkAddress){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("videoUrl", linkAddress);
+        modelAndView.setViewName("videoDetailPlay");
+        return modelAndView;
+    }
 }

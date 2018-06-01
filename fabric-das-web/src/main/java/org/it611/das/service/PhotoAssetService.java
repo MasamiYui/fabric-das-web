@@ -13,7 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 
 public interface PhotoAssetService {
 
-    JSONObject photoAssetList(int currentPage, int numberOfPages, String title);
+    JSONObject photoAssetList(int currentPage, int numberOfPages, String title,String state);
 
     public JSONObject photoAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 

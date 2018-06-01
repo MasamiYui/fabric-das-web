@@ -31,8 +31,8 @@ public class DegreeCertificationAssetController {
     //获取学历证书资产列表
     @RequestMapping("/asset/degreeCertification/list")
     @ResponseBody
-    public JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId){
-        return degreeCertificationAssetService.degreeCertificationList(currentPage, numberOfPages, certId);
+    public JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId,String state){
+        return degreeCertificationAssetService.degreeCertificationList(currentPage, numberOfPages, certId,state);
     }
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >  <!--style="overflow: hidden;"-->
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x: hidden">  <!--style="overflow: hidden;"-->
 
 <head>
 
@@ -50,7 +50,7 @@
             font-weight: 700;
         }
 
-        table tbody>tr td:last-child{
+        table tbody > tr td:last-child {
             text-align: center;
         }
 
@@ -132,6 +132,14 @@
                                 </tbody>
                             </table>
 
+                            <!--视频链接-->
+                            <div class="row">
+                                <div class="col-lg-12  panel-success">
+                                    <div id="videoLink" class="panel panel-info">
+                                    </div>
+                                </div>
+                            </div>
+
                             <!--审核状态radio选择-->
                             <div class="control-group col-lg-12">
                                 <form role="form" id="dataform">
@@ -209,20 +217,20 @@
                         </div>
                     </div>
 
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <strong>区块链附件</strong>
-                    </div>
-                    <div class="panel-body">
-                        <div id="layer-photos-demo2" class="layui-upload-list" style="margin:0px">
-                            <th:block th:each="file:${result.data.fabricData.files}">
-                                <img th:src="${file}" class="layui-upload-img"/>
-                            </th:block>
-                        </div>
-                    </div>
+                 </div>
+             </div>
+             <div class="col-lg-12">
+                 <div class="panel panel-info">
+                     <div class="panel-heading">
+                         <strong>区块链附件</strong>
+                     </div>
+                     <div class="panel-body">
+                         <div id="layer-photos-demo2" class="layui-upload-list" style="margin:0px">
+                             <th:block th:each="file:${result.data.fabricData.files}">
+                                 <img th:src="${file}" class="layui-upload-img"/>
+                             </th:block>
+                         </div>
+                     </div>
 
                 </div>
             </div>
@@ -250,21 +258,30 @@
 <script th:src="@{/jcstatic/layui/layui.js}"></script>
 
 <script th:inline="javascript">
- /*   layui.use('layer', function () {
-        var layer = layui.layer;
-        layer.photos({
-            photos: '#layer-photos-demo'
-            , anim: 5 //0-6的选择
-        });
+
+    $(document).ready(function () {
+        videoLinks();
     });
-    layui.use('layer', function () {
-        var layer = layui.layer;
-        layer.photos({
-            photos: '#layer-photos-demo2'
-            , anim: 5 //0-6的选择
-        });
-    });
-    */
+
+    function videoLinks() {
+        var files = [[${result.data.mongoData.files}]];
+        if(!files) return;
+        if(files.charAt(files.length-1)==','){
+            files = files.substring(0, files.length - 1);
+        }
+        var patt = /^(http|ftp|https):\/\/(.)+(\.swf|\.flv|\.mp4|\.rmvb|\.avi|\.mpeg|\.ra|\.ram|\.mov|\.wmv)(.)*/i;
+        var urls = new Array();
+        var urlArr = files.split(",");
+        for (var index in urlArr) {
+            if (patt.test(urlArr[index])) {
+                urls.push(urlArr[index]);
+            }
+        }
+        var i = 0;
+        for (var link in urls) {
+            $("#videoLink").append('<a  style="margin-right:40px;" class="btn btn-info"  href="/videoPalyLink?linkAddress=' + urls[link] + '">播放视频' + (++i) + '</a>');
+        }
+    }
 
     var id = [[${result.data.mongoData.id}]];
     $("#btSubmit").click(function () {
@@ -292,7 +309,7 @@
         });
     });
 
-    $("#btBack").click(function(){
+    $("#btBack").click(function () {
         parent.close();
     });
 
@@ -308,8 +325,6 @@
             });
         });
     }
-
-
 
 
 </script>

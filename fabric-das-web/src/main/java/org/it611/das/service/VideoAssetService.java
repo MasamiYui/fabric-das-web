@@ -13,7 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 
 public interface VideoAssetService {
 
-    JSONObject videoAssetList(int currentPage, int numberOfPages, String title);
+    JSONObject videoAssetList(int currentPage, int numberOfPages, String title,String state);
 
     public JSONObject videoAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
 

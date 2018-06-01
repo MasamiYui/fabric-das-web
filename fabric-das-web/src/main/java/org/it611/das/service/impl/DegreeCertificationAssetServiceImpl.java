@@ -43,10 +43,15 @@ public class DegreeCertificationAssetServiceImpl implements DegreeCertificationA
 
 
     @Override
-    public JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId) {
+    public JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId,String state) {
 
         HashMap dataMap = new HashMap<String, Object>();
-        Criteria ownerCriteria = Criteria.where("id").regex(certId);
+        Criteria ownerCriteria = null;
+        if("".equals(state)){
+            ownerCriteria = Criteria.where("id").regex(certId);
+        }else {
+            ownerCriteria = Criteria.where("id").regex(certId).and("state").is(state);
+        }
         Query query = new Query();
         query.addCriteria(ownerCriteria);//条件查询
         long total = mongoTemplate.count(query, DegreeCertificate.class);//查询总数
