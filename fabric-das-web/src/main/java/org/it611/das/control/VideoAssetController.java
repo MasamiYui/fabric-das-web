@@ -1,10 +1,8 @@
 package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.hyperledger.fabric.sdk.exception.ProposalException;
-import org.hyperledger.fabric.sdk.exception.TransactionException;
+import org.it611.das.domain.Video;
+import org.it611.das.service.StatisticsService;
 import org.it611.das.service.VideoAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.spec.InvalidKeySpecException;
+import java.util.HashMap;
+
 
 @Controller
 public class VideoAssetController {
 
     @Autowired
     private VideoAssetService videoAssetService;
+
+    @Autowired
+    private StatisticsService statisticsService;
 
 
     //Video资产首页Index页面
@@ -67,4 +66,20 @@ public class VideoAssetController {
         modelAndView.setViewName("videoDetailPlay");
         return modelAndView;
     }
+
+
+    @RequestMapping("/video/test")
+    @ResponseBody
+    public HashMap test() {
+        HashMap result = statisticsService.statisticsAssetTotal("2018-06-02 00:00:00","2018-06-03 00:00:00");
+        return result;
+    }
+
+    @RequestMapping("/video/test2")
+    @ResponseBody
+    public HashMap test2() {
+        HashMap result = statisticsService.statisticsAssetState(Video.class);
+        return result;
+    }
+
 }
