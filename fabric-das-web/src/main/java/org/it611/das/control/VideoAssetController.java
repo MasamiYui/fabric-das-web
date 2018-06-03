@@ -67,19 +67,4 @@ public class VideoAssetController {
         return modelAndView;
     }
 
-
-    @RequestMapping("/video/test")
-    @ResponseBody
-    public HashMap test() {
-        HashMap result = statisticsService.statisticsAssetTotal("2018-06-02 00:00:00","2018-06-03 00:00:00");
-        return result;
-    }
-
-    @RequestMapping("/video/test2")
-    @ResponseBody
-    public HashMap test2() {
-        HashMap result = statisticsService.statisticsAssetState(Video.class);
-        return result;
-    }
-
 }

@@ -33,6 +33,10 @@ public class StatisticsServiceImpl implements StatisticsService {
         //Criteria operator = Criteria.where("submitTime").gte(startTime).where("submitTime").lt(endTime);
         //MatchOperation matchOperation = Aggregation.match(operator);
 
+        //时间处理
+        startTime = startTime + " 00:00:00";
+        endTime = endTime + " 00:00:00";
+
         // 分组操作，并对每个总条数进行统计
         GroupOperation videoGroupOperation = Aggregation.group()
                 .sum("audioNum").as("audioNum")
