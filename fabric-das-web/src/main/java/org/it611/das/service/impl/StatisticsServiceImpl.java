@@ -63,8 +63,17 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         System.out.println(aggregationResults.getMappedResults());
 
-        HashMap queryMap = aggregationResults.getMappedResults().get(0);
         HashMap statisticsMap = new HashMap<String, Object>();
+
+        if(aggregationResults.getMappedResults().size() == 0){
+            statisticsMap.put("degreeCertNum", 0);
+            statisticsMap.put("videoNum", 0);
+            statisticsMap.put("audioNum", 0);
+            statisticsMap.put("photoNum", 0);
+            System.out.println(aggregationResults.getMappedResults());
+            return statisticsMap;
+        }
+        HashMap queryMap = aggregationResults.getMappedResults().get(0);
         statisticsMap.put("degreeCertNum", queryMap.get("degreeCertNum"));
         statisticsMap.put("videoNum", queryMap.get("videoNum"));
         statisticsMap.put("audioNum", queryMap.get("audioNum"));
