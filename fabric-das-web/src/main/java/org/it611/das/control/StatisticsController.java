@@ -17,7 +17,8 @@ public class StatisticsController {
 
 
     /**
-     * 资产分类查询（根据时间段）"2018-06-02 00:00:00","2018-06-03 00:00:00" 时间格式
+     * 资产分类查询（根据时间段）前台为"2018-06-02","2018-06-03" 时间格式
+     * 后台会把00：00：00补充，最后mongodb中时间格式为2018-06-02 00:00:00
      */
     @RequestMapping("/statistics/general/assetType")
     @ResponseBody
