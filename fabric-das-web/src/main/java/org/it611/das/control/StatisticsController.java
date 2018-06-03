@@ -31,7 +31,7 @@ public class StatisticsController {
         return ResponseUtil.constructResponse(200, "ok", result);
     }
 
-    @RequestMapping("/statistics/general/state")
+    @RequestMapping("/statistics/general/assertState")
     @ResponseBody
     public JSONObject assetStateassetTypeGeneral(String assetType) {
 
@@ -47,7 +47,7 @@ public class StatisticsController {
             case "图片":
                 clz = Photo.class;
                 break;
-            case "学历证书":
+            case "学位证书":
                 clz = DegreeCertificate.class;
                 break;
             default:
@@ -57,4 +57,7 @@ public class StatisticsController {
         return ResponseUtil.constructResponse(200, "ok", result);
     }
 
+    //显示饼状图
+    @RequestMapping("/pie")
+    public String pieChart(){return "chart_pie";}
 }
