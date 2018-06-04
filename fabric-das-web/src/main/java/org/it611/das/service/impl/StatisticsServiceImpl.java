@@ -11,6 +11,8 @@ import org.it611.das.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
+import org.springframework.data.mongodb.core.mapreduce.GroupBy;
+import org.springframework.data.mongodb.core.mapreduce.GroupByResults;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -190,6 +192,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     }
 
 
+
     public HashMap parseData(Aggregation aggregation, String collectName, String assetType) {
 
         //整理返回数据
@@ -292,6 +295,121 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     }
 
+
+
+    @Override
+    public HashMap statisticsUserAssetDetail(String userId) {
+
+        //查询学位证书的信息
+        Query query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("0"));
+        long degreeCertNumUnReviewed  = mongoTemplate.count(query,DegreeCertificate.class);
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("1"));
+        long degreeCertNumReviewed  = mongoTemplate.count(query,DegreeCertificate.class);
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("2"));
+        long degreeCertNumUnPass  = mongoTemplate.count(query,DegreeCertificate.class);
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("3"));
+        long degreeCertNumCanceled = mongoTemplate.count(query,DegreeCertificate.class);
+
+
+        //查询视频信息
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("0"));
+        long videoNumUnReviewed  = mongoTemplate.count(query,"video");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("1"));
+        long videoNumReviewed  = mongoTemplate.count(query,"video");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("2"));
+        long videoNumUnPass  = mongoTemplate.count(query,"video");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("3"));
+        long videoNumCanceled = mongoTemplate.count(query,"video");
+
+
+        //查询音频信息
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("0"));
+        long audioNumUnReviewed  = mongoTemplate.count(query,"music");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("1"));
+        long audioNumReviewed  = mongoTemplate.count(query,"music");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("2"));
+        long audioNumUnPass  = mongoTemplate.count(query,"music");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("3"));
+        long audioNumCanceled = mongoTemplate.count(query,"music");
+
+
+        //查询图片证书信息
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("0"));
+        long photoNumUnReviewed  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("1"));
+        long photoNumReviewed  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("2"));
+        long photoNumUnPass  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("3"));
+        long photoNumCanceled = mongoTemplate.count(query,"photo");
+
+        //包装信息
+        ArrayList<Long> degreeCertNumArr = new ArrayList();
+        ArrayList<Long> videoCertNumArr = new ArrayList();
+        ArrayList<Long> audioNumArr = new ArrayList();
+        ArrayList<Long> photoNumArr = new ArrayList();
+
+        degreeCertNumArr.add(degreeCertNumUnReviewed);
+        degreeCertNumArr.add(degreeCertNumReviewed);
+        degreeCertNumArr.add(degreeCertNumUnPass);
+        degreeCertNumArr.add(degreeCertNumCanceled);
+
+        videoCertNumArr.add(videoNumUnReviewed);
+        videoCertNumArr.add(videoNumReviewed);
+        videoCertNumArr.add(videoNumUnPass);
+        videoCertNumArr.add(videoNumCanceled);
+
+        audioNumArr.add(audioNumUnReviewed);
+        audioNumArr.add(audioNumReviewed);
+        audioNumArr.add(audioNumUnPass);
+        audioNumArr.add(audioNumCanceled);
+
+        photoNumArr.add(photoNumUnReviewed);
+        photoNumArr.add(photoNumReviewed);
+        photoNumArr.add(photoNumUnPass);
+        photoNumArr.add(photoNumCanceled);
+
+        //返回信息
+        HashMap<String, Object> resultMap = new HashMap();
+        resultMap.put("degreeCertNum", degreeCertNumArr);
+        resultMap.put("videoCertNum", videoCertNumArr);
+        resultMap.put("audioNum", audioNumArr);
+        resultMap.put("photoNum", degreeCertNumArr);
+
+        return resultMap;
+    }
 
 
 }

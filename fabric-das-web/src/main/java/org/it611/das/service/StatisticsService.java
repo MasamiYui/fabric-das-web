@@ -20,6 +20,8 @@ public interface StatisticsService {
 
     HashMap statisticsAssetTrend(String time, String assetType);//查询某个月的资产审理数量趋势
 
+    HashMap statisticsUserAssetDetail(String userId);//根据用户Id查询具体的资产分布信息
+
 
 
 }

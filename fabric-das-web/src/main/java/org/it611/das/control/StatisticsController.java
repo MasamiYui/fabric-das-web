@@ -73,7 +73,7 @@ public class StatisticsController {
     }
 
 
-    ////具体时间数据统计(格式年-月 如：2018-05)
+    //具体时间数据统计(格式年-月 如：2018-05)
     @RequestMapping("/statistics/trend/assertNumByTime")
     @ResponseBody
     public JSONObject assetStateassetNumTrend(String time, String assetType){
@@ -83,6 +83,15 @@ public class StatisticsController {
 
     }
 
+
+    //根据用户名查询用户所有资产的状态
+    @RequestMapping("/statistics/user/detail")
+    @ResponseBody
+    public JSONObject userAssetGeneral(String userId) {
+
+        HashMap resultMap = statisticsService.statisticsUserAssetDetail(userId);
+        return ResponseUtil.constructResponse(200, "ok", resultMap);
+    }
 
 
 }
