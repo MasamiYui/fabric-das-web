@@ -47,10 +47,8 @@
 
 <div id="wrapper">
 
-    <!-- Navigation -->
-    <div th:replace="/nav::navigation"></div>
     <!--列表页的展示-->
-    <div id="page-wrapper">
+    <div id="page-wrapper"  style="margin-left: 0px;">
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">图片资产一览表</h3>
@@ -173,7 +171,6 @@
                         numberOfPages: numberOfPages,		 //每页显示的页码
                         totalPages: totalPages,           //设置总页数
                         onPageClicked: function (event, originalEvent, type, page) { //异步换页
-                            //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
                             requestResult("/lineChart/userSelect", subParams);  //这里要写清楚请求的接口
@@ -240,10 +237,20 @@
         var obj = $(e);
         var name = obj.data("name");
         var id = obj.data("id");
-        layer.msg("选择成功");
+        successInfo("选择成功");
         parent.selectUser(name,id);
     }
 
+    function successInfo(data){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            /*layer.open({
+                title: '结果信息'
+                , content: data
+            });*/
+            layer.msg(data);
+        });
+    }
 
 </script>
 

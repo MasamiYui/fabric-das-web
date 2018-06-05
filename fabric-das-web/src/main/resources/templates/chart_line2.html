@@ -69,12 +69,9 @@
                         <div>
                             <div class="col-lg-12" style="margin-bottom: 10px;padding-left:0px;">
                                 <form class="form-inline" role="form">
-                                    <!--<select id="firstState" class="form-control">
-                                        <option value="普通用户">普通用户</option>
-                                        <option  value="企业用户">企业用户</option>
-                                    </select>-->
+
                                     <a id="selectUser" class="btn bg-primary">选择用户</a>
-                                    <input style="display: none;" type="text" id="sUser" class="form-control" placeholder="输入用户名">
+                                    <input style="display: none;"  readonly type="text" id="sUser" class="form-control" placeholder="输入用户名">
                                     <a id="firstSubmit" class="btn bg-primary">确定</a>
                                 </form>
                             </div>
@@ -95,16 +92,6 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div>
-                            <!--<div class="col-lg-12" style="margin-bottom: 10px;padding-left:0px;">-->
-                                <!--<form class="form-inline" role="form">-->
-                                    <!--<input type="text" id="selectDate" class="form-control" placeholder="选择日期">-->
-                                    <!--<select id="secondState" class="form-control">-->
-                                        <!--<option value="-1">全部</option>-->
-                                        <!--<option  value="0">已审核</option>-->
-                                    <!--</select>-->
-                                    <!--<a id="secondSubmit" class="btn bg-primary">确定</a>-->
-                                <!--</form>-->
-                            <!--</div>-->
                             <div class="col-lg-12" id="containerSecond"
                                  style="height: 400px;width: 100%;border: solid 1px #ddd;border-radius: 5px;"></div>
                         </div>
@@ -159,24 +146,15 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-       /* pageInit();
-        dataRequest();
-        setInterval(firstPieRequest(),6000);*/
+
     });
 
     $("#firstSubmit").click(function(){
-        firstPieRequest();
+        dataRequest();
     });
 
-
-    function pageInit(){
-        $('#startTime').val("2018-01");
-        $('#endTime').val(getNowFormatDate());
-        $('#selectDate').val(getNowFormatDate());
-    }
-
     //第一幅条形图展示
-    function lineFirstShow() {
+    function lineFirstShow(data) {
         var dom = document.getElementById("containerFirst");
         var myChart = echarts.init(dom);
         var seriesData = [
@@ -186,7 +164,7 @@
                 symbol: 'none',  //这句就是去掉点的
                 smooth:true,  //这句就是让曲线变平滑的
                 stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
-                data: [120, 132, 101, 134, 90, 230, 210]
+                data: data["degreeCertNum"]
             },
             {
                 name: '视频',
@@ -194,7 +172,7 @@
                 symbol: 'none',  //这句就是去掉点的
                 smooth:true,
                 stack: '总量',
-                data: [220, 182, 191, 234, 290, 330, 310]
+                data: data["videoCertNum"]
             },
             {
                 name: '音频',
@@ -202,7 +180,7 @@
                 symbol: 'none',  //这句就是去掉点的
                 smooth:true,
                 stack: '总量',
-                data: [150, 232, 201, 154, 190, 330, 410]
+                data: data["audioNum"]
             },
             {
                 name: '图片',
@@ -210,11 +188,11 @@
                 symbol: 'none',  //这句就是去掉点的
                 smooth:true,
                 stack: '总量',
-                data: [320, 332, 301, 334, 390, 330, 320]
+                data: data["photoNum"]
             }
         ];
         var legendData = ['学位证书', '视频', '音频', '图片'];
-        var xAxisData= ['1月', '2月', '3月', '4月', '5月', '6月', '7月'];
+        var xAxisData= ['未审核', '已审核', '不通过', '已注销'];
         var data = {
             legendData: legendData,
             seriesData: seriesData,
@@ -261,7 +239,7 @@
                 type: 'category',  //category time value
                 boundaryGap: false,  //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
                 data: data.xAxisData,
-                name: '时间'
+                name: '资产状态'
             },
             yAxis: {
                 type: 'value',
@@ -278,14 +256,24 @@
 
     //第二幅图饼状图展示
     function pieSecondShow(data) {
+        var degreeCertNum=data["degreeCertNum"];
+        var videoCertNum=data["videoCertNum"];
+        var audioNum=data["audioNum"];
+        var photoNum=data["photoNum"];
+
+        var reviewed = degreeCertNum[0] + videoCertNum[0] + audioNum[0] + photoNum[0];
+        var unreviewed = degreeCertNum[1] + videoCertNum[1] + audioNum[1] + photoNum[1];
+        var canceled = degreeCertNum[2] + videoCertNum[2] + audioNum[2] + photoNum[2];
+        var unpass = degreeCertNum[3] + videoCertNum[3] + audioNum[3] + photoNum[3];
+
         var dom = document.getElementById("containerSecond");
         var myChart = echarts.init(dom);
         option = null;
         var seriesData = [
-            {name: '已审核', value: data["reviewed"]},
-            {name: '未审核', value: data["unreviewed"]},
-            { name: '已注销', value: data["canceled"]},
-            {name: '不通过', value: data["unpass"]}
+            {name: '已审核', value: reviewed},
+            {name: '未审核', value:unreviewed },
+            { name: '已注销', value:canceled },
+            {name: '不通过', value: unpass}
         ];
         var legendData = ['已审核', '未审核', '已注销', '不通过'];
 
@@ -380,39 +368,27 @@
         }
     }
 
-
-
     //数据请求
     function dataRequest() {
-        var queryParams = firstPieGetParams();
+        var queryParams = chartsGetParams();
         console.log("两幅图表参数：" + JSON.stringify(queryParams));
         $.ajax({
             type: "post",
-            url: "",
+            url: "/statistics/user/detail",
             data: queryParams,
             dataType: "json",
             success: function (result) {
                 if (result.code == 200) {
-                   /* var items = $('#containerFirst');
-                    items.empty();*/
+
                     var data = result.data;
-                    pieFirstShow(data);
+                    lineFirstShow(data);
+                    pieSecondShow(data);
+
                 }
             }
         });
     }
-    function firstPieGetParams() {
-        var queryParams = {
-            startTime: '2018-01',  //默认初始日期
-            endTime: getNowFormatDate()
-        };
-        var startTime = $('#startTime').val();
-        if (startTime) {
-            queryParams.startTime = startTime;
-        }
 
-        return queryParams;
-    }
 
 
     //选择用户
@@ -428,7 +404,7 @@
                 resize: false,
                 scrolling:'auto',
                 offset: '70px',
-                area: ['1000px', '550px'],
+                area: ['800px', '500px'],
                 fixed: false, //不固定
                 maxmin: true,
                 content: '/lineChart/userSelectIndex'
@@ -437,12 +413,22 @@
         });
     });
 
+    //设置全局userId
+    var userId;
     function selectUser(name,id){
+        userId = id;
         var userObj=$("#sUser");
         userObj.show();
         var content = name + "(" + id+")";
         userObj.val(content);
-        colse();
+        close();
+    }
+
+    function chartsGetParams() {
+        var queryParams = {
+            userId:userId
+        };
+        return queryParams;
     }
 
     function close() {

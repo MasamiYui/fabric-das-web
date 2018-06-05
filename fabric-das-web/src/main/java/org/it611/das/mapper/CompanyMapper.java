@@ -30,10 +30,10 @@ public interface CompanyMapper {
 
 
     //根据用户名查找企业用户详情
-    List<HashMap> queryCompanyUsers(String searchString);
+    List<HashMap> queryCompanyUsers(@Param("searchString") String searchString);
 
     //根据用户名查找企业用户数量
-    long  selectCompanyUsersTotal(String searchString);
+    long  selectCompanyUsersTotal(@Param("searchString")String searchString);
 
 
 }
