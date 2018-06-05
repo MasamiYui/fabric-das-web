@@ -24,7 +24,7 @@ public class StatisticsController {
 
 
     //显示饼状图
-    @RequestMapping("/statistics/pie")
+    @RequestMapping("/statistics/assertPie")
     public String pieChart(){return "chart_pie";}
     /**
      * 资产分类查询（根据时间段）前台为"2018-06-02","2018-06-03" 时间格式
@@ -72,24 +72,23 @@ public class StatisticsController {
     @RequestMapping("/statistics/trend/assertNumByTimeSlot")
     @ResponseBody
     public JSONObject assetStateassetNumTrend(String startTime, String endTime, String stateType){
-
         HashMap resultMap = statisticsService.statisticsAssetTrend(startTime, endTime, stateType);
 
         return ResponseUtil.constructResponse(200, "ok", resultMap);
-
     }
-
-
     //具体时间数据统计(格式年-月 如：2018-05)
     @RequestMapping("/statistics/trend/assertNumByTime")
     @ResponseBody
     public JSONObject assetStateassetNumTrend(String time, String stateType){
-
         HashMap resultMap = statisticsService.statisticsAssetTrend(time, stateType);
         return ResponseUtil.constructResponse(200, "ok", resultMap);
-
     }
 
+
+
+    //显示用户资产图表3
+    @RequestMapping("/statistics/userAssertLinePie")
+    public String userAssertLinePie(){return "chart_line2";}
 
     //根据用户名查询用户所有资产的状态
     @RequestMapping("/statistics/user/detail")

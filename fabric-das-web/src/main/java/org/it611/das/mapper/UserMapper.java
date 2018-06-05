@@ -33,9 +33,9 @@ public interface UserMapper {
     int changUserState(@Param("id") String id, @Param("state") String state);
 
     //根据用户名查找普通用户详情
-    List<HashMap> queryCommonUsers(String searchString);
+    List<HashMap> queryCommonUsers(@Param("searchString")String searchString);
 
     //根据用户名查找用户数量
-     long  selectCommonUsersTotal(String searchString);
+     long  selectCommonUsersTotal(@Param("searchString")String searchString);
 
 }
