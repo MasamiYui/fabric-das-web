@@ -1,7 +1,6 @@
 package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
-import org.it611.das.domain.Video;
 import org.it611.das.service.StatisticsService;
 import org.it611.das.service.VideoAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.HashMap;
 
 
 @Controller
@@ -28,7 +25,7 @@ public class VideoAssetController {
     public ModelAndView degreeCertificationAssetIndex(){
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("videoAssetIndex");
+        modelAndView.setViewName("index_videoAssetList");
         return modelAndView;
     }
 
@@ -47,7 +44,7 @@ public class VideoAssetController {
         JSONObject result = videoAssetService.videoAssetDetail(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("videoAssetCompareDetail");
+        modelAndView.setViewName("compare_videoAssetDetail");
         return modelAndView;
     }
 
@@ -63,7 +60,7 @@ public class VideoAssetController {
     public ModelAndView videoPalyLink(String linkAddress){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("videoUrl", linkAddress);
-        modelAndView.setViewName("videoDetailPlay");
+        modelAndView.setViewName("play_videoAndAudio");
         return modelAndView;
     }
 

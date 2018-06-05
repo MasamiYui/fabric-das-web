@@ -1,22 +1,12 @@
 package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.hyperledger.fabric.sdk.exception.ProposalException;
-import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.service.PhotoAssetService;
-import org.it611.das.service.VideoAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.spec.InvalidKeySpecException;
 
 @Controller
 public class PhotoAssetController {
@@ -27,7 +17,7 @@ public class PhotoAssetController {
     //图片资产首页Index页面
     @RequestMapping("/asset/photo/index")
     public String PhotoAssetIndex(){
-        return "photoAssetIndex";
+        return "index_photoAssetList";
     }
     //获取图片资产列表
     @RequestMapping("/asset/photo/list")
@@ -43,7 +33,7 @@ public class PhotoAssetController {
         JSONObject result = photoAssetService.photoAssetDetail(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("photoAssertCompareDetail");
+        modelAndView.setViewName("compare_photoAssertDetail");
         return modelAndView;
     }
 

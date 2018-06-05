@@ -1,20 +1,12 @@
 package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.service.DegreeCertificationAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.spec.InvalidKeySpecException;
 
 @Controller
 public class DegreeCertificationAssetController {
@@ -25,7 +17,7 @@ public class DegreeCertificationAssetController {
     //获取学历证书资产列表页面
     @RequestMapping("/asset/degreeCertification/index")
     public String degreeCertificationIndex(){
-        return "degreeCertificationIndex";
+        return "index_degreeCertificationAssertList";
     }
 
     //获取学历证书资产列表
@@ -42,7 +34,7 @@ public class DegreeCertificationAssetController {
         JSONObject result = degreeCertificationAssetService.selectDegreeCertificationDetailById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("certificateCompareDetail");
+        modelAndView.setViewName("compare_certificateAssertDetail");
         return modelAndView;
     }
 

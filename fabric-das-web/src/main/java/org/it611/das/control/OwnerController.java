@@ -84,7 +84,7 @@ public class OwnerController {
     @RequestMapping("/owner/user")
     public ModelAndView selectUsers() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("tables");
+        modelAndView.setViewName("index_userList");
         return modelAndView;
     }
 
@@ -92,7 +92,7 @@ public class OwnerController {
     @RequestMapping("/owner/getUserForm")
     public ModelAndView getUserForm() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userForm");
+        modelAndView.setViewName("form_newUser");
         return modelAndView;
     }
 
@@ -134,21 +134,21 @@ public class OwnerController {
         List<HashMap> records = ownerService.getRecordDetail(recordId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("records", records);
-        modelAndView.setViewName("userDetail");
+        modelAndView.setViewName("detail_user");
         return modelAndView;
     }
 
     //企业列表
     @RequestMapping("/owner/company")
     public String getCompanyList() {
-        return "company_list";
+        return "index_companyList";
     }
 
 
     //企业申请表单
     @RequestMapping("/owner/companyForm")
     public String companyForm() {
-        return "companyForm";
+        return "form_newCompany";
     }
 
     //获取公司记录的详情
@@ -157,7 +157,7 @@ public class OwnerController {
         List<HashMap> records = ownerService.getCompanyDetail(recordId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("records", records);
-        modelAndView.setViewName("companyDetail");
+        modelAndView.setViewName("detail_company");
         return modelAndView;
     }
 
@@ -167,7 +167,7 @@ public class OwnerController {
     public String accountState(Model model, String recordId, String ownerType) {
         model.addAttribute("id", recordId);
         model.addAttribute("ownerType", ownerType);
-        return "accountState";
+        return "state_setAccount";
     }
 
     //普通用户帐号修改

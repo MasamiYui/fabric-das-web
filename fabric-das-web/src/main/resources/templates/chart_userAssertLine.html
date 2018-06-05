@@ -53,7 +53,18 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">概况分析</h1>
+                <h3 class="page-header">用户资产概况</h3>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 15px;">
+            <div class="col-lg-12">
+                <form class="form-inline" role="form">
+                    <a id="selectUser" class="btn bg-primary">选择用户</a>
+                    <input style="display: none;" readonly type="text" id="sUser" class="form-control"
+                           placeholder="输入用户名">
+                    <a id="firstSubmit" class="btn bg-primary">确定</a>
+                </form>
             </div>
         </div>
 
@@ -62,18 +73,11 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        资产类目总数分析图
+                        用户资产类目概况
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div>
-                            <div class="col-lg-12" style="margin-bottom: 10px;padding-left:0px;">
-                                <form class="form-inline" role="form">
-                                    <input type="text" id="startTime" class="form-control" placeholder="起始日期">
-                                    <input type="text" id="endTime" class="form-control" placeholder="结束日期">
-                                    <a id="firstSubmit" class="btn bg-primary">确定</a>
-                                </form>
-                            </div>
                             <div class="col-lg-12" id="containerFirst"
                                  style="height: 400px;width: 100%;border: solid 1px #ddd;border-radius: 5px;"></div>
                         </div>
@@ -91,19 +95,6 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div>
-                            <div class="col-lg-12" style="margin-bottom: 10px;padding-left:0px;">
-                                <form class="form-inline" role="form">
-                                    <select id="assetType" class="form-control">
-                                        <optgroup label="文本">
-                                            <option value="学位证书">学位证书</option>
-                                        </optgroup>
-                                        <option value="音频">音频</option>
-                                        <option value="视频">视频</option>
-                                        <option value="图片">图片</option>
-                                    </select>
-                                    <a id="secondSubmit" class="btn bg-primary">确定</a>
-                                </form>
-                            </div>
                             <div class="col-lg-12" id="containerSecond"
                                  style="height: 400px;width: 100%;border: solid 1px #ddd;border-radius: 5px;"></div>
                         </div>
@@ -158,173 +149,134 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        pageInit();
-        firstPieRequest();
-        secondPieRequest();
-        setInterval(firstPieRequest(),6000);
-        setInterval(secondPieRequest(),6000);
+
     });
 
-    $("#firstSubmit").click(function(){
-        firstPieRequest();
-    });
-    $("#secondSubmit").click(function(){
-        secondPieRequest();
+    $("#firstSubmit").click(function () {
+        dataRequest();
     });
 
-    function pageInit(){
-        $('#startTime').val("2018-01-01");
-        $('#endTime').val(getNowFormatDate());
-    }
-
-    function pieFirstShow(data) {
+    //第一幅条形图展示
+    function lineFirstShow(data) {
         var dom = document.getElementById("containerFirst");
         var myChart = echarts.init(dom);
-        option = null;
         var seriesData = [
-                            {name: '学位证书资产', value: data["degreeCertNum"]},
-                            {name: '视频资产', value: data["videoNum"]},
-                            { name: '音频资产', value: data["audioNum"]},
-                            {name: '图片资产', value: data["photoNum"]}
-                            ];
-        var legendData = ['学位证书资产', '视频资产', '音频资产', '图片资产'];
-
+            {
+                name: '学位证书',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth: true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["degreeCertNum"]
+            },
+            {
+                name: '视频',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth: true,
+                stack: '总量',
+                data: data["videoCertNum"]
+            },
+            {
+                name: '音频',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth: true,
+                stack: '总量',
+                data: data["audioNum"]
+            },
+            {
+                name: '图片',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth: true,
+                stack: '总量',
+                data: data["photoNum"]
+            }
+        ];
+        var legendData = ['学位证书', '视频', '音频', '图片'];
+        var xAxisData = ['未审核', '已审核', '不通过', '已注销'];
         var data = {
             legendData: legendData,
-            seriesData: seriesData
+            seriesData: seriesData,
+            xAxisData: xAxisData
         };
+
+        option = null;
         option = {
             title: {
-                text: '资产类目概况',
-                subtext: '数量单位：件',
-                x: 'left'
+                text: '用户资产概况图'
             },
             tooltip: {
-                trigger: 'item',
-                textStyle: {
-                    color: '#fff'
-                },
-                formatter: "{b} <br/>" + "资产数量 : {c}<br/>" + "百分比: {d}%" //{a}:系列名 {b}：数据项名 {c}:数据值 {d}：百分比
-
-                /*  formatter:function (params) {
-                      console.log(params);
-                      var dataIndex = params["dataIndex"];
-                      return (
-                          params["seriesName"]
-                          +'</br>提交资产数量:'+params["value"]
-                          +'</br>已审核数量:'+auditSuccessAssertCount[dataIndex]
-                          +'</br>未审核数量:'+auditRemainAssertCount[dataIndex]
-                          +'</br>不通过数量:'+auditFailedAssertCount[dataIndex]
-                          +'</br>已注销数量:'+auditCancellationAssertCount[dataIndex]
-                      );
-                  }*/
+                trigger: 'axis'
+                //触发类型:'item'数据项图形触发，饼状图。'axis'坐标轴触发，主要在柱状图，折线图等
             },
             legend: {
-                type: 'scroll',   //'plain'：普通图例，缺省就是普通图例。  'scroll'：可滚动翻页的图例。当图例数量较多时可以使用。
-                orient: 'vertical',
-                right: 10,
-                top: 20,
-                bottom: 20,
                 data: data.legendData
-                // selected: data.selected
             },
-            series: [
-                {
-                    name: '资产详情',  //用于tooltip中显示的{a}：系列名
-                    type: 'pie',
-                    radius: '55%', //表示半径的长短，也就是饼状图的大小
-                    center: ['40%', '50%'],
-                    data: data.seriesData,
-                    itemStyle: {
-                        //图形样式，normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-                        emphasis: {
-                            shadowBlur: 10,//图形阴影的模糊大小。
-                            shadowOffsetX: 0, //阴影水平方向上的偏移距离
-                            shadowColor: 'rgba(0, 0, 0, 0.5)' //阴影颜色
-                        }
+            grid: {
+                left: '5%',
+                right: '5%',
+                bottom: '10%',
+                top: '15%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    magicType: {  //动态类型切换
+                        show: true,
+                        type: ['stack', 'tiled', 'line', 'bar']
                     },
-                    label: {
-                        normal: {
-                            formatter: ' {b|{b}：}{c}  {per|{d}%}  ',
-                            backgroundColor: '#eee',
-                            borderColor: '#aaa',
-                            borderWidth: 1,
-                            borderRadius: 4,
-                            /*
-                             shadowBlur:3,
-                              shadowOffsetX: 2,
-                              shadowOffsetY: 2,
-                              shadowColor: '#999',
-                              padding: [0, 7],
-                              */
-                            rich: {
-                                b: {
-                                    fontSize: 16,
-                                    lineHeight: 33
-                                },
-                                per: {
-                                    color: '#eee',
-                                    backgroundColor: '#334455',
-                                    padding: [2, 4],
-                                    borderRadius: 2
-                                }
-                            }
-                        }
-
+                    //启用的动态类型，包括'line'（切换为折线图）, 'bar'（切换为柱状图）, 'stack'（切换为堆叠模式）, 'tiled'（切换为平铺模式）
+                    saveAsImage: {
+                        show: true,                         //是否显示该工具。
+                        type: "png",                         //保存的图片格式。支持 'png' 和 'jpeg'。
+                        name: "pic1",                        //保存的文件名称，默认使用 title.text 作为名称
+                        backgroundColor: "#ffffff",        //保存的图片背景色，默认使用 backgroundColor，如果backgroundColor不存在的话会取白色
+                        title: "保存为图片",
+                        pixelRatio: 1                        //保存图片的分辨率比例，默认跟容器相同大小，如果需要保存更高分辨率的，可以设置为大于 1 的值，例如 2
                     }
                 }
-            ]
+            },
+            xAxis: {
+                type: 'category',  //category time value
+                boundaryGap: false,  //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
+                data: data.xAxisData,
+                name: '资产状态'
+            },
+            yAxis: {
+                type: 'value',
+                name: '数量'
+            },
+            series: data.seriesData
         };
+
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
         }
-    }
-    //第一幅图进行数据请求
-    function firstPieRequest() {
-        var queryParams = firstPieGetParams();
-        console.log("第一幅图参数：" + JSON.stringify(queryParams));
-        $.ajax({
-            type: "post",
-            url: "/statistics/general/assetType",
-            data: queryParams,
-            dataType: "json",
-            success: function (result) {
-                if (result.code == 200) {
-                   /* var items = $('#containerFirst');
-                    items.empty();*/
-                    var data = result.data;
-                    pieFirstShow(data);
-                }
-            }
-        });
-    }
-    function firstPieGetParams() {
-        var queryParams = {
-            startTime: '2018-01-01',  //默认初始日期
-            endTime: getNowFormatDate()
-        };
-        var startTime = $('#startTime').val();
-        if (startTime) {
-            queryParams.startTime = startTime;
-        }
-        var endTime = $('#endTime').val();
-        if (endTime) {
-            queryParams.endTime = endTime;
-        }
-        return queryParams;
+
     }
 
-
-    //第二幅图进行数据请求
+    //第二幅图饼状图展示
     function pieSecondShow(data) {
+        var degreeCertNum = data["degreeCertNum"];
+        var videoCertNum = data["videoCertNum"];
+        var audioNum = data["audioNum"];
+        var photoNum = data["photoNum"];
+
+        var reviewed = degreeCertNum[0] + videoCertNum[0] + audioNum[0] + photoNum[0];
+        var unreviewed = degreeCertNum[1] + videoCertNum[1] + audioNum[1] + photoNum[1];
+        var canceled = degreeCertNum[2] + videoCertNum[2] + audioNum[2] + photoNum[2];
+        var unpass = degreeCertNum[3] + videoCertNum[3] + audioNum[3] + photoNum[3];
+
         var dom = document.getElementById("containerSecond");
         var myChart = echarts.init(dom);
         option = null;
         var seriesData = [
-            {name: '已审核', value: data["reviewed"]},
-            {name: '未审核', value: data["unreviewed"]},
-            { name: '已注销', value: data["canceled"]},
-            {name: '不通过', value: data["unpass"]}
+            {name: '已审核', value: reviewed},
+            {name: '未审核', value: unreviewed},
+            {name: '已注销', value: canceled},
+            {name: '不通过', value: unpass}
         ];
         var legendData = ['已审核', '未审核', '已注销', '不通过'];
 
@@ -419,68 +371,76 @@
         }
     }
 
-    function secondPieRequest() {
-        var queryParams = secondPieGetParams();
-        console.log("第二幅图参数：" + JSON.stringify(queryParams));
+    //数据请求
+    function dataRequest() {
+        var queryParams = chartsGetParams();
+        console.log("两幅图表参数：" + JSON.stringify(queryParams));
         $.ajax({
             type: "post",
-            url: "/statistics/general/assertState",
+            url: "/statistics/user/detail",
             data: queryParams,
             dataType: "json",
             success: function (result) {
                 if (result.code == 200) {
-                    /*var items = $('#containerSecond');
-                    items.empty();*/
+
                     var data = result.data;
+                    lineFirstShow(data);
                     pieSecondShow(data);
+
                 }
             }
         });
     }
 
-    //获取参数
-    function secondPieGetParams() {
-        var queryParams = {
-            assetType: ''
-        };
-        var assetType = $('#assetType').val();
-        if (assetType) {
-            queryParams.assetType = assetType;
-        }
-        return queryParams;
-    }
 
-    <!--日期-->
-    layui.use('laydate', function () {
-        var laydate = layui.laydate;
-        laydate.render({
-            elem: '#startTime'
-            , theme: 'molv'
-            , calendar: true
-        });
-        laydate.render({
-            elem: '#endTime'
-            , theme: 'molv'
-            , calendar: true
+    //选择用户
+    var index;
+    $("#selectUser").click(function () {
+        layui.use('layer', function () {
+            var $ = layui.jquery, layer = layui.layer;
+            index = layer.open({
+                title: ['用户选择详情', 'font-size:18px;'],
+                anim: 2,
+                type: 2,
+                move: false,
+                resize: false,
+                scrolling: 'auto',
+                offset: '70px',
+                area: ['800px', '500px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/lineChart/userSelectIndex'
+
+            });
         });
     });
 
-    //获取当前时间，格式YYYY-MM-DD
-    function getNowFormatDate() {
-        var date = new Date();
-        var seperator1 = "-";
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        if (month >= 1 && month <= 9) {
-            month = "0" + month;
-        }
-        if (strDate >= 0 && strDate <= 9) {
-            strDate = "0" + strDate;
-        }
-        var currentdate = year + seperator1 + month + seperator1 + strDate;
-        return currentdate;
+    //设置全局userId
+    var userId;
+
+    function selectUser(name, id) {
+        userId = id;
+        var userObj = $("#sUser");
+        userObj.show();
+        var content = name + "(" + id + ")";
+        userObj.val(content);
+        close();
     }
+
+    function chartsGetParams() {
+        var queryParams = {
+            userId: userId
+        };
+        return queryParams;
+    }
+
+    function close() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.close(index);
+        });
+    }
+
 
 </script>
 

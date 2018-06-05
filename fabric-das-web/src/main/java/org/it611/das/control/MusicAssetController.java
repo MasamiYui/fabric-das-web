@@ -1,10 +1,6 @@
 package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
-import org.hyperledger.fabric.sdk.exception.CryptoException;
-import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
-import org.hyperledger.fabric.sdk.exception.ProposalException;
-import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.service.MusicAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +21,7 @@ public class MusicAssetController {
     public ModelAndView degreeCertificationAssetIndex(){
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("musicAssetIndex");
+        modelAndView.setViewName("index_musicAssetList");
         return modelAndView;
     }
 
@@ -43,7 +39,7 @@ public class MusicAssetController {
         JSONObject result = musicAssetService.musicAssetDetail(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("musicAssetCompareDetail");
+        modelAndView.setViewName("compare_musicAssetDetail");
         return modelAndView;
     }
 
@@ -59,7 +55,7 @@ public class MusicAssetController {
     public ModelAndView videoPalyLink(String linkAddress){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("videoUrl", linkAddress);
-        modelAndView.setViewName("videoDetailPlay");
+        modelAndView.setViewName("play_videoAndAudio");
         return modelAndView;
     }
 

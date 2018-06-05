@@ -1,9 +1,7 @@
 package org.it611.das.control;
 
 import org.apache.log4j.Logger;
-import org.it611.das.domain.Msg;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 @Controller
@@ -15,7 +13,7 @@ public class HomeController {
     @RequestMapping("/login")
     public ModelAndView login(){
 		ModelAndView view = new ModelAndView();
-		view.setViewName("login");
+		view.setViewName("index_login");
         return view;
     }
 
@@ -23,11 +21,11 @@ public class HomeController {
 	public String index(){
 /*		Msg msg =  new Msg("测试标题","测试内容","额外信息，只对管理员显示");
 		model.addAttribute("msg", msg);*/
-		return "home2";
+		return "index_home";
 	}
 
 	//测试home页
 	@RequestMapping("/home2")
-	public String  home2(){ return "home2";}
+	public String  home2(){ return "index_home";}
 
 }

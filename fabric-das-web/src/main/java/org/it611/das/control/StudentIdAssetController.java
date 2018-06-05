@@ -34,7 +34,7 @@ public class StudentIdAssetController {
     public ModelAndView insertIndex(){
 
         ModelAndView view = new ModelAndView();
-        view.setViewName("insert_index");
+        view.setViewName("insert_studentAssert");
         return view;
     }
 
@@ -88,7 +88,7 @@ public class StudentIdAssetController {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", dataMap);
-        modelAndView.setViewName("studentCompareDetail");
+        modelAndView.setViewName("compare_studentAssertDetail");
         return modelAndView;
     }
 
@@ -108,7 +108,7 @@ public class StudentIdAssetController {
     //获取资产列表
     @RequestMapping("/asset/getAsset")
     public String getCompanyList(){
-        return "assetBase_list";
+        return "index_studentAssertList";
     }
 
     //资产列表
@@ -125,14 +125,14 @@ public class StudentIdAssetController {
         List<HashMap> records = assetService.studentDetail(recordId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("records",records);
-        modelAndView.setViewName("studentDetail");
+        modelAndView.setViewName("detail_studentAssert");
         return modelAndView;
     }
 
     //测试学生证对比结果详情===>>测试
     @RequestMapping("/asset/studentCompare")
     public String studentCompare(){
-        return "studentCompareDetail";
+        return "compare_studentAssertDetail";
     }
 
     //学历证书对比结果
@@ -143,7 +143,7 @@ public class StudentIdAssetController {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", dataMap);
-        modelAndView.setViewName("certificateCompareDetail");
+        modelAndView.setViewName("compare_certificateAssertDetail");
         return modelAndView;
     }
 
