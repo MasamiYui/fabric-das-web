@@ -154,13 +154,13 @@ public class StatisticsServiceImpl implements StatisticsService {
 
 
         //时间格式补全
-        startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(startTimeYear), Integer.valueOf(startTimeMonth));
-        endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(endTimeYear), Integer.valueOf(endTimeMonth));
+        startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(startTimeYear), Integer.valueOf(startTimeMonth))+ " 00:00:00";
+        endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(endTimeYear), Integer.valueOf(endTimeMonth)) + " 23:59:59";
 
         //查询条件
         Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(Criteria.where("time").gte(startTime + " 00:00:00")),
-                Aggregation.match(Criteria.where("time").lte(endTime + " 00:00:00"))
+                Aggregation.match(Criteria.where("time").gte(startTime)),
+                Aggregation.match(Criteria.where("time").lte(endTime))
         );
 
 
@@ -174,26 +174,26 @@ public class StatisticsServiceImpl implements StatisticsService {
     }
 
     @Override
-    public HashMap statisticsAssetTrend(String time, String assetType) {
+    public HashMap statisticsAssetTrend(String time, String stateType) {
 
         String[] timeArr = time.split("-");
         String year = timeArr[0];
         String month = timeArr[1];
-        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month));
-        String endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(year), Integer.valueOf(month));
+        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+ " 00:00:00";
+        String endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+ " 23:59:59";
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.match(Criteria.where("time").gte(startTime)),
                 Aggregation.match(Criteria.where("time").lte(endTime))
         );
 
-        HashMap resultMap = parseData(aggregation, "statisticsPerDay", assetType);
+        HashMap resultMap = parseData(aggregation, "statisticsPerDay", stateType);
 
         return resultMap;
     }
 
 
 
-    public HashMap parseData(Aggregation aggregation, String collectName, String assetType) {
+    public HashMap parseData(Aggregation aggregation, String collectName, String stateType) {
 
         //整理返回数据
         ArrayList degreeCertNumTotalArr = new ArrayList<Integer>();
@@ -253,7 +253,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         }
 
         HashMap<String, Object> resultMap = new HashMap();
-        switch (assetType) {
+        switch (stateType) {
             case "-1":
                 resultMap.put("degreeCertNum", degreeCertNumTotalArr);
                 resultMap.put("videoNum", videoNumTotalArr);
