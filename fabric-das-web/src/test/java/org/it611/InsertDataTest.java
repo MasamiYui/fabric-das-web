@@ -43,56 +43,56 @@ public class InsertDataTest {
                 HashMap<String, Object> map = new HashMap();
 
                 //申请总量 100-120
-                int degreeCertNumTotal = new Random().nextInt(21)+ 100;
-                int videoNumTotal = new Random().nextInt(21)+ 100;
-                int audioNumTotal = new Random().nextInt(21)+ 100;
-                int photoNumTotal = new Random().nextInt(21)+ 100;
+                int degreeCertNumTotal = (new Random().nextInt(21)+ 100);
+                int videoNumTotal = (new Random().nextInt(21)+ 100);
+                int audioNumTotal = (new Random().nextInt(21)+ 100);
+                int photoNumTotal = (new Random().nextInt(21)+ 100);
                 System.out.println(photoNumTotal);
 
 
-                map.put("degreeCertNumTotal", String.valueOf(degreeCertNumTotal));
-                map.put("videoNumTotal", String.valueOf(videoNumTotal));
-                map.put("audioNumTotal", String.valueOf(audioNumTotal));
-                map.put("photoNumTotal", String.valueOf(photoNumTotal));//100-150
+                map.put("degreeCertNumTotal", degreeCertNumTotal*30);
+                map.put("videoNumTotal", videoNumTotal*30);
+                map.put("audioNumTotal", audioNumTotal*30);
+                map.put("photoNumTotal", photoNumTotal*30);//100-150
 
 
 
 
-                int degreeCertNumUnreviewed = new Random().nextInt(11)+ 5;
-                int videoNumUnreviewed = new Random().nextInt(11)+ 5;
-                int audioNumUnreviewed = new Random().nextInt(11)+ 5;
-                int photoNumUnreviewed = new Random().nextInt(11)+ 5;
+                int degreeCertNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int videoNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int audioNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int photoNumUnreviewed = (new Random().nextInt(11)+ 5);
 
 
                 //未审核5-15
-                map.put("degreeCertNumUnReviewed", String.valueOf(degreeCertNumUnreviewed));
-                map.put("videoNumUnReviewed", String.valueOf(videoNumUnreviewed));
-                map.put("audioNumUnReviewed", String.valueOf(audioNumUnreviewed));
-                map.put("photoNumUnReviewed", String.valueOf(photoNumUnreviewed));
+                map.put("degreeCertNumUnReviewed", degreeCertNumUnreviewed);
+                map.put("videoNumUnReviewed", videoNumUnreviewed);
+                map.put("audioNumUnReviewed", audioNumUnreviewed);
+                map.put("photoNumUnReviewed", photoNumUnreviewed);
 
 
-                int degreeCertNumReviewed = new Random().nextInt(21)+ 50;
-                int videoNumReviewed = new Random().nextInt(21)+ 50;
-                int audioNumReviewed = new Random().nextInt(21)+ 50;
-                int photoNumReviewed = new Random().nextInt(21)+ 50;
+                int degreeCertNumReviewed = (new Random().nextInt(21)+ 50);
+                int videoNumReviewed = (new Random().nextInt(21)+ 50);
+                int audioNumReviewed = (new Random().nextInt(21)+ 50);
+                int photoNumReviewed = (new Random().nextInt(21)+ 50);
 
                 //已审核50-70
-                map.put("degreeCertNumReviewed", String.valueOf(degreeCertNumReviewed));
-                map.put("videoNumReviewed", String.valueOf(videoNumReviewed));
-                map.put("audioNumReviewed", String.valueOf(audioNumReviewed));
-                map.put("photoNumReviewed", String.valueOf(photoNumReviewed));
+                map.put("degreeCertNumReviewed", degreeCertNumReviewed);
+                map.put("videoNumReviewed", videoNumReviewed);
+                map.put("audioNumReviewed", audioNumReviewed);
+                map.put("photoNumReviewed", photoNumReviewed);
 
 
-                int degreeCertNumUnPass = new Random().nextInt(6)+ 10;//10-20
-                int videoNumUnPass = new Random().nextInt(6)+ 10;
-                int audioNumUnPass = new Random().nextInt(6)+ 10;
-                int photoNumUnPass = new Random().nextInt(6)+ 10;
+                int degreeCertNumUnPass = (new Random().nextInt(6)+ 10);//10-20
+                int videoNumUnPass = (new Random().nextInt(6)+ 10);
+                int audioNumUnPass = (new Random().nextInt(6)+ 10);
+                int photoNumUnPass = (new Random().nextInt(6)+ 10);
 
                 //不通过//10-15
-                map.put("degreeCertNumUnPass", String.valueOf(degreeCertNumUnPass));
-                map.put("videoNumUnPass", String.valueOf(videoNumUnPass));
-                map.put("audioNumUnPass", String.valueOf(audioNumUnPass));
-                map.put("photoNumUnPass", String.valueOf(photoNumUnPass));//10-20
+                map.put("degreeCertNumUnPass", degreeCertNumUnPass);
+                map.put("videoNumUnPass", videoNumUnPass);
+                map.put("audioNumUnPass", audioNumUnPass);
+                map.put("photoNumUnPass", photoNumUnPass);//10-20
 
 
 
@@ -101,10 +101,11 @@ public class InsertDataTest {
                 int audioNumUnCanceled = audioNumTotal-audioNumUnreviewed-audioNumReviewed-audioNumUnPass;
                 int photoNumUnCanceled = photoNumTotal-photoNumUnreviewed-photoNumReviewed-photoNumUnPass;
                 //注销
-                map.put("degreeCertNumCanceled", String.valueOf(degreeCertCanceled));
-                map.put("videoNumCanceled", String.valueOf(videoNumUnCanceled));
-                map.put("audioNumCanceled", String.valueOf(audioNumUnCanceled));
-                map.put("photoNumCanceled", String.valueOf(photoNumUnCanceled));
+                map.put("degreeCertNumCanceled", degreeCertCanceled);
+                map.put("videoNumCanceled", videoNumUnCanceled);
+                map.put("audioNumCanceled", audioNumUnCanceled);
+                map.put("photoNumCanceled", photoNumUnCanceled);
+
 
                 String day = "";
                 String month = "";
@@ -154,56 +155,56 @@ public class InsertDataTest {
                 HashMap<String, Object> map = new HashMap();
 
                 //申请总量 100-120
-                int degreeCertNumTotal = new Random().nextInt(21)+ 100;
-                int videoNumTotal = new Random().nextInt(21)+ 100;
-                int audioNumTotal = new Random().nextInt(21)+ 100;
-                int photoNumTotal = new Random().nextInt(21)+ 100;
+                int degreeCertNumTotal = (new Random().nextInt(21)+ 100);
+                int videoNumTotal = (new Random().nextInt(21)+ 100);
+                int audioNumTotal = (new Random().nextInt(21)+ 100);
+                int photoNumTotal = (new Random().nextInt(21)+ 100);
                 System.out.println(photoNumTotal);
 
 
-                map.put("degreeCertNumTotal", String.valueOf(degreeCertNumTotal));
-                map.put("videoNumTotal", String.valueOf(videoNumTotal));
-                map.put("audioNumTotal", String.valueOf(audioNumTotal));
-                map.put("photoNumTotal", String.valueOf(photoNumTotal));//100-150
+                map.put("degreeCertNumTotal", degreeCertNumTotal*30);
+                map.put("videoNumTotal", videoNumTotal*30);
+                map.put("audioNumTotal", audioNumTotal*30);
+                map.put("photoNumTotal", photoNumTotal*30);//100-150
 
 
 
 
-                int degreeCertNumUnreviewed = new Random().nextInt(11)+ 5;
-                int videoNumUnreviewed = new Random().nextInt(11)+ 5;
-                int audioNumUnreviewed = new Random().nextInt(11)+ 5;
-                int photoNumUnreviewed = new Random().nextInt(11)+ 5;
+                int degreeCertNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int videoNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int audioNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int photoNumUnreviewed = (new Random().nextInt(11)+ 5);
 
 
                 //未审核5-15
-                map.put("degreeCertNumUnReviewed", String.valueOf(degreeCertNumUnreviewed));
-                map.put("videoNumUnReviewed", String.valueOf(videoNumUnreviewed));
-                map.put("audioNumUnReviewed", String.valueOf(audioNumUnreviewed));
-                map.put("photoNumUnReviewed", String.valueOf(photoNumUnreviewed));
+                map.put("degreeCertNumUnReviewed", degreeCertNumUnreviewed);
+                map.put("videoNumUnReviewed", videoNumUnreviewed);
+                map.put("audioNumUnReviewed", audioNumUnreviewed);
+                map.put("photoNumUnReviewed", photoNumUnreviewed);
 
 
-                int degreeCertNumReviewed = new Random().nextInt(21)+ 50;
-                int videoNumReviewed = new Random().nextInt(21)+ 50;
-                int audioNumReviewed = new Random().nextInt(21)+ 50;
-                int photoNumReviewed = new Random().nextInt(21)+ 50;
+                int degreeCertNumReviewed = (new Random().nextInt(21)+ 50);
+                int videoNumReviewed = (new Random().nextInt(21)+ 50);
+                int audioNumReviewed = (new Random().nextInt(21)+ 50);
+                int photoNumReviewed = (new Random().nextInt(21)+ 50);
 
                 //已审核50-70
-                map.put("degreeCertNumReviewed", String.valueOf(degreeCertNumReviewed));
-                map.put("videoNumReviewed", String.valueOf(videoNumReviewed));
-                map.put("audioNumReviewed", String.valueOf(audioNumReviewed));
-                map.put("photoNumReviewed", String.valueOf(photoNumReviewed));
+                map.put("degreeCertNumReviewed", degreeCertNumReviewed);
+                map.put("videoNumReviewed", videoNumReviewed);
+                map.put("audioNumReviewed", audioNumReviewed);
+                map.put("photoNumReviewed", photoNumReviewed);
 
 
-                int degreeCertNumUnPass = new Random().nextInt(6)+ 10;//10-20
-                int videoNumUnPass = new Random().nextInt(6)+ 10;
-                int audioNumUnPass = new Random().nextInt(6)+ 10;
-                int photoNumUnPass = new Random().nextInt(6)+ 10;
+                int degreeCertNumUnPass = (new Random().nextInt(6)+ 10);//10-20
+                int videoNumUnPass = (new Random().nextInt(6)+ 10);
+                int audioNumUnPass = (new Random().nextInt(6)+ 10);
+                int photoNumUnPass = (new Random().nextInt(6)+ 10);
 
                 //不通过//10-15
-                map.put("degreeCertNumUnPass", String.valueOf(degreeCertNumUnPass));
-                map.put("videoNumUnPass", String.valueOf(videoNumUnPass));
-                map.put("audioNumUnPass", String.valueOf(audioNumUnPass));
-                map.put("photoNumUnPass", String.valueOf(photoNumUnPass));//10-20
+                map.put("degreeCertNumUnPass", degreeCertNumUnPass);
+                map.put("videoNumUnPass", videoNumUnPass);
+                map.put("audioNumUnPass", audioNumUnPass);
+                map.put("photoNumUnPass", photoNumUnPass);//10-20
 
 
 
@@ -212,10 +213,11 @@ public class InsertDataTest {
                 int audioNumUnCanceled = audioNumTotal-audioNumUnreviewed-audioNumReviewed-audioNumUnPass;
                 int photoNumUnCanceled = photoNumTotal-photoNumUnreviewed-photoNumReviewed-photoNumUnPass;
                 //注销
-                map.put("degreeCertNumCanceled", String.valueOf(degreeCertCanceled));
-                map.put("videoNumCanceled", String.valueOf(videoNumUnCanceled));
-                map.put("audioNumCanceled", String.valueOf(audioNumUnCanceled));
-                map.put("photoNumCanceled", String.valueOf(photoNumUnCanceled));
+                map.put("degreeCertNumCanceled", degreeCertCanceled);
+                map.put("videoNumCanceled", videoNumUnCanceled);
+                map.put("audioNumCanceled", audioNumUnCanceled);
+                map.put("photoNumCanceled", photoNumUnCanceled);
+
 
                 String day = "";
                 String month = "";
@@ -245,6 +247,90 @@ public class InsertDataTest {
     }
 
 
+
+
+    @Test
+    public void insertRabbishData6yueri() {
+
+
+            for(int i =1; i<=4; i++) {
+                HashMap<String, Object> map = new HashMap();
+
+                //申请总量 100-120
+                int degreeCertNumTotal = (new Random().nextInt(21)+ 100);
+                int videoNumTotal = (new Random().nextInt(21)+ 100);
+                int audioNumTotal = (new Random().nextInt(21)+ 100);
+                int photoNumTotal = (new Random().nextInt(21)+ 100);
+                System.out.println(photoNumTotal);
+
+
+                map.put("degreeCertNumTotal", degreeCertNumTotal);
+                map.put("videoNumTotal", videoNumTotal);
+                map.put("audioNumTotal", audioNumTotal);
+                map.put("photoNumTotal", photoNumTotal);//100-150
+
+
+
+
+                int degreeCertNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int videoNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int audioNumUnreviewed = (new Random().nextInt(11)+ 5);
+                int photoNumUnreviewed = (new Random().nextInt(11)+ 5);
+
+
+                //未审核5-15
+                map.put("degreeCertNumUnReviewed", degreeCertNumUnreviewed);
+                map.put("videoNumUnReviewed", videoNumUnreviewed);
+                map.put("audioNumUnReviewed", audioNumUnreviewed);
+                map.put("photoNumUnReviewed", photoNumUnreviewed);
+
+
+                int degreeCertNumReviewed = (new Random().nextInt(21)+ 50);
+                int videoNumReviewed = (new Random().nextInt(21)+ 50);
+                int audioNumReviewed = (new Random().nextInt(21)+ 50);
+                int photoNumReviewed = (new Random().nextInt(21)+ 50);
+
+                //已审核50-70
+                map.put("degreeCertNumReviewed", degreeCertNumReviewed);
+                map.put("videoNumReviewed", videoNumReviewed);
+                map.put("audioNumReviewed", audioNumReviewed);
+                map.put("photoNumReviewed", photoNumReviewed);
+
+
+                int degreeCertNumUnPass = (new Random().nextInt(6)+ 10);//10-20
+                int videoNumUnPass = (new Random().nextInt(6)+ 10);
+                int audioNumUnPass = (new Random().nextInt(6)+ 10);
+                int photoNumUnPass = (new Random().nextInt(6)+ 10);
+
+                //不通过//10-15
+                map.put("degreeCertNumUnPass", degreeCertNumUnPass);
+                map.put("videoNumUnPass", videoNumUnPass);
+                map.put("audioNumUnPass", audioNumUnPass);
+                map.put("photoNumUnPass", photoNumUnPass);//10-20
+
+
+
+                int degreeCertCanceled = degreeCertNumTotal-degreeCertNumUnreviewed- degreeCertNumReviewed- degreeCertNumUnPass;
+                int videoNumUnCanceled = videoNumTotal-videoNumUnreviewed-videoNumReviewed-videoNumUnPass;
+                int audioNumUnCanceled = audioNumTotal-audioNumUnreviewed-audioNumReviewed-audioNumUnPass;
+                int photoNumUnCanceled = photoNumTotal-photoNumUnreviewed-photoNumReviewed-photoNumUnPass;
+                //注销
+                map.put("degreeCertNumCanceled", degreeCertCanceled);
+                map.put("videoNumCanceled", videoNumUnCanceled);
+                map.put("audioNumCanceled", audioNumUnCanceled);
+                map.put("photoNumCanceled", photoNumUnCanceled);
+
+
+
+                map.put("time", "2018-"+"06"+"-0"+i+" 00:00:00");
+                mongoTemplate.save(map,"statisticsPerDay");
+            }
+
+
+
+
+
+    }
 
 
 
@@ -278,56 +364,56 @@ public class InsertDataTest {
             HashMap<String, Object> map = new HashMap();
 
             //申请总量 100-120
-            int degreeCertNumTotal = new Random().nextInt(21)+ 100;
-            int videoNumTotal = new Random().nextInt(21)+ 100;
-            int audioNumTotal = new Random().nextInt(21)+ 100;
-            int photoNumTotal = new Random().nextInt(21)+ 100;
+            int degreeCertNumTotal = (new Random().nextInt(21)+ 100)*30;
+            int videoNumTotal = (new Random().nextInt(21)+ 100)*30;
+            int audioNumTotal = (new Random().nextInt(21)+ 100)*30;
+            int photoNumTotal = (new Random().nextInt(21)+ 100)*30;
             System.out.println(photoNumTotal);
 
 
-            map.put("degreeCertNumTotal", String.valueOf(degreeCertNumTotal*30));
-            map.put("videoNumTotal", String.valueOf(videoNumTotal*30));
-            map.put("audioNumTotal", String.valueOf(audioNumTotal*30));
-            map.put("photoNumTotal", String.valueOf(photoNumTotal*30));//100-150
+            map.put("degreeCertNumTotal", degreeCertNumTotal);
+            map.put("videoNumTotal", videoNumTotal);
+            map.put("audioNumTotal", audioNumTotal);
+            map.put("photoNumTotal", photoNumTotal);//100-150
 
 
 
 
-            int degreeCertNumUnreviewed = new Random().nextInt(11)+ 5;
-            int videoNumUnreviewed = new Random().nextInt(11)+ 5;
-            int audioNumUnreviewed = new Random().nextInt(11)+ 5;
-            int photoNumUnreviewed = new Random().nextInt(11)+ 5;
+            int degreeCertNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
+            int videoNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
+            int audioNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
+            int photoNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
 
 
             //未审核5-15
-            map.put("degreeCertNumUnReviewed", String.valueOf(degreeCertNumUnreviewed*30));
-            map.put("videoNumUnReviewed", String.valueOf(videoNumUnreviewed*30));
-            map.put("audioNumUnReviewed", String.valueOf(audioNumUnreviewed*30));
-            map.put("photoNumUnReviewed", String.valueOf(photoNumUnreviewed*30));
+            map.put("degreeCertNumUnReviewed", degreeCertNumUnreviewed);
+            map.put("videoNumUnReviewed", videoNumUnreviewed);
+            map.put("audioNumUnReviewed", audioNumUnreviewed);
+            map.put("photoNumUnReviewed", photoNumUnreviewed);
 
 
-            int degreeCertNumReviewed = new Random().nextInt(21)+ 50;
-            int videoNumReviewed = new Random().nextInt(21)+ 50;
-            int audioNumReviewed = new Random().nextInt(21)+ 50;
-            int photoNumReviewed = new Random().nextInt(21)+ 50;
+            int degreeCertNumReviewed = (new Random().nextInt(21)+ 50)*30;
+            int videoNumReviewed = (new Random().nextInt(21)+ 50)*30;
+            int audioNumReviewed = (new Random().nextInt(21)+ 50)*30;
+            int photoNumReviewed = (new Random().nextInt(21)+ 50)*30;
 
             //已审核50-70
-            map.put("degreeCertNumReviewed", String.valueOf(degreeCertNumReviewed*30));
-            map.put("videoNumReviewed", String.valueOf(videoNumReviewed*30));
-            map.put("audioNumReviewed", String.valueOf(audioNumReviewed*30));
-            map.put("photoNumReviewed", String.valueOf(photoNumReviewed*30));
+            map.put("degreeCertNumReviewed", degreeCertNumReviewed);
+            map.put("videoNumReviewed", videoNumReviewed);
+            map.put("audioNumReviewed", audioNumReviewed);
+            map.put("photoNumReviewed", photoNumReviewed);
 
 
-            int degreeCertNumUnPass = new Random().nextInt(6)+ 10;//10-20
-            int videoNumUnPass = new Random().nextInt(6)+ 10;
-            int audioNumUnPass = new Random().nextInt(6)+ 10;
-            int photoNumUnPass = new Random().nextInt(6)+ 10;
+            int degreeCertNumUnPass = (new Random().nextInt(6)+ 10)*30;//10-20
+            int videoNumUnPass = (new Random().nextInt(6)+ 10)*30;
+            int audioNumUnPass = (new Random().nextInt(6)+ 10)*30;
+            int photoNumUnPass = (new Random().nextInt(6)+ 10)*30;
 
             //不通过//10-15
-            map.put("degreeCertNumUnPass", String.valueOf(degreeCertNumUnPass*30));
-            map.put("videoNumUnPass", String.valueOf(videoNumUnPass*30));
-            map.put("audioNumUnPass", String.valueOf(audioNumUnPass*30));
-            map.put("photoNumUnPass", String.valueOf(photoNumUnPass*30));//10-20
+            map.put("degreeCertNumUnPass", degreeCertNumUnPass);
+            map.put("videoNumUnPass", videoNumUnPass);
+            map.put("audioNumUnPass", audioNumUnPass);
+            map.put("photoNumUnPass", photoNumUnPass);//10-20
 
 
 
@@ -336,10 +422,11 @@ public class InsertDataTest {
             int audioNumUnCanceled = audioNumTotal-audioNumUnreviewed-audioNumReviewed-audioNumUnPass;
             int photoNumUnCanceled = photoNumTotal-photoNumUnreviewed-photoNumReviewed-photoNumUnPass;
             //注销
-            map.put("degreeCertNumCanceled", String.valueOf(degreeCertCanceled));
-            map.put("videoNumCanceled", String.valueOf(videoNumUnCanceled));
-            map.put("audioNumCanceled", String.valueOf(audioNumUnCanceled));
-            map.put("photoNumCanceled", String.valueOf(photoNumUnCanceled));
+            map.put("degreeCertNumCanceled", degreeCertCanceled);
+            map.put("videoNumCanceled", videoNumUnCanceled);
+            map.put("audioNumCanceled", audioNumUnCanceled);
+            map.put("photoNumCanceled", photoNumUnCanceled);
+
 
             String month = "";
             if(i<10){
@@ -376,60 +463,60 @@ public class InsertDataTest {
         //resultMap.put("Unpass", state2);
         //resultMap.put("Canceled", state3);
 
-        for(int i =1; i<=5; i++) {
+        for(int i =1; i<=6; i++) {
             HashMap<String, Object> map = new HashMap();
 
             //申请总量 100-120
-            int degreeCertNumTotal = new Random().nextInt(21)+ 100;
-            int videoNumTotal = new Random().nextInt(21)+ 100;
-            int audioNumTotal = new Random().nextInt(21)+ 100;
-            int photoNumTotal = new Random().nextInt(21)+ 100;
+            int degreeCertNumTotal = (new Random().nextInt(21)+ 100)*30;
+            int videoNumTotal = (new Random().nextInt(21)+ 100)*30;
+            int audioNumTotal = (new Random().nextInt(21)+ 100)*30;
+            int photoNumTotal = (new Random().nextInt(21)+ 100)*30;
             System.out.println(photoNumTotal);
 
 
-            map.put("degreeCertNumTotal", String.valueOf(degreeCertNumTotal*30));
-            map.put("videoNumTotal", String.valueOf(videoNumTotal*30));
-            map.put("audioNumTotal", String.valueOf(audioNumTotal*30));
-            map.put("photoNumTotal", String.valueOf(photoNumTotal*30));//100-150
+            map.put("degreeCertNumTotal", degreeCertNumTotal);
+            map.put("videoNumTotal", videoNumTotal);
+            map.put("audioNumTotal", audioNumTotal);
+            map.put("photoNumTotal", photoNumTotal);//100-150
 
 
 
 
-            int degreeCertNumUnreviewed = new Random().nextInt(11)+ 5;
-            int videoNumUnreviewed = new Random().nextInt(11)+ 5;
-            int audioNumUnreviewed = new Random().nextInt(11)+ 5;
-            int photoNumUnreviewed = new Random().nextInt(11)+ 5;
+            int degreeCertNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
+            int videoNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
+            int audioNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
+            int photoNumUnreviewed = (new Random().nextInt(11)+ 5)*30;
 
 
             //未审核5-15
-            map.put("degreeCertNumUnReviewed", String.valueOf(degreeCertNumUnreviewed*30));
-            map.put("videoNumUnReviewed", String.valueOf(videoNumUnreviewed*30));
-            map.put("audioNumUnReviewed", String.valueOf(audioNumUnreviewed*30));
-            map.put("photoNumUnReviewed", String.valueOf(photoNumUnreviewed*30));
+            map.put("degreeCertNumUnReviewed", degreeCertNumUnreviewed);
+            map.put("videoNumUnReviewed", videoNumUnreviewed);
+            map.put("audioNumUnReviewed", audioNumUnreviewed);
+            map.put("photoNumUnReviewed", photoNumUnreviewed);
 
 
-            int degreeCertNumReviewed = new Random().nextInt(21)+ 50;
-            int videoNumReviewed = new Random().nextInt(21)+ 50;
-            int audioNumReviewed = new Random().nextInt(21)+ 50;
-            int photoNumReviewed = new Random().nextInt(21)+ 50;
+            int degreeCertNumReviewed = (new Random().nextInt(21)+ 50)*30;
+            int videoNumReviewed = (new Random().nextInt(21)+ 50)*30;
+            int audioNumReviewed = (new Random().nextInt(21)+ 50)*30;
+            int photoNumReviewed = (new Random().nextInt(21)+ 50)*30;
 
             //已审核50-70
-            map.put("degreeCertNumReviewed", String.valueOf(degreeCertNumUnreviewed*30));
-            map.put("videoNumReviewed", String.valueOf(videoNumUnreviewed*30));
-            map.put("audioNumReviewed", String.valueOf(audioNumUnreviewed*30));
-            map.put("photoNumReviewed", String.valueOf(photoNumUnreviewed*30));
+            map.put("degreeCertNumReviewed", degreeCertNumReviewed);
+            map.put("videoNumReviewed", videoNumReviewed);
+            map.put("audioNumReviewed", audioNumReviewed);
+            map.put("photoNumReviewed", photoNumReviewed);
 
 
-            int degreeCertNumUnPass = new Random().nextInt(6)+ 10;//10-20
-            int videoNumUnPass = new Random().nextInt(6)+ 10;
-            int audioNumUnPass = new Random().nextInt(6)+ 10;
-            int photoNumUnPass = new Random().nextInt(6)+ 10;
+            int degreeCertNumUnPass = (new Random().nextInt(6)+ 10)*30;//10-20
+            int videoNumUnPass = (new Random().nextInt(6)+ 10)*30;
+            int audioNumUnPass = (new Random().nextInt(6)+ 10)*30;
+            int photoNumUnPass = (new Random().nextInt(6)+ 10)*30;
 
             //不通过//10-15
-            map.put("degreeCertNumUnPass", String.valueOf(degreeCertNumUnPass*30));
-            map.put("videoNumUnPass", String.valueOf(videoNumUnPass*30));
-            map.put("audioNumUnPass", String.valueOf(audioNumUnPass*30));
-            map.put("photoNumUnPass", String.valueOf(photoNumUnPass*30));//10-20
+            map.put("degreeCertNumUnPass", degreeCertNumUnPass);
+            map.put("videoNumUnPass", videoNumUnPass);
+            map.put("audioNumUnPass", audioNumUnPass);
+            map.put("photoNumUnPass", photoNumUnPass);//10-20
 
 
 
@@ -438,10 +525,10 @@ public class InsertDataTest {
             int audioNumUnCanceled = audioNumTotal-audioNumUnreviewed-audioNumReviewed-audioNumUnPass;
             int photoNumUnCanceled = photoNumTotal-photoNumUnreviewed-photoNumReviewed-photoNumUnPass;
             //注销
-            map.put("degreeCertNumCanceled", String.valueOf(degreeCertCanceled));
-            map.put("videoNumCanceled", String.valueOf(videoNumUnCanceled));
-            map.put("audioNumCanceled", String.valueOf(audioNumUnCanceled));
-            map.put("photoNumCanceled", String.valueOf(photoNumUnCanceled));
+            map.put("degreeCertNumCanceled", degreeCertCanceled);
+            map.put("videoNumCanceled", videoNumUnCanceled);
+            map.put("audioNumCanceled", audioNumUnCanceled);
+            map.put("photoNumCanceled", photoNumUnCanceled);
 
             String month = "";
             if(i<10){

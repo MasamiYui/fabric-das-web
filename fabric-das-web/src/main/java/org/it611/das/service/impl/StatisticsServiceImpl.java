@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         //时间处理
         startTime = startTime + " 00:00:00";
-        endTime = endTime + " 00:00:00";
+        endTime = endTime + " 23:59:59";
 
         // 分组操作，并对每个总条数进行统计
         GroupOperation videoGroupOperation = Aggregation.group()
@@ -76,10 +77,10 @@ public class StatisticsServiceImpl implements StatisticsService {
         HashMap statisticsMap = new HashMap<String, Object>();
 
         if (aggregationResults.getMappedResults().size() == 0) {
-            statisticsMap.put("degreeCertNum", 0);
-            statisticsMap.put("videoNum", 0);
-            statisticsMap.put("audioNum", 0);
-            statisticsMap.put("photoNum", 0);
+            statisticsMap.put("degreeCertNum", "0");
+            statisticsMap.put("videoNum", "0");
+            statisticsMap.put("audioNum", "0");
+            statisticsMap.put("photoNum", "0");
             System.out.println(aggregationResults.getMappedResults());
             return statisticsMap;
         }
@@ -148,14 +149,37 @@ public class StatisticsServiceImpl implements StatisticsService {
         String startTimeYear = startTimeArr[0];
         String startTimeMonth = startTimeArr[1];
 
+
         String[] endTimeArr = endTime.split("-");
         String endTimeYear = endTimeArr[0];
         String endTimeMonth = endTimeArr[1];
 
 
+        //统计是下一月的第一天统计的 故采取以下方式
+        if(startTimeMonth.equals("12")){
+            startTimeYear = String.valueOf(Integer.parseInt(startTimeYear)+1);
+            startTimeMonth = "1";
+        }else{
+            startTimeMonth = String.valueOf(Integer.valueOf(startTimeMonth)+1);
+        }
+
+        if(endTimeMonth.equals("12")){
+            endTimeYear = String.valueOf(Integer.parseInt(endTimeYear)+1);
+            endTimeMonth = "1";
+        }else{
+            endTimeMonth = String.valueOf(Integer.valueOf(endTimeMonth)+1);
+        }
+
+
+
         //时间格式补全
         startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(startTimeYear), Integer.valueOf(startTimeMonth))+ " 00:00:00";
         endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(endTimeYear), Integer.valueOf(endTimeMonth)) + " 23:59:59";
+
+
+        System.out.println(startTime);
+        System.out.println(endTime);
+
 
         //查询条件
         Aggregation aggregation = Aggregation.newAggregation(
@@ -167,11 +191,32 @@ public class StatisticsServiceImpl implements StatisticsService {
         System.out.println("startTime:" + startTime);
         System.out.println("endTime:" + endTime);
 
-        HashMap resultMap = parseData(aggregation, "statisticsPerMonth", stateType);
+        HashMap dataMap = parseData(aggregation, "statisticsPerMonth", stateType);
+
+
+        //如果当前月份还没有结束，则从每日数据库中取值
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH)+1;
+        HashMap<String, Object> dataMap2 = null;
+        //如果查询条件包含当前月（该月还没有结束）
+        if(year == Integer.valueOf(endTimeYear) && month < Integer.valueOf(endTimeMonth)){
+            //从天的数据库中进行统计
+            String startTimeDay  = TimeUtil.getFirstDayOfMonth(year, month)+ " 00:00:00";
+            String endTimeDay = TimeUtil.getLocalTime();
+            dataMap2 = parseData2(startTimeDay, endTimeDay,stateType,"statisticsPerDay");
+        }
+
+        if(dataMap2 == null){
+            return dataMap;
+        }
+        HashMap resultMap = combineData(dataMap, dataMap2);
 
         return resultMap;
 
     }
+
+
 
     @Override
     public HashMap statisticsAssetTrend(String time, String stateType) {
@@ -179,21 +224,52 @@ public class StatisticsServiceImpl implements StatisticsService {
         String[] timeArr = time.split("-");
         String year = timeArr[0];
         String month = timeArr[1];
-        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+ " 00:00:00";
+
+
+        //统计是下一月的第一天统计的 故采取以下方式
+        if(month.equals("12")){
+            year = String.valueOf(Integer.parseInt(year)+1);
+            month = "1";
+        }else{
+            month = String.valueOf(Integer.valueOf(month)+1);
+        }
+
+
+
+
+        Calendar cal = Calendar.getInstance();
+        int yearNow = cal.get(Calendar.YEAR);
+        int monthNow = cal.get(Calendar.MONTH)+1;
+
+        HashMap resultMap = new HashMap();
+
+        if(yearNow == Integer.valueOf(year) && monthNow < Integer.valueOf(month)){
+            //从天的数据库中进行统计
+            String startTimeDay  = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month)-1)+ " 00:00:00";
+            String endTimeDay = TimeUtil.getLocalTime();
+            resultMap = parseData2(startTimeDay, endTimeDay,stateType,"statisticsPerDay");
+            return resultMap;
+        }
+
+
+        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month+1))+ " 00:00:00";
         String endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+ " 23:59:59";
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.match(Criteria.where("time").gte(startTime)),
                 Aggregation.match(Criteria.where("time").lte(endTime))
         );
 
-        HashMap resultMap = parseData(aggregation, "statisticsPerDay", stateType);
+        resultMap = parseData(aggregation, "statisticsPerDay", stateType);
+
+
+
 
         return resultMap;
     }
 
 
 
-    public HashMap parseData(Aggregation aggregation, String collectName, String stateType) {
+    public HashMap<String, Object> parseData(Aggregation aggregation, String collectName, String stateType) {
 
         //整理返回数据
         ArrayList degreeCertNumTotalArr = new ArrayList<Integer>();
@@ -260,13 +336,13 @@ public class StatisticsServiceImpl implements StatisticsService {
                 resultMap.put("audioNum", audioNumTotalArr);
                 resultMap.put("photoNum", photoNumTotalArr);
                 break;
-            case "1":
+            case "0":
                 resultMap.put("degreeCertNum", degreeCertNumUnReviewedArr);
                 resultMap.put("videoNum", videoNumUnReviewedArr);
                 resultMap.put("audioNum", audioNumUnReviewedArr);
                 resultMap.put("photoNum", photoNumUnReviewedArr);
                 break;
-            case "0":
+            case "1":
                 resultMap.put("degreeCertNum", degreeCertNumReviewedArr);
                 resultMap.put("videoNum", videoNumReviewedArr);
                 resultMap.put("audioNum", audioNumReviewedArr);
@@ -285,15 +361,27 @@ public class StatisticsServiceImpl implements StatisticsService {
                 resultMap.put("photoNum", photoNumCanceledArr);
                 break;
             default:
-                resultMap.put("degreeCertNum", 0);
-                resultMap.put("videoNum", 0);
-                resultMap.put("audioNum", 0);
-                resultMap.put("photoNum", 0);
+                resultMap.put("degreeCertNum", new ArrayList(0));
+                resultMap.put("videoNum", new ArrayList(0));
+                resultMap.put("audioNum", new ArrayList(0));
+                resultMap.put("photoNum", new ArrayList(0));
                 break;
         }
         return resultMap;
 
     }
+
+
+
+
+    private HashMap combineData(HashMap map1, HashMap<String,Object> map2) {
+        ((ArrayList)map1.get("degreeCertNum")).add(map2.get("degreeCertNum"));
+        ((ArrayList)map1.get("audioNum")).add(map2.get("audioNum"));
+        ((ArrayList)map1.get("videoNum")).add(map2.get("videoNum"));
+        ((ArrayList)map1.get("photoNum")).add(map2.get("photoNum"));
+        return map1;
+    }
+
 
 
 
@@ -411,5 +499,86 @@ public class StatisticsServiceImpl implements StatisticsService {
         return resultMap;
     }
 
+
+
+    public HashMap parseData2(String startTime, String endTime, String assetState, String collectionName) {
+        //startTime = startTime + " 00:00:00";
+        //endTime = endTime + " 23:59:59";
+
+        GroupOperation groupOperation = null;
+
+        // 分组操作，并对每个总条数进行统计
+        switch (assetState) {
+            case "-1":
+                groupOperation = Aggregation.group()
+                        .sum("degreeCertNumTotal").as("degreeCertNum")
+                        .sum("videoNumTotal").as("videoNum")
+                        .sum("audioNumTotal").as("audioNum")
+                        .sum("photoNumTotal").as("photoNum");
+                break;
+            case "0":
+                groupOperation = Aggregation.group()
+                        .sum("degreeCertNumUnReviewed").as("degreeCertNum")
+                        .sum("videoNumUnReviewed").as("videoNum")
+                        .sum("audioNumUnReviewed").as("audioNum")
+                        .sum("photoNumUnReviewed").as("photoNum");
+                break;
+            case "1":
+                groupOperation = Aggregation.group()
+                        .sum("degreeCertNumReviewed").as("degreeCertNum")
+                        .sum("videoNumReviewed").as("videoNum")
+                        .sum("audioNumReviewed").as("audioNum")
+                        .sum("photoNumReviewed").as("photoNum");
+                break;
+            case "2":
+                groupOperation = Aggregation.group()
+                        .sum("degreeCertNumUnPass").as("degreeCertNum")
+                        .sum("videoNumUnPass").as("videoNum")
+                        .sum("audioNumUnPass").as("audioNum")
+                        .sum("photoNumUnPass").as("photoNum");
+                break;
+            case "3":
+                groupOperation = Aggregation.group()
+                        .sum("degreeCertNumCanceled").as("degreeCertNum")
+                        .sum("videoNumCanceled").as("videoNum")
+                        .sum("audioNumCanceled").as("audioNum")
+                        .sum("photoNumCanceled").as("photoNum");
+                break;
+            default:
+                //异常处理
+                break;
+
+        }
+
+
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("time").gte(startTime)),
+                Aggregation.match(Criteria.where("time").lte(endTime)),
+                groupOperation
+        );
+
+        // 执行操作
+     AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, collectionName, HashMap.class);//先暂时从小时数据库里查询，后面前换成天，月
+
+        System.out.println(aggregationResults.getMappedResults());
+
+        HashMap statisticsMap = new HashMap<String, Object>();
+
+        if (aggregationResults.getMappedResults().size() == 0) {
+            statisticsMap.put("degreeCertNum", "0");
+            statisticsMap.put("videoNum", "0");
+            statisticsMap.put("audioNum", "0");
+            statisticsMap.put("photoNum", "0");
+            System.out.println(aggregationResults.getMappedResults());
+            return statisticsMap;
+        }
+        HashMap queryMap = aggregationResults.getMappedResults().get(0);
+        statisticsMap.put("degreeCertNum", queryMap.get("degreeCertNum"));
+        statisticsMap.put("videoNum", queryMap.get("videoNum"));
+        statisticsMap.put("audioNum", queryMap.get("audioNum"));
+        statisticsMap.put("photoNum", queryMap.get("photoNum"));
+        System.out.println(aggregationResults.getMappedResults());
+        return statisticsMap;
+    }
 
 }

@@ -7,6 +7,7 @@ import org.it611.das.domain.Photo;
 import org.it611.das.domain.Video;
 import org.it611.das.service.StatisticsService;
 import org.it611.das.util.ResponseUtil;
+import org.it611.das.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,6 +74,7 @@ public class StatisticsController {
     public JSONObject assetStateassetNumTrend(String startTime, String endTime, String stateType){
 
         HashMap resultMap = statisticsService.statisticsAssetTrend(startTime, endTime, stateType);
+
         return ResponseUtil.constructResponse(200, "ok", resultMap);
 
     }
