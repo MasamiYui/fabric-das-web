@@ -16,9 +16,9 @@ public interface StatisticsService {
 
     HashMap statisticsAssetState(Class assetType);
 
-    HashMap statisticsAssetTrend(String startTime, String endTime, String assetType);//根据时间段查询各类资产的审理数量趋势（yyyy年-mm月—yyyy年-mm月）
+    HashMap statisticsAssetTrend(String startTime, String endTime, String stateType);//根据时间段查询各类资产的审理数量趋势（yyyy年-mm月—yyyy年-mm月）
 
-    HashMap statisticsAssetTrend(String time, String assetType);//查询某个月的资产审理数量趋势
+    HashMap statisticsAssetTrend(String time, String stateType);//查询某个月的资产审理数量趋势
 
     HashMap statisticsUserAssetDetail(String userId);//根据用户Id查询具体的资产分布信息
 

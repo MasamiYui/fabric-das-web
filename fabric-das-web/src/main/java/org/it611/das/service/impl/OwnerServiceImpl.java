@@ -153,18 +153,18 @@ public class OwnerServiceImpl implements OwnerService {
     @Transactional
     @Override
     public int changeCompanyState(String id, String state) {
-       int result= companyDao.changCompanyState(id,state);
-       if(result>0){
-           return result;
-       }
+        int result = companyDao.changCompanyState(id, state);
+        if (result > 0) {
+            return result;
+        }
         return 0;
     }
 
     @Transactional
     @Override
     public int changeUserState(String id, String state) {
-        int result= userDao.changUserState(id,state);
-        if(result>0){
+        int result = userDao.changUserState(id, state);
+        if (result > 0) {
             return result;
         }
         return 0;
@@ -186,5 +186,37 @@ public class OwnerServiceImpl implements OwnerService {
 
     }
 
+
+    @Override
+    public HashMap queryAllUsers(int currentPage, int numberOfPages, String searchString) {
+
+        HashMap dataMap = new HashMap<String, Object>();
+        PageHelper.startPage(currentPage, numberOfPages);
+        List<HashMap> result = new ArrayList<HashMap>();
+        Long resultTotal;
+
+        //企业用户类型为0
+        List<HashMap> resultCompanyUsers = companyDao.queryCompanyUsers(searchString);
+        long totalCompanyUsers = companyDao.selectCompanyUsersTotal(searchString);
+        HashMap tmp = new HashMap();
+        for (int i = 0; i < resultCompanyUsers.size(); i++) {
+            resultCompanyUsers.get(i).put("userType", "0");
+        }
+
+        //普通用户类型为1
+        List<HashMap> resultCommonUsers = userDao.queryCommonUsers(searchString);
+        long totalCommonUsers = userDao.selectCommonUsersTotal(searchString);
+        for (int i = 0; i < resultCommonUsers.size(); i++) {
+            resultCommonUsers.get(i).put("userType", "1");
+        }
+
+        result.addAll(resultCommonUsers);
+        result.addAll(resultCompanyUsers);
+        resultTotal = totalCommonUsers + totalCompanyUsers;
+
+        dataMap.put("rows", result);
+        dataMap.put("total", resultTotal);
+        return dataMap;
+    }
 }
 

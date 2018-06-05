@@ -41,4 +41,7 @@ public interface OwnerService {
     JSONObject degreeCertificationList(int currentPage, int numberOfPages, String creditId);
 
 
+    //查询所有用户信息（普通用户和企业用户）
+    HashMap queryAllUsers(int currentPage, int numberOfPages, String searchString);
+
 }

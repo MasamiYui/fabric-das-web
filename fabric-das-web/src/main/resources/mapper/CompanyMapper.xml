@@ -62,4 +62,15 @@
         update tb_company set state=#{state} where id =#{id}
     </update>
 
+
+    <!--根据用户名查找总数-->
+    <select id="selectCommonUsersTotal" parameterType="string" resultType="long">
+        select count(*) from tb_company where company_name=#{value}
+    </select>
+
+    <!--根据用户名查找记录-->
+    <select id="queryCommonUsers" parameterType="String" resultType="hashmap">
+        select id,company_name as `name` from tb_company where company_name=#{value}
+    </select>
+
 </mapper>

@@ -29,4 +29,11 @@ public interface CompanyMapper {
     int changCompanyState(@Param("id") String id, @Param("state") String state);
 
 
+    //根据用户名查找企业用户详情
+    List<HashMap> queryCompanyUsers(String searchString);
+
+    //根据用户名查找企业用户数量
+    long  selectCompanyUsersTotal(String searchString);
+
+
 }

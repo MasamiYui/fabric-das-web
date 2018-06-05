@@ -141,7 +141,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
 
     @Override
-    public HashMap statisticsAssetTrend(String startTime, String endTime, String assetType) {
+    public HashMap statisticsAssetTrend(String startTime, String endTime, String stateType) {
 
         //时间解析
         String[] startTimeArr = startTime.split("-");
@@ -167,7 +167,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         System.out.println("startTime:" + startTime);
         System.out.println("endTime:" + endTime);
 
-        HashMap resultMap = parseData(aggregation, "statisticsPerMonth", assetType);
+        HashMap resultMap = parseData(aggregation, "statisticsPerMonth", stateType);
 
         return resultMap;
 
@@ -255,40 +255,40 @@ public class StatisticsServiceImpl implements StatisticsService {
         HashMap<String, Object> resultMap = new HashMap();
         switch (assetType) {
             case "-1":
-                resultMap.put("degreeCertNumTotal", degreeCertNumTotalArr);
-                resultMap.put("videoNumTotal", videoNumTotalArr);
-                resultMap.put("audioNumTotal", audioNumTotalArr);
-                resultMap.put("photoNumTotal", photoNumTotalArr);
+                resultMap.put("degreeCertNum", degreeCertNumTotalArr);
+                resultMap.put("videoNum", videoNumTotalArr);
+                resultMap.put("audioNum", audioNumTotalArr);
+                resultMap.put("photoNum", photoNumTotalArr);
                 break;
             case "1":
-                resultMap.put("degreeCertNumUnReviewed", degreeCertNumUnReviewedArr);
-                resultMap.put("videoNumUnReviewed", videoNumUnReviewedArr);
-                resultMap.put("audioNumUnReviewed", audioNumUnReviewedArr);
-                resultMap.put("photoNumUnReviewed", photoNumUnReviewedArr);
+                resultMap.put("degreeCertNum", degreeCertNumUnReviewedArr);
+                resultMap.put("videoNum", videoNumUnReviewedArr);
+                resultMap.put("audioNum", audioNumUnReviewedArr);
+                resultMap.put("photoNum", photoNumUnReviewedArr);
+                break;
+            case "0":
+                resultMap.put("degreeCertNum", degreeCertNumReviewedArr);
+                resultMap.put("videoNum", videoNumReviewedArr);
+                resultMap.put("audioNum", audioNumReviewedArr);
+                resultMap.put("photoNum", photoNumReviewedArr);
                 break;
             case "2":
-                resultMap.put("degreeCertNumReviewed", degreeCertNumReviewedArr);
-                resultMap.put("videoNumReviewed", videoNumReviewedArr);
-                resultMap.put("audioNumReviewed", audioNumReviewedArr);
-                resultMap.put("photoNumReviewed", photoNumReviewedArr);
+                resultMap.put("degreeCertNum", degreeCertNumUnPassArr);
+                resultMap.put("videoNum", videoNumUnPassArr);
+                resultMap.put("audioNum", audioNumUnPassArr);
+                resultMap.put("photoNum", photoNumUnPassArr);
                 break;
             case "3":
-                resultMap.put("degreeCertNumUnPass", degreeCertNumUnPassArr);
-                resultMap.put("videoNumUnPass", videoNumUnPassArr);
-                resultMap.put("audioNumUnPass", audioNumUnPassArr);
-                resultMap.put("photoNumUnPass", photoNumUnPassArr);
-                break;
-            case "4":
-                resultMap.put("degreeCertNumCanceled", degreeCertNumCanceledArr);
-                resultMap.put("videoNumCanceled", videoNumCanceledArr);
-                resultMap.put("audioNumCanceled", audioNumCanceledArr);
-                resultMap.put("photoNumCanceled", photoNumCanceledArr);
+                resultMap.put("degreeCertNum", degreeCertNumCanceledArr);
+                resultMap.put("videoNum", videoNumCanceledArr);
+                resultMap.put("audioNum", audioNumCanceledArr);
+                resultMap.put("photoNum", photoNumCanceledArr);
                 break;
             default:
-                resultMap.put("degreeCertNumCanceled", 0);
-                resultMap.put("videoNumCanceled", 0);
-                resultMap.put("audioNumCanceled", 0);
-                resultMap.put("photoNumCanceled", 0);
+                resultMap.put("degreeCertNum", 0);
+                resultMap.put("videoNum", 0);
+                resultMap.put("audioNum", 0);
+                resultMap.put("photoNum", 0);
                 break;
         }
         return resultMap;

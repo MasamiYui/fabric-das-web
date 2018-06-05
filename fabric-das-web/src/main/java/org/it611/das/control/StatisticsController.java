@@ -20,6 +20,11 @@ public class StatisticsController {
     @Autowired
     private StatisticsService statisticsService;
 
+
+
+    //显示饼状图
+    @RequestMapping("/statistics/pie")
+    public String pieChart(){return "chart_pie";}
     /**
      * 资产分类查询（根据时间段）前台为"2018-06-02","2018-06-03" 时间格式
      * 后台会把00：00：00补充，最后mongodb中时间格式为2018-06-02 00:00:00
@@ -57,17 +62,17 @@ public class StatisticsController {
         return ResponseUtil.constructResponse(200, "ok", result);
     }
 
-    //显示饼状图
-    @RequestMapping("/pie")
-    public String pieChart(){return "chart_pie";}
 
+    //显示资产趋势条形图1
+    @RequestMapping("/statistics/trendLine")
+    public String trendLine(){return "chart_line";}
 
     //时间段数据统计(格式年-月 如：2018-05到2018-06)
     @RequestMapping("/statistics/trend/assertNumByTimeSlot")
     @ResponseBody
-    public JSONObject assetStateassetNumTrend(String startTime, String endTime, String assetType){
+    public JSONObject assetStateassetNumTrend(String startTime, String endTime, String stateType){
 
-        HashMap resultMap = statisticsService.statisticsAssetTrend(startTime, endTime, assetType);
+        HashMap resultMap = statisticsService.statisticsAssetTrend(startTime, endTime, stateType);
         return ResponseUtil.constructResponse(200, "ok", resultMap);
 
     }
@@ -76,9 +81,9 @@ public class StatisticsController {
     //具体时间数据统计(格式年-月 如：2018-05)
     @RequestMapping("/statistics/trend/assertNumByTime")
     @ResponseBody
-    public JSONObject assetStateassetNumTrend(String time, String assetType){
+    public JSONObject assetStateassetNumTrend(String time, String stateType){
 
-        HashMap resultMap = statisticsService.statisticsAssetTrend(time, assetType);
+        HashMap resultMap = statisticsService.statisticsAssetTrend(time, stateType);
         return ResponseUtil.constructResponse(200, "ok", resultMap);
 
     }

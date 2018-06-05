@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>可信数字资产存证系统</title>
+
+    <link rel="icon" type="image/x-icon" href="/ico/favicon.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/jcstatic/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href=" @{/jcstatic/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- DataTables CSS -->
+    <link th:href="@{/jcstatic/vendor/datatables-plugins/dataTables.bootstrap.css}" rel="stylesheet"/>
+
+    <!-- DataTables Responsive CSS -->
+    <link th:href="@{/jcstatic/vendor/datatables-responsive/dataTables.responsive.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/jcstatic/dist/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div th:replace="/nav::navigation"></div>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">概况分析</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <!--图1-->
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        资产类目趋势变化图
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div>
+                            <div class="col-lg-12" style="margin-bottom: 10px;padding-left:0px;">
+                                <form class="form-inline" role="form">
+                                    <input type="text" id="startTime" class="form-control" placeholder="起始日期">
+                                    <input type="text" id="endTime" class="form-control" placeholder="结束日期">
+                                    <select id="firstState" class="form-control">
+                                        <option value="-1">全部</option>
+                                        <option  value="0">已审核</option>
+                                        <option  value="1">未审核</option>
+                                        <option  value="2">不通过</option>
+                                        <option  value="3">已注销</option>
+                                    </select>
+                                    <a id="firstSubmit" class="btn bg-primary">确定</a>
+                                </form>
+                            </div>
+                            <div class="col-lg-12" id="containerFirst"
+                                 style="height: 400px;width: 100%;border: solid 1px #ddd;border-radius: 5px;"></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+
+            <!--图2-->
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        用户资产单月概况
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div>
+                            <div class="col-lg-12" style="margin-bottom: 10px;padding-left:0px;">
+                                <form class="form-inline" role="form">
+                                    <input type="text" id="selectDate" class="form-control" placeholder="选择日期">
+                                    <select id="secondState" class="form-control">
+                                        <option value="-1">全部</option>
+                                        <option  value="0">已审核</option>
+                                        <option  value="1">未审核</option>
+                                        <option  value="2">不同故</option>
+                                        <option  value="3">已注销</option>
+                                    </select>
+                                    <a id="secondSubmit" class="btn bg-primary">确定</a>
+                                </form>
+                            </div>
+                            <div class="col-lg-12" id="containerSecond"
+                                 style="height: 400px;width: 100%;border: solid 1px #ddd;border-radius: 5px;"></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/jcstatic/vendor/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/jcstatic/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/jcstatic/vendor/metisMenu/metisMenu.min.js}"></script>
+
+<!-- DataTables JavaScript -->
+<script th:src="@{/jcstatic/vendor/datatables/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/jcstatic/vendor/datatables-plugins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/jcstatic/vendor/datatables-responsive/dataTables.responsive.js}"></script>
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
+
+<!--引入分页插件-->
+<script th:src="@{/jcstatic/paginator/bootstrap-paginator.js}"></script>
+
+<!--引入layui插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
+
+<!--以下是饼状图-->
+<script type="text/javascript" th:src="@{http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js}"></script>
+<script type="text/javascript" th:src="@{http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js}"></script>
+<script type="text/javascript" th:src="@{http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js}"></script>
+<script type="text/javascript" th:src="@{http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js}"></script>
+<script type="text/javascript" th:src="@{http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM}"></script>
+<script type="text/javascript"
+        th:src="@{http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js}"></script>
+<script type="text/javascript" th:src="@{http://echarts.baidu.com/gallery/vendors/simplex.js}"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        pageInit();
+        firstLineRequest();
+        secondLineRequest();
+        setInterval(firstLineRequest(),6000);
+        setInterval(secondLineRequest(),6000);
+    });
+
+    $("#firstSubmit").click(function(){
+        firstLineRequest();
+    });
+    $("#secondSubmit").click(function(){
+        secondLineRequest();
+    });
+
+    function pageInit(){
+        $('#startTime').val("2018-01");
+        $('#endTime').val(getNowFormatDate());
+        $('#selectDate').val(getNowFormatDate());
+    }
+
+    function lineFirstShow(data,timeArr) {
+        var dom = document.getElementById("containerFirst");
+        var myChart = echarts.init(dom);
+
+        var seriesData = [
+            {
+                name: '学位证书',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth:true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["degreeCertNum"]
+            },
+            {
+                name: '视频',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth:true,
+                stack: '总量',
+                data: data["videoNum"]
+            },
+            {
+                name: '音频',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth:true,
+                stack: '总量',
+                data: data["audioNum"]
+            },
+            {
+                name: '图片',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth:true,
+                stack: '总量',
+                data: data["photoNum"]
+            }
+        ];
+        var legendData = ['学位证书', '视频', '音频', '图片'];
+        var xAxisData= timeArr;
+        var data = {
+            legendData: legendData,
+            seriesData: seriesData,
+            xAxisData:xAxisData
+        };
+
+        option = null;
+        option = {
+            title: {
+                text: '资产变化趋势图'
+            },
+            tooltip: {
+                trigger: 'axis'
+                //触发类型:'item'数据项图形触发，饼状图。'axis'坐标轴触发，主要在柱状图，折线图等
+            },
+            legend: {
+                data: data.legendData
+            },
+            grid: {
+                left: '5%',
+                right: '5%',
+                bottom: '10%',
+                top:'15%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    magicType: {  //动态类型切换
+                        show: true,
+                        type: ['stack', 'tiled', 'line', 'bar']
+                    },
+                    //启用的动态类型，包括'line'（切换为折线图）, 'bar'（切换为柱状图）, 'stack'（切换为堆叠模式）, 'tiled'（切换为平铺模式）
+                    saveAsImage: {
+                        show: true,                         //是否显示该工具。
+                        type: "png",                         //保存的图片格式。支持 'png' 和 'jpeg'。
+                        name: "pic1",                        //保存的文件名称，默认使用 title.text 作为名称
+                        backgroundColor: "#ffffff",        //保存的图片背景色，默认使用 backgroundColor，如果backgroundColor不存在的话会取白色
+                        title: "保存为图片",
+                        pixelRatio: 1                        //保存图片的分辨率比例，默认跟容器相同大小，如果需要保存更高分辨率的，可以设置为大于 1 的值，例如 2
+                    }
+                }
+            },
+            xAxis: {
+                type: 'category',  //category time value
+                boundaryGap: false,  //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
+                data: data.xAxisData,
+                name: '年月'
+            },
+            yAxis: {
+                type: 'value',
+                name: '数量'
+            },
+            series: data.seriesData
+        };
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+
+    }
+    //第一幅图进行数据请求
+    function firstLineRequest() {
+        var queryParams = firstLineGetParams();
+        console.log("第一幅图参数：" + JSON.stringify(queryParams));
+        $.ajax({
+            type: "post",
+            url: "/statistics/trend/assertNumByTimeSlot",
+            data: queryParams,
+            dataType: "json",
+            success: function (result) {
+                if (result.code == 200) {
+                   /*
+                    var items = $('#containerFirst');
+                    items.empty();
+                    */
+                    var startTime = $('#startTime').val();
+                    var endTime = $('#endTime').val();
+                    var timeArr=getMonthBetween(startTime,endTime);
+                    var data = result.data;
+                    lineFirstShow(data,timeArr);
+                }
+            }
+        });
+    }
+    function firstLineGetParams() {
+        var queryParams = {
+            startTime: '2018-01',  //默认初始日期
+            endTime: getNowFormatDate()
+        };
+        var startTime = $('#startTime').val();
+        if (startTime) {
+            queryParams.startTime = startTime;
+        }
+        var endTime = $('#endTime').val();
+        if (endTime) {
+            queryParams.endTime = endTime;
+        }
+        var firstState = $('#firstState').val();
+        if (firstState) {
+            queryParams.stateType = firstState;
+        }
+        if(new Date(startTime).getTime()>new Date(endTime).getTime()){
+            warnInfo("请确保日期区间合理");
+        }
+        return queryParams;
+    }
+
+
+    //第二幅图进行数据请求
+    function lineSecondShow(data,selectDate,timeArr) {
+        var dom = document.getElementById("containerSecond");
+        var myChart = echarts.init(dom);
+        var seriesData = [
+            {
+                name: '学位证书',
+                type: 'line',
+                // symbol: 'none',  //这句就是去掉点的
+                smooth:true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["degreeCertNum"]
+            },
+            {
+                name: '视频',
+                type: 'line',
+                // symbol: 'none',  //这句就是去掉点的
+                smooth:true,
+                stack: '总量',
+                data: data["videoNum"]
+            },
+            {
+                name: '音频',
+                type: 'line',
+                // symbol: 'none',  //这句就是去掉点的
+                smooth:true,
+                stack: '总量',
+                data: data["audioNum"]
+            },
+            {
+                name: '图片',
+                type: 'line',
+               // symbol: 'none',  //这句就是去掉点的
+                smooth:true,
+                stack: '总量',
+                data: data["photoNum"]
+            }
+        ];
+        var legendData = ['学位证书', '视频', '音频', '图片'];
+        var xAxisData= timeArr;
+        var data = {
+            legendData: legendData,
+            seriesData: seriesData,
+            xAxisData:xAxisData
+        };
+
+        option = null;
+        option = {
+            title: {
+                text: selectDate+'月资产变化趋势图'
+            },
+            tooltip: {
+                trigger: 'axis'
+                //触发类型:'item'数据项图形触发，饼状图。'axis'坐标轴触发，主要在柱状图，折线图等
+            },
+            legend: {
+                data: data.legendData
+            },
+            grid: {
+                left: '5%',
+                right: '7%',
+                bottom: '10%',
+                top:'15%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    magicType: {  //动态类型切换
+                        show: true,
+                        type: ['stack', 'tiled', 'line', 'bar']
+                    },
+                    //启用的动态类型，包括'line'（切换为折线图）, 'bar'（切换为柱状图）, 'stack'（切换为堆叠模式）, 'tiled'（切换为平铺模式）
+                    saveAsImage: {
+                        show: true,                         //是否显示该工具。
+                        type: "png",                         //保存的图片格式。支持 'png' 和 'jpeg'。
+                        name: "pic1",                        //保存的文件名称，默认使用 title.text 作为名称
+                        backgroundColor: "#ffffff",        //保存的图片背景色，默认使用 backgroundColor，如果backgroundColor不存在的话会取白色
+                        title: "保存为图片",
+                        pixelRatio: 1                        //保存图片的分辨率比例，默认跟容器相同大小，如果需要保存更高分辨率的，可以设置为大于 1 的值，例如 2
+                    }
+                }
+            },
+            xAxis: {
+                type: 'category',  //category time value
+                boundaryGap: false,  //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
+                data: data.xAxisData,
+                name: '天'
+            },
+            yAxis: {
+                type: 'value',
+                name: '数量'
+            },
+            series: data.seriesData
+        };
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+
+    function secondLineRequest() {
+        var queryParams = secondLIneGetParams();
+        console.log("第二幅图参数：" + JSON.stringify(queryParams));
+        $.ajax({
+            type: "post",
+            url: "/statistics/trend/assertNumByTime",
+            data: queryParams,
+            dataType: "json",
+            success: function (result) {
+                if (result.code == 200) {
+                    /*var items = $('#containerSecond');
+                    items.empty();*/
+                    var data = result.data;
+                    var timeArr = resultTransfer(data);
+
+                    var selectDate = $('#selectDate').val();
+                    lineSecondShow(data,selectDate,timeArr);
+                }
+            }
+        });
+    }
+
+    function resultTransfer(data){
+        var arr = new Array();
+        var photoNum=data["photoNum"];
+        for(var index in photoNum){
+            arr.push(parseInt(index) + 1);
+        }
+        return arr;
+    }
+
+    //获取参数
+    function secondLIneGetParams() {
+        var queryParams = {
+            time:getNowFormatDate(),
+        };
+        var secondState = $('#secondState').val();
+        if (secondState) {
+            queryParams.stateType = secondState;
+        }
+        var selectDate = $('#selectDate').val();
+        if (selectDate) {
+            queryParams.time = selectDate;
+        }
+        return queryParams;
+    }
+
+    <!--日期-->
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#startTime'
+            , theme: 'molv'
+            , calendar: true
+            ,type: 'month'
+            ,max: getNowFormatDate()
+        });
+        laydate.render({
+            elem: '#endTime'
+            , theme: 'molv'
+            , calendar: true
+            ,type: 'month'
+            ,max: getNowFormatDate()
+        });
+        laydate.render({
+            elem: '#selectDate'
+            , theme: 'molv'
+            , calendar: true
+            ,type: 'month'
+            ,max: getNowFormatDate()
+        });
+    });
+
+    //获取当前时间，格式YYYY-MM
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        // var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+       /* if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }*/
+        var currentdate = year + seperator1 + month ;
+        return currentdate;
+    }
+
+    //获得区间内所有日期:数组形式返回
+    function getMonthBetween(start,end){
+        var result = [];
+        var s = start.split("-");
+        var e = end.split("-");
+        var min = new Date();
+        var max = new Date();
+        min.setFullYear(s[0],s[1]);
+        max.setFullYear(e[0],e[1]);
+
+        var curr = min;
+        while(curr <= max){
+            var month = curr.getMonth();
+            if(month==0){
+                var y=curr.getFullYear()-1;
+                var m=12;
+                result.push(y+"-"+m);
+            }else {
+                result.push(curr.getFullYear()+"-"+(month<10?("0"+month):month));
+            }
+            curr.setMonth(month+1);
+        }
+        return result;
+    }
+
+    //信息提示
+    function warnInfo(data) {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.open({
+                title: '结果信息'
+                , content: data
+            });
+        });
+    }
+
+</script>
+
+</body>
+
+</html>

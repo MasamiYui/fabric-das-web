@@ -32,5 +32,10 @@ public interface UserMapper {
     //根据id设置用户帐号的状态
     int changUserState(@Param("id") String id, @Param("state") String state);
 
+    //根据用户名查找普通用户详情
+    List<HashMap> queryCommonUsers(String searchString);
+
+    //根据用户名查找用户数量
+     long  selectCommonUsersTotal(String searchString);
 
 }
