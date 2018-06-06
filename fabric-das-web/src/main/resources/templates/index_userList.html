@@ -258,11 +258,11 @@
         //查询条件
         var searchString = $('#searchString').val();
         if (searchString) {
-            queryParams.searchString = searchString;
+            queryParams.searchString = $.trim(searchString);
         }
         var searchId = $('#searchId').val();
         if (searchId) {
-            queryParams.searchId = searchId;
+            queryParams.searchId = $.trim(searchId);
         }
         return queryParams;
     }
