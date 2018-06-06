@@ -24,7 +24,7 @@ public class MusicAssetController {
     public ModelAndView musicAssetIndex(){
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index_musicAssetList");
+        modelAndView.setViewName("index_audioAssetList");
         return modelAndView;
     }
 

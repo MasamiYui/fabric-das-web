@@ -278,19 +278,19 @@
         //查询条件
         var username = $('#username').val();
         if (username) {
-            queryParams.username = username;
+            queryParams.username = $.trim(username);
         }
         var companyName = $('#companyName').val();
         if (companyName) {
-            queryParams.companyName =companyName;
+            queryParams.companyName =$.trim(companyName);
         }
         var creditId = $('#creditId').val();
         if (creditId) {
-            queryParams.creditId =creditId;
+            queryParams.creditId =$.trim(creditId);
         }
         var state = $('#state').val();
         if (state) {
-            queryParams.state =state;
+            queryParams.state =$.trim(state);
         }
         return queryParams;
     }

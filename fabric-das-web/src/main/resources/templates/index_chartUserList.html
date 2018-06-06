@@ -51,7 +51,7 @@
     <div id="page-wrapper"  style="margin-left: 0px;">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header">图片资产一览表</h3>
+                <h3 class="page-header">  </h3>
             </div>
         </div>
         <!-- /.row -->
@@ -227,7 +227,7 @@
         };
         var searchString = $('#searchString').val();
         if (searchString) {
-            queryParams.searchString = searchString;
+            queryParams.searchString = $.trim(searchString);
         }
         return queryParams;
     }

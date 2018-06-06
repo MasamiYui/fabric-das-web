@@ -62,7 +62,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        资产类目总数分析图
+                        资产类目总数概况
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -86,7 +86,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        用户资产状态概况
+                        资产类目状态概况
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -457,11 +457,13 @@
             elem: '#startTime'
             , theme: 'molv'
             , calendar: true
+            ,max: getNowFormatDate()
         });
         laydate.render({
             elem: '#endTime'
             , theme: 'molv'
             , calendar: true
+            ,max: getNowFormatDate()
         });
     });
 

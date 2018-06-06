@@ -267,7 +267,7 @@
         //查询条件
         var title = $('#title').val();
         if (title) {
-            queryParams.title = title;
+            queryParams.title = $.trim(title);
         }
         var state = $('#state').val();
         if (state) {
