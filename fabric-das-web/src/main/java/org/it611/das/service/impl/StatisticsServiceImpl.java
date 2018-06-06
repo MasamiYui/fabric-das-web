@@ -226,7 +226,20 @@ public class StatisticsServiceImpl implements StatisticsService {
         String year = timeArr[0];
         String month = timeArr[1];
 
+        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+" 00:00:00";
+        String endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+" 23:59:59";
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("time").gte(startTime)),
+                Aggregation.match(Criteria.where("time").lte(endTime))
+        );
 
+        HashMap resultMap = parseData(aggregation, "statisticsPerDay", stateType);
+        return resultMap;
+
+
+
+
+/*
         //统计是下一月的第一天统计的 故采取以下方式
         if(month.equals("12")){
             year = String.valueOf(Integer.parseInt(year)+1);
@@ -236,15 +249,13 @@ public class StatisticsServiceImpl implements StatisticsService {
         }
 
 
-
-
         Calendar cal = Calendar.getInstance();
         int yearNow = cal.get(Calendar.YEAR);
         int monthNow = cal.get(Calendar.MONTH)+1;
 
-        HashMap resultMap = new HashMap();
+        HashMap resultMap = new HashMap();*/
 
-        if(yearNow == Integer.valueOf(year) && monthNow < Integer.valueOf(month)){
+       /* if(yearNow == Integer.valueOf(year) && monthNow < Integer.valueOf(month)){
             //从天的数据库中进行统计
             String startTimeDay  = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month)-1)+ " 00:00:00";
             String endTimeDay = TimeUtil.getLocalTime();
@@ -253,7 +264,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         }
 
 
-        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month+1))+ " 00:00:00";
+        String startTime = TimeUtil.getFirstDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+ " 00:00:00";
         String endTime = TimeUtil.getLastDayOfMonth(Integer.valueOf(year), Integer.valueOf(month))+ " 23:59:59";
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.match(Criteria.where("time").gte(startTime)),
@@ -262,11 +273,14 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         resultMap = parseData(aggregation, "statisticsPerDay", stateType);
 
-
-
-
-        return resultMap;
+        return resultMap;*/
     }
+
+
+
+
+
+
 
 
 
@@ -297,7 +311,6 @@ public class StatisticsServiceImpl implements StatisticsService {
         ArrayList videoNumCanceledArr = new ArrayList<Integer>();
         ArrayList audioNumCanceledArr = new ArrayList<Integer>();
         ArrayList photoNumCanceledArr = new ArrayList<Integer>();
-
 
         List<BasicDBObject> list = mongoTemplate.aggregate(aggregation, collectName, BasicDBObject.class).getMappedResults();
         for (int i = 0; i < list.size(); i++) {

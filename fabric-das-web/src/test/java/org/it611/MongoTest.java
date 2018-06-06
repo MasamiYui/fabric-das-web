@@ -108,4 +108,16 @@ public class MongoTest {
     }
 
 
+    @Test
+    public void Test3(){
+        //聚合
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("time").gte("2018-05-01 00:00:00")),
+                Aggregation.match(Criteria.where("time").lte("2018-05-31 23:59:59"))
+        );
+        List<BasicDBObject> list = mongoTemplate.aggregate(aggregation, "statisticsPerDay", BasicDBObject.class).getMappedResults();
+        System.out.println(list.size());
+    }
+
+
 }
