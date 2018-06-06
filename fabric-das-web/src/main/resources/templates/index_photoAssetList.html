@@ -166,8 +166,8 @@
         var currentPage = queryParams.currentPage;
         console.log("页面加载完后：：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
-            url: "/asset/photo/list",
+            type: "get",
+            url: "/asset/photos",
             data: queryParams,
             dataType: "json",
             success: function (result) {
@@ -190,7 +190,7 @@
                             //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
-                            requestResult("/asset/photo/list", subParams);  //这里要写清楚请求的接口
+                            requestResult("/asset/photos", subParams);  //这里要写清楚请求的接口
                         }
                     };
                     element.bootstrapPaginator(options);
@@ -204,7 +204,7 @@
     function requestResult(url, subParams) {
         console.log("点击页码时：：" + JSON.stringify(subParams));
         $.ajax({
-            type: "post",
+            type: "get",
             url: url,
             data: subParams,
             dataType: "json",
@@ -338,7 +338,7 @@
                 area: ['1000px', '550px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/asset/photo/detail/index?id=' + recordId
+                content: '/asset/photo/' + recordId
 
             });
         });

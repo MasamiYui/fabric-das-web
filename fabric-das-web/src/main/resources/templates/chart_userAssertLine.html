@@ -376,7 +376,7 @@
         var queryParams = chartsGetParams();
         console.log("两幅图表参数：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
+            type: "get",
             url: "/statistics/user/detail",
             data: queryParams,
             dataType: "json",

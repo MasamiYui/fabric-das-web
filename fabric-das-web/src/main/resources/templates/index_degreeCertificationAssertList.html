@@ -166,8 +166,8 @@
         var currentPage = queryParams.currentPage;
         console.log("页面加载完后：：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
-            url: "/asset/degreeCertification/list",
+            type: "get",
+            url: "/asset/degreeCertifications",
             data: queryParams,
             dataType: "json",
             success: function (result) {
@@ -190,7 +190,7 @@
                             //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
-                            requestResult("/asset/assetList", subParams);  //这里要写清楚请求的接口
+                            requestResult("/asset/assetLists", subParams);  //这里要写清楚请求的接口
                         }
                     };
                     element.bootstrapPaginator(options);
@@ -337,7 +337,7 @@
                 area: ['1000px', '550px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/degreeCertificationCompareDetail/index?id=' + recordId
+                content: '/asset/degreeCertification/' + recordId
 
             });
         });

@@ -306,7 +306,7 @@
         var data = {id: id, state: state};
         $.ajax({
             type: "post",
-            url: "/asset/photo/checkAndChangeState",
+            url: "/asset/photo",
             data: data,
             dataType: "json",
             success: function (result) {

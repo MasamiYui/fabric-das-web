@@ -279,7 +279,7 @@
         }
         var i = 0;
         for (var link in urls) {
-            $("#videoLink").append('<a  style="margin-right:40px;" class="btn btn-info"  href="/videoPalyLink?linkAddress=' + urls[link] + '">播放视频' + (++i) + '</a>');
+            $("#videoLink").append('<a  style="margin-right:40px;" class="btn btn-info"  href="/videoPaly?linkAddress=' + urls[link] + '">播放视频' + (++i) + '</a>');
         }
     }
 
@@ -291,7 +291,7 @@
         var data = {id: id, state: state};
         $.ajax({
             type: "post",
-            url: "/asset/video/checkAndChangeState",
+            url: "/asset/video",
             data: data,
             dataType: "json",
             success: function (result) {

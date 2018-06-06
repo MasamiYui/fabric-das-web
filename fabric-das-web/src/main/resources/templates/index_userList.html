@@ -157,8 +157,8 @@
         var currentPage = queryParams.currentPage;
         console.log("页面加载完后：：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
-            url: "/owner/user/list",
+            type: "get",
+            url: "/owner/users",
             data: queryParams,
             dataType: "json",
             success: function (result) {
@@ -193,7 +193,7 @@
                             //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
-                            requestResult("/owner/user/list", subParams);  //这里要写清楚请求的接口
+                            requestResult("/owner/users", subParams);  //这里要写清楚请求的接口
                         }
                     };
                     element.bootstrapPaginator(options);
@@ -284,7 +284,7 @@
                 area: ['400px', '800px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/getUserForm'
+                content: '/owner/addUser'
             });
         });
     }
@@ -314,7 +314,7 @@
                 area: ['583px', '568px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/recordDetail?recordId=' + recordId
+                content: '/owner/user/' + recordId
 
             });
         });
@@ -335,7 +335,7 @@
                 area: ['583px', '400px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/accountState?recordId=' + recordId +"&&ownerType=1"
+                content: '/owner/state?recordId=' + recordId +"&&ownerType=1"
 
             });
         });

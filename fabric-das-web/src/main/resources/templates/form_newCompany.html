@@ -241,8 +241,8 @@
                 var queryString = $("#dataform").serialize();
                 console.log("新增企业表单结果：" + queryString);
                 $.ajax({
-                    type: "post",
-                    url: "/owner/company/add",
+                    type: "put",
+                    url: "/owner/company",
                     data: queryString,
                     dataType: "json",
                     success: function (result) {

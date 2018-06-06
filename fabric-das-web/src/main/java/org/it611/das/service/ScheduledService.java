@@ -38,6 +38,7 @@ public class ScheduledService {
     @Scheduled(cron= "0 * * * * 0-6")//每分钟执行
     public void StatisticsPerMin() {
 
+        System.out.println("每分钟任务");
         String locolTime = TimeUtil.getLocalTime();
         String beforeTime = TimeUtil.getLocalNextTime(-1000*60);
         int videoNum = statisticsService.statisticsAssetTotalByConditions(Video.class, beforeTime, locolTime, "");

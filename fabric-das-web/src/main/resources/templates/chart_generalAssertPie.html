@@ -284,7 +284,7 @@
         var queryParams = firstPieGetParams();
         console.log("第一幅图参数：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
+            type: "get",
             url: "/statistics/general/assetType",
             data: queryParams,
             dataType: "json",
@@ -423,8 +423,8 @@
         var queryParams = secondPieGetParams();
         console.log("第二幅图参数：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
-            url: "/statistics/general/assertState",
+            type: "get",
+            url: "/statistics/general/assetState",
             data: queryParams,
             dataType: "json",
             success: function (result) {

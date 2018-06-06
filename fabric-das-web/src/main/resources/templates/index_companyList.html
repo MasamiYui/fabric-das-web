@@ -162,8 +162,8 @@
         var currentPage = queryParams.currentPage;
         console.log("页面加载完后：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
-            url: "/owner/company/list",
+            type: "get",
+            url: "/owner/companys",
             data: queryParams,
             dataType: "json",
             success: function (result) {
@@ -225,7 +225,7 @@
                 area: ['583px', '400px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/accountState?recordId=' + recordId+"&&ownerType=2"
+                content: '/owner/state?recordId=' + recordId+"&&ownerType=2"
 
             });
         });
@@ -298,7 +298,6 @@
     var index;
 
     function add() {
-        // alert("aaaaaa");
 
         layui.use('layer', function () { //独立版的layer无需执行这一句
             var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
@@ -312,7 +311,7 @@
                 area: ['1200px', '800px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/companyForm'
+                content: '/owner/addCompany'
             });
         });
     }
@@ -370,7 +369,7 @@
                 area: ['700px', '700px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/owner/companyDetail?recordId=' + recordId
+                content: '/owner/company/' + recordId
 
             });
         });

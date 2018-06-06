@@ -141,9 +141,9 @@
     var ownerType = [[${ownerType}]];
     var stateChangeUrl = "";
     if(ownerType == 1){//普通用户
-        stateChangeUrl = "/user/state/change";
+        stateChangeUrl = "/owner/user/state";
     }else if(ownerType == 2){//企业用户
-        stateChangeUrl = "/company/state/change";
+        stateChangeUrl = "/owner/company/state";
     }
     $("#btSubmit").click(function () {
         var $this = $(this);

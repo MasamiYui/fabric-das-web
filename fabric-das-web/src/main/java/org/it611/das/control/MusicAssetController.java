@@ -3,8 +3,11 @@ package org.it611.das.control;
 import com.alibaba.fastjson.JSONObject;
 import org.it611.das.service.MusicAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,8 +20,8 @@ public class MusicAssetController {
 
 
     //Music资产首页Index页面
-    @RequestMapping("/asset/music/index")
-    public ModelAndView degreeCertificationAssetIndex(){
+    @RequestMapping(value = "/asset/music/index", method = RequestMethod.GET)
+    public ModelAndView musicAssetIndex(){
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index_musicAssetList");
@@ -26,16 +29,18 @@ public class MusicAssetController {
     }
 
     //获取Music资产列表
-    @RequestMapping("/asset/music/list")
+    @RequestMapping(value = "/asset/musics", method = RequestMethod.GET)
     @ResponseBody
     public JSONObject musicAssetList(int currentPage, int numberOfPages, String title,String state){
+
         return musicAssetService.musicAssetList(currentPage, numberOfPages, title,state);
     }
 
     //获取Music详情(页面)
-    @RequestMapping("/asset/music/detail/index")
+    @RequestMapping(value = "/asset/music/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView degreeCertificationCompareDetail(String id) throws Exception {
+    public ModelAndView musicDetail(@PathVariable String id) throws Exception {
+
         JSONObject result = musicAssetService.musicAssetDetail(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("result", result);
@@ -44,15 +49,18 @@ public class MusicAssetController {
     }
 
     //审核和更改状态
-    @RequestMapping("/asset/music/checkAndChangeState")
+    @RequestMapping(value = "/asset/music", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject checkAndChangeState(String id, String state) throws Exception {
+
         JSONObject resultData = musicAssetService.CheckMusicAssetAndChangeState(id, state);
         return resultData;
     }
+
     //音频链接地址播放
     @RequestMapping("/musicPalyLink")
-    public ModelAndView videoPalyLink(String linkAddress){
+    public ModelAndView musicPalyLink(String linkAddress){
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("videoUrl", linkAddress);
         modelAndView.setViewName("play_videoAndAudio");

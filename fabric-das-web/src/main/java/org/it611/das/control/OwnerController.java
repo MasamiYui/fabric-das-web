@@ -10,7 +10,9 @@ import org.it611.das.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,12 +29,8 @@ public class OwnerController {
 
     /**
      * 查询所有用户
-     *
-     * @param numberOfPages
-     * @param currentPage
-     * @return
      */
-    @RequestMapping("/owner/user/list")
+    @RequestMapping(value = "/owner/users", method = RequestMethod.GET)
     @ResponseBody
     public JSONObject selectUsers(int currentPage, int numberOfPages, String searchString, String searchId) {
 
@@ -43,11 +41,8 @@ public class OwnerController {
 
     /**
      * 新增一个用户
-     *
-     * @param userVo
-     * @return
      */
-    @RequestMapping("/owner/user/add")
+    @RequestMapping(value = "/owner/user", method = RequestMethod.PUT)
     @ResponseBody
     public JSONObject addUser(UserVo userVo) {
 
@@ -59,38 +54,25 @@ public class OwnerController {
     }
 
 
-    /**
-     * 删除一个用户
-     *
-     * @return
-     */
-    @RequestMapping("/owner/user/delete")
-    @ResponseBody
-    public JSONObject deleteUser(String id) {
-
-        int result = ownerService.deleteUser(id);
-        if (result == 1) {
-            return ResponseUtil.constructResponse(200, "ok", null);
-        }
-        return ResponseUtil.constructResponse(400, "delete user fail.", null);
-    }
-
 
     /**
      * 返回用户用户列表页面
-     *
-     * @return
      */
-    @RequestMapping("/owner/user")
+    @RequestMapping(value = "/owner/user/index", method = RequestMethod.GET)
     public ModelAndView selectUsers() {
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index_userList");
         return modelAndView;
     }
 
-    //获取新增用户的表单
-    @RequestMapping("/owner/getUserForm")
+
+    /**
+     * 获取新增用户的表单
+     */
+    @RequestMapping(value = "/owner/addUser", method = RequestMethod.GET)
     public ModelAndView getUserForm() {
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("form_newUser");
         return modelAndView;
@@ -99,11 +81,8 @@ public class OwnerController {
 
     /**
      * 插入一条公司信息
-     *
-     * @param companyVO
-     * @return
      */
-    @RequestMapping("/owner/company/add")
+    @RequestMapping(value = "/owner/company", method = RequestMethod.PUT)
     @ResponseBody
     public JSONObject addCompany(CompanyVO companyVO) {
 
@@ -115,12 +94,8 @@ public class OwnerController {
 
     /**
      * 查询公司列表
-     *
-     * @param currentPage
-     * @param numberOfPages
-     * @return
      */
-    @RequestMapping("/owner/company/list")
+    @RequestMapping(value = "/owner/companys", method = RequestMethod.GET)
     @ResponseBody
     public JSONObject selectCompanies(int currentPage, int numberOfPages, String username, String companyName, String creditId, String state) {
 
@@ -129,9 +104,10 @@ public class OwnerController {
     }
 
     //获取用户记录的详情
-    @RequestMapping("/owner/recordDetail")
-    public ModelAndView recordDetail(String recordId) {
-        List<HashMap> records = ownerService.getRecordDetail(recordId);
+    @RequestMapping(value = "/owner/user/{id}", method = RequestMethod.GET)
+    public ModelAndView userDetail(@PathVariable String id) {
+
+        List<HashMap> records = ownerService.getRecordDetail(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("records", records);
         modelAndView.setViewName("detail_user");
@@ -139,22 +115,25 @@ public class OwnerController {
     }
 
     //企业列表
-    @RequestMapping("/owner/company")
+    @RequestMapping(value = "/owner/company/index", method = RequestMethod.GET)
     public String getCompanyList() {
+
         return "index_companyList";
     }
 
 
-    //企业申请表单
-    @RequestMapping("/owner/companyForm")
+    //企业申请表单页面
+    @RequestMapping(value = "/owner/addCompany", method = RequestMethod.GET)
     public String companyForm() {
+
         return "form_newCompany";
     }
 
     //获取公司记录的详情
-    @RequestMapping("/owner/companyDetail")
-    public ModelAndView companyDetail(String recordId) {
-        List<HashMap> records = ownerService.getCompanyDetail(recordId);
+    @RequestMapping(value = "/owner/company/{id}", method = RequestMethod.GET)
+    public ModelAndView companyDetail(@PathVariable String id) {
+
+        List<HashMap> records = ownerService.getCompanyDetail(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("records", records);
         modelAndView.setViewName("detail_company");
@@ -162,18 +141,20 @@ public class OwnerController {
     }
 
 
-    //测试=====》帐号状态设置
-    @RequestMapping("/accountState")
+    //帐号状态设置
+    @RequestMapping(value = "/owner/state", method = RequestMethod.GET)
     public String accountState(Model model, String recordId, String ownerType) {
+
         model.addAttribute("id", recordId);
         model.addAttribute("ownerType", ownerType);
         return "state_setAccount";
     }
 
     //普通用户帐号修改
-    @RequestMapping("/user/state/change")
+    @RequestMapping(value = "/owner/user/state", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject changeUserState(String id,String state) {
+
        int result= ownerService.changeUserState(id,state);
        if(result == 1){
            JSONObject dataMap=ResponseUtil.constructResponse(200, "ok", null);
@@ -183,9 +164,10 @@ public class OwnerController {
     }
 
     //企业账户帐号修改
-    @RequestMapping("/company/state/change")
+    @RequestMapping(value = "/owner/company/state", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject changeCompanyState(String id,String state) {
+
         int result= ownerService.changeCompanyState(id,state);
         if(result == 1){
             JSONObject dataMap=ResponseUtil.constructResponse(200, "ok", null);

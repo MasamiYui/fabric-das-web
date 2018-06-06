@@ -290,7 +290,7 @@
         var queryParams = firstLineGetParams();
         console.log("第一幅图参数：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
+            type: "get",
             url: "/statistics/trend/assertNumByTimeSlot",
             data: queryParams,
             dataType: "json",
@@ -437,7 +437,7 @@
         var queryParams = secondLIneGetParams();
         console.log("第二幅图参数：" + JSON.stringify(queryParams));
         $.ajax({
-            type: "post",
+            type: "get",
             url: "/statistics/trend/assertNumByTime",
             data: queryParams,
             dataType: "json",

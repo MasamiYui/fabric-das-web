@@ -21,7 +21,12 @@ public class UserController {
 
     //查询所有用户信息（普通用户和企业用户），用于图表中的用户选择查询条件
     @RequestMapping("/lineChart/userSelectIndex")
-    public String userSelectIndex(){return "index_chartUserList";}
+    public String userSelectIndex(){
+
+        return "index_chartUserList";
+    }
+
+
     @RequestMapping("/lineChart/userSelect")
     @ResponseBody
     public JSONObject selectAllUsers(int currentPage, int numberOfPages, String searchString) {

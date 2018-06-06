@@ -348,7 +348,7 @@
         var data = {id: id, state: state};
         $.ajax({
             type: "post",
-            url: "/degreeCertificationCompareDetail/checkAndChangeState",
+            url: "/asset/degreeCertification",
             data: data,
             dataType: "json",
             success: function (result) {

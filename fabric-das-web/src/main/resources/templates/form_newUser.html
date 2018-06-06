@@ -210,8 +210,8 @@
                 var queryString = $("#dataform").serialize();
                 console.log("新增用户表单结果：" + queryString);
                 $.ajax({
-                    type: "post",
-                    url: "/owner/user/add",
+                    type: "put",
+                    url: "/owner/user",
                     data: queryString,
                     dataType: "json",
                     success: function (result) {
