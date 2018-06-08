@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.log4j.Logger;
@@ -55,7 +54,7 @@ public class ChaincodeManager {
     private Channel channel;
     private ChaincodeID chaincodeID;
 
-    public ChaincodeManager(FabricConfig fabricConfig) throws CryptoException, InvalidArgumentException, InvalidKeySpecException, NoSuchAlgorithmException, NoSuchProviderException, IOException, TransactionException {
+    public ChaincodeManager(FabricConfig fabricConfig) throws CryptoException, InvalidArgumentException, InvalidKeySpecException, NoSuchAlgorithmException, NoSuchProviderException, IOException, TransactionException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         this.config = fabricConfig;
 
         orderers = this.config.getOrderers();
@@ -90,6 +89,11 @@ public class ChaincodeManager {
             throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException, IOException, CryptoException, InvalidArgumentException, TransactionException {
         client.setUserContext(fabricOrg.getPeerAdmin());
         return getChannel(fabricOrg, client);
+    }
+
+    //新添加的方法，便于获取channel处理block信息
+    public Channel getChannelInstance(){
+        return channel;
     }
 
     private Channel getChannel(FabricOrg fabricOrg, HFClient client)

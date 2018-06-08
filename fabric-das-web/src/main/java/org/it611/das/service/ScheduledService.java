@@ -161,7 +161,6 @@ public class ScheduledService {
     @Scheduled(cron= "0 0 0 1 * ?")//每月第一天进行统计
     public void StatisticsPerMonth() {
 
-
         /**
          * 通过该小时内每分钟的数据分析，来对每小时的数据进行统计
          */
@@ -248,9 +247,6 @@ public class ScheduledService {
         mongoTemplate.save(statisticsPerMonthMap, "statisticsPerMonth");
 
     }
-
-
-
 
 
 

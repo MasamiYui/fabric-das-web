@@ -3,6 +3,7 @@ package org.it611.das.fabric.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -31,7 +32,7 @@ public class FabricManager {
     private static FabricManager instance = null;
 
     public static FabricManager obtain()
-            throws CryptoException, InvalidArgumentException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException, TransactionException, IOException {
+            throws CryptoException, InvalidArgumentException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException, TransactionException, IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         if (null == instance) {
             synchronized (FabricManager.class) {
                 if (null == instance) {
@@ -43,7 +44,7 @@ public class FabricManager {
     }
 
     private FabricManager()
-            throws CryptoException, InvalidArgumentException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException, TransactionException, IOException {
+            throws CryptoException, InvalidArgumentException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException, TransactionException, IOException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         manager = new ChaincodeManager(getConfig());
     }
 
@@ -157,7 +158,7 @@ public class FabricManager {
 
         return directory.getPath() + "/crypto-config/";
     }
-    public static void main(String[] args) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, InterruptedException, ExecutionException, TimeoutException, ProposalException {
+    public static void main(String[] args) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, InterruptedException, ExecutionException, TimeoutException, ProposalException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         //log.debug("测试");
         ChaincodeManager manager = FabricManager.obtain().getManager();
         String[] arguments = new String[]{"test1", "test1"};

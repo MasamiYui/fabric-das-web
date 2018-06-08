@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.spec.InvalidKeySpecException;
@@ -40,7 +41,7 @@ public class FabricTest {
      */
 
     @Test
-    public void TestInsert1() throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, InterruptedException, ExecutionException, TimeoutException, ProposalException {
+    public void TestInsert1() throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, InterruptedException, ExecutionException, TimeoutException, ProposalException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         ChaincodeManager manager = FabricManager.obtain().getManager();
         String[] arguments = new String[]{"test2", "test2"};
         Map<String, String> result = manager.invoke("addAsset", arguments);
@@ -48,7 +49,7 @@ public class FabricTest {
     }
 
     @Test
-    public void TestQuery1() throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException {
+    public void TestQuery1() throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         ChaincodeManager manager = FabricManager.obtain().getManager();
         String[] argQuery = new String[]{"20180508215226111861"};
         Map<String, String> fabricStateData = manager.query("query", argQuery);

@@ -8,6 +8,7 @@ import org.hyperledger.fabric.sdk.exception.TransactionException;
 import org.it611.das.vo.StudentIdCardAssetVO;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.spec.InvalidKeySpecException;
@@ -19,7 +20,7 @@ public interface StudentIdAssetService {
 
     Map<String, Object> InsertStudentIdCardAsset(StudentIdCardAssetVO vo) throws Exception;
 
-    HashMap<String, Object> selectStudentIdCardAssetById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException;
+    HashMap<String, Object> selectStudentIdCardAssetById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException;
 
     HashMap<String, Object> selectAssetList(int currentPage,int numberOfPages, String title,String id,String txid);
 
