@@ -117,6 +117,8 @@ public class RabbitMQTest {
             System.out.printf("transactionId: %s \n",endorserInfo.getTransactionID());
         }
 
+        Long nowHeight = channel.queryBlockchainInfo().getHeight();//查询当前的区块高度
+        System.out.println(nowHeight);
 
 
     }
