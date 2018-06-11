@@ -11,12 +11,12 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.GroupOperation;
-import org.springframework.data.mongodb.core.aggregation.ProjectionOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,73 +35,94 @@ public class ScheduledService {
     private MongoTemplate mongoTemplate;
 
 
+/*
     @Scheduled(cron= "0 * * * * 0-6")//每分钟执行
     public void StatisticsPerMin() {
 
-        System.out.println("每分钟任务");
-        String locolTime = TimeUtil.getLocalTime();
-        String beforeTime = TimeUtil.getLocalNextTime(-1000*60);
-        int videoNum = statisticsService.statisticsAssetTotalByConditions(Video.class, beforeTime, locolTime, "");
-        int audioNum = statisticsService.statisticsAssetTotalByConditions(Music.class, beforeTime, locolTime, "");
-        int photoNum = statisticsService.statisticsAssetTotalByConditions(Photo.class, beforeTime, locolTime, "");
-        int degreeCertNum = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, beforeTime, locolTime, "");
+
+
+        String localTime = TimeUtil.getLocalTimeFirstSecondTime(new Date());
+        String startTime = TimeUtil.getLocalTimeFirstSecondTime((new Date(System.currentTimeMillis()-1000*60)));
+        String endTime = TimeUtil.getLocalTimeEndSecondeTime((new Date(System.currentTimeMillis()-1000*60)));
+
+        int degreeCertNumTotal = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "",startTime, endTime, "");
+        int videoNumTotal = statisticsService.statisticsAssetTotalByConditions(Video.class, "",startTime, endTime, "");
+        int audioNumTotal = statisticsService.statisticsAssetTotalByConditions(Music.class, "",startTime, endTime, "");
+        int photoNumTotal = statisticsService.statisticsAssetTotalByConditions(Photo.class, "",startTime, endTime, "");
+
+
+        int degreeCertNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "1", startTime, endTime, "");
+        int videoNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(Video.class, "0", startTime, endTime, "");
+        int audioNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(Music.class, "0", startTime, endTime, "");
+        int photoNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(Photo.class, "0", startTime, endTime, "");
+
+        int degreeCertNumReviewed  = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "1", startTime, endTime, "");
+        int videoNumReviewed = statisticsService.statisticsAssetTotalByConditions(Video.class, "1", startTime, endTime, "");
+        int audioNumReviewed = statisticsService.statisticsAssetTotalByConditions(Music.class, "1", startTime, endTime, "");
+        int photoNumReviewed = statisticsService.statisticsAssetTotalByConditions(Photo.class, "1", startTime, endTime, "");
+
+        int degreeCertNumUnPass  = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "2", startTime, endTime, "");
+        int videoNumUnPass = statisticsService.statisticsAssetTotalByConditions(Video.class, "2", startTime, endTime, "");
+        int audioNumUnPass = statisticsService.statisticsAssetTotalByConditions(Music.class, "2", startTime, endTime, "");
+        int photoNumUnPass = statisticsService.statisticsAssetTotalByConditions(Photo.class, "2", startTime, endTime, "");
+
+
+        int degreeCertNumCanceled = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "3", startTime, endTime, "");
+        int videoNumCanceled = statisticsService.statisticsAssetTotalByConditions(Video.class, "3", startTime, endTime, "");
+        int audioNumCanceled = statisticsService.statisticsAssetTotalByConditions(Music.class, "3", startTime, endTime, "");
+        int photoNumCanceled = statisticsService.statisticsAssetTotalByConditions(Photo.class, "3", startTime, endTime, "");
+
         Map<String, Object> statisticsPerMinMap = new HashMap<String, Object>();
-        statisticsPerMinMap.put("time", locolTime);
-        statisticsPerMinMap.put("videoNum", videoNum);
-        statisticsPerMinMap.put("audioNum", audioNum);
-        statisticsPerMinMap.put("photoNum", photoNum);
-        statisticsPerMinMap.put("degreeCertNum", degreeCertNum);
+
+        statisticsPerMinMap.put("time", localTime);
+
+        statisticsPerMinMap.put("degreeCertNumTotal", degreeCertNumTotal);
+        statisticsPerMinMap.put("videoNumTotal", videoNumTotal);
+        statisticsPerMinMap.put("audioNumTotal", audioNumTotal);
+        statisticsPerMinMap.put("photoNumTotal", photoNumTotal);
+
+        statisticsPerMinMap.put("degreeCertNumUnReviewed", degreeCertNumUnReviewed);
+        statisticsPerMinMap.put("videoNumUnReviewed", videoNumUnReviewed);
+        statisticsPerMinMap.put("audioNumUnReviewed", audioNumUnReviewed);
+        statisticsPerMinMap.put("photoNumUnReviewed", photoNumUnReviewed);
+
+        statisticsPerMinMap.put("degreeCertNumReviewed", degreeCertNumReviewed);
+        statisticsPerMinMap.put("videoNumReviewed", videoNumReviewed);
+        statisticsPerMinMap.put("audioNumReviewed", audioNumReviewed);
+        statisticsPerMinMap.put("photoNumReviewed", photoNumReviewed);
+
+        statisticsPerMinMap.put("degreeCertNumUnPass",degreeCertNumUnPass);
+        statisticsPerMinMap.put("videoNumUnPass",videoNumUnPass);
+        statisticsPerMinMap.put("audioNumUnPass",audioNumUnPass);
+        statisticsPerMinMap.put("photoNumUnPass",photoNumUnPass);
+
+
+        statisticsPerMinMap.put("degreeCertNumCanceled", degreeCertNumCanceled);
+        statisticsPerMinMap.put("videoNumCanceled", videoNumCanceled);
+        statisticsPerMinMap.put("audioNumCanceled", audioNumCanceled);
+        statisticsPerMinMap.put("photoNumCanceled", photoNumCanceled);
+
         mongoTemplate.save(statisticsPerMinMap, "statisticsPerMin");
     }
 
     @Scheduled(cron= "0 0 * * * 0-6")//每小时执行
     public void StatisticsPerHour() {
 
-
-        /**
+        */
+/**
          * 通过该小时内每分钟的数据分析，来对每小时的数据进行统计
-         */
-        String beforeTime = TimeUtil.getLocalNextTime(-1000*60*60);
-        String localTime = TimeUtil.getLocalTime();
+         *//*
 
-        // 返回的字段
-        ProjectionOperation projectionOperation = Aggregation.project("degreeCertNum", "audioNum", "videoNum", "photoNum");
+        String localTime = TimeUtil.getLocalTimeFirstSecondTime(new Date());
+        String startTime = TimeUtil.getLocalTimeFirstSecondTime(new Date(System.currentTimeMillis()-1000*60*60));
+        String endTime = TimeUtil.getLocalTimeEndSecondeTime(new Date(System.currentTimeMillis()-1000*60*59));
 
-        // 分组操作，并对每个总条数进行统计
-        GroupOperation groupOperation = Aggregation.group()
-                .sum("audioNum").as("audioNum")
-                .sum("videoNum").as("videoNum")
-                .sum("photoNum").as("photoNum")
-                .sum("degreeCertNum").as("degreeCertNum");
-        Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(Criteria.where("time").gte(beforeTime)),
-                Aggregation.match(Criteria.where("time").lte(localTime)),
-                groupOperation
-        );
+        HashMap dataMap = simpleStatiscs(startTime, endTime);
+        dataMap.put("time", localTime);
 
-        // 执行操作
-        AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerMin", HashMap.class);
-
-        System.out.println(aggregationResults.getMappedResults());
-
-        //获取统计结果
-        HashMap queryMap = aggregationResults.getMappedResults().get(0);
-        int videoNum = (int)queryMap.get("videoNum");
-        int audioNum = (int)queryMap.get("audioNum");
-        int photoNum = (int)queryMap.get("photoNum");
-        int degreeCertNum = (int)queryMap.get("degreeCertNum");
-
-
-        //写入mongodb数据库
-        Map<String, Object> statisticsPerHourMap = new HashMap<String, Object>();
-        statisticsPerHourMap.put("time", localTime);
-        statisticsPerHourMap.put("videoNum", videoNum);
-        statisticsPerHourMap.put("audioNum", audioNum);
-        statisticsPerHourMap.put("photoNum", photoNum);
-        statisticsPerHourMap.put("degreeCertNum", degreeCertNum);
-
-        mongoTemplate.save(statisticsPerHourMap, "statisticsPerHour");
+        mongoTemplate.save(dataMap, "statisticsPerHour");
     }
+*/
 
 
     @Scheduled(cron= "0 0 0 * * 0-6")//每天执行
@@ -111,47 +132,86 @@ public class ScheduledService {
         /**
          * 通过该小时内每分钟的数据分析，来对每小时的数据进行统计
          */
-        String beforeTime = TimeUtil.getLocalNextTime(-1000*60*60*60);
-        String localTime = TimeUtil.getLocalTime();
+/*
+        String localTime = TimeUtil.getLocalTimeFirstSecondTime(new Date());
+        String startTime = TimeUtil.getLocalTimeFirstSecondTime(new Date(System.currentTimeMillis()-1000*24*60*60));
+        String endTime = TimeUtil.getLocalTimeEndSecondeTime(new Date(System.currentTimeMillis()-1000*24*60*59));
 
 
-        // 返回的字段
-        ProjectionOperation projectionOperation = Aggregation.project("degreeCertNum", "audioNum", "videoNum", "photoNum");
+        HashMap dataMap = simpleStatiscs(startTime, endTime);
+        dataMap.put("time", localTime);
 
-        // 分组操作，并对每个总条数进行统计
-        GroupOperation groupOperation = Aggregation.group()
-                .sum("audioNum").as("audioNum")
-                .sum("videoNum").as("videoNum")
-                .sum("photoNum").as("photoNum")
-                .sum("degreeCertNum").as("degreeCertNum");
-        Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(Criteria.where("time").gte(beforeTime)),
-                Aggregation.match(Criteria.where("time").lte(localTime)),
-                groupOperation
-        );
-
-        // 执行操作
-        AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerMin", HashMap.class);
-
-        System.out.println(aggregationResults.getMappedResults());
-
-        //获取统计结果
-        HashMap queryMap = aggregationResults.getMappedResults().get(0);
-        int videoNum = (int)queryMap.get("videoNum");
-        int audioNum = (int)queryMap.get("audioNum");
-        int photoNum = (int)queryMap.get("photoNum");
-        int degreeCertNum = (int)queryMap.get("degreeCertNum");
+        mongoTemplate.save(dataMap, "statisticsPerDay");
+*/
 
 
-        //写入mongodb数据库
-        Map<String, Object> statisticsPerDayMap = new HashMap<String, Object>();
-        statisticsPerDayMap.put("time", localTime);
-        statisticsPerDayMap.put("videoNum", videoNum);
-        statisticsPerDayMap.put("audioNum", audioNum);
-        statisticsPerDayMap.put("photoNum", photoNum);
-        statisticsPerDayMap.put("degreeCertNum", degreeCertNum);
+/*        String localTime = TimeUtil.getLocalTimeFirstSecondTime(new Date());
+        String startTime = TimeUtil.getLocalTimeFirstSecondTime((new Date(System.currentTimeMillis()-1000*60)));
+        String endTime = TimeUtil.getLocalTimeEndSecondeTime((new Date(System.currentTimeMillis()-1000*60)));*/
 
-        mongoTemplate.save(statisticsPerDayMap, "statisticsPerDay");
+        String localTime = TimeUtil.getLocalTimeBeforeDay() + " 00:00:00";
+        String startTime = TimeUtil.getLocalTimeBeforeDay() + " 00:00:00";
+        String endTime = TimeUtil.getLocalTimeBeforeDay() + " 23:59:59";
+
+        int degreeCertNumTotal = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "",startTime, endTime, "");
+        int videoNumTotal = statisticsService.statisticsAssetTotalByConditions(Video.class, "",startTime, endTime, "");
+        int audioNumTotal = statisticsService.statisticsAssetTotalByConditions(Music.class, "",startTime, endTime, "");
+        int photoNumTotal = statisticsService.statisticsAssetTotalByConditions(Photo.class, "",startTime, endTime, "");
+
+
+        int degreeCertNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "1", startTime, endTime, "");
+        int videoNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(Video.class, "0", startTime, endTime, "");
+        int audioNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(Music.class, "0", startTime, endTime, "");
+        int photoNumUnReviewed = statisticsService.statisticsAssetTotalByConditions(Photo.class, "0", startTime, endTime, "");
+
+        int degreeCertNumReviewed  = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "1", startTime, endTime, "");
+        int videoNumReviewed = statisticsService.statisticsAssetTotalByConditions(Video.class, "1", startTime, endTime, "");
+        int audioNumReviewed = statisticsService.statisticsAssetTotalByConditions(Music.class, "1", startTime, endTime, "");
+        int photoNumReviewed = statisticsService.statisticsAssetTotalByConditions(Photo.class, "1", startTime, endTime, "");
+
+        int degreeCertNumUnPass  = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "2", startTime, endTime, "");
+        int videoNumUnPass = statisticsService.statisticsAssetTotalByConditions(Video.class, "2", startTime, endTime, "");
+        int audioNumUnPass = statisticsService.statisticsAssetTotalByConditions(Music.class, "2", startTime, endTime, "");
+        int photoNumUnPass = statisticsService.statisticsAssetTotalByConditions(Photo.class, "2", startTime, endTime, "");
+
+
+        int degreeCertNumCanceled = statisticsService.statisticsAssetTotalByConditions(DegreeCertificate.class, "3", startTime, endTime, "");
+        int videoNumCanceled = statisticsService.statisticsAssetTotalByConditions(Video.class, "3", startTime, endTime, "");
+        int audioNumCanceled = statisticsService.statisticsAssetTotalByConditions(Music.class, "3", startTime, endTime, "");
+        int photoNumCanceled = statisticsService.statisticsAssetTotalByConditions(Photo.class, "3", startTime, endTime, "");
+
+        Map<String, Object> statisticsPerMinMap = new HashMap<String, Object>();
+
+        statisticsPerMinMap.put("time", localTime);
+
+        statisticsPerMinMap.put("degreeCertNumTotal", degreeCertNumTotal);
+        statisticsPerMinMap.put("videoNumTotal", videoNumTotal);
+        statisticsPerMinMap.put("audioNumTotal", audioNumTotal);
+        statisticsPerMinMap.put("photoNumTotal", photoNumTotal);
+
+        statisticsPerMinMap.put("degreeCertNumUnReviewed", degreeCertNumUnReviewed);
+        statisticsPerMinMap.put("videoNumUnReviewed", videoNumUnReviewed);
+        statisticsPerMinMap.put("audioNumUnReviewed", audioNumUnReviewed);
+        statisticsPerMinMap.put("photoNumUnReviewed", photoNumUnReviewed);
+
+        statisticsPerMinMap.put("degreeCertNumReviewed", degreeCertNumReviewed);
+        statisticsPerMinMap.put("videoNumReviewed", videoNumReviewed);
+        statisticsPerMinMap.put("audioNumReviewed", audioNumReviewed);
+        statisticsPerMinMap.put("photoNumReviewed", photoNumReviewed);
+
+        statisticsPerMinMap.put("degreeCertNumUnPass",degreeCertNumUnPass);
+        statisticsPerMinMap.put("videoNumUnPass",videoNumUnPass);
+        statisticsPerMinMap.put("audioNumUnPass",audioNumUnPass);
+        statisticsPerMinMap.put("photoNumUnPass",photoNumUnPass);
+
+
+        statisticsPerMinMap.put("degreeCertNumCanceled", degreeCertNumCanceled);
+        statisticsPerMinMap.put("videoNumCanceled", videoNumCanceled);
+        statisticsPerMinMap.put("audioNumCanceled", audioNumCanceled);
+        statisticsPerMinMap.put("photoNumCanceled", photoNumCanceled);
+
+        mongoTemplate.save(statisticsPerMinMap, "statisticsPerDay");
+
 
     }
 
@@ -164,6 +224,8 @@ public class ScheduledService {
         /**
          * 通过该小时内每分钟的数据分析，来对每小时的数据进行统计
          */
+
+        String localTime = TimeUtil.getLocalTimeFirstSecondTime(new Date());
         Calendar rightNow = Calendar.getInstance();
         Integer year = rightNow.get(Calendar.YEAR);
         Integer month = rightNow.get(Calendar.MONTH)+1;
@@ -189,22 +251,55 @@ public class ScheduledService {
 
         //填充日期格式
         startTime = startTime+" 00:00:00";
-        endTime = endTime+" 00:00:00";
+        endTime = endTime+" 23:59:59";
 
 
-        System.out.println(startTime);
-        System.out.println(endTime);
+        HashMap dataMap = simpleStatiscs(startTime, endTime);
+        dataMap.put("time", localTime);
+
+        mongoTemplate.save(dataMap, "statisticsPerDay");
 
 
+    }
+
+
+
+    private HashMap<String, Object> simpleStatiscs(String startTime, String endTime) {
         // 返回的字段
-        ProjectionOperation projectionOperation = Aggregation.project("degreeCertNum", "audioNum", "videoNum", "photoNum");
+/*        ProjectionOperation projectionOperation = Aggregation.project("degreeCertNumTotal", "videoNumTotal", "audioNumTotal", "photoNumTotal",
+                "degreeCertNumUnReviewed", "videoNumUnReviewed", "audioNumUnReviewed", "photoNumUnReviewed",
+                "degreeCertNumReviewed", "videoNumReviewed", "audioNumReviewed", "photoNumReviewed",
+                "degreeCertNumUnPass", "videoNumUnPass", "audioNumUnPass", "photoNumUnPass",
+                "degreeCertNumCanceled", "videoNumCanceled", "audioNumCanceled", "photoNumCanceled");*/
 
         // 分组操作，并对每个总条数进行统计
         GroupOperation groupOperation = Aggregation.group()
-                .sum("audioNum").as("audioNum")
-                .sum("videoNum").as("videoNum")
-                .sum("photoNum").as("photoNum")
-                .sum("degreeCertNum").as("degreeCertNum");
+                .sum("degreeCertNumTotal").as("degreeCertNumTotal")
+                .sum("videoNumTotal").as("videoNumTotal")
+                .sum("audioNumTotal").as("audioNumTotal")
+                .sum("photoNumTotal").as("photoNumTotal")
+
+                .sum("degreeCertNumUnReviewed").as("degreeCertNumUnReviewed")
+                .sum("videoNumUnReviewed").as("videoNumUnReviewed")
+                .sum("audioNumUnReviewed").as("audioNumUnReviewed")
+                .sum("photoNumUnReviewed").as("photoNumUnReviewed")
+
+                .sum("degreeCertNumReviewed").as("degreeCertNumReviewed")
+                .sum("videoNumReviewed").as("videoNumReviewed")
+                .sum("audioNumReviewed").as("audioNumReviewed")
+                .sum("photoNumReviewed").as("photoNumReviewed")
+
+                .sum("degreeCertNumUnPass").as("degreeCertNumUnPass")
+                .sum("videoNumUnPass").as("videoNumUnPass")
+                .sum("audioNumUnPass").as("audioNumUnPass")
+                .sum("photoNumUnPass").as("photoNumUnPass")
+
+                .sum("degreeCertNumCanceled").as("degreeCertNumCanceled")
+                .sum("videoNumCanceled").as("videoNumCanceled")
+                .sum("audioNumCanceled").as("audioNumCanceled")
+                .sum("photoNumCanceled").as("photoNumCanceled");
+
+
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.match(Criteria.where("time").gte(startTime)),
                 Aggregation.match(Criteria.where("time").lte(endTime)),
@@ -212,40 +307,71 @@ public class ScheduledService {
         );
 
         // 执行操作
-        AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerDay", HashMap.class);
+        AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerMin", HashMap.class);
 
         System.out.println(aggregationResults.getMappedResults());
 
-        Map<String, Object> statisticsPerMonthMap = new HashMap<String, Object>();
-
         //获取统计结果
-        if(aggregationResults.getMappedResults().size() == 0){
-            statisticsPerMonthMap.put("degreeCertNum", 0);
-            statisticsPerMonthMap.put("videoNum", 0);
-            statisticsPerMonthMap.put("audioNum", 0);
-            statisticsPerMonthMap.put("photoNum", 0);
-            System.out.println(aggregationResults.getMappedResults());
-            mongoTemplate.save(statisticsPerMonthMap, "statisticsPerMonth");
-        }
-
-
         HashMap queryMap = aggregationResults.getMappedResults().get(0);
-        int videoNum = (int)queryMap.get("videoNum");
-        int audioNum = (int)queryMap.get("audioNum");
-        int photoNum = (int)queryMap.get("photoNum");
-        int degreeCertNum = (int)queryMap.get("degreeCertNum");
+
+
+        int degreeCertNumTotal = (int)queryMap.get("degreeCertNumTotal");
+        int videoNumTotal = (int)queryMap.get("videoNumTotal");
+        int audioNumTotal = (int)queryMap.get("audioNumTotal");
+        int photoNumTotal = (int)queryMap.get("photoNumTotal");
+
+        int degreeCertNumUnReviewed = (int)queryMap.get("degreeCertNumUnReviewed");
+        int videoNumUnReviewed = (int)queryMap.get("videoNumUnReviewed");
+        int audioNumUnReviewed = (int)queryMap.get("audioNumUnReviewed");
+        int photoNumUnReviewed = (int)queryMap.get("photoNumUnReviewed");
+
+        int degreeCertNumReviewed = (int)queryMap.get("degreeCertNumReviewed");
+        int videoNumReviewed = (int)queryMap.get("videoNumReviewed");
+        int audioNumReviewed = (int)queryMap.get("audioNumReviewed");
+        int photoNumReviewed = (int)queryMap.get("photoNumReviewed");
+
+        int degreeCertNumUnPass = (int)queryMap.get("degreeCertNumUnPass");
+        int videoNumUnPass = (int)queryMap.get("videoNumUnPass");
+        int audioNumUnPass = (int)queryMap.get("audioNumUnPass");
+        int photoNumUnPass = (int)queryMap.get("photoNumUnPass");
+
+        int degreeCertNumCanceled = (int)queryMap.get("degreeCertNumCanceled");
+        int videoNumCanceled = (int)queryMap.get("videoNumCanceled");
+        int audioNumCanceled = (int)queryMap.get("audioNumCanceled");
+        int photoNumCanceled = (int)queryMap.get("photoNumCanceled");
+
 
 
         //写入mongodb数据库
+        HashMap<String, Object> statisticsMap = new HashMap<String, Object>();
+        //statisticsMap.put("time", localTime);
 
-        statisticsPerMonthMap.put("time", nowTime);
-        statisticsPerMonthMap.put("videoNum", videoNum);
-        statisticsPerMonthMap.put("audioNum", audioNum);
-        statisticsPerMonthMap.put("photoNum", photoNum);
-        statisticsPerMonthMap.put("degreeCertNum", degreeCertNum);
+        statisticsMap.put("degreeCertNumTotal",degreeCertNumTotal);
+        statisticsMap.put("videoNumTotal",videoNumTotal);
+        statisticsMap.put("audioNumTotal",audioNumTotal);
+        statisticsMap.put("photoNumTotal",photoNumTotal);
 
-        mongoTemplate.save(statisticsPerMonthMap, "statisticsPerMonth");
+        statisticsMap.put("degreeCertNumUnReviewed",degreeCertNumUnReviewed);
+        statisticsMap.put("videoNumUnReviewed",videoNumUnReviewed);
+        statisticsMap.put("audioNumUnReviewed",audioNumUnReviewed);
+        statisticsMap.put("photoNumUnReviewed",photoNumUnReviewed);
 
+        statisticsMap.put("degreeCertNumReviewed",degreeCertNumReviewed);
+        statisticsMap.put("videoNumReviewed",videoNumReviewed);
+        statisticsMap.put("audioNumReviewed",audioNumReviewed);
+        statisticsMap.put("photoNumReviewed",photoNumReviewed);
+
+        statisticsMap.put("degreeCertNumUnPass",degreeCertNumUnPass);
+        statisticsMap.put("videoNumUnPass",videoNumUnPass);
+        statisticsMap.put("audioNumUnPass",audioNumUnPass);
+        statisticsMap.put("photoNumUnPass",photoNumUnPass);
+
+        statisticsMap.put("degreeCertNumCanceled",degreeCertNumCanceled);
+        statisticsMap.put("videoNumCanceled",videoNumCanceled);
+        statisticsMap.put("audioNumCanceled",audioNumCanceled);
+        statisticsMap.put("photoNumCanceled",photoNumCanceled);
+
+        return statisticsMap;
     }
 
 

@@ -129,13 +129,14 @@ public class StatisticsServiceImpl implements StatisticsService {
      * 如：统计2018-06-01 11:11:00 ------ 2018-06-01 12:11:00这一个小时Audio资产的数量
      */
     @Override
-    public int statisticsAssetTotalByConditions(Class assetType, String startTime, String endTime, String ownerId) {
+    public int statisticsAssetTotalByConditions(Class assetType, String state, String startTime, String endTime, String ownerId) {
 
         //聚合
         Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(Criteria.where("submitTime").gte(startTime)),
-                Aggregation.match(Criteria.where("submitTime").lte(endTime)),
-                Aggregation.match(Criteria.where("ownerId").regex(ownerId))
+                Aggregation.match(Criteria.where("submitTime").gte(startTime)),//开始时间
+                Aggregation.match(Criteria.where("submitTime").lte(endTime)),//结束时间
+                Aggregation.match(Criteria.where("ownerId").regex(ownerId)),//拥有者
+                Aggregation.match(Criteria.where("state").regex(state))//状态
         );
         List<BasicDBObject> list = mongoTemplate.aggregate(aggregation, assetType, BasicDBObject.class).getMappedResults();
         return list.size();//TODO：感觉不是统计count的最好方法
