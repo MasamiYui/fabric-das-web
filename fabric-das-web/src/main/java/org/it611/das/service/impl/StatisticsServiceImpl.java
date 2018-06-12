@@ -51,10 +51,10 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         // 分组操作，并对每个总条数进行统计
         GroupOperation videoGroupOperation = Aggregation.group()
-                .sum("audioNum").as("audioNum")
-                .sum("videoNum").as("videoNum")
-                .sum("photoNum").as("photoNum")
-                .sum("degreeCertNum").as("degreeCertNum");
+                .sum("audioNumReviewed").as("audioNum")
+                .sum("videoNumReviewed").as("videoNum")
+                .sum("photoNumReviewed").as("photoNum")
+                .sum("degreeCertNumReviewed").as("degreeCertNum");
 /*        GroupOperation audioGroupOperation = Aggregation.group().sum("audioNum").as("audioNum");
         GroupOperation degreeCertGroupOperation = Aggregation.group().sum("degreeCertNum").as("degreeCertNum");
         GroupOperation photoGroupOperation = Aggregation.group().sum("photoNum").as("photoNum");*/
@@ -71,7 +71,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         // 执行操作
         //AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerMin", HashMap.class);
-        AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerHour", HashMap.class);//先暂时从小时数据库里查询，后面前换成天，月
+        AggregationResults<HashMap> aggregationResults = this.mongoTemplate.aggregate(aggregation, "statisticsPerDay", HashMap.class);//先暂时从小时数据库里查询，后面前换成天，月
 
         System.out.println(aggregationResults.getMappedResults());
 

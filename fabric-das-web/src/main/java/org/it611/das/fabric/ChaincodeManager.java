@@ -149,7 +149,9 @@ public class ChaincodeManager {
         if (!channel.isInitialized()) {
             channel.initialize();
         }
-        if (config.isRegisterEvent()) {
+
+        //区块链信息监听
+      /*  if (config.isRegisterEvent()) {
             channel.registerBlockListener(new BlockListener() {
 
                 @Override
@@ -174,7 +176,7 @@ public class ChaincodeManager {
                     log.debug("========================Event事件监听结束========================");
                 }
             });
-        }
+        }*/
         return channel;
     }
 
