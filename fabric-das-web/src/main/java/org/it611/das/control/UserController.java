@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping("/lineChart/userSelectIndex")
     public String userSelectIndex(){
 
-        return "index_chartUserList";
+        return "chart_UserList";
     }
 
 

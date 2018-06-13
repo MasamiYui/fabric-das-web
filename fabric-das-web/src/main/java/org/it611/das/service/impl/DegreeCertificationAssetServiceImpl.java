@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -133,7 +134,9 @@ public class DegreeCertificationAssetServiceImpl implements DegreeCertificationA
         if(!"1".equals(state)){
             degreeCertificate.setState(state);
             try{
-                mongoTemplate.save(degreeCertificate);
+                Update update=Update.update("state",state);
+                mongoTemplate.updateFirst(query,update,DegreeCertificate.class);
+//                mongoTemplate.save(degreeCertificate);
             }catch (Exception e){
                 return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
             }

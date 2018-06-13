@@ -30,7 +30,7 @@ public class OwnerController {
     /**
      * 查询所有用户
      */
-    @RequestMapping(value = "/owner/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/owner/users")  //, method = RequestMethod.POST
     @ResponseBody
     public JSONObject selectUsers(int currentPage, int numberOfPages, String searchString, String searchId) {
 

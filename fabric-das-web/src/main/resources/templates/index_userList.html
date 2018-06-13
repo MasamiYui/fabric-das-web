@@ -166,19 +166,7 @@
                     var items = $('#items');
                     items.empty();
                     var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + row.name + '</td>'
-                            + '<td>' + row.phone + '</td>'
-                            + '<td>' + row.idcard + '</td>'
-                            + '<td>' + row.submitTime + '</td>'
-                            + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
+                    rowsResolve(rows, items);
                     var total = result.data.total;
                     $('#pageTotal').text(total);
 
@@ -190,7 +178,6 @@
                         numberOfPages: numberOfPages,		 //每页显示的页码
                         totalPages: totalPages,           //设置总页数
                         onPageClicked: function (event, originalEvent, type, page) { //异步换页
-                            //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
                             requestResult("/owner/users", subParams);  //这里要写清楚请求的接口
@@ -228,24 +215,30 @@
                     var items = $('#items');
                     items.empty();
                     var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + row.name + '</td>'
-                            + '<td>' + row.sex + '</td>'
-                            + '<td>' + row.nation + '</td>'
-                            + '<td>' + row.date + '</td>'
-                            + '<td>' + row.address + '</td>'
-                            + '<td>' + row.submitTime + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
+                    rowsResolve(rows,items);
                 }
             }
         });
     }
+
+    //针对rows的解析
+    function rowsResolve(rows,items){
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var html = '<tr>'
+                + '<td>' + row.id + '</td>'
+                + '<td>' + row.name + '</td>'
+                + '<td>' + row.phone + '</td>'
+                + '<td>' + row.idcard + '</td>'
+                + '<td>' + row.submitTime + '</td>'
+                + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
+                + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
+                + '</tr>';
+            items.append(html);
+        }
+    }
+
+
 
     //获取请求条件
     function getParams() {
@@ -270,8 +263,6 @@
     var index;
 
     function add() {
-        // alert("aaaaaa");
-
         layui.use('layer', function () { //独立版的layer无需执行这一句
             var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
             index = layer.open({
