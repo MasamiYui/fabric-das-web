@@ -150,7 +150,7 @@ public class DegreeCertificationAssetServiceImpl implements DegreeCertificationA
         Map<String, String> result = null;
         //剔除不需要上链的数据(数据暂定如下)
         dataMap.remove("id");
-        dataMap.remove("ownerId");
+        //dataMap.remove("ownerId");
         dataMap.remove("files");
         dataMap.remove("submitTime");
         dataMap.remove("state");

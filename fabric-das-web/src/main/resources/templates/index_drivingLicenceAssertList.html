@@ -63,7 +63,7 @@
                     <!--查找栏-->
                     <div class="panel-heading">
                         <form class="form-inline">
-                            <input type="text" id="certId" class="form-control" placeholder="输入证书Id" style="width:150px;"/>
+                            <input type="text" id="certId" class="form-control" placeholder="输入资产Id" style="width:150px;"/>
 <!--                            <input type="text" id="title" class="form-control" placeholder="输入资产标题"/>
                             <input type="text" id="txid" class="form-control" placeholder="输入交易单号"/>-->
                             <select id="state" class="form-control">
@@ -90,7 +90,7 @@
                             <tr>
                                 <th>资产Id</th>
                                 <th>资产拥有者</th>
-                                <th>证书编号</th>
+                                <th>驾驶证编号</th>
                                 <th>提交时间</th>
                                 <th>状态</th>
                                 <th>操作</th>
@@ -167,7 +167,7 @@
         console.log("页面加载完后：：" + JSON.stringify(queryParams));
         $.ajax({
             type: "get",
-            url: "/asset/degreeCertifications",
+            url: "/asset/drivingLicences",
             data: queryParams,
             dataType: "json",
             success: function (result) {
@@ -190,7 +190,7 @@
                             //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
-                            requestResult("/asset/degreeCertifications", subParams);  //这里要写清楚请求的接口
+                            requestResult("/asset/drivingLicences", subParams);  //这里要写清楚请求的接口
                         }
                     };
                     element.bootstrapPaginator(options);
@@ -245,7 +245,7 @@
             var html = '<tr>'
                 + '<td>' + row.id + '</td>'
                 + '<td>' + row.ownerId + '</td>'
-                + '<td>' + row.certId + '</td>'
+                + '<td>' + row.drivingLicenceId + '</td>'
                 + '<td>' + row.submitTime + '</td>'
                 + stateHtml
                 + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">设置</a></td>'
@@ -337,7 +337,7 @@
                 area: ['1000px', '550px'],
                 fixed: false, //不固定
                 maxmin: true,
-                content: '/asset/degreeCertification/' + recordId
+                content: '/asset/drivingLicence/' + recordId
 
             });
         });

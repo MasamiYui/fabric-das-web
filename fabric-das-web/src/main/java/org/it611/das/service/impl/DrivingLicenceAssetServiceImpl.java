@@ -2,23 +2,25 @@ package org.it611.das.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.log4j.Logger;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
 import org.hyperledger.fabric.sdk.exception.ProposalException;
 import org.hyperledger.fabric.sdk.exception.TransactionException;
-import org.it611.das.domain.Music;
+import org.it611.das.domain.DrivingLicence;
 import org.it611.das.fabric.ChaincodeManager;
 import org.it611.das.fabric.util.FabricManager;
-import org.it611.das.mapper.MusicAssetMapper;
-import org.it611.das.service.MusicAssetService;
+import org.it611.das.service.DrivingLicenceAssetService;
 import org.it611.das.util.MapUtil;
 import org.it611.das.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.security.NoSuchAlgorithmException;
@@ -29,36 +31,42 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class MusicAssetServiceImpl implements MusicAssetService {
+public class DrivingLicenceAssetServiceImpl implements DrivingLicenceAssetService {
 
-    @Autowired
-    private MusicAssetMapper musicAssetMapper;
+    private static Logger logger= Logger.getLogger(DrivingLicenceAssetServiceImpl.class);
+
+
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
+
     @Override
-    public JSONObject musicAssetList(int currentPage, int numberOfPages, String title,String state) {
+    public JSONObject drivingLicenceList(int currentPage, int numberOfPages, String certId,String state) {
 
         HashMap dataMap = new HashMap<String, Object>();
         Criteria ownerCriteria = null;
         if("".equals(state)){
-            ownerCriteria = Criteria.where("title").regex(title);
-        }else{
-            ownerCriteria = Criteria.where("title").regex(title).and("state").is(state);
+            ownerCriteria = Criteria.where("id").regex(certId);
+        }else {
+            ownerCriteria = Criteria.where("id").regex(certId).and("state").is(state);
         }
         Query query = new Query();
         query.addCriteria(ownerCriteria);//条件查询
-        long total = mongoTemplate.count(query, Music.class);//查询总数
+        long total = mongoTemplate.count(query, DrivingLicence.class);//查询总数
         query.skip((currentPage - 1) * numberOfPages).limit(numberOfPages);//分页查询
-        List<Music> resultData = mongoTemplate.find(query, Music.class);
+        List<DrivingLicence> resultData = mongoTemplate.find(query, DrivingLicence.class);
         dataMap.put("rows", resultData);
         dataMap.put("total", total);
         return ResponseUtil.constructResponse(200, "ok", dataMap);
+
     }
 
+
+
+    @Transactional
     @Override
-    public JSONObject musicAssetDetail(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public JSONObject selectDrivingLicenceDetailById(String id) throws InvalidArgumentException, NoSuchAlgorithmException, IOException, TransactionException, NoSuchProviderException, CryptoException, InvalidKeySpecException, ProposalException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
 
         HashMap<String, Object> resultMap = new HashMap();
         HashMap mongoDataMap = null;
@@ -67,7 +75,7 @@ public class MusicAssetServiceImpl implements MusicAssetService {
         Query query = new Query();
         query.addCriteria(ownerCriteria);//条件查询
         try {
-            mongoDataMap = MapUtil.convertToMap(mongoTemplate.find(query, Music.class).get(0));
+            mongoDataMap = MapUtil.convertToMap(mongoTemplate.find(query, DrivingLicence.class).get(0));
         } catch (Exception e) {
             return ResponseUtil.constructResponse(400, "query database failed.", resultMap);
         }
@@ -101,22 +109,29 @@ public class MusicAssetServiceImpl implements MusicAssetService {
         return ResponseUtil.constructResponse(200, "ok", resultMap);
     }
 
+
+    /**
+     *学位证书资产审核（包含数据上链，transactionId和state的修改）
+     */
     @Override
-    public JSONObject CheckMusicAssetAndChangeState(String id, String state) throws Exception {
+    @Transactional
+    public JSONObject CheckDrivingLicenceAndChangeState(String id, String state) throws Exception {
 
         Criteria ownerCriteria = Criteria.where("id").is(id);
         Query query = new Query();
         query.addCriteria(ownerCriteria);//条件查询
-        Music music = mongoTemplate.find(query, Music.class).get(0);
-        String selState = music.getState();
+        DrivingLicence drivingLicence = mongoTemplate.find(query, DrivingLicence.class).get(0);
+        String selState = drivingLicence.getState();
 
         if(selState.equals(state))  return ResponseUtil.constructResponse(200, "ok", null);//状态相同直接返回
 
         //如果不是进行审核(不等于1)，即单纯的state更新
         if(!"1".equals(state)){
-            music.setState(state);
+            drivingLicence.setState(state);
             try{
-                mongoTemplate.save(music);
+                Update update=Update.update("state",state);
+                mongoTemplate.updateFirst(query,update,DrivingLicence.class);
+//                mongoTemplate.save(degreeCertificate);
             }catch (Exception e){
                 return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
             }
@@ -124,27 +139,28 @@ public class MusicAssetServiceImpl implements MusicAssetService {
         }
         //如果是审核，即传入进来的state=1
         //获取mysql中的学位证书信息
-        HashMap<String, Object> dataMap = MapUtil.convertToMap(music);
+        HashMap<String, Object> dataMap = MapUtil.convertToMap(drivingLicence);
         String assetId = dataMap.get("id").toString();//资产Id作为fabric state 数据库的key
         String transactionId = dataMap.get("transactionId").toString();
         Map<String, String> result = null;
         //剔除不需要上链的数据(数据暂定如下)
         dataMap.remove("id");
-        //dataMap.remove("files");
+        //dataMap.remove("ownerId");
+        dataMap.remove("files");
         dataMap.remove("submitTime");
         dataMap.remove("state");
         dataMap.remove("transactionId");
 
-        String degreeCertificationJsonStr = null;//value转json字符串
+        String drivingLicenceJsonStr = null;//value转json字符串
         try {
-            degreeCertificationJsonStr = new ObjectMapper().writeValueAsString(dataMap);
+            drivingLicenceJsonStr = new ObjectMapper().writeValueAsString(dataMap);
             //执行Fabric的写入（数据上链）
             ChaincodeManager manager = FabricManager.obtain().getManager();
-            String[] arguments = new String[]{assetId, degreeCertificationJsonStr};
+            String[] arguments = new String[]{assetId, drivingLicenceJsonStr};
             if(!transactionId.equals("")){//如果是已经上链的数据，即数据库中已经有transactionId，只需要改变状态
-                music.setState(state);
+                drivingLicence.setState(state);
                 try{
-                    mongoTemplate.save(music);
+                    mongoTemplate.save(drivingLicence);
                     return ResponseUtil.constructResponse(200, "ok", null);
                 }catch (Exception e){
                     return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
@@ -163,15 +179,15 @@ public class MusicAssetServiceImpl implements MusicAssetService {
         transactionId = result.get("txid").toString();//由背书节点返回的transactionId
         System.out.println(transactionId);
         //数据库状态进行更新，包括transactionId和state
-        music.setState(state);
-        music.setTransactionId(transactionId);
+        drivingLicence.setState(state);
+        drivingLicence.setTransactionId(transactionId);
         try{
-            mongoTemplate.save(music);
+            mongoTemplate.save(drivingLicence);
         }catch (Exception e){
             return ResponseUtil.constructResponse(400, "insert database failed.", null);//出现异常直接返回错误
         }
         return ResponseUtil.constructResponse(200, "ok", null);//正确的返回
-    }
 
+    }
 
 }
