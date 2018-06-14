@@ -32,9 +32,9 @@ public class OwnerController {
      */
     @RequestMapping(value = "/owner/users")  //, method = RequestMethod.POST
     @ResponseBody
-    public JSONObject selectUsers(int currentPage, int numberOfPages, String searchString, String searchId) {
+    public JSONObject selectUsers(int currentPage, int numberOfPages, String searchString, String searchId,String state) {
 
-        HashMap data = ownerService.selectUsers(currentPage, numberOfPages, searchString, searchId);
+        HashMap data = ownerService.selectUsers(currentPage, numberOfPages, searchString, searchId,state);
         return ResponseUtil.constructResponse(200, "ok", data);
     }
 

@@ -64,6 +64,13 @@
                         <form class="form-inline">
                             <input type="text" id="searchString" class="form-control" placeholder="输入姓名"/>
                             <input type="text" id="searchId" class="form-control" placeholder="输入身份证号"/>
+                            <select id="state" class="form-control">
+                                <option value="">审核状态</option>
+                                <option value="0">未审核</option>
+                                <option value="1">已审核</option>
+                                <option value="2">不通过</option>
+                                <option value="3">注销</option>
+                            </select>
                             <button class="btn btn-default" type="button" onclick="search()">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -225,13 +232,30 @@
     function rowsResolve(rows,items){
         for (var i = 0; i < rows.length; i++) {
             var row = rows[i];
+
+            var state=row.state;
+            var stateHtml = '';
+            if(state=='0'){
+                state = '未审核';
+                stateHtml = '<td><span class="layui-badge"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">' + state + '</a></span></td>';
+            }else if(state=='1'){
+                state = '已审核';
+                stateHtml = '<td><span class="layui-badge layui-bg-green"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">'+ state + '</a></span></td>';
+            }else if(state=='2'){
+                state = '不通过';
+                stateHtml = '<td><span class="layui-badge layui-bg-orange"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">'+ state + '</a></span></td>';
+            }else if(state=='3'){
+                state = '注销';
+                stateHtml = '<td><span class="layui-badge layui-bg-cyan"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">' + state + '</a></span></td>';
+            }
             var html = '<tr>'
                 + '<td>' + row.id + '</td>'
                 + '<td>' + row.name + '</td>'
                 + '<td>' + row.phone + '</td>'
                 + '<td>' + row.idcard + '</td>'
                 + '<td>' + row.submitTime + '</td>'
-                + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
+                // + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
+                + stateHtml
                 + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
                 + '</tr>';
             items.append(html);
@@ -246,16 +270,21 @@
             numberOfPages: 10,   //每页的记录数
             currentPage: 1,        //当前页码
             searchString: '',
-            searchId: ''
+            searchId: '',
+            state:''
         };
         //查询条件
-        var searchString = $('#searchString').val();
+        var searchString = $.trim($('#searchString').val());
         if (searchString) {
-            queryParams.searchString = $.trim(searchString);
+            queryParams.searchString = searchString;
         }
-        var searchId = $('#searchId').val();
+        var searchId = $.trim($('#searchId').val());
         if (searchId) {
-            queryParams.searchId = $.trim(searchId);
+            queryParams.searchId = searchId;
+        }
+        var state = $('#state').val();
+        if (state) {
+            queryParams.state = state;
         }
         return queryParams;
     }

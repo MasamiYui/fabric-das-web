@@ -266,7 +266,7 @@
             txid: '',*/
         };
         //查询条件
-        var title = $('#title').val();
+        var title = $.trim($('#title').val());
         if (title) {
             queryParams.title = title;
         }

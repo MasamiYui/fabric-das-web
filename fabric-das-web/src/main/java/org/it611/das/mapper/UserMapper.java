@@ -3,6 +3,7 @@ package org.it611.das.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.it611.das.domain.User;
 import org.it611.das.vo.UserVo;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -18,7 +19,7 @@ public interface UserMapper {
     int insertUser(User user);
 
     //查询用户通过姓名和身份证
-    List<HashMap> selectUsersByNameAndIdCard(@Param("name")String name, @Param("idcard")String idcard);
+    List<HashMap> selectUsersByNameAndIdCard(@Param("name")String name, @Param("idcard")String idcard,@Param("state") String state);
 
     //查询用户总数
     Long selectTotal(@Param("name")String name, @Param("idcard")String id);

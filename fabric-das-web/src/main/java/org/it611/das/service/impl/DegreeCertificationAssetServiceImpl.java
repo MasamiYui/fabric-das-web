@@ -80,7 +80,11 @@ public class DegreeCertificationAssetServiceImpl implements DegreeCertificationA
         Query query = new Query();
         query.addCriteria(ownerCriteria);//条件查询
         try {
-            mongoDataMap = MapUtil.convertToMap(mongoTemplate.find(query, DegreeCertificate.class).get(0));
+
+            DegreeCertificate degreeCertificate= mongoTemplate.find(query, DegreeCertificate.class).get(0);
+            mongoDataMap = MapUtil.convertToMap(degreeCertificate);
+
+//            mongoDataMap = MapUtil.convertToMap(mongoTemplate.find(query, DegreeCertificate.class).get(0));
         } catch (Exception e) {
             return ResponseUtil.constructResponse(400, "query database failed.", resultMap);
         }

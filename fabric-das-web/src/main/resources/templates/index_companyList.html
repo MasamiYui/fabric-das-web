@@ -66,7 +66,13 @@
                             <input type="text" id="username" class="form-control" placeholder="输入账户名" style="width:150px;"/>
                             <input type="text" id="companyName" class="form-control" placeholder="输入公司名"/>
                             <input type="text" id="creditId" class="form-control" placeholder="输入统一信用码"/>
-                            <input type="text" id="state" class="form-control" placeholder="状态"/>
+                            <select id="state" class="form-control">
+                                <option value="">审核状态</option>
+                                <option value="0">未审核</option>
+                                <option value="1">已审核</option>
+                                <option value="2">不通过</option>
+                                <option value="3">注销</option>
+                            </select>
                             <button class="btn btn-default" type="button" onclick="search()">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -171,21 +177,7 @@
                     var items = $('#items');
                     items.empty();
                     var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + row.username + '</td>'
-                            + '<td>' + row.creditId + '</td>'
-                            + '<td>' + row.companyName + '</td>'
-                            + '<td>' + row.contact + '</td>'
-                            + '<td>' + row.phone + '</td>'
-                            + '<td>' + row.submitTime + '</td>'
-                            + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
+                    rowsResolve(rows, items);
                     var total = result.data.total;
                     $('#pageTotal').text(total);
 
@@ -197,7 +189,6 @@
                         numberOfPages: numberOfPages,		 //每页显示的页码
                         totalPages: totalPages,           //设置总页数
                         onPageClicked: function (event, originalEvent, type, page) { //异步换页
-                            //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
                             requestResult("/owner/company/list", subParams);  //这里要写清楚请求的接口
@@ -245,25 +236,52 @@
                     var items = $('#items');
                     items.empty();
                     var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + row.username + '</td>'
-                            + '<td>' + row.creditId + '</td>'
-                            + '<td>' + row.companyName + '</td>'
-                            + '<td>' + row.contact + '</td>'
-                            + '<td>' + row.phone + '</td>'
-                            + '<td>' + row.submitTime + '</td>'
-                            + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
+                    rowsResolve(rows, items);
+
                 }
             }
         });
     }
+
+    function rowsResolve(rows, items){
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var html = '<tr>'
+                + '<td>' + row.id + '</td>'
+                + '<td>' + row.username + '</td>'
+                + '<td>' + row.creditId + '</td>'
+                + '<td>' + row.companyName + '</td>'
+                + '<td>' + row.contact + '</td>'
+                + '<td>' + row.phone + '</td>'
+                + '<td>' + row.submitTime + '</td>'
+                // + '<td><a onclick="stateSet(this)" href="#" data-id="'+ row.id + '">' + stateSwitch(row.state) + '</td>'
+               + stateConvert(row)
+                + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
+                + '</tr>';
+            items.append(html);
+        }
+    }
+
+    function stateConvert(row){
+        var state=row.state;
+        var stateHtml = '';
+        if(state=='0'){
+            state = '未审核';
+            stateHtml = '<td><span class="layui-badge"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">' + state + '</a></span></td>';
+        }else if(state=='1'){
+            state = '已审核';
+            stateHtml = '<td><span class="layui-badge layui-bg-green"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">'+ state + '</a></span></td>';
+        }else if(state=='2'){
+            state = '不通过';
+            stateHtml = '<td><span class="layui-badge layui-bg-orange"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">'+ state + '</a></span></td>';
+        }else if(state=='3'){
+            state = '注销';
+            stateHtml = '<td><span class="layui-badge layui-bg-cyan"><a style="color:white;" onclick="stateSet(this)" href="#" data-id="'+ row.id +'">' + state + '</a></span></td>';
+        }
+        return stateHtml;
+    }
+
+
 
     //获取请求条件
     function getParams() {
@@ -276,21 +294,21 @@
             state: '-1'//默认-1 读取所有状态的数据
         };
         //查询条件
-        var username = $('#username').val();
+        var username = $.trim($('#username').val());
         if (username) {
-            queryParams.username = $.trim(username);
+            queryParams.username = username;
         }
-        var companyName = $('#companyName').val();
+        var companyName = $.trim($('#companyName').val());
         if (companyName) {
-            queryParams.companyName =$.trim(companyName);
+            queryParams.companyName =companyName;
         }
-        var creditId = $('#creditId').val();
+        var creditId = $.trim($('#creditId').val());
         if (creditId) {
-            queryParams.creditId =$.trim(creditId);
+            queryParams.creditId =creditId;
         }
         var state = $('#state').val();
         if (state) {
-            queryParams.state =$.trim(state);
+            queryParams.state =state;
         }
         return queryParams;
     }
