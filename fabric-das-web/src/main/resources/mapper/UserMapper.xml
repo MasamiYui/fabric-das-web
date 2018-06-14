@@ -20,7 +20,7 @@
        select
        id,  phone, idcard, `name`, state, submit_time as submitTime
        from tb_user
-       where idcard like concat('%',#{idcard},'%') and name like concat('%',#{name},'%')
+       where idcard like concat('%',#{idcard},'%') and name like concat('%',#{name},'%') and state like concat('%',#{state},'%')
     </select>
 
     <!--查询用户总数-->

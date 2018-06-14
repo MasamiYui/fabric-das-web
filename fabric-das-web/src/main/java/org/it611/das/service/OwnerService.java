@@ -11,7 +11,7 @@ import java.util.List;
 public interface OwnerService {
 
     //查询用户
-    HashMap<String, Object> selectUsers(int pageNum, int pageSize,String name,String idcard);
+    HashMap<String, Object> selectUsers(int pageNum, int pageSize,String name,String idcard,String state);
 
     //添加用户
     int addUser(UserVo userVo);

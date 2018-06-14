@@ -265,7 +265,7 @@
             txid: '',*/
         };
         //查询条件
-        var certId = $('#certId').val();
+        var certId = $.trim($('#certId').val());
         if (certId) {
             queryParams.certId = certId;
         }
