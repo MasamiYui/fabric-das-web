@@ -290,7 +290,7 @@
         var state = $('input[name="state"]:checked').val();
         var data = {id: id, state: state};
         $.ajax({
-            type: "get",
+            type: "post",
             url: "/asset/music",
             data: data,
             dataType: "json",

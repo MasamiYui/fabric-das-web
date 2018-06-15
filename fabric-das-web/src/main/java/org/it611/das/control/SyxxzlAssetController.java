@@ -16,14 +16,14 @@ public class SyxxzlAssetController {
     @Autowired
     private SyxxzlAssetService syxxzlAssetService;
 
-    //获取学历证书资产列表页面
+
     @RequestMapping(value = "/asset/syxxzl/index", method = RequestMethod.GET)
     public String degreeSyxxzlIndex(){
 
         return "index_syxxzlAssertList";
     }
 
-    //获取学历证书资产列表
+
     @RequestMapping(value = "/asset/syxxzls", method = RequestMethod.GET)
     @ResponseBody
     public JSONObject syxxzlList(int currentPage, int numberOfPages, String certId,String state){
@@ -31,7 +31,7 @@ public class SyxxzlAssetController {
         return syxxzlAssetService.syxxzlList(currentPage, numberOfPages, certId,state);
     }
 
-    //学位证书对比结果（页面）
+
     @RequestMapping(value = "/asset/syxxzl/{id}", method = RequestMethod.GET)
     public ModelAndView syxxzlDetail(@PathVariable String id) throws Exception {
 
