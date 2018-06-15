@@ -188,26 +188,30 @@
         var $this = $(this);
         $this.prop("disabled", true);
         if (validateForm()) {
-            $.ajax({
-                type: "post",
-                url: "",
-                data: "",
-                dataType: "json",
-                success: function (result) {
-                    if (result.code = 200) {
-                        callbackMsg("数据恢复成功");
-                    } else {
-                        callbackMsg("数据恢复失败");
-                    }
-                },
-                complete: function (XMLHttpRequest, textStatus) {
-                    $this.prop("disabled", false);
-                }
-            });
+            showPass();
         } else {
             $this.prop("disabled", false);
         }
     });
+
+    function sendRequest(){
+        $.ajax({
+            type: "post",
+            url: "",
+            data: "",
+            dataType: "json",
+            success: function (result) {
+                if (result.code = 200) {
+                    callbackMsg("数据恢复成功");
+                } else {
+                    callbackMsg("数据恢复失败");
+                }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                $this.prop("disabled", false);
+            }
+        });
+    }
 
     function showPass() {
         layui.use('layer', function () {
@@ -215,6 +219,7 @@
             layer.prompt({title: '请输入密码', formType: 1}, function (pass, index) {
                 layer.close(index);
                 layer.msg('输入的密码是：' + pass);
+                // sendRequest();   //输入密码后发送请求
             });
         });
     }
