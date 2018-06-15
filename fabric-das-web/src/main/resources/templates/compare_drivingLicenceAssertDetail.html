@@ -107,8 +107,13 @@
                                     <td th:text="${result.data.mongoData.drivingLicenceId}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.drivingLicenceId}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.drivingLicenceId}==${result.data.fabricData.drivingLicenceId}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.drivingLicenceId}!=${result.data.fabricData.drivingLicenceId}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.drivingLicenceId}==${result.data.fabricData.drivingLicenceId}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.drivingLicenceId}!=${result.data.fabricData.drivingLicenceId}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -116,8 +121,13 @@
                                     <td th:text="${result.data.mongoData.name}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.name}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.name}==${result.data.fabricData.name}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.name}!=${result.data.fabricData.name}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.name}==${result.data.fabricData.name}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.name}!=${result.data.fabricData.name}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -125,8 +135,13 @@
                                     <td th:text="${result.data.mongoData.sex}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.sex}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.sex}==${result.data.fabricData.sex}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.sex}!=${result.data.fabricData.sex}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.sex}==${result.data.fabricData.sex}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.sex}!=${result.data.fabricData.sex}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -134,8 +149,13 @@
                                     <td th:text="${result.data.mongoData.nation}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.nation}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.nation}==${result.data.fabricData.nation}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.nation}!=${result.data.fabricData.nation}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.nation}==${result.data.fabricData.nation}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.nation}!=${result.data.fabricData.nation}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -143,8 +163,13 @@
                                     <td th:text="${result.data.mongoData.address}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.address}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.address}==${result.data.fabricData.address}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.address}!=${result.data.fabricData.address}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.address}==${result.data.fabricData.address}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.address}!=${result.data.fabricData.address}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -152,8 +177,13 @@
                                     <td th:text="${result.data.mongoData.date}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.date}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.date}==${result.data.fabricData.date}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.date}!=${result.data.fabricData.date}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.date}==${result.data.fabricData.date}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.date}!=${result.data.fabricData.date}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -161,8 +191,13 @@
                                     <td th:text="${result.data.mongoData.lzDate}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.lzDate}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.lzDate}==${result.data.fabricData.lzDate}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.lzDate}!=${result.data.fabricData.lzDate}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.lzDate}==${result.data.fabricData.lzDate}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.lzDate}!=${result.data.fabricData.lzDate}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -170,8 +205,13 @@
                                     <td th:text="${result.data.mongoData.zjcx}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.zjcx}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.fabricData.zjcx}==${result.data.fabricData.zjcx}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.fabricData.zjcx}!=${result.data.fabricData.zjcx}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.fabricData.zjcx}==${result.data.fabricData.zjcx}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.fabricData.zjcx}!=${result.data.fabricData.zjcx}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -179,8 +219,13 @@
                                     <td th:text="${result.data.mongoData.startDate}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.startDate}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.startDate}==${result.data.fabricData.startDate}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.startDate}!=${result.data.fabricData.startDate}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.startDate}==${result.data.fabricData.startDate}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.startDate}!=${result.data.fabricData.startDate}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -188,8 +233,13 @@
                                     <td th:text="${result.data.mongoData.validTime}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.validTime}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.validTime}==${result.data.fabricData.validTime}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.validTime}!=${result.data.fabricData.validTime}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.validTime}==${result.data.fabricData.validTime}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.validTime}!=${result.data.fabricData.validTime}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -197,8 +247,13 @@
                                     <td th:text="${result.data.mongoData.filesHash}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.filesHash}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.filesHash}==${result.data.fabricData.filesHash}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.filesHash}!=${result.data.fabricData.filesHash}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.filesHash}==${result.data.fabricData.filesHash}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.filesHash}!=${result.data.fabricData.filesHash}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 </tbody>

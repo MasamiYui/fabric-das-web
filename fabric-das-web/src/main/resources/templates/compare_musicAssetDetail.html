@@ -105,28 +105,63 @@
                                 <tr>
                                     <td>标题</td>
                                     <td th:text="${result.data.mongoData.title}"></td>
-                                    <td th:text="(${result.data.mongoData.title}!='0')?${result.data.fabricData.title}:'无数据'"></td>
+                                    <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.title}:'无数据'"></td>
                                     <td>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.title}==${result.data.fabricData.title}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.title}!=${result.data.fabricData.title}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <!--
                                         <i th:if="${result.data.mongoData.title}==${result.data.fabricData.title}" class="glyphicon glyphicon-ok"></i>
                                         <i th:if="${result.data.mongoData.title}!=${result.data.fabricData.title}" class="glyphicon glyphicon-remove"></i>
+                                        -->
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>描述</td>
                                     <td th:text="${result.data.mongoData.des}"></td>
-                                    <td th:text="(${result.data.mongoData.des}!='0')?${result.data.fabricData.des}:'无数据'"></td>
+                                    <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.des}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.des}==${result.data.fabricData.des}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.des}!=${result.data.fabricData.des}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.des}==${result.data.fabricData.des}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.des}!=${result.data.fabricData.des}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <!--<i th:if="${result.data.mongoData.des}==${result.data.fabricData.des}" class="glyphicon glyphicon-ok"></i>
+                                        <i th:if="${result.data.mongoData.des}!=${result.data.fabricData.des}" class="glyphicon glyphicon-remove"></i>-->
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>作者</td>
                                     <td th:text="${result.data.mongoData.author}"></td>
-                                    <td th:text="(${result.data.mongoData.author}!='0')?${result.data.fabricData.author}:'无数据'"></td>
+                                    <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.author}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.author}==${result.data.fabricData.author}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.author}!=${result.data.fabricData.author}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.author}==${result.data.fabricData.author}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.author}!=${result.data.fabricData.author}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>文件指纹</td>
+                                    <td th:text="${result.data.mongoData.filesHash}"></td>
+                                    <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.filesHash}:'无数据'"></td>
+                                    <td>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.filesHash}==${result.data.fabricData.filesHash}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.filesHash}!=${result.data.fabricData.filesHash}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 </tbody>
