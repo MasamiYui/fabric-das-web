@@ -171,7 +171,7 @@
     function showPass() {
         layui.use('layer', function () {
             var layer = layui.layer;
-            layer.prompt({title: '请输入密码', formType: 1}, function (pass, index) {
+            layer.prompt({title: '请输入密码', formType: 1, offset: ['190px','500px']}, function (pass, index) {
                 layer.close(index);
                 layer.msg('输入的密码是：' + pass);
                 // sendRequest();   //输入密码后发送请求
@@ -181,8 +181,10 @@
 
 
     function validateForm() {
-        var blockStart = $("#blockStart").val();
-        var blockEnd = $("#blockEnd").val();
+        var blockStart = $.trim($("#blockStart").val());
+        var blockEnd = $.trim($("#blockEnd").val());
+        if(!blockStart) return false;
+        if(!blockEnd) return false;
         if (blockStart > blockEnd) {
             validateInfo();
             return false;
@@ -241,7 +243,7 @@
         });
     }
     function bakShow() {
-        $("#bakDiv").show();
+        $("#bakDiv").toggle();
     }
 
     layui.use('element', function () {
