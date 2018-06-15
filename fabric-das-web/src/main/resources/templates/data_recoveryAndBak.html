@@ -231,15 +231,15 @@
         layui.use('layer', function () {
             var layer = layui.layer;
             layer.open({
-                title: '结果'
-                , content: data
-                /*, end: function () {
-                    parent.close();
-                }*/
+                title: '结果信息',
+                content: '<h4 style="text-align: center;">' + data + '</h4>',
+                offset: '190px'
+                /* , end: function () {
+                     parent.close();
+                 }*/
             });
         });
     }
-
     function bakShow() {
         $("#bakDiv").show();
     }
