@@ -216,12 +216,13 @@
             },
             grid: {
                 left: '5%',
-                right: '5%',
+                right: '7%',
                 bottom: '10%',
                 top: '15%',
                 containLabel: true
             },
             toolbox: {
+                right:20,   //设置图标的位置
                 feature: {
                     magicType: {  //动态类型切换
                         show: true,
@@ -314,10 +315,24 @@
                 type: 'scroll',   //'plain'：普通图例，缺省就是普通图例。  'scroll'：可滚动翻页的图例。当图例数量较多时可以使用。
                 orient: 'vertical',
                 right: 10,
-                top: 20,
+                top: 60,
                 bottom: 20,
                 data: data.legendData
                 // selected: data.selected
+            },
+            toolbox: {
+                itemSize:20, //设置图标大小
+                right:20,   //设置图标的位置
+                feature: {
+                    saveAsImage: {
+                        show: true,                         //是否显示该工具。
+                        type: "png",                         //保存的图片格式。支持 'png' 和 'jpeg'。
+                        name: "pic1",                        //保存的文件名称，默认使用 title.text 作为名称
+                        backgroundColor: "#ffffff",        //保存的图片背景色，默认使用 backgroundColor，如果backgroundColor不存在的话会取白色
+                        title: "保存为图片",
+                        pixelRatio: 1                        //保存图片的分辨率比例，默认跟容器相同大小，如果需要保存更高分辨率的，可以设置为大于 1 的值，例如 2
+                    }
+                }
             },
             series: [
                 {
