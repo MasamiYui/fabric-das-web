@@ -13,7 +13,6 @@ public class HomeController {
 	//login页
     @RequestMapping("/login")
     public ModelAndView login(){
-
         ModelAndView view = new ModelAndView();
 		view.setViewName("index_login");
         return view;

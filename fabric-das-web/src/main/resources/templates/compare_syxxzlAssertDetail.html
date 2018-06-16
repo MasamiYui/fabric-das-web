@@ -407,7 +407,8 @@
             var layer = layui.layer;
             layer.open({
                 title: '结果'
-                , content: data
+                , content: '<p style="text-align: center;">' +data+'</p>'
+                ,offset: '160px'
                 , end: function () {
                     parent.close();
                 }
