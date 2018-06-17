@@ -70,8 +70,6 @@ public class MD5Util {
 
     /**
      * 校验加盐后是否和原文一致
-     * @author daniel
-     * @time 2016-6-11 下午8:45:39
      * @param password
      * @param md5
      * @return

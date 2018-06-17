@@ -199,6 +199,22 @@
                 data: data["degreeCertNum"]
             },
             {
+                name: '实用新型专利',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth:true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["syxxzlNum"]
+            },
+            {
+                name: '机动车驾驶证',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth:true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["drivingLicenceNum"]
+            },
+            {
                 name: '视频',
                 type: 'line',
                 symbol: 'none',  //这句就是去掉点的
@@ -223,7 +239,7 @@
                 data: data["photoNum"]
             }
         ];
-        var legendData = ['学位证书', '视频', '音频', '图片'];
+        var legendData = ['学位证书', '实用新型专利','机动车驾驶证', '视频', '音频', '图片'];
         var xAxisData= timeArr;
         var data = {
             legendData: legendData,
@@ -348,6 +364,22 @@
                 data: data["degreeCertNum"]
             },
             {
+                name: '实用新型专利',
+                type: 'line',
+                // symbol: 'none',  //这句就是去掉点的
+                smooth:true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["syxxzlNum"]
+            },
+            {
+                name: '机动车驾驶证',
+                type: 'line',
+                // symbol: 'none',  //这句就是去掉点的
+                smooth:true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["drivingLicenceNum"]
+            },
+            {
                 name: '视频',
                 type: 'line',
                 // symbol: 'none',  //这句就是去掉点的
@@ -372,7 +404,7 @@
                 data: data["photoNum"]
             }
         ];
-        var legendData = ['学位证书', '视频', '音频', '图片'];
+        var legendData = ['学位证书', '实用新型专利','机动车驾驶证','视频', '音频', '图片'];
         var xAxisData= timeArr;
         var data = {
             legendData: legendData,

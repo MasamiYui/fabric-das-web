@@ -96,6 +96,8 @@
                                     <select id="assetType" class="form-control">
                                         <optgroup label="文本">
                                             <option value="学位证书">学位证书</option>
+                                            <option value="实用新型专利">实用新型专利</option>
+                                            <option value="机动车驾驶证">机动车驾驶证</option>
                                         </optgroup>
                                         <option value="音频">音频</option>
                                         <option value="视频">视频</option>
@@ -183,11 +185,14 @@
         option = null;
         var seriesData = [
                             {name: '学位证书资产', value: data["degreeCertNum"]},
+                            {name: '实用新型专利', value: data["syxxzlNum"]},//新增
+                            {name: '机动车驾驶证', value: data["drivingLicenceNum"]},//新增
                             {name: '视频资产', value: data["videoNum"]},
-                            { name: '音频资产', value: data["audioNum"]},
+                            {name: '音频资产', value: data["audioNum"]},
                             {name: '图片资产', value: data["photoNum"]}
+
                             ];
-        var legendData = ['学位证书资产', '视频资产', '音频资产', '图片资产'];
+        var legendData = ['学位证书资产', '实用新型专利','机动车驾驶证','视频资产', '音频资产', '图片资产'];
 
         var data = {
             legendData: legendData,

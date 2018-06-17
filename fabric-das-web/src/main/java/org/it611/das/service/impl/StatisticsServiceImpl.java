@@ -54,7 +54,9 @@ public class StatisticsServiceImpl implements StatisticsService {
                 .sum("audioNumReviewed").as("audioNum")
                 .sum("videoNumReviewed").as("videoNum")
                 .sum("photoNumReviewed").as("photoNum")
-                .sum("degreeCertNumReviewed").as("degreeCertNum");
+                .sum("degreeCertNumReviewed").as("degreeCertNum")
+                .sum("syxxzlNumReviewed").as("syxxzlNum")
+                .sum("drivingLicenceNumReviewed").as("drivingLicenceNum");
 /*        GroupOperation audioGroupOperation = Aggregation.group().sum("audioNum").as("audioNum");
         GroupOperation degreeCertGroupOperation = Aggregation.group().sum("degreeCertNum").as("degreeCertNum");
         GroupOperation photoGroupOperation = Aggregation.group().sum("photoNum").as("photoNum");*/
@@ -82,6 +84,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             statisticsMap.put("videoNum", "0");
             statisticsMap.put("audioNum", "0");
             statisticsMap.put("photoNum", "0");
+            statisticsMap.put("syxxzlNum", "0");
+            statisticsMap.put("drivingLicenceNum", "0");
             System.out.println(aggregationResults.getMappedResults());
             return statisticsMap;
         }
@@ -90,6 +94,8 @@ public class StatisticsServiceImpl implements StatisticsService {
         statisticsMap.put("videoNum", queryMap.get("videoNum"));
         statisticsMap.put("audioNum", queryMap.get("audioNum"));
         statisticsMap.put("photoNum", queryMap.get("photoNum"));
+        statisticsMap.put("syxxzlNum", queryMap.get("syxxzlNum"));
+        statisticsMap.put("drivingLicenceNum", queryMap.get("drivingLicenceNum"));
         System.out.println(aggregationResults.getMappedResults());
         return statisticsMap;
 
@@ -292,26 +298,39 @@ public class StatisticsServiceImpl implements StatisticsService {
         ArrayList videoNumTotalArr = new ArrayList<Integer>();
         ArrayList audioNumTotalArr = new ArrayList<Integer>();
         ArrayList photoNumTotalArr = new ArrayList<Integer>();
+        ArrayList syxxzlNumTotalArr = new ArrayList<Integer>();
+        ArrayList drivingLicenceNumTotalArr = new ArrayList<Integer>();
+
 
         ArrayList degreeCertNumUnReviewedArr = new ArrayList<Integer>();
         ArrayList videoNumUnReviewedArr = new ArrayList<Integer>();
         ArrayList audioNumUnReviewedArr = new ArrayList<Integer>();
         ArrayList photoNumUnReviewedArr = new ArrayList<Integer>();
+        ArrayList syxxzlNumUnReviewedArr = new ArrayList<Integer>();
+        ArrayList drivingLicenceNumUnReviewedArr = new ArrayList<Integer>();
 
         ArrayList degreeCertNumReviewedArr = new ArrayList<Integer>();
         ArrayList videoNumReviewedArr = new ArrayList<Integer>();
         ArrayList audioNumReviewedArr = new ArrayList<Integer>();
         ArrayList photoNumReviewedArr = new ArrayList<Integer>();
+        ArrayList syxxzlNumReviewedArr = new ArrayList<Integer>();
+        ArrayList drivingLicenceNumReviewedArr = new ArrayList<Integer>();
 
         ArrayList degreeCertNumUnPassArr = new ArrayList<Integer>();
         ArrayList videoNumUnPassArr = new ArrayList<Integer>();
         ArrayList audioNumUnPassArr = new ArrayList<Integer>();
         ArrayList photoNumUnPassArr = new ArrayList<Integer>();
+        ArrayList syxxzlNumUnPassArr = new ArrayList<Integer>();
+        ArrayList drivingLicenceNumUnPassArr = new ArrayList<Integer>();
 
         ArrayList degreeCertNumCanceledArr = new ArrayList<Integer>();
         ArrayList videoNumCanceledArr = new ArrayList<Integer>();
         ArrayList audioNumCanceledArr = new ArrayList<Integer>();
         ArrayList photoNumCanceledArr = new ArrayList<Integer>();
+        ArrayList syxxzlNumCanceledArr = new ArrayList<Integer>();
+        ArrayList drivingLicenceNumCanceledArr = new ArrayList<Integer>();
+
+
 
         List<BasicDBObject> list = mongoTemplate.aggregate(aggregation, collectName, BasicDBObject.class).getMappedResults();
         for (int i = 0; i < list.size(); i++) {
@@ -320,27 +339,47 @@ public class StatisticsServiceImpl implements StatisticsService {
             videoNumTotalArr.add(data.get("videoNumTotal"));
             audioNumTotalArr.add(data.get("audioNumTotal"));
             photoNumTotalArr.add(data.get("photoNumTotal"));
+            //新增
+            syxxzlNumTotalArr.add(data.get("syxxzlNumTotal"));
+            drivingLicenceNumTotalArr.add(data.get("drivingLicenceNumTotal"));
+
 
             degreeCertNumUnReviewedArr.add(data.get("degreeCertNumUnReviewed"));
             videoNumUnReviewedArr.add(data.get("videoNumUnReviewed"));
             audioNumUnReviewedArr.add(data.get("audioNumUnReviewed"));
             photoNumUnReviewedArr.add(data.get("photoNumUnReviewed"));
+            //新增
+            syxxzlNumUnReviewedArr.add(data.get("syxxzlNumUnReviewed"));
+            drivingLicenceNumUnReviewedArr.add(data.get("drivingLicenceNumUnReviewed"));
+
+
 
             degreeCertNumReviewedArr.add(data.get("degreeCertNumReviewed"));
             videoNumReviewedArr.add(data.get("videoNumReviewed"));
             audioNumReviewedArr.add(data.get("audioNumReviewed"));
             photoNumReviewedArr.add(data.get("photoNumReviewed"));
+            //新增
+            syxxzlNumReviewedArr.add(data.get("syxxzlNumReviewed"));
+            drivingLicenceNumReviewedArr.add(data.get("drivingLicenceNumReviewed"));
+
 
             degreeCertNumUnPassArr.add(data.get("degreeCertNumUnPass"));
             videoNumUnPassArr.add(data.get("videoNumUnPass"));
             audioNumUnPassArr.add(data.get("audioNumUnPass"));
             photoNumUnPassArr.add(data.get("photoNumUnPass"));
+            //新增
+            syxxzlNumUnPassArr.add(data.get("syxxzlNumUnPass"));
+            drivingLicenceNumUnPassArr.add(data.get("drivingLicenceNumUnPass"));
 
 
             degreeCertNumCanceledArr.add(data.get("degreeCertNumCanceled"));
             videoNumCanceledArr.add(data.get("videoNumCanceled"));
             audioNumCanceledArr.add(data.get("audioNumCanceled"));
             photoNumCanceledArr.add(data.get("photoNumCanceled"));
+            //新增
+            syxxzlNumCanceledArr.add(data.get("syxxzlNumCanceled"));
+            drivingLicenceNumCanceledArr.add(data.get("drivingLicenceNumCanceled"));
+
         }
 
         HashMap<String, Object> resultMap = new HashMap();
@@ -350,36 +389,48 @@ public class StatisticsServiceImpl implements StatisticsService {
                 resultMap.put("videoNum", videoNumTotalArr);
                 resultMap.put("audioNum", audioNumTotalArr);
                 resultMap.put("photoNum", photoNumTotalArr);
+                resultMap.put("syxxzlNum", syxxzlNumTotalArr);
+                resultMap.put("drivingLicenceNum", drivingLicenceNumTotalArr);
                 break;
             case "0":
                 resultMap.put("degreeCertNum", degreeCertNumUnReviewedArr);
                 resultMap.put("videoNum", videoNumUnReviewedArr);
                 resultMap.put("audioNum", audioNumUnReviewedArr);
                 resultMap.put("photoNum", photoNumUnReviewedArr);
+                resultMap.put("syxxzlNum", syxxzlNumTotalArr);
+                resultMap.put("drivingLicenceNum", drivingLicenceNumTotalArr);
                 break;
             case "1":
                 resultMap.put("degreeCertNum", degreeCertNumReviewedArr);
                 resultMap.put("videoNum", videoNumReviewedArr);
                 resultMap.put("audioNum", audioNumReviewedArr);
                 resultMap.put("photoNum", photoNumReviewedArr);
+                resultMap.put("syxxzlNum", syxxzlNumTotalArr);
+                resultMap.put("drivingLicenceNum", drivingLicenceNumTotalArr);
                 break;
             case "2":
                 resultMap.put("degreeCertNum", degreeCertNumUnPassArr);
                 resultMap.put("videoNum", videoNumUnPassArr);
                 resultMap.put("audioNum", audioNumUnPassArr);
                 resultMap.put("photoNum", photoNumUnPassArr);
+                resultMap.put("syxxzlNum", syxxzlNumTotalArr);
+                resultMap.put("drivingLicenceNum", drivingLicenceNumTotalArr);
                 break;
             case "3":
                 resultMap.put("degreeCertNum", degreeCertNumCanceledArr);
                 resultMap.put("videoNum", videoNumCanceledArr);
                 resultMap.put("audioNum", audioNumCanceledArr);
                 resultMap.put("photoNum", photoNumCanceledArr);
+                resultMap.put("syxxzlNum", syxxzlNumTotalArr);
+                resultMap.put("drivingLicenceNum", drivingLicenceNumTotalArr);
                 break;
             default:
                 resultMap.put("degreeCertNum", new ArrayList(0));
                 resultMap.put("videoNum", new ArrayList(0));
                 resultMap.put("audioNum", new ArrayList(0));
                 resultMap.put("photoNum", new ArrayList(0));
+                resultMap.put("syxxzlNum", syxxzlNumTotalArr);
+                resultMap.put("drivingLicenceNum", drivingLicenceNumTotalArr);
                 break;
         }
         return resultMap;
@@ -478,11 +529,51 @@ public class StatisticsServiceImpl implements StatisticsService {
         query.addCriteria(Criteria.where("state").is("3"));
         long photoNumCanceled = mongoTemplate.count(query,"photo");
 
+        //查询实用新型专利信息
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("0"));
+        long syxxzlNumUnReviewed  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("1"));
+        long syxxzlNumReviewed  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("2"));
+        long syxxzlNumUnPass  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("3"));
+        long syxxzlNumCanceled = mongoTemplate.count(query,"photo");
+
+
+        //查询驾驶证信息
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("0"));
+        long drivingLicenceNumUnReviewed  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("1"));
+        long drivingLicenceNumReviewed  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("2"));
+        long drivingLicenceNumUnPass  = mongoTemplate.count(query,"photo");
+        query = new Query();
+        query.addCriteria(Criteria.where("ownerId").is(userId));
+        query.addCriteria(Criteria.where("state").is("3"));
+        long drivingLicenceNumCanceled = mongoTemplate.count(query,"photo");
+
+
         //包装信息
         ArrayList<Long> degreeCertNumArr = new ArrayList();
         ArrayList<Long> videoCertNumArr = new ArrayList();
         ArrayList<Long> audioNumArr = new ArrayList();
         ArrayList<Long> photoNumArr = new ArrayList();
+        ArrayList<Long> syxxzlNumArr = new ArrayList();
+        ArrayList<Long> drivingLicenceNumArr = new ArrayList();
 
         degreeCertNumArr.add(degreeCertNumUnReviewed);
         degreeCertNumArr.add(degreeCertNumReviewed);
@@ -504,12 +595,24 @@ public class StatisticsServiceImpl implements StatisticsService {
         photoNumArr.add(photoNumUnPass);
         photoNumArr.add(photoNumCanceled);
 
+        syxxzlNumArr.add(syxxzlNumUnReviewed);
+        syxxzlNumArr.add(syxxzlNumReviewed);
+        syxxzlNumArr.add(syxxzlNumUnPass);
+        syxxzlNumArr.add(syxxzlNumCanceled);
+
+        drivingLicenceNumArr.add(drivingLicenceNumUnReviewed);
+        drivingLicenceNumArr.add(drivingLicenceNumReviewed);
+        drivingLicenceNumArr.add(drivingLicenceNumUnPass);
+        drivingLicenceNumArr.add(drivingLicenceNumCanceled);
+
         //返回信息
         HashMap<String, Object> resultMap = new HashMap();
         resultMap.put("degreeCertNum", degreeCertNumArr);
         resultMap.put("videoCertNum", videoCertNumArr);
         resultMap.put("audioNum", audioNumArr);
         resultMap.put("photoNum", degreeCertNumArr);
+        resultMap.put("syxxzlNum",syxxzlNumArr);
+        resultMap.put("drivingLicenceNum", drivingLicenceNumArr);
 
         return resultMap;
     }
@@ -527,6 +630,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             case "-1":
                 groupOperation = Aggregation.group()
                         .sum("degreeCertNumTotal").as("degreeCertNum")
+                        .sum("syxxzlNumTotal").as("syxxzlNum")
+                        .sum("drivingLicenceNumTotal").as("drivingLicenceNum")
                         .sum("videoNumTotal").as("videoNum")
                         .sum("audioNumTotal").as("audioNum")
                         .sum("photoNumTotal").as("photoNum");
@@ -534,6 +639,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             case "0":
                 groupOperation = Aggregation.group()
                         .sum("degreeCertNumUnReviewed").as("degreeCertNum")
+                        .sum("syxxzlNumUnReviewed").as("syxxzlNum")
+                        .sum("drivingLicenceNumUnReviewed").as("drivingLicenceNum")
                         .sum("videoNumUnReviewed").as("videoNum")
                         .sum("audioNumUnReviewed").as("audioNum")
                         .sum("photoNumUnReviewed").as("photoNum");
@@ -541,6 +648,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             case "1":
                 groupOperation = Aggregation.group()
                         .sum("degreeCertNumReviewed").as("degreeCertNum")
+                        .sum("syxxzlNumReviewed").as("syxxzlNum")
+                        .sum("drivingLicenceNumReviewed").as("drivingLicenceNum")
                         .sum("videoNumReviewed").as("videoNum")
                         .sum("audioNumReviewed").as("audioNum")
                         .sum("photoNumReviewed").as("photoNum");
@@ -548,6 +657,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             case "2":
                 groupOperation = Aggregation.group()
                         .sum("degreeCertNumUnPass").as("degreeCertNum")
+                        .sum("syxxzlNumUnPassl").as("syxxzlNum")
+                        .sum("drivingLicenceNumUnPass").as("drivingLicenceNum")
                         .sum("videoNumUnPass").as("videoNum")
                         .sum("audioNumUnPass").as("audioNum")
                         .sum("photoNumUnPass").as("photoNum");
@@ -555,6 +666,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             case "3":
                 groupOperation = Aggregation.group()
                         .sum("degreeCertNumCanceled").as("degreeCertNum")
+                        .sum("syxxzlNumCanceled").as("syxxzlNum")
+                        .sum("drivingLicenceNumCanceled").as("drivingLicenceNum")
                         .sum("videoNumCanceled").as("videoNum")
                         .sum("audioNumCanceled").as("audioNum")
                         .sum("photoNumCanceled").as("photoNum");
@@ -584,6 +697,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             statisticsMap.put("videoNum", "0");
             statisticsMap.put("audioNum", "0");
             statisticsMap.put("photoNum", "0");
+            statisticsMap.put("syxxzlNum", "0");
+            statisticsMap.put("drivingLicenceNum", "0");
             System.out.println(aggregationResults.getMappedResults());
             return statisticsMap;
         }
@@ -592,6 +707,8 @@ public class StatisticsServiceImpl implements StatisticsService {
         statisticsMap.put("videoNum", queryMap.get("videoNum"));
         statisticsMap.put("audioNum", queryMap.get("audioNum"));
         statisticsMap.put("photoNum", queryMap.get("photoNum"));
+        statisticsMap.put("syxxzlNum", queryMap.get("syxxzlNum"));
+        statisticsMap.put("drivingLicenceNum", queryMap.get("drivingLicenceNum"));
         System.out.println(aggregationResults.getMappedResults());
         return statisticsMap;
     }

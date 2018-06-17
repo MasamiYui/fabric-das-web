@@ -1,10 +1,7 @@
 package org.it611.das.control;
 
 import com.alibaba.fastjson.JSONObject;
-import org.it611.das.domain.DegreeCertificate;
-import org.it611.das.domain.Music;
-import org.it611.das.domain.Photo;
-import org.it611.das.domain.Video;
+import org.it611.das.domain.*;
 import org.it611.das.service.StatisticsService;
 import org.it611.das.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +57,12 @@ public class StatisticsController {
                 break;
             case "学位证书":
                 clz = DegreeCertificate.class;
+                break;
+            case "实用新型专利":
+                clz = Syxxzl.class;
+                break;
+            case "机动车驾驶证":
+                clz = DrivingLicence.class;
                 break;
             default:
                 return ResponseUtil.constructResponse(400, "unknown asset type.", null);

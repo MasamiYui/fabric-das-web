@@ -158,6 +158,7 @@
 
     //第一幅条形图展示
     function lineFirstShow(data) {
+        console.log(data);
         var dom = document.getElementById("containerFirst");
         var myChart = echarts.init(dom);
         var seriesData = [
@@ -168,6 +169,22 @@
                 smooth: true,  //这句就是让曲线变平滑的
                 stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
                 data: data["degreeCertNum"]
+            },
+            {
+                name: '实用新型专利',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth: true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["syxxzlNum"]
+            },
+            {
+                name: '机动车驾驶证',
+                type: 'line',
+                symbol: 'none',  //这句就是去掉点的
+                smooth: true,  //这句就是让曲线变平滑的
+                stack: '总量',  //数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+                data: data["drivingLicenceNum"]
             },
             {
                 name: '视频',
@@ -194,7 +211,7 @@
                 data: data["photoNum"]
             }
         ];
-        var legendData = ['学位证书', '视频', '音频', '图片'];
+        var legendData = ['学位证书', '实用新型专利','机动车驾驶证','视频', '音频', '图片'];
         var xAxisData = ['未审核', '已审核', '不通过', '已注销'];
         var data = {
             legendData: legendData,
@@ -264,11 +281,13 @@
         var videoCertNum = data["videoCertNum"];
         var audioNum = data["audioNum"];
         var photoNum = data["photoNum"];
+        var syxxzlNum = data["syxxzlNum"];
+        var drivingLicenceNum = data["drivingLicenceNum"];
 
-        var reviewed = degreeCertNum[0] + videoCertNum[0] + audioNum[0] + photoNum[0];
-        var unreviewed = degreeCertNum[1] + videoCertNum[1] + audioNum[1] + photoNum[1];
-        var canceled = degreeCertNum[2] + videoCertNum[2] + audioNum[2] + photoNum[2];
-        var unpass = degreeCertNum[3] + videoCertNum[3] + audioNum[3] + photoNum[3];
+        var reviewed = degreeCertNum[0] + videoCertNum[0] + audioNum[0] + photoNum[0]+ syxxzlNum[0]+drivingLicenceNum[0];
+        var unreviewed = degreeCertNum[1] + videoCertNum[1] + audioNum[1] + photoNum[1]+ syxxzlNum[1]+drivingLicenceNum[1];
+        var canceled = degreeCertNum[2] + videoCertNum[2] + audioNum[2] + photoNum[2]+ syxxzlNum[2]+drivingLicenceNum[2];
+        var unpass = degreeCertNum[3] + videoCertNum[3] + audioNum[3] + photoNum[3]+ syxxzlNum[3]+drivingLicenceNum[3];
 
         var dom = document.getElementById("containerSecond");
         var myChart = echarts.init(dom);
