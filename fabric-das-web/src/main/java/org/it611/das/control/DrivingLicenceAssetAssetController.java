@@ -24,7 +24,7 @@ public class DrivingLicenceAssetAssetController {
     }
 
     //获取学历证书资产列表
-    @RequestMapping(value = "/asset/drivingLicences", method = RequestMethod.GET)
+    @RequestMapping(value = "/asset/drivingLicences") /*, method = RequestMethod.GET*/
     @ResponseBody
     public JSONObject drivingLicenceList(int currentPage, int numberOfPages, String certId,String state){
 

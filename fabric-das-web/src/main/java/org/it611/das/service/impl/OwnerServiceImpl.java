@@ -193,7 +193,9 @@ public class OwnerServiceImpl implements OwnerService {
         HashMap dataMap = new HashMap<String, Object>();
         PageHelper.startPage(currentPage, numberOfPages);
         List<HashMap> result = new ArrayList<HashMap>();
+        List<HashMap> CallBackResult = new ArrayList<HashMap>();
         Long resultTotal;
+
 
         //企业用户类型为0
         List<HashMap> resultCompanyUsers = companyDao.queryCompanyUsers(searchString);
@@ -214,7 +216,15 @@ public class OwnerServiceImpl implements OwnerService {
         result.addAll(resultCompanyUsers);
         resultTotal = totalCommonUsers + totalCompanyUsers;
 
-        dataMap.put("rows", result);
+        //截取返回数据
+        int resultSize = result.size()-1;
+        int start=(currentPage - 1) * numberOfPages;
+        for(int i=0;i<numberOfPages;i++){
+            if((start+i)>resultSize) break;
+            CallBackResult.add(result.get(start+i));
+        }
+
+        dataMap.put("rows", CallBackResult);
         dataMap.put("total", resultTotal);
         return dataMap;
     }

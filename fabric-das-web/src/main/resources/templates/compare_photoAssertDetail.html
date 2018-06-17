@@ -146,8 +146,13 @@
                                 </tr>
                                 <tr>
                                     <td>文件指纹</td>
+                                   <!--
                                     <td th:text="${result.data.mongoData.filesHash}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.filesHash}:'无数据'"></td>
+                                    -->
+                                    <td id="mongoFileHash"></td>
+                                    <td id="fabricFileHash"></td>
+
                                     <td>
                                         <th:block  th:if="${result.data.mongoData.state} eq 0">
                                             <i  class="glyphicon glyphicon-remove"></i>
@@ -296,6 +301,8 @@
 <script th:inline="javascript">
     $(document).ready(function () {
         photoShow();
+        mongoFile();
+        fabricFile();
     });
 
     function photoShow(){
@@ -363,6 +370,46 @@
     }
 
 
+
+    function mongoFile() {
+        var filehash = [[${result.data.mongoData.filesHash}]];
+        if(!filehash) {
+            $("#mongoFileHash").html("");
+            return;
+        }
+        if(filehash.charAt(filehash.length-1)==','){
+            filehash = filehash.substring(0, filehash.length - 1);
+        }
+        var hashArr = filehash.split(",");
+        var htm = "";
+        for(var j in hashArr){
+            htm = htm+hashArr[j]+'<br/>';
+        }
+        $("#mongoFileHash").html(htm);
+    }
+
+    function fabricFile() {
+        var state=[[${result.data.mongoData.state}]];
+        if(state=='0'){
+            $("#fabricFileHash").html("无数据");
+            return;
+        }
+        var filehash = [[${result.data.fabricData.filesHash}]];
+        if(!filehash) {
+            $("#fabricFileHash").html("");
+            return;
+        }
+        if(filehash.charAt(filehash.length-1)==','){
+            filehash = filehash.substring(0, filehash.length - 1);
+        }
+        var hashArr = filehash.split(",");
+        var htm = "";
+        for(var j in hashArr){
+            htm = htm+hashArr[j]+'<br/>';
+        }
+
+        $("#fabricFileHash").html(htm);
+    }
 
 
 </script>

@@ -187,7 +187,6 @@
                         numberOfPages: numberOfPages,		 //每页显示的页码
                         totalPages: totalPages,           //设置总页数
                         onPageClicked: function (event, originalEvent, type, page) { //异步换页
-                            //alert("呵呵：：" + page );
                             var subParams = getParams();
                             subParams.currentPage = page;
                             requestResult("/asset/musics", subParams);  //这里要写清楚请求的接口

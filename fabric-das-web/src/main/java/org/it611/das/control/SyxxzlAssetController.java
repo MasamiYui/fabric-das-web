@@ -24,7 +24,7 @@ public class SyxxzlAssetController {
     }
 
 
-    @RequestMapping(value = "/asset/syxxzls", method = RequestMethod.GET)
+    @RequestMapping(value = "/asset/syxxzls")  /*, method = RequestMethod.GET*/
     @ResponseBody
     public JSONObject syxxzlList(int currentPage, int numberOfPages, String certId,String state){
 

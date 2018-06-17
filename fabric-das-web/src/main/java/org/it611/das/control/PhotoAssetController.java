@@ -24,7 +24,7 @@ public class PhotoAssetController {
     }
 
     //获取图片资产列表
-    @RequestMapping(value = "/asset/photos", method = RequestMethod.GET)
+    @RequestMapping(value = "/asset/photos")  /*, method = RequestMethod.GET*/
     @ResponseBody
     public JSONObject photoAssetList(int currentPage, int numberOfPages, String title,String state){
 

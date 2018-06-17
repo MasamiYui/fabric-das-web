@@ -24,7 +24,7 @@ public class DegreeCertificationAssetController {
     }
 
     //获取学历证书资产列表
-    @RequestMapping(value = "/asset/degreeCertifications", method = RequestMethod.GET)
+    @RequestMapping(value = "/asset/degreeCertifications")  /*, method = RequestMethod.GET*/
     @ResponseBody
     public JSONObject degreeCertificationList(int currentPage, int numberOfPages, String certId,String state){
 

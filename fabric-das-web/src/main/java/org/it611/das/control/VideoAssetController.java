@@ -28,7 +28,7 @@ public class VideoAssetController {
     }
 
     //获取Video资产列表
-    @RequestMapping(value = "/asset/videos", method = RequestMethod.GET)
+    @RequestMapping(value = "/asset/videos")  /* , method = RequestMethod.GET*/
     @ResponseBody
     public JSONObject videoAssetList(int currentPage, int numberOfPages, String title,String state){
 

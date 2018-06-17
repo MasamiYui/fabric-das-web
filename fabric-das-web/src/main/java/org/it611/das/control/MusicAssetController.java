@@ -26,7 +26,7 @@ public class MusicAssetController {
     }
 
     //获取Music资产列表
-    @RequestMapping(value = "/asset/musics", method = RequestMethod.GET)
+    @RequestMapping(value = "/asset/musics")  /*, method = RequestMethod.GET*/
     @ResponseBody
     public JSONObject musicAssetList(int currentPage, int numberOfPages, String title,String state){
 
