@@ -36,6 +36,7 @@
     <!--引入swiper-->
     <link th:href="@{/swiper/swiper.min.css}" rel="stylesheet" type="text/css"/>
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -106,8 +107,8 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-
             </div>
+
 
            <!-- <div class="col-lg-4">
                 <div class="panel panel-default">
@@ -206,7 +207,7 @@
         loop: true,
         //autoplay:true,
         autoplay: {
-            delay: 2000,
+            delay: 4000,
             stopOnLastSlide: false,
             disableOnInteraction: true,
         },
@@ -219,136 +220,6 @@
             prevEl: '.swiper-button-prev',
         },
     });
-
-
-
-
-    /*  $(document).keyup(function (event) {
-        if (event.keyCode == 13) {
-            search();
-        }
-    });
-    $(document).ready(function () {
-        search();
-    });
-*/
- /*   function search() {
-        var queryParams = getParams();
-        var numberOfPages = queryParams.numberOfPages;
-        var currentPage = queryParams.currentPage;
-        console.log("页面加载完后：：" + JSON.stringify(queryParams));
-        $.ajax({
-            type: "post",
-            url: "/owner/company/list",
-            data: queryParams,
-            dataType: "json",
-            success: function (result) {
-                if (result.code == 200) {
-                    var items = $('#items');
-                    items.empty();
-                    var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + row.name + '</td>'
-                            + '<td>' + row.type + '</td>'
-                            + '<td>' + row.address + '</td>'
-                            + '<td>' + row.legal_representative + '</td>'
-                            + '<td>' + row.registered_capital + '</td>'
-                            + '<td>' + row.submit_time + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
-                    var total = result.data.total;
-                    $('#pageTotal').text(total);
-
-                    var element = $('#pageU');
-                    var totalPages = Math.ceil(total / queryParams.numberOfPages); //共有的记录数
-                    var options = {
-                        bootstrapMajorVersion: 3, //bootstrap的版本要求
-                        currentPage: currentPage,          //设置当前页
-                        numberOfPages: numberOfPages,		 //每页显示的页码
-                        totalPages: totalPages,           //设置总页数
-                        onPageClicked: function (event, originalEvent, type, page) { //异步换页
-                            //alert("呵呵：：" + page );
-                            var subParams = getParams();
-                            subParams.currentPage = page;
-                            requestResult("/owner/company/list", subParams);  //这里要写清楚请求的接口
-                        }
-                    };
-                    element.bootstrapPaginator(options);
-
-                }
-            }
-        });
-    }
-*/
-    //针对点击每一页的刷新
-   /* function requestResult(url, subParams) {
-        console.log("点击页码时：：" + JSON.stringify(subParams));
-        $.ajax({
-            type: "post",
-            url: url,
-            data: subParams,
-            dataType: "json",
-            success: function (result) {
-                if (result.code == 200) {
-                    var items = $('#items');
-                    items.empty();
-                    var rows = result.data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-                        var row = rows[i];
-                        var html = '<tr>'
-                            + '<td>' + row.id + '</td>'
-                            + '<td>' + row.name + '</td>'
-                            + '<td>' + row.type + '</td>'
-                            + '<td>' + row.address + '</td>'
-                            + '<td>' + row.registered_capital + '</td>'
-                            + '<td>' + row.legal_representative + '</td>'
-                            + '<td>' + row.submit_time + '</td>'
-                            + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">查看</a></td>'
-                            + '</tr>';
-                        items.append(html);
-                    }
-                }
-            }
-        });
-    }*/
-
-    //获取请求条件
-    /*function getParams() {
-        var queryParams = {
-            numberOfPages: 10,   //每页的记录数
-            currentPage: 1,        //当前页码
-            id: '',
-            name: '',
-            address: '',
-            legalRepresentative: ''
-        };
-        //查询条件
-        var name = $('#name').val();
-        if (name) {
-            queryParams.name = name;
-        }
-        var id = $('#id').val();
-        if (id) {
-            queryParams.id =id;
-        }
-        var address = $('#address').val();
-        if (address) {
-            queryParams.address =address;
-        }
-        var legalRepresentative = $('#legalRepresentative').val();
-        if (legalRepresentative) {
-            queryParams.legalRepresentative =legalRepresentative;
-        }
-        return queryParams;
-    }
-*/
-
-
 
 </script>
 
