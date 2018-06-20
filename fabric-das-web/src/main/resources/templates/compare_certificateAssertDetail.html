@@ -177,8 +177,13 @@
                                     <td th:text="${result.data.mongoData.degreeName}"></td>
                                     <td th:text="(${result.data.mongoData.state}!='0')?${result.data.fabricData.degreeName}:'无数据'"></td>
                                     <td>
-                                        <i th:if="${result.data.mongoData.degreeName}==${result.data.fabricData.degreeName}" class="glyphicon glyphicon-ok"></i>
-                                        <i th:if="${result.data.mongoData.degreeName}!=${result.data.fabricData.degreeName}" class="glyphicon glyphicon-remove"></i>
+                                        <th:block  th:if="${result.data.mongoData.state} eq 0">
+                                            <i  class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
+                                        <th:block  th:if="${result.data.mongoData.state} ne 0">
+                                            <i th:if="${result.data.mongoData.degreeName}==${result.data.fabricData.degreeName}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.degreeName}!=${result.data.fabricData.degreeName}" class="glyphicon glyphicon-remove"></i>
+                                        </th:block>
                                     </td>
                                 </tr>
                                 <tr>
@@ -190,8 +195,8 @@
                                             <i  class="glyphicon glyphicon-remove"></i>
                                         </th:block>
                                         <th:block  th:if="${result.data.mongoData.state} ne 0">
-                                            <i th:if="${result.data.fabricData.certId}==${result.data.fabricData.certId}" class="glyphicon glyphicon-ok"></i>
-                                            <i th:if="${result.data.fabricData.certId}!=${result.data.fabricData.certId}" class="glyphicon glyphicon-remove"></i>
+                                            <i th:if="${result.data.mongoData.certId}==${result.data.fabricData.certId}" class="glyphicon glyphicon-ok"></i>
+                                            <i th:if="${result.data.mongoData.certId}!=${result.data.fabricData.certId}" class="glyphicon glyphicon-remove"></i>
                                         </th:block>
                                     </td>
                                 </tr>
