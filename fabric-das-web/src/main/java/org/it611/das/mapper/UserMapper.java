@@ -22,7 +22,7 @@ public interface UserMapper {
     List<HashMap> selectUsersByNameAndIdCard(@Param("name")String name, @Param("idcard")String idcard,@Param("state") String state);
 
     //查询用户总数
-    Long selectTotal(@Param("name")String name, @Param("idcard")String id);
+    Long selectTotal(@Param("name")String name, @Param("idcard")String id,@Param("state")String state);
 
     //删除用户通过Id
     Integer deleteUserById(@Param("id")String id);

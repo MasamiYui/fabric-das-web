@@ -52,7 +52,7 @@ public class OwnerServiceImpl implements OwnerService {
         HashMap data = new HashMap<String, Object>();
         PageHelper.startPage(pageNum, pageSize);
         List<HashMap> resultData = userDao.selectUsersByNameAndIdCard(name, idcard,state);
-        long total = userDao.selectTotal(name, idcard);
+        long total = userDao.selectTotal(name, idcard,state);
         data.put("rows", resultData);
         data.put("total", total);
         return data;
