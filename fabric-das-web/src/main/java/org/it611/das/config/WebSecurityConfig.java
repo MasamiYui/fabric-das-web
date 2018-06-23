@@ -34,8 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         //防止iframe无法显示
         http.headers().frameOptions().disable();
         http.authorizeRequests()
-                //.antMatchers("/static/**","/css/**","/image/*").permitAll()
-                .antMatchers("**").permitAll()//开发环境下，允许所有请求
+                .antMatchers("/static/**","/css/**","/image/*","/templates/**","/bootstrap/**","/dist/**","/font-awesone/**","/ico/**","/img/**","/jcstatic/**","/swiper/**","/videoplay/**").permitAll()
+                //.antMatchers("**").permitAll()//开发环境下，允许所有请求
                 .anyRequest().authenticated()
                 .and()
                 .headers().frameOptions().disable()
