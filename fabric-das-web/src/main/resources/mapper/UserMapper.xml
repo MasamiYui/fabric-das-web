@@ -27,7 +27,7 @@
     <select id="selectTotal" resultType="java.lang.Long">
         select
         count(*)
-        from tb_user where idcard like concat('%',#{idcard},'%') and name like concat('%',#{name},'%')
+        from tb_user where idcard like concat('%',#{idcard},'%') and name like concat('%',#{name},'%') and state like concat('%',#{state},'%')
     </select>
 
     <!--删除一个用户-->
