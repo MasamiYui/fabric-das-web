@@ -35,4 +35,7 @@ public class CouchDBTest {
         String str = db.basicKVQuery("test1");
         logger.debug(str);
     }
+
+
+
 }

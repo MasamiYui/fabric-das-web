@@ -115,7 +115,7 @@ public class RecoveryService {
 
                                     mongoTemplate.save(value,"recovery_degreeCertification");//学历证书资产
                                 }else if(key.contains("syxxzl")){
-                                    mongoTemplate.save(value,"recovery_syxxzl");//实用新型专利资产
+                                    mongoTemplate.save(value,"recovery_syxxzl");//专利资产
                                 }else if(key.contains("jsz")){
                                     mongoTemplate.save(value, "recovery_drivingLicence");//驾驶证资产
                                     System.out.println("save+1");

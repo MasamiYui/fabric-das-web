@@ -58,7 +58,7 @@ public class StatisticsController {
             case "学位证书":
                 clz = DegreeCertificate.class;
                 break;
-            case "实用新型专利":
+            case "专利":
                 clz = Syxxzl.class;
                 break;
             case "机动车驾驶证":

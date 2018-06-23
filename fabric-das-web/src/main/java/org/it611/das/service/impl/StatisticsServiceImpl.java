@@ -529,7 +529,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         query.addCriteria(Criteria.where("state").is("3"));
         long photoNumCanceled = mongoTemplate.count(query,"photo");
 
-        //查询实用新型专利信息
+        //查询专利信息
         query = new Query();
         query.addCriteria(Criteria.where("ownerId").is(userId));
         query.addCriteria(Criteria.where("state").is("0"));

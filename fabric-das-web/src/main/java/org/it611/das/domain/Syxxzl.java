@@ -2,7 +2,7 @@ package org.it611.das.domain;
 
 import org.springframework.data.annotation.Id;
 
-//实用发明专利
+//专利
 public class Syxxzl {
 
     @Id

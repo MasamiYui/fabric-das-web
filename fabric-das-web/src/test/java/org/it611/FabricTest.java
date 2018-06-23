@@ -58,8 +58,6 @@ public class FabricTest {
         HashMap map=objectMapper.readValue(dataJson, HashMap.class);
         System.out.println(fabricStateData);
         System.out.println(map.get("address"));
-
-
     }
 
 
