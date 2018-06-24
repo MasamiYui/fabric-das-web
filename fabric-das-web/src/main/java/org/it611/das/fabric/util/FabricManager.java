@@ -67,7 +67,7 @@ public class FabricManager {
         config.setOrderers(getOrderers());
         config.setPeers(getPeers());
         //config.setChaincode(getChaincode("mychannel", "mycc", "github.com/hyperledger/fabric/demo/chaincode/go/chaincode_example02", "1.0"));
-        config.setChaincode(getChaincode("mychannel", "asset02", "github.com/hyperledger/fabric/demo/chaincode/go/chaincode_example02", "1.0"));
+        config.setChaincode(getChaincode("mychannel", "dasdo", "github.com/hyperledger/fabric/demo/chaincode/go/chaincode_example02", "1.0"));
         config.setChannelArtifactsPath(getChannleArtifactsPath());
         config.setCryptoConfigPath(getCryptoConfigPath());
         return config;
