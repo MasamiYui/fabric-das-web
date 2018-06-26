@@ -23,7 +23,6 @@ import org.it611.das.fabric.FabricConfig;
 import org.it611.das.fabric.bean.Chaincode;
 import org.it611.das.fabric.bean.Orderers;
 import org.it611.das.fabric.bean.Peers;
-//import lombok.extern.slf4j.Slf4j;
 
 public class FabricManager {
 
@@ -67,7 +66,7 @@ public class FabricManager {
         config.setOrderers(getOrderers());
         config.setPeers(getPeers());
         //config.setChaincode(getChaincode("mychannel", "mycc", "github.com/hyperledger/fabric/demo/chaincode/go/chaincode_example02", "1.0"));
-        config.setChaincode(getChaincode("mychannel", "dasdo", "github.com/hyperledger/fabric/demo/chaincode/go/chaincode_example02", "1.0"));
+        config.setChaincode(getChaincode("mychannel", "das", "github.com/hyperledger/fabric/demo/chaincode/go/chaincode_example02", "1.0"));
         config.setChannelArtifactsPath(getChannleArtifactsPath());
         config.setCryptoConfigPath(getCryptoConfigPath());
         return config;
