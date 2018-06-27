@@ -145,7 +145,8 @@ public class FabricManager {
      * @return /WEB-INF/classes/fabric/crypto-config/
      */
     private String getCryptoConfigPath() {
-        String directorys = FabricManager.class.getClassLoader().getResource("fabric").getFile();
+        //String directorys = FabricManager.class.getClassLoader().getResource("fabric").getFile();
+        String directorys = "/root/go/src/github.com/hyperledger/fabric/examples/e2e_cli";//生产环境
         try {
             directorys = URLDecoder.decode(directorys, "utf-8");
         } catch (UnsupportedEncodingException e) {
