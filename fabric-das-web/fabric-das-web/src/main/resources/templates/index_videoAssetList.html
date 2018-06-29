@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>可信数字资产存证系统</title>
+
+    <link rel="icon" type="image/x-icon" href="ico/favicon.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link th:href="@{/jcstatic/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href=" @{/jcstatic/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- DataTables CSS -->
+    <link th:href="@{/jcstatic/vendor/datatables-plugins/dataTables.bootstrap.css}" rel="stylesheet"/>
+
+    <!-- DataTables Responsive CSS -->
+    <link th:href="@{/jcstatic/vendor/datatables-responsive/dataTables.responsive.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/jcstatic/dist/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/jcstatic/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!--引入layui的css-->
+    <link th:href="@{/jcstatic/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div th:replace="nav::navigation"></div>
+    <!--列表页的展示-->
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">视频资产一览表</h3>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <!--查找栏-->
+                    <div class="panel-heading">
+                        <form class="form-inline">
+                            <input type="text" id="title" class="form-control" placeholder="输入资产标题" style="width:150px;"/>
+<!--                            <input type="text" id="title" class="form-control" placeholder="输入资产标题"/>
+                            <input type="text" id="txid" class="form-control" placeholder="输入交易单号"/>-->
+                            <select id="state" class="form-control">
+                                <option value="">审核状态</option>
+                                <option value="0">未审核</option>
+                                <option value="1">已审核</option>
+                                <option value="2">不通过</option>
+                                <option value="3">注销</option>
+                            </select>
+                            <button class="btn btn-default" type="button" onclick="search()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                           <!-- <button class="btn btn-default" type="button" onclick="add()">
+                                新增资产
+                            </button>-->
+                        </form>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover"
+                               id="tableList">
+                            <thead>
+                            <tr>
+                                <th>资产Id</th>
+                                <th>资产拥有者</th>
+                                <th>标题</th>
+                                <th>提交时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="items">
+
+                            </tbody>
+                        </table>
+
+                        <!--表格底部的分页栏-->
+                        <div class="col-sm-6">
+                            <div class="dataTables_info">
+                                共&lt;<em id="pageTotal"></em>&gt;条记录
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination" id="pageU"></ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/jcstatic/vendor/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/jcstatic/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script th:src="@{/jcstatic/vendor/metisMenu/metisMenu.min.js}"></script>
+
+<!-- DataTables JavaScript -->
+<script th:src="@{/jcstatic/vendor/datatables/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/jcstatic/vendor/datatables-plugins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/jcstatic/vendor/datatables-responsive/dataTables.responsive.js}"></script>
+<!-- Custom Theme JavaScript -->
+<script th:src="@{/jcstatic/dist/js/sb-admin-2.js}"></script>
+
+<!--引入分页插件-->
+<script th:src="@{/jcstatic/paginator/bootstrap-paginator.js}"></script>
+
+<!--引入layui插件-->
+<script th:src="@{/jcstatic/layui/layui.js}"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    $(document).keyup(function (event) {
+        if (event.keyCode == 13) {
+            search();
+        }
+    });
+    $(document).ready(function () {
+        search();
+    });
+
+    function search() {
+        var queryParams = getParams();
+        var numberOfPages = queryParams.numberOfPages;
+        var currentPage = queryParams.currentPage;
+        console.log("页面加载完后：：" + JSON.stringify(queryParams));
+        $.ajax({
+            type: "get",
+            url: "/asset/videos",
+            data: queryParams,
+            dataType: "json",
+            success: function (result) {
+                if (result.code == 200) {
+                    var items = $('#items');
+                    items.empty();
+                    var rows = result.data.rows;
+                    rowsResolve(rows,items);
+                    var total = result.data.total;
+                    $('#pageTotal').text(total);
+
+                    var element = $('#pageU');
+                    var totalPages = Math.ceil(total / queryParams.numberOfPages); //共有的记录数
+                    var options = {
+                        bootstrapMajorVersion: 3, //bootstrap的版本要求
+                        currentPage: currentPage,          //设置当前页
+                        numberOfPages: numberOfPages,		 //每页显示的页码
+                        totalPages: totalPages,           //设置总页数
+                        onPageClicked: function (event, originalEvent, type, page) { //异步换页
+                            //alert("呵呵：：" + page );
+                            var subParams = getParams();
+                            subParams.currentPage = page;
+                            requestResult("/asset/videos", subParams);  //这里要写清楚请求的接口
+                        }
+                    };
+                    element.bootstrapPaginator(options);
+
+                }
+            }
+        });
+    }
+
+    //针对点击每一页的刷新
+    function requestResult(url, subParams) {
+        console.log("点击页码时：：" + JSON.stringify(subParams));
+        $.ajax({
+            type: "post",
+            url: url,
+            data: subParams,
+            dataType: "json",
+            success: function (result) {
+                if (result.code == 200) {
+                    var items = $('#items');
+                    items.empty();
+                    var rows = result.data.rows;
+                    rowsResolve(rows,items);
+                }
+            }
+        });
+    }
+
+    //针对rows的解析
+    function rowsResolve(rows,items){
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+           // var type=row.type_id=1?"学生证":row.type_id;
+            var state=row.state;
+           // state = state == '0' ? "未审核" : state == '1' ? "已审核" : state =='2' ? "不通过" : state == '3' ? "注销" : "无状态";
+            var stateHtml = '';
+            if(state=='0'){
+                state = '未审核';
+                stateHtml = '<td><span class="layui-badge">' + state + '</span></td>';
+            }else if(state=='1'){
+                state = '已审核';
+                stateHtml = '<td><span class="layui-badge layui-bg-green">' + state + '</span></td>';
+            }else if(state=='2'){
+                state = '不通过';
+                stateHtml = '<td><span class="layui-badge layui-bg-orange">' + state + '</span></td>';
+            }else if(state=='3'){
+                state = '注销';
+                stateHtml = '<td><span class="layui-badge layui-bg-cyan">' + state + '</span></td>';
+            }
+
+            var html = '<tr>'
+                + '<td>' + row.id + '</td>'
+                + '<td>' + row.ownerId + '</td>'
+                + '<td>' + row.title + '</td>'
+                + '<td>' + row.submitTime + '</td>'
+                + stateHtml
+                + '<td ><a  onclick="showDetail(this) " href="#" data-id="' + row.id + '">设置</a></td>'
+                + '</tr>';
+            items.append(html);
+        }
+
+    }
+
+    //获取请求条件
+    function getParams() {
+        var queryParams = {
+            numberOfPages: 10,   //每页的记录数
+            currentPage: 1,        //当前页码
+            title: '',
+            state:''
+/*            id: '',
+            txid: '',*/
+        };
+        //查询条件
+        var title = $.trim($('#title').val());
+        if (title) {
+            queryParams.title = title;
+        }
+        var state = $('#state').val();
+        if (state) {
+            queryParams.state = state;
+        }
+/*        var id = $('#id').val();
+        if (id) {
+            queryParams.id =id;
+        }
+        var txid = $('#txid').val();
+        if (txid) {
+            queryParams.txid =txid;
+        }*/
+
+        return queryParams;
+    }
+
+    var index;
+
+    function add() {
+        // alert("aaaaaa");
+
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            index = layer.open({
+                title: ['企业新增一览表', 'font-size:18px;'],
+                anim: 4,
+                type: 2,
+                move: false,
+                resize: true,
+                offset: '70px',
+                area: ['1200px', '800px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/owner/companyForm'
+            });
+        });
+    }
+
+    function close() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.close(index);
+        });
+    }
+
+    function add_Result(data) {
+        layer.open({
+            title: '结果信息'
+            , content: data
+        });
+    }
+
+
+    function showDetail(e) {
+        var recordId = $(e).data("id");
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            index = layer.open({
+                title: ['资产记录详情', 'font-size:18px;'],
+                anim: 2,
+                type: 2,
+                move: false,
+                resize: false,
+                scrolling:'auto',
+                offset: '70px',
+                area: ['1000px', '550px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/asset/video/' + recordId
+
+            });
+        });
+    }
+
+
+
+</script>
+
+</body>
+
+</html>
