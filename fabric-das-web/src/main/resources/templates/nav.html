@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<nav th:fragment="navigation" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/home">数字资产平台</a>
+    </div>
+    <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> 用户信息</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="/login"><i class="fa fa-sign-out fa-fw"></i> 退出系统</a>
+                </li>
+            </ul>-->
+            <a href="/login"><i class="fa fa-sign-out fa-fw"></i> 退出系统</a>
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <!--<li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search"/>
+                        <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                    </div>
+                    &lt;!&ndash; /input-group &ndash;&gt;
+                </li>-->
+                <li>
+                    <a href="/home"><i class="glyphicon glyphicon-home"></i> 系统首页</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> 资产所属者<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/owner/user/index">用户</a>
+                        </li>
+                        <li>
+                            <a href="/owner/company/index">公司</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-edit fa-fw"></i> 资产列表<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#"> 文本资产<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <!--<li>
+                                    <a href="/asset/getAsset">&nbsp;&nbsp;&nbsp;&nbsp;学生证</a>
+                                </li>-->
+<!--                                <li>
+                                    <a href="/asset/getAsset">学生证资产</a>
+                                </li>-->
+                                <li>
+                                    <a href="/asset/degreeCertification/index">&nbsp;&nbsp;&nbsp;&nbsp; 学位证书资产</a>
+                                </li>
+                                <li>
+                                    <a href="/asset/syxxzl/index">&nbsp;&nbsp;&nbsp;&nbsp; 专利资产</a>
+                                </li>
+                                <li>
+                                    <a href="/asset/drivingLicence/index">&nbsp;&nbsp;&nbsp;&nbsp; 机动车驾驶证</a>
+                                </li>
+
+                            </ul>
+                        <li>
+                            <a href="/asset/music/index">音频资产</a>
+                        </li>
+                        <li>
+                            <a href="/asset/video/index">视频资产</a>
+                        </li>
+                        <li>
+                            <a href="/asset/photo/index">图片资产</a>
+                        </li>
+                </li>
+                       <!-- <li>
+                            <a href="/asset/insert">资产登记</a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="glyphicon glyphicon-asterisk"></i> 统计分析<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/statistics/assertPie">资产类目概况</a>
+                        </li>
+                        <li>
+                            <a href="/statistics/trendLine">资产类目趋势</a>
+                        </li>
+                        <li>
+                            <a href="/statistics/userAssertLinePie">用户资产类目</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="http://192.168.10.128:8089"><i class="glyphicon glyphicon-paperclip"></i> 原始账本浏览</a>
+                </li>
+                <li>
+                    <a href="/recovery/index"><i class="fa fa-book"></i> 数据恢复与备份</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
